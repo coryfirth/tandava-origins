@@ -1,0 +1,146 @@
+/* ==========================================================================
+   Origins Coaching — pricing page
+   Page-specific styles. Tokens, header, buttons and base come from ../styles.css
+   ========================================================================== */
+
+.shell--packages { max-width: 1180px; }
+
+/* ------------------------------------------------------- section header -- */
+.packages-head { text-align: center; margin-bottom: 52px; }
+.packages-head .eyebrow { display: block; margin-bottom: 18px; }
+.packages-head .h2 {
+  font-size: clamp(28px, 3.6vw, 42px);
+  line-height: 1.16;
+  margin: 0 auto 14px;
+  max-width: 640px;
+}
+.packages-head .lede {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--body-alt);
+  margin: 0 auto;
+  max-width: 56ch;
+}
+
+/* ---------------------------------------------------------------- grid -- */
+.packages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+.packages > * { min-width: 0; }
+
+/* ---------------------------------------------------------------- card -- */
+.pkg {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--line-light);
+  border-radius: 22px;
+  padding: 34px 30px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: transform .18s var(--ease), box-shadow .18s var(--ease);
+}
+.pkg:hover { transform: translateY(-3px); box-shadow: 0 16px 38px rgba(36,48,25,.12); }
+
+.pkg__eyebrow { margin-bottom: 16px; }
+
+.pkg__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+
+/* Fixed height keeps all three price rows on one baseline. */
+.pkg__desc {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0 0 22px;
+  min-height: 72px;
+}
+
+.pkg__price { display: flex; align-items: baseline; gap: 8px; margin-bottom: 22px; }
+.pkg__amount {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1;
+  color: var(--ink);
+}
+.pkg__unit { font-weight: 300; font-size: 14px; color: var(--muted); }
+
+.pkg__rule { height: 1px; background: var(--line-lighter); margin-bottom: 22px; }
+
+.pkg__list {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pkg__item { display: flex; gap: 10px; align-items: flex-start; }
+.pkg__item svg { flex: none; margin-top: 3px; }
+.pkg__item span {
+  font-weight: 300;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--body-beige);
+}
+
+/* Prototype gives all three CTAs the same 15px/26px padding; .btn--gold's
+   default 16px/30px would make the featured button 2px taller than the others. */
+.pkg__cta { margin-top: auto; padding: 15px 26px; }
+.pkg__cta.btn--ghost-dark { color: var(--ink); }
+/* The outline CTAs carry a 1.5px border and the gold one does not, which left
+   the three button tops 2px out of line. A transparent border evens them up;
+   with border-box the gold still fills the full pill. */
+.pkg__cta.btn--gold { border: 1.5px solid transparent; }
+
+/* ------------------------------------------------------ featured card -- */
+.pkg--featured {
+  background: var(--forest-night);
+  border: 1px solid rgba(194,156,61,.5);
+  box-shadow: 0 12px 34px rgba(20,26,18,.28);
+}
+.pkg--featured:hover { box-shadow: 0 18px 44px rgba(20,26,18,.36); }
+.pkg--featured .pkg__name   { color: var(--white-tone); }
+.pkg--featured .pkg__desc   { color: rgba(237,226,192,.75); }
+.pkg--featured .pkg__amount { color: var(--white-tone); }
+.pkg--featured .pkg__unit   { color: rgba(237,226,192,.7); }
+.pkg--featured .pkg__rule   { background: var(--line-dark-2); }
+.pkg--featured .pkg__item span { color: rgba(237,226,192,.9); }
+
+.pkg__badge {
+  position: absolute;
+  top: -13px;
+  left: 30px;
+  font-family: var(--font-eyebrow);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 10px;
+  line-height: 1;
+  color: var(--forest-night);
+  background: var(--gold);
+  border-radius: 999px;
+  padding: 5px 13px;
+}
+
+/* ------------------------------------------------------------ responsive -- */
+@media (max-width: 980px) {
+  .packages { grid-template-columns: 1fr; gap: 28px; }
+  /* Cards are stacked now, so the baseline-alignment spacer is dead weight. */
+  .pkg__desc { min-height: 0; }
+  .pkg { max-width: 520px; width: 100%; margin: 0 auto; }
+}
+
+@media (max-width: 520px) {
+  .pkg { padding: 28px 22px; }
+  .pkg__badge { left: 22px; }
+}
