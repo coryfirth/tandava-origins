@@ -3,19 +3,621 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tandava</title>
-<link rel="canonical" href="https://tandavawellness.com/origins/">
-<meta name="robots" content="noindex">
-<meta http-equiv="refresh" content="0; url=/origins/">
-<link rel="icon" href="/origins/assets/favicon.svg" type="image/svg+xml">
-<script>location.replace('/origins/');</script>
-<style>
-  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
-         background:#212c28; color:#ede2c0; font-family:system-ui,-apple-system,sans-serif; }
-  a { color:#c29c3d; }
-</style>
+
+<title>Tandava Wellness — Precision lifestyle testing for personalized health</title>
+<meta name="description" content="Being healthy today is hard. We help make it simple. DNA test kits that read your genetics against how you actually live, translated into realistic changes by a real practitioner.">
+
+<link rel="canonical" href="https://tandavawellness.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tandava Wellness">
+<meta property="og:title" content="Tandava Wellness — Precision lifestyle testing for personalized health">
+<meta property="og:description" content="Being healthy today is hard. We help make it simple. DNA test kits that read your genetics against how you actually live, translated into realistic changes by a real practitioner.">
+<meta property="og:url" content="https://tandavawellness.com/">
+<meta property="og:image" content="https://tandavawellness.com/assets/web/brand-cafe-coffee.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#212C28">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&amp;family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&amp;family=Newsreader:ital,opsz,wght@1,6..72,400&amp;family=Julius+Sans+One&amp;family=Hanken+Grotesk:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <p>Redirecting to <a href="/origins/">Tandava Origins</a>&hellip;</p>
+
+<!-- ============================================================== nav -- -->
+<div class="topbar">
+  <div class="topbar__inner">
+    <a class="brand" href="/">
+      <img src="assets/tandava-wordmark-night.png" alt="Tandava" width="451" height="54">
+      <span class="brand__rule" aria-hidden="true"></span>
+      <span class="brand__suffix">WELLNESS</span>
+    </a>
+
+    <nav class="nav">
+      <div class="shop" data-shop>
+        <button class="shop__toggle" type="button" aria-expanded="false" aria-haspopup="true">
+          Shop by Goal
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="shop__menu">
+          <div class="shop__panel">
+            <a href="#shelf">Complete Lifestyle</a>
+            <a href="#shelf">Sleep</a>
+            <a href="#shelf">Diet</a>
+            <a href="#shelf">Exercise</a>
+          </div>
+        </div>
+      </div>
+      <a href="#">Practitioners</a>
+      <a href="#">Partner Solutions</a>
+      <a href="#about">About</a>
+      <a class="signin" href="https://app.tandavaretreats.com/" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        Sign in
+      </a>
+      <a class="nav__cta" href="https://calendly.com/cory-tandavaretreats/origins-practitioner-call" target="_blank" rel="noopener">Book a free consult</a>
+    </nav>
+  </div>
+</div>
+
+<main>
+
+<!-- ============================================================= hero -- -->
+<section class="hero">
+  <div class="hero__grid">
+
+    <div class="hero__copy">
+      <div class="fit">
+        <h1 class="serif-title">
+          <span class="line">Being healthy today is hard.</span>
+          <span class="line accent">We help make it simple.</span>
+        </h1>
+      </div>
+      <p class="hero__sub">Uncover how your genetics influence your sleep, nutrition, fitness, energy and stress, so you can make smarter, more personalized choices for your health.</p>
+      <div class="hero__actions">
+        <a class="btn btn--forest" href="#shelf">Explore our tests</a>
+        <a class="btn btn--outline" href="#how-it-works">How it works</a>
+      </div>
+      <div class="practitioners">
+        <div class="avatars">
+          <span class="avatar" style="background-image:url(assets/team/cory-headshot.jpg)"></span>
+          <span class="avatar">J</span>
+          <span class="avatar" style="background-image:url(assets/team/manesh-headshot-v2.jpg)"></span>
+        </div>
+        <span>Guided by a real practitioner</span>
+      </div>
+    </div>
+
+    <div class="hero__media">
+      <div class="hero__card">
+        <img src="assets/web/brand-cafe-coffee.jpg" alt="A woman smiling, holding a cup of tea" fetchpriority="high" width="1200" height="1796">
+        <div class="hero__scrim"></div>
+
+        <span class="tag tag--sleep"><span class="tag__dot"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#F6F5F0" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="tag__text">Sleep deeper</span></span>
+        <span class="tag tag--eat"><span class="tag__dot"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#F6F5F0" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="tag__text">Eat smarter</span></span>
+        <span class="tag tag--stress"><span class="tag__dot"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#F6F5F0" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="tag__text">Stress less</span></span>
+        <span class="tag tag--move"><span class="tag__dot"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#F6F5F0" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="tag__text">Move better</span></span>
+        <span class="tag tag--energy"><span class="tag__dot"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#F6F5F0" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="tag__text">Feel energized</span></span>
+
+        <figure class="hero__quote">
+          <p>&ldquo;It&rsquo;s not rocket science, is it? But I&rsquo;ve never pieced it all together. Wow, this is powerful!&rdquo;</p>
+          <cite>Lynne C. 51</cite>
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ about -- -->
+<section class="about" id="about">
+  <div class="wrap">
+    <p class="eyebrow">Precision lifestyle testing for personalized health outcomes</p>
+    <h2 class="serif-title">Know yourself <span class="accent">inside and out.</span></h2>
+    <p>Find a test kit that fits your goal.</p>
+  </div>
+</section>
+
+<!-- ============================================================ shelf -- -->
+<section class="shelf" id="shelf">
+  <div class="wrap">
+
+    <div class="bigcards">
+
+      <article class="bigcard matte">
+        <img class="cover" src="assets/sessions/web-lifestyle-forest.jpg" alt="A smiling woman resting on a rock in the forest" style="object-position:50% 55%" loading="lazy">
+        <ul class="goals goals--right above">
+          <li class="goals__head"><div class="k">Goal</div><div class="v">Feel Like Yourself Again</div></li>
+          <li>Wake up rested <span aria-hidden="true">+</span></li>
+          <li>Have energy that lasts all day <span aria-hidden="true">+</span></li>
+          <li>Know what works for you <span aria-hidden="true">+</span></li>
+          <li>Make better health decisions <span aria-hidden="true">+</span></li>
+        </ul>
+        <div class="infocard above">
+          <div class="infocard__head">
+            <img src="assets/origins-kit-box-only.png" alt="Tandava DNA test kit box">
+            <h3>Complete Lifestyle Kit</h3>
+          </div>
+          <p>Uncover how your genetics impact your lifestyle, and create realistic changes you can make immediately to reach your lifestyle and health goals.</p>
+          <a class="btn btn--forest btn--sm" href="#">Buy now</a>
+        </div>
+      </article>
+
+      <article class="bigcard bigcard--short matte">
+        <img class="cover" src="assets/sessions/web-supplement-sofa.jpg" alt="A woman opening a supplement packet on the sofa" style="object-position:72% 20%" loading="lazy">
+        <ul class="goals goals--left above">
+          <li class="goals__head"><div class="k">Goal</div><div class="v">Take The Right Supplements</div></li>
+          <li>Blended from your genetics <span aria-hidden="true">+</span></li>
+          <li>Shipped on your schedule <span aria-hidden="true">+</span></li>
+        </ul>
+        <div class="infocard above">
+          <div class="infocard__head">
+            <img class="tall" src="assets/origins-kit-tube-only.png" alt="Tandava supplement tube">
+            <h3>DNA Supplement Stack</h3>
+          </div>
+          <p>Learn what supplements align and don't align with your biology. And build your own personalized supplement stack, blended from your own genetic design.</p>
+          <a class="btn btn--clay" href="#">Join the waitlist</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="kitgrid">
+
+      <article class="kit">
+        <div class="kit__media matte">
+          <img class="cover" src="assets/sessions/web-sleep-rest.jpg" alt="A woman sleeping soundly in a calm bedroom" style="object-position:32% 45%" loading="lazy">
+          <div class="kit__goal above"><div class="k">Goal</div><div class="v">Get more restorative sleep</div></div>
+        </div>
+        <div class="kit__head">
+          <span class="kit__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BC7A48" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/><path d="M16 3.5h3l-3 3.5h3"/></svg></span>
+          <h3>The Sleep Transformation Kit</h3>
+        </div>
+        <p>See what's keeping you up at night and what to change, so you can sleep more deeply and wake up rested.</p>
+        <a class="btn btn--forest btn--sm" href="#">Buy now</a>
+      </article>
+
+      <article class="kit">
+        <div class="kit__media matte">
+          <img class="cover" src="assets/sessions/web-kitchen-couple.jpg" alt="A couple cooking breakfast together at home" style="object-position:40% 40%" loading="lazy">
+          <div class="kit__goal above"><div class="k">Goal</div><div class="v">Know exactly what food fuels you</div></div>
+        </div>
+        <div class="kit__head">
+          <span class="kit__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BC7A48" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8c-3-2.5-7-1-7 3.5C5 16 8 21 10.5 21c.8 0 1-.5 1.5-.5s.7.5 1.5.5C16 21 19 16 19 11.5 19 7 15 5.5 12 8Z"/><path d="M12 8c0-2 1-3.5 3-4.5"/></svg></span>
+          <h3>The Genetic Diet Kit</h3>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+        <a class="btn btn--forest btn--sm" href="#">Buy now</a>
+      </article>
+
+      <article class="kit">
+        <div class="kit__media matte">
+          <img class="cover" src="assets/sessions/web-train-stretch.jpg" alt="A couple stretching together on a mat at home" style="object-position:45% 50%" loading="lazy">
+          <div class="kit__goal above"><div class="k">Goal</div><div class="v">Exercise for your body type</div></div>
+        </div>
+        <div class="kit__head">
+          <span class="kit__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BC7A48" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5v11M17.5 6.5v11M3 9v6M21 9v6M6.5 12h11"/></svg></span>
+          <h3>The Exercise Archetype Kit</h3>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+        <a class="btn btn--forest btn--sm" href="#">Buy now</a>
+      </article>
+
+      <article class="kit">
+        <div class="kit__media matte">
+          <img class="cover" src="assets/sessions/web-after-40.jpg" alt="A woman sitting outdoors in the sun" style="object-position:50% 40%" loading="lazy">
+          <div class="kit__goal above"><div class="k">Goal</div><div class="v">Keep going strong at 85</div></div>
+        </div>
+        <div class="kit__head">
+          <span class="kit__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BC7A48" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.4-7-9.5A4.5 4.5 0 0 1 12 8a4.5 4.5 0 0 1 7 3.5C19 16.6 12 21 12 21Z"/></svg></span>
+          <h3>The Longevity Kit</h3>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+        <a class="btn btn--clay" href="#">Join the waitlist</a>
+      </article>
+
+      <article class="kit">
+        <div class="kit__media matte">
+          <img class="cover" src="assets/sessions/web-after-40-mug.jpg" alt="A woman holding a mug, smiling" style="object-position:50% 35%" loading="lazy">
+          <div class="kit__goal above"><div class="k">Goal</div><div class="v">Feel at home in your body</div></div>
+        </div>
+        <div class="kit__head">
+          <span class="kit__icon">40+</span>
+          <h3>The Body After 40 Kit</h3>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+        <a class="btn btn--clay" href="#">Join the waitlist</a>
+      </article>
+
+      <article class="kit">
+        <div class="kit__media matte">
+          <img class="cover" src="assets/sessions/web-energy-forest.jpg" alt="A man sitting on a rock in the forest" style="object-position:50% 45%" loading="lazy">
+          <div class="kit__goal above"><div class="k">Goal</div><div class="v">Feel energized all day long</div></div>
+        </div>
+        <div class="kit__head">
+          <span class="kit__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BC7A48" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4.5 13H11l-1 9 8.5-11H12l1-9Z"/></svg></span>
+          <h3>The Energy Enhancement Kit</h3>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+        <a class="btn btn--clay" href="#">Join the waitlist</a>
+      </article>
+
+    </div>
+
+    <div class="logos">
+      <p class="logos__label">We integrate your DNA results with your real-time health metrics</p>
+      <div class="logos__row">
+        <img src="assets/logos/superpower-ink.png" alt="Superpower" loading="lazy">
+        <img src="assets/logos/function-ink.png" alt="Function" loading="lazy">
+        <img class="tall" src="assets/logos/oura-ink.png" alt="Oura" loading="lazy">
+        <img src="assets/logos/whoop-ink.png" alt="WHOOP" loading="lazy">
+        <img class="tall" src="assets/logos/apple-health-ink.png" alt="Apple Health" loading="lazy">
+      </div>
+    </div>
+
+    <div class="consult">
+      <img src="assets/team/cory-headshot.jpg" alt="Cory Firth" width="320" height="320" loading="lazy">
+      <div class="consult__body">
+        <p class="consult__label">Not sure where to start?</p>
+        <p class="consult__title">Book a free 30-minute consult with a practitioner today.</p>
+        <p class="consult__text">Book a call with Cory. Tell him your goal and he'll point you to the kit that fits.</p>
+      </div>
+      <a class="btn btn--forest" href="https://calendly.com/cory-tandavaretreats/origins-practitioner-call" target="_blank" rel="noopener">Book a free consult</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================================================== reviews -- -->
+<section class="reviews">
+  <div class="wrap">
+    <p class="eyebrow">A word from our clients</p>
+    <div class="reviews__head">
+      <h2>&ldquo;It&rsquo;s like you&rsquo;re describing me <span class="accent">perfectly.</span>&rdquo;</h2>
+      <span class="reviews__by">Lewis D. 67 <span>&middot; Canada</span></span>
+    </div>
+
+    <div class="review-grid">
+      <figure class="review">
+        <div class="stars" role="img" aria-label="5 out of 5 stars">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+        </div>
+        <p>&ldquo;I&rsquo;ve loved it. I&rsquo;ve absolutely loved it. And I knew that I would.&rdquo;</p>
+        <cite><b>Lynne C. 51</b><span>United Kingdom</span></cite>
+      </figure>
+
+      <figure class="review">
+        <div class="stars" role="img" aria-label="5 out of 5 stars">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+        </div>
+        <p>&ldquo;Thank you so much, Cory. This is such an impactful tool.&rdquo;</p>
+        <cite><b>Vishal G. 44</b><span>United States</span></cite>
+      </figure>
+
+      <figure class="review">
+        <div class="stars" role="img" aria-label="5 out of 5 stars">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+        </div>
+        <p>&ldquo;I&rsquo;m good. You don&rsquo;t have to show me anymore. I love it.&rdquo;</p>
+        <cite><b>Lisa W. 37</b><span>Canada</span></cite>
+      </figure>
+
+      <figure class="review">
+        <div class="stars" role="img" aria-label="5 out of 5 stars">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C29C3D" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+        </div>
+        <p>&ldquo;Everybody likes to be seen and understood. This is amazing coming from a skeptic who has tried everything.&rdquo;</p>
+        <cite><b>Scott H. 67</b><span>United States</span></cite>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== how it works -- -->
+<section class="how" id="how-it-works">
+  <div class="wrap how__grid">
+
+    <div>
+      <p class="eyebrow">How it works</p>
+      <div class="fit">
+        <h2>
+          <span class="line">From one cheek swab to</span>
+          <span class="line accent">changes you can make today.</span>
+        </h2>
+      </div>
+
+      <div class="steps" role="tablist">
+        <button class="step" type="button" role="tab" data-step="0" aria-selected="false">
+          <span class="step__n">01</span>
+          <span>
+            <span class="step__title">Swab at home</span>
+            <span class="step__body">Order your kit, do a quick cheek swab and send it back in the prepaid box. No clinic and no blood testing required.</span>
+          </span>
+        </button>
+        <button class="step" type="button" role="tab" data-step="1" aria-selected="true">
+          <span class="step__n">02</span>
+          <span>
+            <span class="step__title">Get your Insights Report</span>
+            <span class="step__body">Receive your results in our app and download the personalized insights that suit your lifestyle &amp; health goals.</span>
+          </span>
+        </button>
+        <button class="step" type="button" role="tab" data-step="2" aria-selected="false">
+          <span class="step__n">03</span>
+          <span>
+            <span class="step__title">Work with a coach &amp; your care provider</span>
+            <span class="step__body">Walk through your report with a practitioner and choose the small, high-impact changes to start with. Then build from there.</span>
+          </span>
+        </button>
+      </div>
+
+      <div class="how__actions">
+        <a class="btn btn--forest" href="#shelf">Explore our tests</a>
+        <a class="btn btn--outline" href="#">See example client</a>
+      </div>
+    </div>
+
+    <div class="how__visual">
+      <!-- step 1 -->
+      <div class="how__panel" data-panel="0">
+        <div class="how__photo matte"><img class="cover" src="assets/origins-kit-photo-v5.jpg" alt="The Tandava test kit" loading="lazy"></div>
+        <div class="statuscard">
+          <div class="statuscard__k">Your kit</div>
+          <div class="statuscard__v">On its way to the lab</div>
+          <ol>
+            <li><i><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#F6E7D2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>Kit delivered to your door</li>
+            <li><i><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#F6E7D2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>Cheek swab, two minutes</li>
+            <li><i><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#F6E7D2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>Prepaid box back to the lab</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- step 2 -->
+      <div class="how__panel" data-panel="1" data-active="true">
+        <div class="how__photo matte"><img class="cover" src="assets/sessions/web-reading-report.jpg" alt="A person reading their insights report" loading="lazy"></div>
+        <div class="float" style="left:-6%; top:12%">
+          <div class="float__cat">Sleep sensitivity to caffeine</div>
+          <div class="float__title">Caffeine effects on sleep</div>
+          <div class="float__bar"><i style="left:0; width:33%; background:#E5484D"></i><u style="left:17%"></u></div>
+          <div class="float__label" style="color:#E5484D">Increased</div>
+          <p class="float__mean">May be more sensitive to how caffeine affects falling and staying asleep.</p>
+        </div>
+        <div class="float" style="left:-2%; top:46%">
+          <div class="float__cat">Vitamin D</div>
+          <div class="float__title">Vitamin D deficiency risk</div>
+          <div class="float__bar"><i style="left:40%; width:20%; background:#F2B705"></i><u style="left:50%"></u></div>
+          <div class="float__label" style="color:#C08F04">Moderate</div>
+          <p class="float__mean">May benefit from monitoring Vitamin D, especially with limited sun.</p>
+        </div>
+        <div class="float" style="right:-4%; bottom:4%">
+          <div class="float__cat">Food sensitivities</div>
+          <div class="float__title">Lactose intolerance risk</div>
+          <div class="float__bar"><i style="left:50%; width:25%; background:#3BAA4B"></i><u style="left:63%"></u></div>
+          <div class="float__label" style="color:#2F8A3B">Low</div>
+          <p class="float__mean">Likely to have a reduced risk of developing an intolerance to dairy.</p>
+        </div>
+      </div>
+
+      <!-- step 3 -->
+      <div class="how__panel" data-panel="2">
+        <div class="how__photo matte"><img class="cover" src="assets/sessions/web-00207.jpg" alt="A practitioner call in progress" loading="lazy"></div>
+        <div class="habitcard">
+          <div class="habitcard__k">Your first habit</div>
+          <div class="habitcard__v">Last coffee before 1pm</div>
+          <p>Chosen with your practitioner because your caffeine sensitivity is the single biggest lever on your sleep right now.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================== people -- -->
+<section class="people" id="how">
+  <div class="wrap people__grid">
+    <div class="people__photo matte">
+      <img class="cover" src="assets/web/brand-team-group.jpg" alt="The Tandava team together in the garden" loading="lazy">
+    </div>
+    <div>
+      <h2 class="serif-title">Built by people who<br>help others create change.</h2>
+      <p class="people__text">This work comes from the practitioners at Tandava who&rsquo;ve spent decades working with people on deep, lasting change. Every plan is built on that experience. Want a person in your corner? Practitioner-Guided adds a review call with an expert practitioner and 6 weeks of support.</p>
+      <blockquote class="people__quote">
+        &ldquo;This isn&rsquo;t about optimizing yourself into perfection. It&rsquo;s about creating symbiosis between your DNA, your lifestyle and your goals, through habits aligned to your genetics.&rdquo;
+        <footer>Cory, lead practitioner</footer>
+      </blockquote>
+      <div class="team">
+        <div class="member"><span class="avatar" style="background-image:url(assets/team/cory-headshot.jpg)"></span><span>Cory Firth</span></div>
+        <div class="member"><span class="avatar">J</span><span>Joel Brierre</span></div>
+        <div class="member"><span class="avatar">J</span><span>Julie Brierre</span></div>
+        <div class="member"><span class="avatar" style="background-image:url(assets/team/manesh-headshot-v2.jpg)"></span><span>Dr. Manesh Girn</span></div>
+      </div>
+      <a class="people__more" href="#">Learn more about us <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= comparison -- -->
+<section class="compare">
+  <div class="wrap">
+    <div class="compare__head">
+      <p class="eyebrow">Not another DNA kit</p>
+      <h2>More than just a data report</h2>
+      <p>A typical DNA test tells you what you might get, we show you how to live with what you&rsquo;ve got.</p>
+    </div>
+
+    <div class="compare__grid">
+      <div class="col col--us">
+        <h3>Tandava Wellness</h3>
+        <ul>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34442E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cross-category analysis for deeper personal insights</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34442E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Plain language translation &amp; practitioner guidance</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34442E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Hundreds of insights, prioritized for your goals</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34442E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Personalized plans that evolve with you</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34442E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ongoing support and accountability</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34442E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Exact testing to ask your doctor for</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34442E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A 1-of-1 supplement formula built from your genes <span class="bonus">Bonus</span></li>
+        </ul>
+      </div>
+
+      <div class="col col--them">
+        <h3>A typical DNA test</h3>
+        <ul>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA396" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>Your genes read on their own</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA396" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>A report you&rsquo;re left to decode alone</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA396" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>Hundreds of results, no priorities</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA396" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>Advice written for everyone with your genes</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA396" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>One-time results, then you&rsquo;re on your own</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================= retreats -- -->
+<section class="retreats" id="experiences">
+  <img class="cover" src="assets/sessions/retreat-drone.jpg" alt="Aerial view of the Tandava retreat centre in Tepoztlán" loading="lazy">
+  <div class="retreats__scrim"></div>
+  <div class="retreats__inner">
+    <div class="retreats__box">
+      <p class="eyebrow">Retreats</p>
+      <h2>When you&rsquo;re ready to go deeper.</h2>
+      <p>Our retreat center is located in the valley of Tepoztl&aacute;n, Mexico. Over five days, we pair our lifestyle and health tools with guided experiences in altered states of consciousness, as a catalyst for deep personal growth and lasting change.</p>
+      <a class="btn" href="https://tandavaretreats.com" target="_blank" rel="noopener">Explore Tandava Retreats <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ trust -- -->
+<section class="trust" id="trust">
+  <div class="wrap">
+    <div class="trust__head">
+      <p class="eyebrow">Data, trust &amp; responsibility</p>
+      <h2>Your data. Your trust. Our promise.</h2>
+      <p>Your data is sacred. Every protocol and policy we write exists to protect what matters most: your privacy, your trust, and your peace of mind.</p>
+    </div>
+
+    <div class="certs">
+      <div class="cert">
+        <div class="cert__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34442E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <h3>HIPAA</h3>
+        <p class="cert__tag">Third-party validated</p>
+        <p>The US healthcare privacy standard. Your results are handled with the same safeguards as medical records.</p>
+      </div>
+      <div class="cert">
+        <div class="cert__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34442E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <h3>SOC 2 Type II</h3>
+        <p class="cert__tag">Independently attested</p>
+        <p>An outside auditor checks how we store, access, and handle your data continuously, not just once.</p>
+      </div>
+      <div class="cert">
+        <div class="cert__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34442E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <h3>GDPR</h3>
+        <p class="cert__tag">Compliance audited</p>
+        <p>Europe&rsquo;s strictest privacy law. You can see, export, or permanently delete your data at any time.</p>
+      </div>
+      <div class="cert">
+        <div class="cert__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34442E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>AES-256</h3>
+        <p class="cert__tag">Encrypted end to end</p>
+        <p>Bank-grade encryption on every result, in transit and at rest, unreadable to anyone but you.</p>
+      </div>
+    </div>
+    <p class="trust__note">Lab certifications held by our accredited lab partner.</p>
+
+    <div class="promise">
+      <p class="eyebrow">A commitment</p>
+      <h3>Our promise to you</h3>
+      <div class="promise__grid">
+        <div>
+          <div class="promise__n">01</div>
+          <h4>Your data, your control</h4>
+          <p>Your data belongs to you and only you. Request access, export, or full deletion at any time, subject to legal and contractual requirements.</p>
+        </div>
+        <div>
+          <div class="promise__n">02</div>
+          <h4>We never sell your data</h4>
+          <p>We will never sell, rent, or trade your personal information to third parties. Our model is built on value to you, not monetizing your data.</p>
+        </div>
+        <div>
+          <div class="promise__n">03</div>
+          <h4>Transparent data practices</h4>
+          <p>We&rsquo;re clear about what we collect, why, and how we use it. No hidden tracking, no surprise sharing. You&rsquo;ll always know what happens with your information.</p>
+        </div>
+        <div>
+          <div class="promise__n">04</div>
+          <h4>Encrypted, end to end</h4>
+          <p>We protect your data with AES-256 for records at rest and TLS 1.3 in transit, the same modern standards used by leading financial and technology organizations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== faq -- -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <h2>Questions people ask us</h2>
+    <div class="faq__list">
+      <details name="faq"><summary>Is there any other cost on top of the price?<i aria-hidden="true">+</i></summary><p class="faq__a">There are no additional costs on top of the kits. If you want to go deeper with coaching or additional programming you can choose to select those after you receive your results.</p></details>
+      <details name="faq"><summary>What will this tell me that I don&rsquo;t already know?<i aria-hidden="true">+</i></summary><p class="faq__a">Most of our clients already know a lot about their health. What they&rsquo;re missing is the translation: how their genetics and their habits fit together, and what to do with it. Your report looks long, but by the end it&rsquo;s very targeted.</p></details>
+      <details name="faq"><summary>Is this a diagnosis?<i aria-hidden="true">+</i></summary><p class="faq__a">No. Everything in our kits is a tendency. It&rsquo;s not about disease, it doesn&rsquo;t diagnose anything, and it doesn&rsquo;t replace your doctor.</p></details>
+      <details name="faq"><summary>Does my DNA change? Should I wait?<i aria-hidden="true">+</i></summary><p class="faq__a">Your DNA doesn&rsquo;t change. This is your baseline, the genetics you were born with. What you do in your real life shapes how it shows up, which is why we read it next to how you live now.</p></details>
+      <details name="faq"><summary>Who sees my data?<i aria-hidden="true">+</i></summary><p class="faq__a">You do, and on Practitioner-Guided, your practitioner. Your sample is processed by our accredited lab partner (HIPAA validated, SOC 2 Type II, GDPR audited). Your raw file is yours to download, and you can ask us to delete your data.</p></details>
+      <details name="faq"><summary>Where do you ship?<i aria-hidden="true">+</i></summary><p class="faq__a">Our kits are available in the United States, Canada, Mexico and Europe. Your kit ships to your door with a prepaid return box. We can ship to other countries by request.</p></details>
+      <details name="faq"><summary>I&rsquo;m not great with technology.<i aria-hidden="true">+</i></summary><p class="faq__a">That&rsquo;s fine. We can walk you through the portal on a free technical call to make sure you have access to your results easily.</p></details>
+      <details name="faq"><summary>Will the changes actually stick?<i aria-hidden="true">+</i></summary><p class="faq__a">We focus on high-impact, low-effort changes, a minimum routine you can keep, introduced gradually so it never feels all or nothing. It works to the extent you take it seriously.</p></details>
+      <details name="faq"><summary>What if it doesn&rsquo;t work for me?<i aria-hidden="true">+</i></summary><p class="faq__a">We don&rsquo;t promise outcomes. Your results describe tendencies, and the early signs are usually small: a fact that finally makes sense, one habit that&rsquo;s easier than you expected, a night that feels a little better. Slow, foundational incremental changes are more impactful over time that big, harder to achieve ones. We focus there so you see the results immediately.</p></details>
+    </div>
+
+    <div class="contactcard">
+      <p>Got a question? Reach out to our team.</p>
+      <a class="btn btn--forest" href="mailto:cory@tandavaretreats.com">Contact us <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =========================================================== footer -- -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div class="brand">
+        <img src="assets/tandava-wordmark-sand.png" alt="Tandava" width="450" height="54">
+        <span class="brand__rule" aria-hidden="true"></span>
+        <span class="brand__suffix">WELLNESS</span>
+      </div>
+      <nav class="footer-links">
+        <a href="#">Case Studies</a>
+        <a href="#trust">Trust &amp; Privacy</a>
+        <a href="#faq">FAQ</a>
+        <a href="#">Legal</a>
+      </nav>
+    </div>
+    <p class="site-footer__note">Origins reads lifestyle tendencies. It does not diagnose, treat, cure or prevent any condition.</p>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
 </body>
 </html>
