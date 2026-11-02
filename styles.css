@@ -308,11 +308,15 @@ a:hover { color: var(--gold); }
   font-family: var(--label); font-weight: 500; font-size: 15px; color: var(--paper);
   white-space: nowrap; text-shadow: 0 1px 12px rgba(23,30,24,.65);
 }
+/* The labels are nowrap, so their width is fixed while `left: %` scales with
+   the card. On a narrow card the right-hand ones ran past the edge and were
+   clipped. min() keeps the designed position wherever there is room and pulls
+   the label in only when there isn't. */
 .tag--sleep  { left: 7%;  top: 6%; }
-.tag--eat    { left: 62%; top: 10%; }
-.tag--stress { left: 53%; top: 26%; }
+.tag--eat    { left: min(62%, 100% - 128px); top: 10%; }
+.tag--stress { left: min(53%, 100% - 122px); top: 26%; }
 .tag--move   { left: 17%; top: 21%; }
-.tag--energy { left: 77%; top: 35%; }
+.tag--energy { left: min(77%, 100% - 152px); top: 35%; }
 
 .hero__quote {
   position: absolute; left: 20px; right: 20px; bottom: 20px; z-index: 3;
@@ -656,7 +660,9 @@ a:hover { color: var(--gold); }
   .btn { width: 100%; }
   .hero__actions, .how__actions { flex-direction: column; align-items: stretch; }
   .nav__cta, .signin { width: auto; }
-  .tag--eat { left: 50%; } .tag--energy { left: 58%; } .tag--stress { left: 44%; }
+  .tag--eat    { left: min(50%, 100% - 112px); }
+  .tag--energy { left: min(58%, 100% - 132px); }
+  .tag--stress { left: min(44%, 100% - 108px); }
   .member { width: 78px; }
 }
 
