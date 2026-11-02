@@ -227,6 +227,7 @@ a:hover { color: var(--gold); }
   font-size: 12px;
   letter-spacing: .08em;
   white-space: nowrap;
+  text-transform: uppercase;
 }
 .nav .nav__cta:hover { background: #3f5338; color: var(--paper); }
 
@@ -288,7 +289,16 @@ a:hover { color: var(--gold); }
 }
 .avatar + .avatar { margin-left: -12px; }
 
-.hero__media { flex: 1 1 440px; min-width: 0; position: relative; min-height: clamp(420px, 58vh, 600px); align-self: center; }
+/* The design sized this as 58vh, so the card got stubby on a short window and
+   crowded the labels. Taking the larger of a viewport-height and a
+   viewport-width measure keeps it tall regardless of window shape. */
+.hero__media {
+  flex: 1 1 440px;
+  min-width: 0;
+  position: relative;
+  min-height: max(clamp(460px, 58vh, 600px), min(38vw, 700px));
+  align-self: center;
+}
 .hero__card { position: absolute; inset: 0; border-radius: 28px; overflow: hidden; background: var(--forest); }
 .hero__card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% 52%; }
 .hero__scrim {
@@ -336,7 +346,7 @@ a:hover { color: var(--gold); }
 .about { padding: clamp(24px,3vw,48px) var(--pad-x) clamp(36px,4vw,56px); background: var(--paper); text-align: center; }
 .about h2 { font-size: clamp(38px, 4.3vw, 78px); margin-top: 18px; }
 .about h2 .accent { font-size: 1.04em; }
-.about p { font-family: var(--label); font-size: clamp(16px,1.2vw,18px); line-height: 1.5; color: var(--body); margin-top: 20px; }
+.about__sub { font-family: var(--label); font-size: clamp(16px,1.2vw,18px); line-height: 1.5; color: var(--body); margin-top: 20px; }
 
 /* ---------------------------------------------------------------- shelf -- */
 .shelf { padding: 0 var(--pad-x) var(--pad-y); background: var(--paper); }
@@ -396,7 +406,7 @@ a:hover { color: var(--gold); }
 .kit .btn { align-self: flex-start; margin-top: 4px; }
 
 .logos { margin-top: clamp(48px,6vw,80px); text-align: center; }
-.logos__label { font-family: var(--label); font-weight: 500; font-size: 12px; letter-spacing: .16em; color: var(--muted); text-transform: uppercase; }
+.logos__label { font-family: var(--label); font-weight: 500; font-size: 14px; letter-spacing: .16em; color: var(--clay); text-transform: uppercase; }
 .logos__row {
   margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center;
   justify-content: center; gap: clamp(28px,5vw,64px);
@@ -545,7 +555,7 @@ a:hover { color: var(--gold); }
 .compare { padding: var(--pad-y) var(--pad-x); background: var(--paper); }
 .compare__head { text-align: center; max-width: 720px; margin: 0 auto clamp(36px,5vw,56px); }
 .compare__head h2 { font-family: var(--serif); font-weight: 300; font-size: clamp(32px,3.8vw,56px); line-height: 1.14; letter-spacing: -.015em; margin-top: 16px; }
-.compare__head p { font-size: 17px; line-height: 1.6; color: var(--body); margin-top: 16px; }
+.compare__sub { font-size: 17px; line-height: 1.6; color: var(--body); margin-top: 16px; }
 .compare__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%,340px), 1fr)); gap: 24px; align-items: start; }
 .col { border-radius: 24px; padding: clamp(26px,3vw,36px); }
 .col--us { background: var(--white); border: 1px solid var(--hairline); box-shadow: 0 8px 24px rgba(36,48,25,.07); }
@@ -571,7 +581,7 @@ a:hover { color: var(--gold); }
 .retreats__box { max-width: 620px; }
 .retreats .eyebrow { color: var(--gold-light); }
 .retreats h2 { font-family: var(--serif); font-weight: 300; font-size: clamp(34px,4.2vw,60px); line-height: 1.1; letter-spacing: -.015em; color: var(--paper); margin-top: 16px; }
-.retreats p { font-size: 17px; line-height: 1.65; color: rgba(246,245,240,.86); margin-top: 20px; }
+.retreats__sub { font-size: 17px; line-height: 1.65; color: rgba(246,245,240,.86); margin-top: 20px; }
 .retreats .btn { margin-top: 32px; background: var(--sand); color: var(--ink); }
 .retreats .btn:hover { background: var(--cream); color: var(--ink); }
 
@@ -579,13 +589,13 @@ a:hover { color: var(--gold); }
 .trust { padding: var(--pad-y) var(--pad-x); background: var(--paper); }
 .trust__head { text-align: center; max-width: 720px; margin: 0 auto clamp(36px,5vw,56px); }
 .trust__head h2 { font-family: var(--serif); font-weight: 300; font-size: clamp(32px,3.8vw,56px); line-height: 1.14; letter-spacing: -.015em; margin-top: 16px; }
-.trust__head p { font-size: 17px; line-height: 1.6; color: var(--body); margin-top: 16px; }
+.trust__sub { font-size: 17px; line-height: 1.6; color: var(--body); margin-top: 16px; }
 .certs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%,230px), 1fr)); gap: 20px; }
 .cert { background: var(--white); border: 1px solid var(--hairline-2); border-radius: 18px; padding: 26px 24px; text-align: center; }
 .cert__icon { width: 44px; height: 44px; border-radius: 999px; background: #EEF0E7; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
 .cert h3 { font-weight: 600; font-size: 16px; }
-.cert__tag { font-family: var(--label); font-weight: 600; font-size: 10.5px; letter-spacing: .12em; color: var(--clay); margin-top: 5px; text-transform: uppercase; }
-.cert p { font-size: 13px; line-height: 1.55; color: #49524C; margin-top: 12px; }
+.cert__tag { font-family: var(--label); font-weight: 600; font-size: 10px; letter-spacing: .14em; color: var(--clay); margin-top: 8px; text-transform: uppercase; }
+.cert__text { font-size: 13px; line-height: 1.55; color: #49524C; margin-top: 12px; }
 .trust__note { text-align: center; font-size: 13px; color: var(--muted); margin-top: 20px; }
 
 .promise { background: #FBF9F1; border: 1px solid var(--hairline-2); border-radius: 24px; padding: clamp(32px,4vw,56px); margin-top: clamp(40px,5vw,64px); }
