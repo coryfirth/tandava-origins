@@ -186,14 +186,6 @@ a { color: var(--gold-dark); }
 }
 .btn--ghost-dark:active { transform: translateY(1px); }
 
-.btn--sand {
-  background: var(--gold-light);
-  color: #243027;
-  font-size: 15px;
-  padding: 18px 40px;
-}
-.btn--sand:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,.34); }
-.btn--sand:active { transform: translateY(1px); box-shadow: none; }
 
 .btn-row {
   display: flex;
@@ -745,52 +737,6 @@ a { color: var(--gold-dark); }
 .faq__foot a { color: var(--gold-deep); font-weight: 500; text-decoration: none; }
 .faq__foot a:hover { text-decoration: underline; }
 
-/* ------------------------------------------------------------- closing -- */
-.closing {
-  position: relative;
-  min-height: 620px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.closing__media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.closing__scrim {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(20,27,22,.78), rgba(20,27,22,.62));
-}
-.closing__inner {
-  position: relative;
-  text-align: center;
-  padding: 72px var(--pad-x);
-  max-width: 720px;
-}
-.closing__eyebrow {
-  font-family: var(--font-eyebrow);
-  text-transform: uppercase;
-  letter-spacing: .26em;
-  font-size: 13px;
-  color: var(--gold-light);
-  margin-bottom: 28px;
-}
-.closing__title {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(40px, 6vw, 60px);
-  line-height: 1.04;
-  color: var(--paper);
-  margin-bottom: 28px;
-  text-wrap: balance;
-}
-.closing__text {
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #cfe0bb;
-  margin-bottom: 36px;
-}
-.closing__note { font-size: 13px; color: var(--muted-dark); margin-top: 18px; }
-
 /* --------------------------------------------------------------- footer -- */
 .site-footer {
   background: var(--forest-night);
@@ -880,9 +826,7 @@ a { color: var(--gold-dark); }
     line-height: 1.35;
   }
   .btn--ghost-light, .btn--ghost-dark { padding: 14px 18px; }
-  .btn--sand { padding: 16px 22px; font-size: 14px; }
   .founders__body { padding-left: 22px; padding-right: 22px; }
-  .closing__inner { padding-left: 20px; padding-right: 20px; }
   .compare__label { font-size: 13px; padding: 14px 10px; }
   .compare__us, .compare__them { padding: 14px 6px; }
   .compare__head-us { padding: 16px 10px; }
