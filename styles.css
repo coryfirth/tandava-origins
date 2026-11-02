@@ -310,13 +310,6 @@ a { color: var(--gold-dark); }
   max-width: 720px;
   text-wrap: pretty;
 }
-.hero__note {
-  margin-top: 18px;
-  font-size: 16px;
-  line-height: 1.6;
-  letter-spacing: .01em;
-  color: var(--sand);
-}
 
 /* ------------------------------------------------- section header (logo) -- */
 .brandline {
