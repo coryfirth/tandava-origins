@@ -619,7 +619,7 @@ a:hover { color: var(--gold); }
 /* Between about 560 and 700 the hero is a single narrow column and the capitals
    run right up to the edge, so the eased ratio starts higher up. */
 @media (max-width: 700px) {
-  .hero h1 { font-size: min(104px, 7.9cqi); }
+  .hero h1 { font-size: min(104px, 7.75cqi); }
 }
 
 @media (max-width: 640px) {
