@@ -79,7 +79,6 @@
     var sixRows = six.querySelector('[data-six-rows]');
     var sixIndex = 0;
     var sixTabs = [];
-    var sixAuto = null;
     var sixPaused = false;
 
     SIX.forEach(function (entry, j) {
@@ -95,7 +94,7 @@
       label.textContent = entry[0];
       b.appendChild(box);
       b.appendChild(label);
-      b.addEventListener('click', function () { sixPaused = true; stopSixAuto(); setSix(j); });
+      b.addEventListener('click', function () { sixPaused = true; sixDwell = 0; setSix(j); });
       sixTabsEl.appendChild(b);
       sixTabs.push(b);
     });
@@ -141,33 +140,35 @@
       buildRows(s[4]);
     }
 
-    six.querySelector('[data-six-prev]').addEventListener('click', function () { sixPaused = true; stopSixAuto(); setSix(sixIndex - 1); });
-    six.querySelector('[data-six-next]').addEventListener('click', function () { sixPaused = true; stopSixAuto(); setSix(sixIndex + 1); });
+    six.querySelector('[data-six-prev]').addEventListener('click', function () { sixPaused = true; sixDwell = 0; setSix(sixIndex - 1); });
+    six.querySelector('[data-six-next]').addEventListener('click', function () { sixPaused = true; sixDwell = 0; setSix(sixIndex + 1); });
 
-    function startSixAuto() {
-      if (sixAuto || sixPaused || reduced.matches) { return; }
-      sixAuto = window.setInterval(function () { setSix(sixIndex + 1); }, 6000);
+    /* Autoplay, as a heartbeat rather than a timer that can get stranded.
+       Every second it asks one question: has the slider been on screen,
+       in this tab, un-clicked, for six seconds running? Scrolling away or
+       leaving the tab resets the count, clicking a step ends it for good.
+       An IntersectionObserver would be tidier, but it only reports while the
+       page is painting, so a backgrounded or throttled tab can leave the
+       autoplay switched off with nothing to switch it back on. */
+    var sixDwell = 0;
+
+    function sixOnScreen() {
+      var r = six.getBoundingClientRect();
+      var h = window.innerHeight || document.documentElement.clientHeight;
+      return r.top < h * 0.85 && r.bottom > h * 0.15;
     }
-    function stopSixAuto() {
-      if (sixAuto) { window.clearInterval(sixAuto); sixAuto = null; }
+
+    function sixCanRun() {
+      return !sixPaused && !reduced.matches && !document.hidden && sixOnScreen();
     }
 
     setSix(0);
 
-    /* Autoplay only while the slider is actually on screen. */
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) { startSixAuto(); } else { stopSixAuto(); }
-        });
-      }, { threshold: 0.4 }).observe(six);
-    }
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) { stopSixAuto(); }
-    });
-    if (reduced.addEventListener) {
-      reduced.addEventListener('change', function () { if (reduced.matches) { stopSixAuto(); } });
-    }
+    window.setInterval(function () {
+      if (!sixCanRun()) { sixDwell = 0; return; }
+      sixDwell += 1;
+      if (sixDwell >= 6) { sixDwell = 0; setSix(sixIndex + 1); }
+    }, 1000);
   }
 
   /* ================================================ how it works / dots -- */

@@ -19,7 +19,7 @@
     { key: 'exercise',  label: 'Exercise',           href: null,                       show: false },
     { key: 'science',   label: 'The Science',        href: null,                       show: true  },
     { key: 'solutions', label: 'Solutions',          href: null,                       show: true  },
-    { key: 'about',     label: 'About',              href: null,                       show: true  }
+    { key: 'about',     label: 'About',              href: null,                       show: false }
   ];
 
   /* ------------------------------------------------------- apply the list -- */
