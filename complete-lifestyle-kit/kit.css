@@ -92,10 +92,22 @@
 .k-buybox__rule { height: 1px; background: var(--hairline-2); margin: 26px 0 22px; }
 
 /* The price and its pill sit centred over the full-width button. */
-.k-price { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px 16px; }
+.k-price {
+  --price-size: clamp(48px, 4.6vw, 62px);
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px 16px;
+}
 .k-price__row { display: flex; align-items: baseline; gap: 8px; }
-.k-price__num { font-family: var(--serif); font-weight: 300; font-size: clamp(48px, 4.6vw, 62px); line-height: 1; color: var(--ink); }
-.k-price__cur { font-size: 16px; color: var(--muted); }
+.k-price__num { font-family: var(--serif); font-weight: 300; font-size: var(--price-size); line-height: 1; color: var(--ink); }
+/* The numeral's line-height of 1 squashes its line box, so the baseline the
+   browser aligns to sits below where the digits actually sit and USD hangs
+   low. Lift it by a fraction of the numeral, so the correction tracks the
+   size rather than being a fixed pixel fudge. */
+.k-price__cur {
+  position: relative;
+  top: calc(var(--price-size) * -0.08);
+  font-size: 16px;
+  color: var(--muted);
+}
 .k-badge {
   display: inline-flex; align-items: center;
   background: var(--clay);
