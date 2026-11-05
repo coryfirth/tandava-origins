@@ -18,7 +18,7 @@
     { key: 'diet',      label: 'Diet',               href: null,                       show: false },
     { key: 'exercise',  label: 'Exercise',           href: null,                       show: false },
     { key: 'science',   label: 'The Science',        href: null,                       show: true  },
-    { key: 'solutions', label: 'Solutions',          href: null,                       show: true  },
+    { key: 'solutions', label: 'Solutions',          href: '/solutions/',              show: true  },
     { key: 'about',     label: 'About',              href: null,                       show: false }
   ];
 

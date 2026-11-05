@@ -76,6 +76,7 @@
 .topbar .shop__panel a { color: #212C28; padding: 10px 14px; border-radius: 8px; }
 .topbar .shop__panel a:hover { background: #EDE2C0; color: #212C28; }
 .topbar .shop__panel a[aria-current="page"] { color: #BC7A48; }
+.topbar .nav > a[aria-current="page"] { color: #BC7A48; }
 
 .topbar .signin {
   display: flex;
