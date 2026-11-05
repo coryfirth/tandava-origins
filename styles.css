@@ -129,10 +129,9 @@ a:hover { color: var(--gold); }
 /* Products we have not opened yet: the button keeps its place in the card but
    is plainly not a thing you can press. */
 .btn--soon {
-  border: 1.5px solid rgba(33,44,40,.2);
-  color: var(--muted);
-  background: transparent;
-  font-weight: 500;
+  background: var(--sand);
+  color: var(--ink);
+  border: 1.5px solid rgba(48,64,40,.14);
   cursor: default;
 }
 .btn--soon:hover, .btn--soon:active { transform: none; }
