@@ -1,33 +1,7 @@
-/* Tandava Wellness homepage — the only two interactive pieces on the page. */
+/* Tandava Wellness homepage. The site menu lives in nav.js, shared by every
+   page; this file is just the How it works accordion. */
 (function () {
   'use strict';
-
-  /* Shop by Goal: hover on pointer devices, tap on touch. */
-  var shop = document.querySelector('[data-shop]');
-  if (shop) {
-    var toggle = shop.querySelector('.shop__toggle');
-    var hoverable = window.matchMedia('(hover: hover) and (pointer: fine)');
-
-    var open = function (state) {
-      shop.dataset.open = state ? 'true' : 'false';
-      toggle.setAttribute('aria-expanded', state ? 'true' : 'false');
-    };
-
-    shop.addEventListener('mouseenter', function () { if (hoverable.matches) open(true); });
-    shop.addEventListener('mouseleave', function () { if (hoverable.matches) open(false); });
-
-    toggle.addEventListener('click', function (e) {
-      e.preventDefault();
-      open(shop.dataset.open !== 'true');
-    });
-
-    document.addEventListener('click', function (e) {
-      if (!shop.contains(e.target)) open(false);
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') open(false);
-    });
-  }
 
   /* How it works: one piece of state, the active step. Step 2 on load. */
   var steps = [].slice.call(document.querySelectorAll('.step'));

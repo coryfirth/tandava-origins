@@ -24,13 +24,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&amp;family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&amp;family=Newsreader:ital,opsz,wght@1,6..72,400&amp;family=Julius+Sans+One&amp;family=Hanken+Grotesk:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nav.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
 <!-- ============================================================== nav -- -->
-<div class="topbar">
+<div class="topbar" data-menu="closed">
   <div class="topbar__inner">
     <a class="brand" href="/">
       <img src="assets/tandava-wordmark-night.png" alt="Tandava" width="451" height="54">
@@ -38,24 +39,28 @@
       <span class="brand__suffix">WELLNESS</span>
     </a>
 
-    <nav class="nav">
+    <button class="navtoggle" type="button" aria-expanded="false" aria-controls="sitenav" aria-label="Menu">
+      <span class="navtoggle__bars" aria-hidden="true"></span>
+    </button>
+
+    <nav class="nav" id="sitenav">
       <div class="shop" data-shop>
         <button class="shop__toggle" type="button" aria-expanded="false" aria-haspopup="true">
           Shop by Goal
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          <svg class="shop__chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="shop__menu">
           <div class="shop__panel">
-            <a href="#shelf">Complete Lifestyle</a>
-            <a href="#shelf">Sleep</a>
-            <a href="#shelf">Diet</a>
-            <a href="#shelf">Exercise</a>
+            <a data-nav="complete" href="/complete-lifestyle-kit/">Complete Lifestyle</a>
+            <a data-nav="sleep" hidden>Sleep</a>
+            <a data-nav="diet" hidden>Diet</a>
+            <a data-nav="exercise" hidden>Exercise</a>
           </div>
         </div>
       </div>
-      <a href="#">Practitioners</a>
-      <a href="#">Partner Solutions</a>
-      <a href="#about">About</a>
+      <a data-nav="science">The Science</a>
+      <a data-nav="solutions">Solutions</a>
+      <a data-nav="about">About</a>
       <a class="signin" href="https://app.tandavaretreats.com/" target="_blank" rel="noopener">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
         Sign in
@@ -86,7 +91,7 @@
       <div class="practitioners">
         <div class="avatars">
           <span class="avatar" style="background-image:url(assets/team/cory-headshot.jpg)"></span>
-          <span class="avatar">J</span>
+          <span class="avatar" style="background-image:url(assets/team/joel-headshot.jpg)"></span>
           <span class="avatar" style="background-image:url(assets/team/manesh-headshot-v2.jpg)"></span>
         </div>
         <span>Guided by a real practitioner</span>
@@ -142,7 +147,7 @@
             <h3>Complete Lifestyle Kit</h3>
           </div>
           <p>Uncover how your genetics impact your lifestyle, and create realistic changes you can make immediately to reach your lifestyle and health goals.</p>
-          <a class="btn btn--forest btn--sm" href="#">Buy now</a>
+          <a class="btn btn--forest btn--sm" href="/complete-lifestyle-kit/">Buy now</a>
         </div>
       </article>
 
@@ -159,7 +164,7 @@
             <h3>DNA Supplement Stack</h3>
           </div>
           <p>Learn what supplements align and don't align with your biology. And build your own personalized supplement stack, blended from your own genetic design.</p>
-          <a class="btn btn--clay" href="#">Join the waitlist</a>
+          <span class="btn btn--soon">Coming soon</span>
         </div>
       </article>
 
@@ -177,7 +182,7 @@
           <h3>The Sleep Transformation Kit</h3>
         </div>
         <p>See what's keeping you up at night and what to change, so you can sleep more deeply and wake up rested.</p>
-        <a class="btn btn--forest btn--sm" href="#">Buy now</a>
+        <span class="btn btn--soon btn--sm">Coming soon</span>
       </article>
 
       <article class="kit">
@@ -190,7 +195,7 @@
           <h3>The Genetic Diet Kit</h3>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-        <a class="btn btn--forest btn--sm" href="#">Buy now</a>
+        <span class="btn btn--soon btn--sm">Coming soon</span>
       </article>
 
       <article class="kit">
@@ -203,7 +208,7 @@
           <h3>The Exercise Archetype Kit</h3>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-        <a class="btn btn--forest btn--sm" href="#">Buy now</a>
+        <span class="btn btn--soon btn--sm">Coming soon</span>
       </article>
 
       <article class="kit">
@@ -216,7 +221,7 @@
           <h3>The Longevity Kit</h3>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-        <a class="btn btn--clay" href="#">Join the waitlist</a>
+        <span class="btn btn--soon">Coming soon</span>
       </article>
 
       <article class="kit">
@@ -229,7 +234,7 @@
           <h3>The Body After 40 Kit</h3>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-        <a class="btn btn--clay" href="#">Join the waitlist</a>
+        <span class="btn btn--soon">Coming soon</span>
       </article>
 
       <article class="kit">
@@ -242,7 +247,7 @@
           <h3>The Energy Enhancement Kit</h3>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-        <a class="btn btn--clay" href="#">Join the waitlist</a>
+        <span class="btn btn--soon">Coming soon</span>
       </article>
 
     </div>
@@ -337,13 +342,10 @@
   <div class="wrap how__grid">
 
     <div>
-      <p class="eyebrow">How it works</p>
       <div class="fit">
-        <h2>
-          <span class="line">From one cheek swab to</span>
-          <span class="line accent">changes you can make today.</span>
-        </h2>
+        <h2><span class="line">How it <span class="accent">works.</span></span></h2>
       </div>
+      <p class="how__lede">From one cheek swab to changes you can make today.</p>
 
       <div class="steps" role="tablist">
         <button class="step" type="button" role="tab" data-step="0" aria-selected="false">
@@ -371,7 +373,7 @@
 
       <div class="how__actions">
         <a class="btn btn--forest" href="#shelf">Explore our tests</a>
-        <a class="btn btn--outline" href="#">See example client</a>
+        <a class="btn btn--outline" href="https://calendly.com/cory-tandavaretreats/origins-practitioner-call" target="_blank" rel="noopener">Book a free consult</a>
       </div>
     </div>
 
@@ -448,7 +450,7 @@
       </blockquote>
       <div class="team">
         <div class="member"><span class="avatar" style="background-image:url(assets/team/cory-headshot.jpg)"></span><span>Cory Firth</span></div>
-        <div class="member"><span class="avatar">J</span><span>Joel Brierre</span></div>
+        <div class="member"><span class="avatar" style="background-image:url(assets/team/joel-headshot.jpg)"></span><span>Joel Brierre</span></div>
         <div class="member"><span class="avatar">J</span><span>Julie Brierre</span></div>
         <div class="member"><span class="avatar" style="background-image:url(assets/team/manesh-headshot-v2.jpg)"></span><span>Dr. Manesh Girn</span></div>
       </div>
@@ -615,10 +617,11 @@
         <a href="#">Legal</a>
       </nav>
     </div>
-    <p class="site-footer__note">Origins reads lifestyle tendencies. It does not diagnose, treat, cure or prevent any condition.</p>
+    <p class="site-footer__note">Tandava Wellness reads lifestyle tendencies. It does not diagnose, treat, cure or prevent any condition.</p>
   </div>
 </footer>
 
+<script src="nav.js" defer></script>
 <script src="app.js" defer></script>
 </body>
 </html>

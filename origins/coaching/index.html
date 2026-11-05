@@ -24,8 +24,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Hanken+Grotesk:wght@300;400;500;600&amp;family=Julius+Sans+One&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Hanken+Grotesk:wght@300;400;500;600&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Julius+Sans+One&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../nav.css">
 <link rel="stylesheet" href="coaching.css">
 </head>
 
@@ -34,12 +35,44 @@
 <!-- ==================================================== utility + header -- -->
 <div class="utility-bar"><span>English</span></div>
 
-<header class="site-header">
-  <img class="site-header__mark" src="../assets/tandava-wordmark-night.png" alt="Tandava" width="451" height="54">
-  <a class="pill-back" href="https://www.tandavaretreats.com/" target="_blank" rel="noopener">
-    <span class="pill-back__arrow" aria-hidden="true">&larr;</span> Back to Tandava Retreats
-  </a>
-</header>
+<div class="topbar" data-menu="closed">
+  <div class="topbar__inner">
+    <a class="brand" href="/">
+      <img src="../assets/tandava-wordmark-night.png" alt="Tandava" width="451" height="54">
+      <span class="brand__rule" aria-hidden="true"></span>
+      <span class="brand__suffix">WELLNESS</span>
+    </a>
+
+    <button class="navtoggle" type="button" aria-expanded="false" aria-controls="sitenav" aria-label="Menu">
+      <span class="navtoggle__bars" aria-hidden="true"></span>
+    </button>
+
+    <nav class="nav" id="sitenav">
+      <div class="shop" data-shop>
+        <button class="shop__toggle" type="button" aria-expanded="false" aria-haspopup="true">
+          Shop by Goal
+          <svg class="shop__chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="shop__menu">
+          <div class="shop__panel">
+            <a data-nav="complete" href="/complete-lifestyle-kit/">Complete Lifestyle</a>
+            <a data-nav="sleep" hidden>Sleep</a>
+            <a data-nav="diet" hidden>Diet</a>
+            <a data-nav="exercise" hidden>Exercise</a>
+          </div>
+        </div>
+      </div>
+      <a data-nav="science">The Science</a>
+      <a data-nav="solutions">Solutions</a>
+      <a data-nav="about">About</a>
+      <a class="signin" href="https://app.tandavaretreats.com/" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        Sign in
+      </a>
+      <a class="nav__cta" href="https://calendly.com/cory-tandavaretreats/origins-practitioner-call" target="_blank" rel="noopener">Book a free consult</a>
+    </nav>
+  </div>
+</div>
 
 <main>
 
@@ -117,5 +150,6 @@
 
 </main>
 
+<script src="../../nav.js" defer></script>
 </body>
 </html>

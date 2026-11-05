@@ -126,6 +126,17 @@ a:hover { color: var(--gold); }
 
 .btn--sm { padding: 11px 20px; font-size: 12px; }
 
+/* Products we have not opened yet: the button keeps its place in the card but
+   is plainly not a thing you can press. */
+.btn--soon {
+  border: 1.5px solid rgba(33,44,40,.2);
+  color: var(--muted);
+  background: transparent;
+  font-weight: 500;
+  cursor: default;
+}
+.btn--soon:hover, .btn--soon:active { transform: none; }
+
 /* The faded-matte photo grade, as two blend layers over the image.
    Baking this into the files would be faster still; kept live for fidelity. */
 .matte { position: relative; overflow: hidden; background: var(--sand); }
@@ -139,97 +150,8 @@ a:hover { color: var(--gold); }
 
 .cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
-/* ------------------------------------------------------------------ nav -- */
-.topbar { padding: 0 var(--pad-x); background: var(--paper); }
-.topbar__inner {
-  max-width: var(--wrap);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 24px 0;
-  flex-wrap: wrap;
-}
-.brand { display: flex; align-items: center; gap: 12px; }
-.brand img { height: 20px; width: auto; }
-.brand__rule { width: 1px; height: 18px; background: rgba(48,64,40,.3); }
-.brand__suffix {
-  font-family: var(--display);
-  font-size: 15px;
-  letter-spacing: .24em;
-  color: var(--clay);
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  gap: clamp(14px, 2.2vw, 30px);
-  flex-wrap: wrap;
-  font-size: 15px;
-}
-.nav a { color: var(--ink); }
-.nav a:hover { color: var(--gold); }
-
-.shop { position: relative; padding: 8px 0; }
-.shop__toggle {
-  all: unset;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--ink);
-  font: inherit;
-}
-.shop__toggle:hover { color: var(--gold); }
-.shop__menu {
-  position: absolute;
-  top: 100%;
-  left: -14px;
-  z-index: 50;
-  padding-top: 6px;
-  display: none;
-}
-.shop[data-open="true"] .shop__menu { display: block; }
-.shop__panel {
-  min-width: 210px;
-  background: var(--paper);
-  border: 1px solid var(--hairline);
-  border-radius: 14px;
-  box-shadow: var(--shadow-dropdown);
-  padding: 8px;
-  display: flex;
-  flex-direction: column;
-}
-.shop__panel a { color: var(--ink); padding: 10px 14px; border-radius: 8px; }
-.shop__panel a:hover { background: var(--sand); color: var(--ink); }
-
-.signin {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  color: var(--ink);
-  border: 1px solid rgba(48,64,40,.28);
-  border-radius: 999px;
-  padding: 10px 18px;
-}
-.signin:hover { border-color: var(--forest); background: rgba(52,68,46,.06); color: var(--ink); }
-
-/* `.nav a` is class+element, so it outranks a bare `.nav__cta`; scope the CTA
-   under .nav to win the specificity contest and keep its light text. */
-.nav .nav__cta {
-  background: var(--forest);
-  color: var(--paper);
-  border-radius: 999px;
-  padding: 11px 20px;
-  font-family: var(--label);
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: .08em;
-  white-space: nowrap;
-  text-transform: uppercase;
-}
-.nav .nav__cta:hover { background: #3f5338; color: var(--paper); }
+/* The site menu (.topbar / .nav / .shop / .navtoggle) lives in nav.css,
+   which every page loads. */
 
 /* ----------------------------------------------------------------- hero -- */
 .hero { background: var(--paper); padding: 0 var(--pad-x) clamp(32px, 4vw, 56px); position: relative; }
@@ -477,9 +399,17 @@ a:hover { color: var(--gold); }
 /* --------------------------------------------------------- how it works -- */
 .how { padding: var(--pad-y) var(--pad-x); background: var(--paper); overflow: hidden; }
 .how__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%,440px), 1fr)); gap: clamp(40px,6vw,88px); align-items: center; }
-.how .fit { margin-top: 18px; }
-.how h2 { font-family: var(--serif); font-weight: 300; font-size: min(64px, 8.2cqi); line-height: 1.12; letter-spacing: -.012em; }
-.how h2 .accent { font-size: 1.04em; margin-top: .08em; }
+.how .fit { margin-top: 0; }
+.how h2 { font-family: var(--serif); font-weight: 300; font-size: min(104px, 15.5cqi); line-height: 1.04; letter-spacing: -.02em; }
+.how h2 .accent { font-size: 1em; }
+.how__lede {
+  margin-top: 22px;
+  max-width: 540px;
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.45;
+  color: var(--ink);
+  text-wrap: pretty;
+}
 
 .steps { display: flex; flex-direction: column; margin-top: 40px; border-top: 1px solid var(--hairline); }
 .step {
@@ -649,26 +579,28 @@ a:hover { color: var(--gold); }
 /* --------------------------------------------------------------- footer -- */
 .site-footer { background: var(--footer-bg); color: rgba(246,245,240,.7); padding: clamp(48px,6vw,72px) var(--pad-x); }
 .site-footer__top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 28px; align-items: flex-start; }
-.site-footer .brand img { height: 20px; }
-.site-footer .brand__rule { background: rgba(246,245,240,.3); }
-.site-footer .brand__suffix { color: var(--gold-light); }
+/* The footer wordmark used to lean on the header's .brand rules; those moved
+   to nav.css with the menu, so it carries its own now. */
+.site-footer .brand { display: flex; align-items: center; gap: 12px; }
+.site-footer .brand img { height: 20px; width: auto; }
+.site-footer .brand__rule { width: 1px; height: 18px; background: rgba(246,245,240,.3); }
+.site-footer .brand__suffix {
+  font-family: var(--display);
+  font-size: 15px;
+  letter-spacing: .24em;
+  color: var(--gold-light);
+}
 .footer-links { display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 14px; }
 .footer-links a { color: rgba(246,245,240,.7); }
 .footer-links a:hover { color: var(--gold-light); }
 .site-footer__note { margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(246,245,240,.14); font-size: 12.5px; line-height: 1.6; color: rgba(246,245,240,.5); }
 
 /* ----------------------------------------------------------- responsive -- */
-@media (max-width: 1080px) {
-  .topbar__inner { gap: 16px; }
-  .nav { gap: 14px; font-size: 14px; }
-}
 @media (max-width: 900px) {
   .hero__media { min-height: 420px; }
   .how__visual { width: 100%; }
 }
 @media (max-width: 760px) {
-  .topbar__inner { padding: 18px 0; }
-  .nav { width: 100%; justify-content: flex-start; row-gap: 12px; }
   .hero__card { position: relative; inset: auto; min-height: 420px; }
   .hero__media { position: static; min-height: 0; }
   .consult .btn, .contactcard .btn { width: 100%; }
@@ -699,7 +631,6 @@ a:hover { color: var(--gold); }
 @media (max-width: 520px) {
   .btn { width: 100%; }
   .hero__actions, .how__actions { flex-direction: column; align-items: stretch; }
-  .nav__cta, .signin { width: auto; }
   .member { width: 78px; }
 }
 
