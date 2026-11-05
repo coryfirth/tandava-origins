@@ -171,7 +171,7 @@ a:hover { color: var(--gold); }
   justify-content: center;
   padding: clamp(16px, 3vw, 48px) 0;
 }
-.hero h1 { font-family: var(--serif); font-weight: 300; font-size: min(104px, 8.7cqi); line-height: 1.12; letter-spacing: -.015em; }
+.hero h1 { font-family: var(--serif); font-weight: 300; font-size: min(104px, 8.5cqi); line-height: 1.12; letter-spacing: -.015em; }
 .hero h1 .accent { font-size: 1.08em; line-height: 1.12; margin-top: .14em; }
 .hero__sub {
   font-size: clamp(17px, 1.25vw, 20px);
@@ -616,8 +616,10 @@ a:hover { color: var(--gold); }
 /* The prototype's 8.7cqi clips "Being healthy today is hard." by ~5px on a
    375px screen. Easing the ratio keeps the line unbroken, as the design wants,
    without cutting off the last letters. */
-@media (max-width: 560px) {
-  .hero h1 { font-size: min(104px, 8.4cqi); }
+/* Between about 560 and 700 the hero is a single narrow column and the capitals
+   run right up to the edge, so the eased ratio starts higher up. */
+@media (max-width: 700px) {
+  .hero h1 { font-size: min(104px, 7.9cqi); }
 }
 
 @media (max-width: 640px) {
