@@ -493,7 +493,6 @@ a:hover { color: var(--gold); }
 .member { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 92px; text-align: center; }
 .member .avatar { width: 64px; height: 64px; font-size: 20px; }
 .member span { font-size: 12.5px; line-height: 1.3; color: var(--body); }
-.people__more { display: inline-flex; align-items: center; gap: 8px; margin-top: 26px; font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: .06em; color: var(--clay); }
 
 /* ----------------------------------------------------------- comparison -- */
 .compare { padding: var(--pad-y) var(--pad-x); background: var(--paper); }
@@ -533,9 +532,18 @@ a:hover { color: var(--gold); }
 
 /* ---------------------------------------------------------------- trust -- */
 .trust { padding: var(--pad-y) var(--pad-x); background: var(--paper); }
-.trust__head { text-align: center; max-width: 720px; margin: 0 auto clamp(36px,5vw,56px); }
-.trust__head h2 { font-family: var(--serif); font-weight: 300; font-size: clamp(32px,3.8vw,56px); line-height: 1.14; letter-spacing: -.015em; margin-top: 16px; }
-.trust__sub { font-size: 17px; line-height: 1.6; color: var(--body); margin-top: 16px; }
+/* The heading holds one line, so the block is as wide as that line needs and
+   the sub-text is reined back in under it. */
+.trust__head { text-align: center; max-width: 1000px; margin: 0 auto clamp(36px,5vw,56px); }
+.trust__head .fit { margin-top: 16px; }
+.trust__head h2 { font-family: var(--serif); font-weight: 300; font-size: min(56px, 5.4cqi); line-height: 1.14; letter-spacing: -.015em; }
+.trust__sub { max-width: 720px; margin: 16px auto 0; font-size: 17px; line-height: 1.6; color: var(--body); }
+/* One line is the point of this heading, but holding it on a phone would set
+   it at about 18px, under the body text. Let it wrap down there instead. */
+@media (max-width: 760px) {
+  .trust__head .line { white-space: normal; }
+  .trust__head h2 { font-size: clamp(28px, 7vw, 40px); }
+}
 .certs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%,230px), 1fr)); gap: 20px; }
 .cert { background: var(--white); border: 1px solid var(--hairline-2); border-radius: 18px; padding: 26px 24px; text-align: center; }
 .cert__icon { width: 44px; height: 44px; border-radius: 999px; background: #EEF0E7; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
