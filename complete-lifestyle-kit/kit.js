@@ -164,11 +164,24 @@
 
     setSix(0);
 
-    window.setInterval(function () {
-      if (!sixCanRun()) { sixDwell = 0; return; }
-      sixDwell += 1;
-      if (sixDwell >= 6) { sixDwell = 0; setSix(sixIndex + 1); }
-    }, 1000);
+    var sixTimer = null;
+    function armSix() {
+      if (sixTimer) { window.clearInterval(sixTimer); }
+      sixTimer = window.setInterval(function () {
+        if (!sixCanRun()) { sixDwell = 0; return; }
+        sixDwell += 1;
+        if (sixDwell >= 6) { sixDwell = 0; setSix(sixIndex + 1); }
+      }, 1000);
+    }
+    armSix();
+
+    /* A backgrounded tab has its timers clamped to about once a minute, and
+       the tick that is already scheduled keeps that spacing even after you
+       come back. Left alone it can be a minute of staring at a still slider.
+       Re-arm on return so the beat starts again at once. */
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) { sixDwell = 0; armSix(); }
+    });
   }
 
   /* ================================================ how it works / dots -- */
