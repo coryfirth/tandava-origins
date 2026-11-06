@@ -294,7 +294,7 @@ a { color: var(--gold-dark); }
 .hero__title {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: min(50px, 4.9vw);
+  font-size: min(78px, 7.4vw);
   line-height: 1.12;
   letter-spacing: .002em;
   color: var(--white-tone);
@@ -933,8 +933,11 @@ a { color: var(--gold-dark); }
 
 /* ---------------------------------------------------------- responsive -- */
 @media (max-width: 1180px) {
-  .hero__title { white-space: normal; font-size: clamp(32px, 5.6vw, 50px); }
-  .hero__content { max-width: 760px; }
+  .hero__title { white-space: normal; font-size: clamp(36px, 6.8vw, 78px); }
+  /* 760px was sized for a 50px headline; at 78px the first line needs ~817px
+     and would break into three lines through this band. The lede caps itself
+     at 720px, so widening this only affects the headline. */
+  .hero__content { max-width: 880px; }
 }
 
 @media (max-width: 1024px) {
