@@ -300,6 +300,7 @@ a { color: var(--gold-dark); }
   color: var(--white-tone);
   white-space: nowrap;
 }
+.hero__line { display: block; }
 .hero__title--accent { color: var(--gold-head); }
 
 .hero__copy {

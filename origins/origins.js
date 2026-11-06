@@ -8,11 +8,11 @@
 
   /* ======================================================================
      CHECKOUT LINKS — the only two URLs on this page. Paste new Stripe
-     payment links here and nothing else needs to change. These are the
-     same two links the Complete Lifestyle Kit page uses.
+     payment links here and nothing else needs to change. Origins has its
+     own pair, separate from the Complete Lifestyle Kit page's.
      ====================================================================== */
-  var CHECKOUT_KIT_FULL    = 'https://buy.stripe.com/dRmcMY3mnc2r0ON3YX8Vi08'; /* Kit only, $549 USD */
-  var CHECKOUT_BUNDLE_FULL = 'https://buy.stripe.com/dRmdR2f555E3btr3YX8Vi09'; /* Kit + 6-Week Redesign, $795 USD */
+  var CHECKOUT_KIT_FULL    = 'https://buy.stripe.com/3cI4gs6yz9Ujapn7b98Vi0b'; /* Tandava Origins, $549 USD */
+  var CHECKOUT_BUNDLE_FULL = 'https://buy.stripe.com/28E4gs9KL0jJfJH8fd8Vi0c'; /* Tandava Origins + 6-Week Redesign, $795 USD */
 
   [].forEach.call(document.querySelectorAll('[data-checkout="kit"]'), function (a) {
     a.href = CHECKOUT_KIT_FULL;
