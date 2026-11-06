@@ -589,7 +589,16 @@ a { color: var(--gold-dark); }
 .plans--solo { grid-template-columns: minmax(0, 520px); justify-content: center; }
 .plans--solo .plan { padding: 38px 34px; }
 .plans--solo .plan:hover { transform: none; }
-.plans--solo .plan__list { margin-bottom: 26px; }
+.plans--solo .plan { text-align: center; }
+/* Centre the list as a block, not line by line: max-content sizes it to the
+   longest item so every tick still shares one left edge, and the auto margins
+   centre the whole group. It clamps to the card on narrow screens and wraps. */
+.plans--solo .plan__list {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto 26px;
+  text-align: left;
+}
 .plan__included {
   font-family: var(--font-body);
   font-weight: 600;
@@ -611,22 +620,58 @@ a { color: var(--gold-dark); }
    low. Lift it by about 8% of the 54px numeral. */
 .plan__price--solo .plan__unit { position: relative; top: -4px; }
 
-.plan__badge {
-  display: inline-flex;
-  align-items: center;
-  background: var(--gold);
-  color: var(--forest-night);
-  border-radius: 999px;
-  padding: 7px 13px;
-  font-family: var(--font-eyebrow);
-  font-size: 11px;
-  letter-spacing: .12em;
-  line-height: 1;
-  white-space: nowrap;
-}
 
 /* `.plan .btn` sets margin-top: auto for the two-card layout; beat it. */
 .plan .plan__cta { width: 100%; margin-top: 22px; }
+/* The $795 bundle, offered plainly at the foot of the card for anyone who
+   has already made up their mind and does not need the pop-up. */
+.plan__addon {
+  margin-top: 28px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line-lighter);
+}
+.plan__addon-label {
+  font-family: var(--font-eyebrow);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin: 0 0 10px;
+}
+.plan__addon-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0;
+}
+.plan__addon-text {
+  font-weight: 300;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--body-alt);
+  margin: 10px auto 0;
+  max-width: 42ch;
+  text-wrap: pretty;
+}
+.plan__addon-price {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--ink);
+  margin: 18px 0 0;
+}
+.plan__addon-price span {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 15px;
+  color: var(--muted);
+  margin-left: 8px;
+}
+.plan .plan__addon-cta { margin-top: 18px; }
+
 .plan__fine {
   margin: 12px 0 0;
   text-align: center;
