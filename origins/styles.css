@@ -691,6 +691,58 @@ a { color: var(--gold-dark); }
   color: var(--muted);
 }
 
+/* -------------------------------------------------- practitioner bios -- */
+.obios__lede { margin-left: auto; margin-right: auto; }
+.obios {
+  display: grid;
+  /* Capped so two cards stay card-sized rather than stretching into banners,
+     the same guard the kit page needed when it dropped to three people. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 360px));
+  justify-content: center;
+  gap: 26px;
+  margin-top: 40px;
+}
+.obio {
+  background: #fff;
+  border: 1px solid var(--line-light);
+  border-radius: 22px;
+  box-shadow: var(--shadow-card);
+  padding: 32px 28px;
+  text-align: center;
+}
+.obio__photo {
+  width: 104px;
+  height: 104px;
+  border-radius: 999px;
+  object-fit: cover;
+  object-position: center top;
+  margin: 0 auto 18px;
+  display: block;
+}
+.obio__name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.obio__role {
+  font-family: var(--font-eyebrow);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 11px;
+  color: var(--gold-dark);
+  margin-top: 7px;
+}
+.obio__text {
+  font-weight: 300;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--body-alt);
+  margin: 16px 0 0;
+  text-wrap: pretty;
+}
+
 /* ------------------------------------------------------ add-on pop-up -- */
 .o-upsell { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 24px; }
 .o-upsell[hidden] { display: none; }
