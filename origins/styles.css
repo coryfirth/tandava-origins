@@ -122,6 +122,11 @@ a { color: var(--gold-dark); }
   font-weight: 500;
   color: var(--ink);
   text-wrap: balance;
+  /* Carried no size at all, so any section head without its own rule fell
+     back to the UA default of 24px. This is the page's standard section
+     size; the sections that want a different one still set it themselves. */
+  font-size: clamp(30px, 3.6vw, 42px);
+  line-height: 1.1;
 }
 
 .lede {
@@ -692,7 +697,7 @@ a { color: var(--gold-dark); }
 }
 
 /* -------------------------------------------------- practitioner bios -- */
-.obios__lede { margin-left: auto; margin-right: auto; }
+.obios__lede { margin: 14px auto 0; }
 .obios {
   display: grid;
   /* Capped so two cards stay cards rather than stretching into banners. */
