@@ -27,15 +27,6 @@
    two lines right through the useful desktop range. */
 .kw__col { min-width: 0; container-type: inline-size; }
 
-.kw__eyebrow {
-  font-family: var(--label);
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--clay);
-  margin: 0 0 18px;
-}
 
 /* The one oversized thing on the page. Light serif at display size is the
    whole borrowed gesture, so it is allowed to get big — but min() against
