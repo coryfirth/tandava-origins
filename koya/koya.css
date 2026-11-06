@@ -110,3 +110,17 @@
 @media (prefers-reduced-motion: reduce) {
   .kw .kw__btn { transition: none; }
 }
+
+/* The code is the attribution: a buyer who types it is provably Koya's, even
+   if they wandered the site first or came back days later on another device.
+   So it gets weight the surrounding note does not. */
+.kw__code {
+  font-family: var(--label);
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--ink);
+  background: rgba(188, 122, 72, .16);
+  border-radius: 6px;
+  padding: 2px 7px;
+  white-space: nowrap;
+}
