@@ -599,6 +599,16 @@ a { color: var(--gold-dark); }
   margin: 0 auto 26px;
   text-align: left;
 }
+/* The supplement is an add-on rather than part of the box, so the row says
+   so plainly instead of leaving the tick to imply it is included. */
+.plan__opt {
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--muted);
+  white-space: nowrap;
+  margin-left: 6px;
+}
+
 .plan__included {
   font-family: var(--font-body);
   font-weight: 600;
