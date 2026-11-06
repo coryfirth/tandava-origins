@@ -116,10 +116,17 @@
     </div>
 
     <div class="kw__media">
-      <!-- TODO: swap in Koya's photo. Portrait crop, about 1000x1250 or larger,
-           saved to /assets/partners/koya-webb.jpg. -->
-      <img class="kw__photo" src="../assets/partners/koya-webb.jpg"
-           alt="Koya Webb" width="1000" height="1250" fetchpriority="high">
+      <!-- Served at the photo's own 1:1 ratio, never cropped or stretched.
+           srcset lets a retina screen pull the full 1440 master while a
+           phone takes the 720. width/height are the real pixel dimensions,
+           so the browser reserves the right box and nothing shifts. -->
+      <img class="kw__photo"
+           src="../assets/partners/koya-webb-1080.webp"
+           srcset="../assets/partners/koya-webb-720.webp   720w,
+                   ../assets/partners/koya-webb-1080.webp 1080w,
+                   ../assets/partners/koya-webb-1440.webp 1440w"
+           sizes="(max-width: 880px) 92vw, (max-width: 1400px) 45vw, 580px"
+           alt="Koya Webb" width="1440" height="1440" fetchpriority="high" decoding="async">
     </div>
 
   </div>

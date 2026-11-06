@@ -96,10 +96,7 @@
 .kw__photo {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: center top;
+  height: auto;          /* the photo keeps its own 1:1 ratio — no crop, no stretch */
   border-radius: 22px;
   background: rgba(188, 122, 72, .12);
 }
@@ -111,7 +108,6 @@
 @media (max-width: 880px) {
   .kw__grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .kw__title { font-size: clamp(40px, 9vw, 64px); }
-  .kw__photo { aspect-ratio: 3 / 2; max-height: 460px; }
   .kw__lede, .kw__note { max-width: none; }
 }
 
