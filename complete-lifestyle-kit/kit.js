@@ -9,9 +9,25 @@
   /* ======================================================================
      CHECKOUT LINKS — the only two URLs on this page. Paste new Stripe
      payment links here and nothing else needs to change.
+
+     A partner landing page reuses this whole file and overrides the pair
+     on its <body>, so each partner's sales land on their own Stripe link
+     and show up under their own name:
+       <body data-checkout-kit="https://buy.stripe.com/..."
+             data-checkout-bundle="https://buy.stripe.com/...">
+     Without those attributes a page gets the house links below.
      ====================================================================== */
   var CHECKOUT_KIT_FULL    = 'https://buy.stripe.com/dRmcMY3mnc2r0ON3YX8Vi08'; /* Kit only, $549 USD */
   var CHECKOUT_BUNDLE_FULL = 'https://buy.stripe.com/dRmdR2f555E3btr3YX8Vi09'; /* Kit + 6-Week Redesign, $795 USD */
+
+  var over = document.body ? document.body.dataset : {};
+  /* Only honour a real Stripe URL: a typo in an attribute should fall back
+     to a working checkout, never send a buyer to a broken href. */
+  function stripeOr(value, fallback) {
+    return /^https:\/\/buy\.stripe\.com\/[A-Za-z0-9]+$/.test(value || '') ? value : fallback;
+  }
+  CHECKOUT_KIT_FULL    = stripeOr(over.checkoutKit,    CHECKOUT_KIT_FULL);
+  CHECKOUT_BUNDLE_FULL = stripeOr(over.checkoutBundle, CHECKOUT_BUNDLE_FULL);
 
   [].forEach.call(document.querySelectorAll('[data-checkout="kit"]'), function (a) {
     a.href = CHECKOUT_KIT_FULL;

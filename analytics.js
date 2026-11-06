@@ -52,7 +52,15 @@
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID;
     document.head.appendChild(s);
     gtag('js', new Date());
-    gtag('config', MEASUREMENT_ID);
+
+    /* A partner landing page labels itself with <body data-partner="...">.
+       Sent as a plain event parameter, so it needs no cookie of its own and
+       rides along with consent the visitor already gave. Stripe stays the
+       system of record for who gets paid: a partner's buttons point at their
+       own payment links, so attribution survives even when a visitor
+       declines statistics and never reaches GA at all. */
+    var partner = document.body && document.body.dataset.partner;
+    gtag('config', MEASUREMENT_ID, partner ? { partner: partner } : {});
   }
 
   /* Cookiebot's four categories map onto the consent signals. A decline is
