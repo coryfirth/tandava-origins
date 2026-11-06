@@ -582,6 +582,137 @@ a { color: var(--gold-dark); }
 .plan--dark .plan__rule { background: var(--line-dark-2); }
 .plan--dark .plan__list { color: rgba(237,226,192,.86); }
 
+/* ------------------------------------------- get started: the one card -- */
+/* One plan, not two. Cap it so it reads as a buy box rather than a banner,
+   and drop the lift-on-hover: nothing sits beside it to compare against. */
+.plans--solo { grid-template-columns: minmax(0, 520px); justify-content: center; }
+.plans--solo .plan { padding: 38px 34px; }
+.plans--solo .plan:hover { transform: none; }
+.plans--solo .plan__list { margin-bottom: 26px; }
+.plan__included {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+  margin: 0 0 16px;
+}
+
+.plan__price--solo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+.plan__pricerow { display: flex; align-items: baseline; gap: 9px; }
+/* line-height: 1 on the numeral squashes its line box, so the baseline the
+   browser aligns to sits below where the digits actually sit and USD hangs
+   low. Lift it by about 8% of the 54px numeral. */
+.plan__price--solo .plan__unit { position: relative; top: -4px; }
+
+.plan__badge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--gold);
+  color: var(--forest-night);
+  border-radius: 999px;
+  padding: 7px 13px;
+  font-family: var(--font-eyebrow);
+  font-size: 11px;
+  letter-spacing: .12em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* `.plan .btn` sets margin-top: auto for the two-card layout; beat it. */
+.plan .plan__cta { width: 100%; margin-top: 22px; }
+.plan__fine {
+  margin: 12px 0 0;
+  text-align: center;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------ add-on pop-up -- */
+.o-upsell { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 24px; }
+.o-upsell[hidden] { display: none; }
+.o-upsell__scrim { position: absolute; inset: 0; background: rgba(33, 44, 40, .58); }
+.o-upsell__card {
+  position: relative;
+  width: min(560px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--paper-panel);
+  border-radius: 24px;
+  padding: 34px 32px 28px;
+  box-shadow: 0 30px 70px -20px rgba(28, 38, 32, .5);
+}
+.o-upsell__grab { display: none; }
+.o-upsell__x {
+  position: absolute; top: 18px; right: 18px;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border: none; border-radius: 999px; background: transparent; cursor: pointer;
+}
+.o-upsell__x:hover { background: rgba(48, 64, 40, .08); }
+
+.o-upsell__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(30px, 3.6vw, 40px);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  margin: 0;
+  padding-right: 44px;
+  color: var(--ink);
+}
+.o-upsell__lede { font-weight: 300; font-size: 16px; line-height: 1.55; color: var(--body-alt); margin: 12px 0 0; text-wrap: pretty; }
+
+.o-upsell__list { display: flex; flex-direction: column; gap: 16px; margin-top: 22px; }
+.o-upsell__row { display: flex; gap: 14px; align-items: flex-start; }
+.o-upsell__icon {
+  flex: none; width: 40px; height: 40px; border-radius: 12px;
+  background: rgba(194, 156, 61, .20);
+  display: flex; align-items: center; justify-content: center;
+}
+.o-upsell__head { font-family: var(--font-body); font-weight: 600; font-size: 15.5px; color: var(--ink); }
+.o-upsell__sub { font-weight: 300; font-size: 15.5px; line-height: 1.55; color: var(--body-alt); margin-top: 2px; }
+
+.o-upsell__price { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.o-upsell__num { font-family: var(--font-display); font-weight: 500; font-size: 44px; line-height: 1; color: var(--ink); }
+.o-upsell__per { font-weight: 300; font-size: 16px; color: var(--muted); }
+
+.o-upsell__go { width: 100%; margin-top: 18px; }
+.o-upsell__skip { display: flex; justify-content: center; margin-top: 6px; }
+.o-upsell__skip a {
+  display: inline-flex; align-items: center;
+  min-height: 44px;
+  font-weight: 300; font-size: 15px;
+  color: var(--body-alt);
+  text-decoration: underline; text-underline-offset: 4px;
+}
+
+/* On a phone it becomes a sheet off the bottom edge, with a grab handle. */
+@media (max-width: 560px) {
+  .o-upsell { align-items: flex-end; padding: 0; }
+  .o-upsell__card {
+    width: 100%;
+    max-height: 88vh;
+    border-radius: 24px 24px 0 0;
+    padding: 30px 22px calc(24px + env(safe-area-inset-bottom));
+  }
+  .o-upsell__grab {
+    display: block; position: absolute; top: 10px; left: 50%;
+    width: 40px; height: 4px; margin-left: -20px;
+    border-radius: 9px; background: rgba(48, 64, 40, .2);
+  }
+  .o-upsell__x { top: 20px; right: 12px; }
+}
+
+
 .plans__foot {
   display: flex;
   align-items: center;
