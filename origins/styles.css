@@ -695,34 +695,38 @@ a { color: var(--gold-dark); }
 .obios__lede { margin-left: auto; margin-right: auto; }
 .obios {
   display: grid;
-  /* Capped so two cards stay card-sized rather than stretching into banners,
-     the same guard the kit page needed when it dropped to three people. */
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 360px));
+  /* Capped so two cards stay cards rather than stretching into banners. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 400px));
   justify-content: center;
-  gap: 26px;
-  margin-top: 40px;
+  gap: 30px;
+  margin-top: 44px;
 }
 .obio {
   background: #fff;
   border: 1px solid var(--line-light);
   border-radius: 22px;
   box-shadow: var(--shadow-card);
-  padding: 32px 28px;
-  text-align: center;
+  overflow: hidden;              /* so the photo takes the card's top corners */
+  display: flex;
+  flex-direction: column;
 }
+/* The source files are 4:5, so matching that ratio crops nothing: you get the
+   whole frame, head to chest, rather than a face punched out of a circle. */
 .obio__photo {
-  width: 104px;
-  height: 104px;
-  border-radius: 999px;
+  display: block;
+  width: 100%;
+  /* Without height:auto the img's height attribute is the used height and
+     aspect-ratio is ignored, which rendered these at full 800px. */
+  height: auto;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center top;
-  margin: 0 auto 18px;
-  display: block;
 }
+.obio__body { padding: 28px 28px 32px; }
 .obio__name {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 21px;
+  font-size: 23px;
   line-height: 1.2;
   color: var(--ink);
 }
@@ -732,15 +736,31 @@ a { color: var(--gold-dark); }
   letter-spacing: .14em;
   font-size: 11px;
   color: var(--gold-dark);
-  margin-top: 7px;
+  margin-top: 8px;
 }
 .obio__text {
   font-weight: 300;
   font-size: 15.5px;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--body-alt);
   margin: 16px 0 0;
   text-wrap: pretty;
+}
+
+.obios__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 44px;
+  text-align: center;
+}
+.obios__ask {
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--body-alt);
+  margin: 0;
 }
 
 /* ------------------------------------------------------ add-on pop-up -- */
