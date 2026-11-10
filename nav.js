@@ -5,33 +5,66 @@
      show: true   the item appears in the menu
      show: false  the item is hidden everywhere
      href: null   the item appears but goes nowhere yet
+     top: true    a plain item in the bar; without it the item lives inside a
+                  dropdown panel, where its place in the markup is fixed
    When a page goes live, give it its href. Nothing else has to change,
    on any page.
 
-   The label column is a note to yourself only: the visible wording lives in
-   each page's HTML, so changing it here changes nothing on screen.
+   Every page is its own static file, so a page copied from an older one used
+   to arrive carrying an out-of-date menu. That no longer matters: the
+   top-level items are built from this list, and a page's own markup is only
+   the no-JavaScript fallback. Whatever a page carries, the menu it shows is
+   the one below.
+
+   One catch a static site cannot dodge: a browser holding an old nav.js runs
+   the old list. The ?v= on the <script src> in each page is what forces a
+   fresh copy, so bump it whenever you change this file.
    ========================================================================== */
 (function () {
   'use strict';
 
   var MENU = [
-    /* key            label                  href                           show  */
-    { key: 'complete',  label: 'Complete Lifestyle', href: '/complete-lifestyle-kit/', show: true  },
-    { key: 'sleep',     label: 'Sleep',              href: null,                       show: false },
-    { key: 'diet',      label: 'Diet',               href: null,                       show: false },
-    { key: 'exercise',  label: 'Exercise',           href: null,                       show: false },
-    { key: 'programs',  label: 'Programs',           href: '/programs/',               show: true  },
-    { key: 'neuro',     label: 'Tandava Neuro',      href: '/programs/tandava-neuro/', show: true  },
-    { key: 'lifestyle', label: 'Lifestyle Design',   href: null,                       show: true  },
-    { key: 'partnerships', label: 'Partnerships',    href: null,                       show: true  },
-    /* Pulled from the menu, not deleted: flip show back to true to restore
-       either one. The /solutions/ page itself is still live at its URL. */
-    { key: 'science',   label: 'The Science',        href: null,                       show: false },
-    { key: 'solutions', label: 'Partner Solutions',  href: '/solutions/',              show: false },
-    { key: 'about',     label: 'About',              href: null,                       show: false }
+    /* key               label                     href                           show  */
+    { key: 'complete',     label: 'Complete Lifestyle', href: '/complete-lifestyle-kit/', show: true  },
+    { key: 'sleep',        label: 'Sleep',              href: null,                       show: false },
+    { key: 'diet',         label: 'Diet',               href: null,                       show: false },
+    { key: 'exercise',     label: 'Exercise',           href: null,                       show: false },
+    { key: 'neuro',        label: 'Tandava Neuro',      href: '/programs/tandava-neuro/', show: true  },
+    { key: 'programs',     label: 'Programs',           href: '/programs/',               show: true  },
+    { key: 'lifestyle',    label: 'Lifestyle Design',   href: null,                       show: true,  top: true },
+    { key: 'partnerships', label: 'Partnerships',       href: null,                       show: true,  top: true },
+    { key: 'about',        label: 'About',              href: null,                       show: false, top: true }
   ];
 
-  /* ------------------------------------------------------- apply the list -- */
+  var topbar = document.querySelector('.topbar');
+
+  /* ------------------------------------------ build the top-level items -- */
+  /* Missing items are created, items this list has never heard of are
+     dropped, and the order on screen is the order above. */
+  var nav = topbar && topbar.querySelector('.nav');
+  if (nav) {
+    var known = {};
+    MENU.forEach(function (item) { known[item.key] = item; });
+
+    [].slice.call(nav.children).forEach(function (el) {
+      var key = el.getAttribute && el.getAttribute('data-nav');
+      if (key && !known[key]) { nav.removeChild(el); }
+    });
+
+    var tail = nav.querySelector('.signin') || nav.querySelector('.nav__cta');
+    MENU.forEach(function (item) {
+      if (!item.top) { return; }
+      var el = nav.querySelector('[data-nav="' + item.key + '"]');
+      if (!el || el.parentNode !== nav) {
+        el = document.createElement('a');
+        el.setAttribute('data-nav', item.key);
+      }
+      el.textContent = item.label;
+      nav.insertBefore(el, tail);          /* in list order, ahead of Sign in */
+    });
+  }
+
+  /* ------------------------------------------------------ apply the list -- */
   MENU.forEach(function (item) {
     var nodes = document.querySelectorAll('[data-nav="' + item.key + '"]');
     [].forEach.call(nodes, function (el) {
@@ -41,7 +74,6 @@
     });
   });
 
-  var topbar = document.querySelector('.topbar');
   if (!topbar) { return; }
 
   /* Mark the page you are on, if it is in the menu. */
