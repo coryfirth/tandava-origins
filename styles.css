@@ -28,10 +28,10 @@
   --shadow-overlay:  0 18px 40px rgba(33,44,40,.16);
   --shadow-dropdown: 0 8px 24px rgba(36,48,25,.10);
 
-  /* One display face carries every heading and every big number now: Sora
-     Light. --serif keeps its name so the rules below need no rewrite, and
+  /* One display face carries every heading and every big number: Outfit,
+     Medium. --serif keeps its name so the rules below need no rewrite, and
      there is no italic face any more, so --italic is gone. */
-  --serif:   'Sora', system-ui, -apple-system, sans-serif;
+  --serif:   'Outfit', system-ui, -apple-system, sans-serif;
   --sans:    'Hanken Grotesk', system-ui, -apple-system, sans-serif;
   --label:   'Instrument Sans', system-ui, -apple-system, sans-serif;
   --display: 'Julius Sans One', system-ui, sans-serif;
@@ -74,7 +74,7 @@ a:hover { color: var(--gold); }
    else inherits this. Never bold, never italic. */
 h1, h2, h3 {
   font-family: var(--serif);
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: -.04em;
   color: var(--ink);
   text-wrap: balance;
@@ -95,7 +95,7 @@ h3 { font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -.03
 
 .serif-title {
   font-family: var(--serif);
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: -.04em;
   line-height: 1.2;
   color: var(--ink);
@@ -189,7 +189,7 @@ h3 { font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -.03
   justify-content: center;
   padding: clamp(16px, 3vw, 48px) 0;
 }
-.hero h1 { font-family: var(--serif); font-weight: 300; font-size: min(104px, 7.2cqi); line-height: 1.12; letter-spacing: -.04em; }
+.hero h1 { font-family: var(--serif); font-weight: 500; font-size: min(104px, 8cqi); line-height: 1.12; letter-spacing: -.04em; }
 .hero h1 .accent { line-height: 1.12; margin-top: .14em; }
 .hero__sub {
   font-size: clamp(17px, 1.25vw, 20px);
@@ -396,7 +396,7 @@ h3 { font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -.03
 .reviews .eyebrow { color: var(--gold-light); }
 .reviews__head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 22px; margin-top: 16px; }
 .reviews__head h2 {
-  font-family: var(--serif); font-weight: 300;
+  font-family: var(--serif); font-weight: 500;
   font-size: clamp(32px,4.05vw,56px); line-height: 1.06; letter-spacing: -.04em;
   color: var(--paper); text-wrap: balance;
 }
@@ -416,7 +416,7 @@ h3 { font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -.03
 .how { padding: var(--pad-y) var(--pad-x); background: var(--paper); overflow: hidden; }
 .how__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%,440px), 1fr)); gap: clamp(40px,6vw,88px); align-items: center; }
 .how .fit { margin-top: 0; }
-.how h2 { font-family: var(--serif); font-weight: 300; font-size: min(104px, 14.8cqi); line-height: 1.04; letter-spacing: -.04em; }
+.how h2 { font-family: var(--serif); font-weight: 500; font-size: min(104px, 15.5cqi); line-height: 1.04; letter-spacing: -.04em; }
 .how h2 .accent { font-size: 1em; }
 .how__lede {
   margin-top: 22px;
@@ -499,7 +499,7 @@ h3 { font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -.03
 .people { padding: var(--pad-y) var(--pad-x); background: var(--paper); }
 .people__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%,420px), 1fr)); gap: clamp(32px,5vw,72px); align-items: center; }
 .people__photo { border-radius: 24px; overflow: hidden; aspect-ratio: 4/5; }
-.people h2 { font-family: var(--serif); font-weight: 300; font-size: clamp(32px,4.05vw,56px); line-height: 1.06; letter-spacing: -.04em; }
+.people h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(32px,4.05vw,56px); line-height: 1.06; letter-spacing: -.04em; }
 .people__text { font-size: 17px; line-height: 1.6; color: var(--body); margin-top: 22px; }
 .people__quote {
   margin-top: 26px; padding-left: 20px; border-left: 2px solid var(--clay);
@@ -514,7 +514,7 @@ h3 { font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -.03
 /* ----------------------------------------------------------- comparison -- */
 .compare { padding: var(--pad-y) var(--pad-x); background: var(--paper); }
 .compare__head { text-align: center; max-width: 720px; margin: 0 auto clamp(36px,5vw,56px); }
-.compare__head h2 { font-family: var(--serif); font-weight: 300; font-size: clamp(32px,4.05vw,56px); line-height: 1.06; letter-spacing: -.04em; margin-top: 16px; }
+.compare__head h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(32px,4.05vw,56px); line-height: 1.06; letter-spacing: -.04em; margin-top: 16px; }
 .compare__sub { font-size: 17px; line-height: 1.6; color: var(--body); margin-top: 16px; }
 .compare__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%,340px), 1fr)); gap: 24px; align-items: start; }
 .col { border-radius: 24px; padding: clamp(26px,3vw,36px); }
@@ -542,7 +542,7 @@ h3 { font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -.03
 .retreats .eyebrow { color: var(--gold-light); }
 /* Sized against its own box so the line holds together at any width. */
 .retreats .fit { margin-top: 16px; }
-.retreats h2 { font-family: var(--serif); font-weight: 300; font-size: min(52px, 6.3cqi); line-height: 1.1; letter-spacing: -.04em; color: var(--paper); }
+.retreats h2 { font-family: var(--serif); font-weight: 500; font-size: min(58px, 6.8cqi); line-height: 1.1; letter-spacing: -.04em; color: var(--paper); }
 .retreats__sub { font-size: 17px; line-height: 1.65; color: rgba(246,245,240,.86); margin-top: 20px; }
 .retreats .btn { margin-top: 32px; background: var(--sand); color: var(--ink); }
 .retreats .btn:hover { background: var(--cream); color: var(--ink); }
@@ -553,7 +553,7 @@ h3 { font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -.03
    the sub-text is reined back in under it. */
 .trust__head { text-align: center; max-width: 1000px; margin: 0 auto clamp(36px,5vw,56px); }
 .trust__head .fit { margin-top: 16px; }
-.trust__head h2 { font-family: var(--serif); font-weight: 300; font-size: min(56px, 5.4cqi); line-height: 1.14; letter-spacing: -.04em; }
+.trust__head h2 { font-family: var(--serif); font-weight: 500; font-size: min(56px, 5.4cqi); line-height: 1.14; letter-spacing: -.04em; }
 .trust__sub { max-width: 720px; margin: 16px auto 0; font-size: 17px; line-height: 1.6; color: var(--body); }
 /* One line is the point of this heading, but holding it on a phone would set
    it at about 18px, under the body text. Let it wrap down there instead. */
@@ -570,15 +570,15 @@ h3 { font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -.03
 .trust__note { text-align: center; font-size: 13px; color: var(--muted); margin-top: 20px; }
 
 .promise { background: #FBF9F1; border: 1px solid var(--hairline-2); border-radius: 24px; padding: clamp(32px,4vw,56px); margin-top: clamp(40px,5vw,64px); }
-.promise h3 { font-family: var(--serif); font-weight: 300; font-size: clamp(24px,2.4vw,34px); line-height: 1.1; letter-spacing: -.035em; margin-top: 10px; }
+.promise h3 { font-family: var(--serif); font-weight: 500; font-size: clamp(24px,2.4vw,34px); line-height: 1.1; letter-spacing: -.035em; margin-top: 10px; }
 .promise__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(26px,3.5vw,44px); margin-top: 32px; }
-.promise__n { font-family: var(--serif); font-weight: 300; font-size: 26px; color: var(--clay); }
+.promise__n { font-family: var(--serif); font-weight: 500; font-size: 26px; color: var(--clay); }
 .promise__grid h4 { font-weight: 600; font-size: 18px; margin: 8px 0 10px; }
 .promise__grid p { font-size: 15px; line-height: 1.7; color: var(--body); }
 
 /* ------------------------------------------------------------------ faq -- */
 .faq { padding: var(--pad-y) var(--pad-x); background: var(--paper); }
-.faq h2 { font-family: var(--serif); font-weight: 300; font-size: clamp(32px,4.05vw,56px); line-height: 1.06; letter-spacing: -.04em; text-align: center; margin-bottom: clamp(32px,4vw,48px); }
+.faq h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(32px,4.05vw,56px); line-height: 1.06; letter-spacing: -.04em; text-align: center; margin-bottom: clamp(32px,4vw,48px); }
 .faq__list { max-width: 860px; margin: 0 auto; }
 .faq details { border-bottom: 1px solid var(--hairline); }
 .faq summary {
@@ -636,13 +636,13 @@ h3 { font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -.03
 /* Between about 560 and 700 the hero is a single narrow column and the capitals
    run right up to the edge, so the eased ratio starts higher up. */
 @media (max-width: 700px) {
-  .hero h1 { font-size: min(104px, 6.5cqi); }
+  .hero h1 { font-size: min(104px, 7.2cqi); }
 }
 
 @media (max-width: 640px) {
   .promise__grid { grid-template-columns: 1fr; }
   /* 7.4cqi overshoots once the box is this narrow */
-  .retreats h2 { font-size: min(52px, 5.9cqi); }
+  .retreats h2 { font-size: min(58px, 6.3cqi); }
   .pill { padding: 7px 13px 7px 7px; gap: 8px; }
   .pill__dot { width: 20px; height: 20px; }
   .pill__label { font-size: 13px; }

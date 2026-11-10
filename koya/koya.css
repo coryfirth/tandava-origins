@@ -33,7 +33,7 @@
    the viewport keeps the two lines from ever colliding with the photo. */
 .kw__title {
   font-family: var(--serif);
-  font-weight: 300;
+  font-weight: 500;
   font-size: min(76px, 12.2cqi);
   line-height: 1.04;
   letter-spacing: -.04em;

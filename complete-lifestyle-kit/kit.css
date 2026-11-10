@@ -65,7 +65,7 @@
 }
 .k-buybox__title {
   font-family: var(--serif);
-  font-weight: 300;
+  font-weight: 500;
   /* The 30px floor stopped this shrinking far enough for "Uncover Your
      Biological" to hold one line on a phone, so the line ran off the card. */
   font-size: clamp(26px, 9.4cqi, 66px);
@@ -97,7 +97,7 @@
   display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px 16px;
 }
 .k-price__row { display: flex; align-items: baseline; gap: 8px; }
-.k-price__num { font-family: var(--serif); font-weight: 300; font-size: var(--price-size); line-height: 1; color: var(--ink); }
+.k-price__num { font-family: var(--serif); font-weight: 500; font-size: var(--price-size); line-height: 1; color: var(--ink); }
 /* The numeral's line-height of 1 squashes its line box, so the baseline the
    browser aligns to sits below where the digits actually sit and USD hangs
    low. Lift it by a fraction of the numeral, so the correction tracks the
@@ -161,9 +161,9 @@
 .k-stat__copy { flex: 0 1 380px; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; text-align: right; }
 .k-stat__copy p { margin: 0; font-size: clamp(20px, 2vw, 28px); line-height: 1.35; color: var(--body); text-align: right; text-wrap: balance; }
 .k-stat__source { font-size: 12px; line-height: 1.4; color: var(--muted); }
-.k-stat__figure { font-family: var(--serif); font-weight: 300; font-size: clamp(110px, 16vw, 220px); line-height: .9; letter-spacing: -.05em; color: var(--clay); }
+.k-stat__figure { font-family: var(--serif); font-weight: 500; font-size: clamp(110px, 16vw, 220px); line-height: .9; letter-spacing: -.05em; color: var(--clay); }
 .k-stat__title {
-  font-family: var(--serif); font-weight: 300;
+  font-family: var(--serif); font-weight: 500;
   font-size: clamp(32px, 4.05vw, 56px);
   line-height: 1.06; letter-spacing: -.04em;
   margin: clamp(36px, 4.5vw, 60px) auto 0;
@@ -184,7 +184,7 @@
     linear-gradient(160deg, #1A231F 0%, #212C28 50%, #1D2723 100%);
 }
 .k-six__wrap { max-width: 1040px; margin: 0 auto; }
-.k-six__title { font-family: var(--serif); font-weight: 300; font-size: clamp(32px, 4.05vw, 56px); line-height: 1.06; letter-spacing: -.04em; margin: 0; text-align: center; color: var(--paper); }
+.k-six__title { font-family: var(--serif); font-weight: 500; font-size: clamp(32px, 4.05vw, 56px); line-height: 1.06; letter-spacing: -.04em; margin: 0; text-align: center; color: var(--paper); }
 
 .k-six__tabs {
   display: flex; justify-content: space-between; gap: 12px;
@@ -213,9 +213,9 @@
 .k-six__body { display: flex; flex-wrap: wrap; align-items: center; gap: clamp(32px, 6vw, 96px); margin-top: clamp(40px, 6vw, 80px); min-height: 380px; }
 .k-six__copy { flex: 1 1 380px; min-width: 0; }
 .k-six__count { display: flex; align-items: baseline; gap: 10px; }
-.k-six__num { font-family: var(--serif); font-weight: 300; font-size: clamp(48px, 5vw, 64px); line-height: 1; color: var(--clay); }
+.k-six__num { font-family: var(--serif); font-weight: 500; font-size: clamp(48px, 5vw, 64px); line-height: 1; color: var(--clay); }
 .k-six__of { font-size: 15px; color: rgba(246, 245, 240, .7); }
-.k-six__heading { font-family: var(--serif); font-weight: 300; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -.035em; margin: 22px 0 0; color: var(--paper); text-wrap: balance; }
+.k-six__heading { font-family: var(--serif); font-weight: 500; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -.035em; margin: 22px 0 0; color: var(--paper); text-wrap: balance; }
 .k-six__text { font-size: 17px; line-height: 1.6; color: rgba(246, 245, 240, .88); margin: 18px 0 0; max-width: 440px; text-wrap: pretty; }
 .k-six__track { height: 1.5px; background: rgba(246, 245, 240, .14); margin-top: 30px; max-width: 440px; }
 .k-six__bar { height: 100%; width: 16.6667%; background: var(--clay); transition: width .5s ease; }
@@ -267,7 +267,7 @@
 .k-how__body { margin-top: clamp(28px, 3.5vw, 44px); display: flex; flex-wrap: wrap; align-items: center; gap: clamp(28px, 5vw, 72px); }
 .k-how__copy { flex: 1 1 360px; min-width: 0; }
 .k-how__kicker { font-size: 12px; letter-spacing: .16em; }
-.k-how__heading { font-family: var(--serif); font-weight: 300; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -.035em; margin: 14px 0 0; color: var(--ink); text-wrap: balance; }
+.k-how__heading { font-family: var(--serif); font-weight: 500; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -.035em; margin: 14px 0 0; color: var(--ink); text-wrap: balance; }
 .k-how__text { font-size: 18px; line-height: 1.6; color: var(--body); margin: 18px 0 0; max-width: 520px; text-wrap: pretty; }
 .k-how__nav { display: flex; align-items: center; gap: 12px; margin-top: 32px; }
 .k-how__arrow {
@@ -426,7 +426,7 @@
   padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
 }
-.k-stickybottom__num { font-family: var(--serif); font-weight: 300; font-size: 28px; line-height: 1; color: var(--ink); }
+.k-stickybottom__num { font-family: var(--serif); font-weight: 500; font-size: 28px; line-height: 1; color: var(--ink); }
 .k-stickybottom__cur { font-size: 14px; color: var(--muted); margin-top: 3px; }
 .k-stickybottom .k-cta { min-height: 50px; padding: 0 24px; }
 
@@ -451,7 +451,7 @@
   background: var(--paper); cursor: pointer;
   display: flex; align-items: center; justify-content: center;
 }
-.k-upsell__title { font-family: var(--serif); font-weight: 300; font-size: clamp(32px, 4.05vw, 56px); line-height: 1.06; letter-spacing: -.04em; margin: 0; padding-right: 44px; color: var(--ink); }
+.k-upsell__title { font-family: var(--serif); font-weight: 500; font-size: clamp(32px, 4.05vw, 56px); line-height: 1.06; letter-spacing: -.04em; margin: 0; padding-right: 44px; color: var(--ink); }
 .k-upsell__lede { font-size: 17px; line-height: 1.5; color: var(--body); margin: 12px 0 0; text-wrap: pretty; }
 .k-upsell__list { display: flex; flex-direction: column; gap: 16px; margin-top: 22px; }
 .k-upsell__row { display: flex; gap: 14px; align-items: flex-start; }
@@ -459,7 +459,7 @@
 .k-upsell__head { font-family: var(--label); font-weight: 600; font-size: 16px; color: var(--ink); }
 .k-upsell__sub { font-size: 16px; line-height: 1.5; color: var(--body); margin-top: 2px; }
 .k-upsell__price { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
-.k-upsell__num { font-family: var(--serif); font-weight: 300; font-size: 48px; line-height: 1; color: var(--ink); }
+.k-upsell__num { font-family: var(--serif); font-weight: 500; font-size: 48px; line-height: 1; color: var(--ink); }
 .k-upsell__per { font-size: 17px; color: var(--body); }
 .k-upsell__card .k-cta--block { margin-top: 18px; }
 .k-upsell__skip { display: flex; justify-content: center; margin-top: 6px; }
