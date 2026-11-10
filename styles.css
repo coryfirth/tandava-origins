@@ -589,12 +589,17 @@ h3 { font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -.03
 /* The practitioners, under the group photo and the quote. Capped columns so
    three fill the row at the card's design size and two never balloon to half
    the page each. */
+.people__teamtitle {
+  font-size: clamp(32px, 4.05vw, 56px);
+  line-height: 1.06;
+  margin-top: clamp(48px, 6vw, 80px);
+}
 .people__team {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 390px));
   justify-content: center;
   gap: 24px;
-  margin-top: clamp(40px, 5vw, 64px);
+  margin-top: clamp(28px, 3.5vw, 40px);
 }
 .person { background: var(--white); border-radius: 22px; padding: 16px 16px 22px; display: flex; flex-direction: column; gap: 12px; }
 .person__photo { width: 100%; aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden; background: #ECE9E0; }
