@@ -202,12 +202,12 @@
 
   /* ================================================ how it works / dots -- */
   var HOW = [
-    ['296 markers', 'We read 296 markers', 'Your cheek swab goes to our accredited lab partner, which reads 296 genetic markers tied to how you sleep, eat, move, recover and handle stress.'],
-    ['5 areas', 'Across 5 key lifestyle areas', 'Every marker belongs to one of five areas: sleep, diet, stress, performance, exercise. We teach you how to read them together, because they affect each other. '],
-    ['Your life', 'Together with how you actually live', 'We help you build healthy lifestyle habits that are aligned to your genetics.'],
-    ['1 focus', 'We identify one clear focus', 'Where your genes and your habits pull furthest apart is where a small change goes furthest. That becomes your focus, with your key levers beside it.'],
-    ['4 habits', 'You start with four habits, smallest first', 'Last coffee before 1pm. Your genes say caffeine stays with you; your intake says sleep is where you’re struggling.'],
-    ['You', 'A plan shaped around you', 'Every marker ends up as plain-language advice for one person: how you sleep, eat, move, recover and handle stress, starting with the habits that matter most for you.']
+    ['296 markers', 'We Read 296 Markers', 'Your cheek swab goes to our accredited lab partner, which reads 296 genetic markers tied to how you sleep, eat, move, recover and handle stress.'],
+    ['5 areas', 'Across 5 Key Lifestyle Areas', 'Every marker belongs to one of five areas: sleep, diet, stress, performance, exercise. We teach you how to read them together, because they affect each other. '],
+    ['Your life', 'Together With How You Actually Live', 'We help you build healthy lifestyle habits that are aligned to your genetics.'],
+    ['1 focus', 'We Identify One Clear Focus', 'Where your genes and your habits pull furthest apart is where a small change goes furthest. That becomes your focus, with your key levers beside it.'],
+    ['4 habits', 'You Start With Four Habits, Smallest First', 'Last coffee before 1pm. Your genes say caffeine stays with you; your intake says sleep is where you’re struggling.'],
+    ['You', 'A Plan Shaped Around You', 'Every marker ends up as plain-language advice for one person: how you sleep, eat, move, recover and handle stress, starting with the habits that matter most for you.']
   ];
 
   var how = document.querySelector('[data-how]');
