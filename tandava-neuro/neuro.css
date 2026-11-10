@@ -1,0 +1,290 @@
+/* ==========================================================================
+   Tandava Neuro. Loads after nav.css and styles.css, which supply the tokens,
+   header, footer and shared helpers. This page carries its own accent: the
+   Neuro blue, used where the rest of the site uses clay.
+   ========================================================================== */
+
+:root {
+  --nb:      #2B6CA3;   /* Neuro blue */
+  --nb-pale: #EEF3F8;
+  --nb-wash: #DDE8F3;
+  --nb-soft: #B4CDE6;
+  --nb-ink:  #14304D;
+  --nb-clay: #B37D51;   /* the genetics half of the two-strand palette */
+}
+
+.nu .accent { color: var(--nb); }
+.nu-sec { padding: clamp(64px,8vw,112px) var(--pad-x); }
+.nu-wrap { max-width: var(--wrap); margin: 0 auto; }
+.nu-h2 { font-size: clamp(34px,4vw,56px); line-height: 1.08; letter-spacing: -.035em; }
+.nu-lede { margin: 0; font-size: clamp(17px,1.35vw,20px); line-height: 1.6; color: var(--body); text-wrap: pretty; }
+
+/* ------------------------------------------------------------------ hero -- */
+.nu-hero { padding: 0 var(--pad-x) clamp(64px,8vw,112px); background: var(--paper); }
+.nu-hero__grid { display: flex; flex-wrap: wrap; align-items: center; gap: clamp(32px,5vw,72px); padding-top: clamp(40px,5vw,80px); }
+.nu-hero__copy { flex: 1.3 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+.nu-hero__title { font-size: clamp(36px,4.4vw,64px); line-height: 1.08; letter-spacing: -.045em; }
+.nu-hero__text { margin: 0; font-size: clamp(17px,1.35vw,20px); line-height: 1.6; color: var(--body); max-width: 56ch; text-wrap: pretty; }
+.nu-hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.nu-hero__meta { display: flex; align-items: center; gap: 10px; font-size: 16px; color: var(--body); }
+.nu-hero__metaicon {
+  width: 34px; height: 34px; flex: none; border-radius: 999px; background: var(--nb-pale);
+  display: flex; align-items: center; justify-content: center; color: var(--nb);
+}
+
+.nu-hero__media { flex: 1 1 340px; min-width: 0; max-width: 500px; position: relative; }
+.nu-hero__pair {
+  border-radius: 22px; overflow: hidden; aspect-ratio: 4/5; background: var(--nb-wash);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+}
+.nu-hero__pair img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block; min-width: 0; }
+.nu-hero__credit {
+  position: absolute; left: 20px; right: 20px; bottom: 20px;
+  background: var(--white); border-radius: 16px; padding: 14px 20px;
+  box-shadow: 0 14px 32px rgba(33,44,40,.16);
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2px;
+}
+.nu-hero__credit span:first-child { font-size: 14px; color: var(--muted); }
+.nu-hero__credit b { font-weight: 600; font-size: 16px; }
+
+/* ---------------------------------------------------------- cta rows -- */
+.nu-ctarow { padding: 0 var(--pad-x) clamp(56px,7vw,96px); }
+.nu-ctarow--white { background: var(--white); }
+.nu-ctarow__inner { max-width: var(--wrap); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+/* --------------------------------------------------------- who it's for -- */
+.nu-for { background: var(--paper); }
+.nu-for__grid { display: flex; flex-wrap: wrap; gap: clamp(32px,5vw,80px); align-items: center; }
+.nu-for__media { flex: 1 1 380px; min-width: 0; max-width: 520px; margin: 0 auto; }
+.nu-for__media > div { border-radius: 22px; overflow: hidden; aspect-ratio: 4/5; background: var(--nb-wash); }
+.nu-for__media img { width: 100%; height: 100%; object-fit: cover; object-position: 70% 40%; display: block; }
+.nu-for__copy { flex: 1.2 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+.nu-for__list { display: flex; flex-direction: column; border-bottom: 1px solid rgba(33,44,40,.12); }
+.nu-for__list li {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 16px 0; border-top: 1px solid rgba(33,44,40,.12);
+  font-size: clamp(17px,1.35vw,19px); line-height: 1.45; color: var(--ink);
+}
+.nu-for__tick {
+  width: 28px; height: 28px; flex: none; border-radius: 999px; background: var(--nb);
+  display: flex; align-items: center; justify-content: center; margin-top: 1px;
+}
+.nu-for__close {
+  margin: 6px 0 0; font-family: var(--serif); font-weight: 500;
+  font-size: clamp(21px,1.9vw,26px); line-height: 1.35; letter-spacing: -.035em; text-wrap: pretty;
+}
+
+/* ------------------------------------------------------------- overview -- */
+.nu-prog { background: var(--white); border-top: 1px solid rgba(33,44,40,.08); }
+.nu-prog__wrap { display: flex; flex-direction: column; gap: clamp(28px,3vw,40px); }
+.nu-prog__head { display: flex; flex-wrap: wrap; gap: 20px 48px; align-items: flex-end; justify-content: space-between; }
+.nu-prog__headcopy { display: flex; flex-direction: column; gap: 14px; max-width: 720px; }
+.nu-prog__key { display: flex; gap: 20px; flex-wrap: wrap; font-size: 14px; color: var(--body); }
+.nu-prog__key span { display: flex; align-items: center; gap: 8px; }
+.nu-prog__key i { width: 10px; height: 10px; border-radius: 999px; display: block; }
+
+.nu-prog__rows { display: flex; flex-direction: column; border-bottom: 1px solid rgba(33,44,40,.1); }
+.nu-step {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%,260px),1fr));
+  gap: 18px 40px; align-items: center; padding: 28px 0; border-top: 1px solid rgba(33,44,40,.1);
+}
+.nu-step__when { display: flex; flex-direction: column; gap: 10px; }
+.nu-step__k {
+  font-family: var(--label); font-weight: 600; font-size: 12px; letter-spacing: .14em;
+}
+.nu-step__k[data-who="cory"]   { color: #8A5A34; }
+.nu-step__k[data-who="manesh"] { color: var(--nb); }
+.nu-step__name { font-family: var(--serif); font-weight: 500; font-size: clamp(24px,2.2vw,30px); line-height: 1.1; letter-spacing: -.03em; }
+.nu-step__who { display: flex; align-items: center; gap: 8px; }
+.nu-step__who img { width: 26px; height: 26px; border-radius: 999px; object-fit: cover; object-position: 50% 25%; }
+.nu-step__who span { font-size: 14px; color: var(--muted); }
+
+.nu-step__get { display: flex; flex-direction: column; gap: 12px; }
+.nu-step__got { font-family: var(--serif); font-weight: 500; font-size: clamp(20px,1.8vw,24px); line-height: 1.25; letter-spacing: -.025em; color: var(--ink); text-wrap: pretty; }
+.nu-step__dots { display: flex; gap: 4px; width: 100%; max-width: 220px; }
+.nu-step__dots i { flex: 1; height: 6px; border-radius: 999px; background: rgba(33,44,40,.1); display: block; }
+.nu-step__dots i[data-on="cory"]   { background: var(--nb-clay); }
+.nu-step__dots i[data-on="manesh"] { background: var(--nb); }
+
+.nu-step__what { display: flex; gap: 12px; align-items: flex-start; }
+.nu-step__icons { display: flex; gap: 6px; flex: none; width: 74px; }
+.nu-step__icons span { width: 34px; height: 34px; flex: none; border-radius: 999px; display: flex; align-items: center; justify-content: center; }
+.nu-step__icons[data-who="cory"] span   { background: rgba(179,125,81,.1); color: var(--nb-clay); }
+.nu-step__icons[data-who="manesh"] span { background: rgba(43,108,163,.1); color: var(--nb); }
+.nu-step__detail { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.nu-step__detail span:first-child { font-size: 13px; color: var(--muted); }
+.nu-step__detail span:last-child { font-size: 15px; line-height: 1.5; color: var(--body); text-wrap: pretty; }
+
+.nu-price {
+  display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: center; justify-content: space-between;
+  background: var(--paper); border-radius: 22px; padding: clamp(24px,3vw,36px);
+}
+.nu-price__copy { display: flex; flex-direction: column; gap: 6px; max-width: 640px; }
+.nu-price__copy b { font-family: var(--serif); font-weight: 500; font-size: clamp(22px,2vw,28px); letter-spacing: -.03em; }
+.nu-price__copy span { font-size: 16px; line-height: 1.55; color: var(--body); text-wrap: pretty; }
+.nu-price__buy { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.nu-price__fig { display: flex; align-items: baseline; gap: 6px; }
+.nu-price__fig b { font-family: var(--serif); font-weight: 500; font-size: clamp(36px,3.4vw,46px); line-height: 1; letter-spacing: -.04em; }
+.nu-price__fig span { font-size: 14px; color: var(--muted); }
+
+/* ------------------------------------------------- included + changes -- */
+.nu-two { background: var(--paper); }
+.nu-two__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%,340px),1fr)); gap: clamp(20px,2.5vw,32px); }
+.nu-card { background: var(--white); border: 1px solid var(--hairline-2); border-radius: 24px; padding: clamp(26px,3vw,40px); display: flex; flex-direction: column; gap: 18px; }
+.nu-card h3 { font-size: clamp(26px,2.4vw,34px); line-height: 1.1; letter-spacing: -.035em; }
+.nu-card__list { display: flex; flex-direction: column; gap: 14px; }
+.nu-card__list li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; line-height: 1.5; color: var(--body); }
+.nu-card__list svg { flex: none; margin-top: 3px; color: var(--nb); }
+.nu-card__note { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted); }
+.nu-card .btn { align-self: flex-start; }
+
+/* ----------------------------------------------------------- apollo -- */
+.nu-apollo { background: var(--white); }
+.nu-apollo__inner {
+  max-width: var(--wrap); margin: 0 auto;
+  display: flex; flex-wrap: wrap; align-items: center; gap: clamp(24px,4vw,56px);
+}
+.nu-apollo__logo { flex: 0 1 300px; }
+.nu-apollo__logo img { display: block; width: 100%; height: auto; max-width: 300px; }
+.nu-apollo__rule { width: 1px; align-self: stretch; background: var(--hairline-2); }
+.nu-apollo__copy { flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.nu-apollo__copy p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--body); text-wrap: pretty; }
+.nu-apollo__copy p:last-child { font-size: 14px; color: var(--muted); }
+
+/* ------------------------------------------------------------ manesh -- */
+.nu-quote { background: var(--paper); }
+.nu-quote__grid { display: flex; flex-wrap: wrap; gap: clamp(32px,5vw,72px); align-items: center; }
+.nu-quote__media { flex: 1 1 320px; min-width: 0; max-width: 420px; margin: 0 auto; }
+.nu-quote__media div { border-radius: 22px; overflow: hidden; aspect-ratio: 4/5; background: var(--nb-wash); }
+.nu-quote__media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block; }
+.nu-quote__copy { flex: 1.3 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+.nu-quote__copy p {
+  margin: 0; font-family: var(--serif); font-weight: 500;
+  font-size: clamp(20px,1.9vw,26px); line-height: 1.4; letter-spacing: -.025em;
+  color: var(--ink); text-wrap: pretty;
+}
+.nu-quote__name { font-size: 17px; font-weight: 600; }
+.nu-quote__creds { display: flex; flex-wrap: wrap; gap: 8px; }
+.nu-quote__creds span {
+  border: 1px solid rgba(48,64,40,.22); border-radius: 999px;
+  padding: 7px 14px; font-size: 14px; color: var(--body);
+}
+
+.nu :focus-visible { outline: 3px solid var(--nb); outline-offset: 3px; border-radius: 6px; }
+
+/* ==========================================================================
+   Terrain and path — the How It Works panel.
+   Three steps that advance on their own until the reader picks one.
+   ========================================================================== */
+.nu-tp { background: var(--white); padding: clamp(56px,7vw,104px) var(--pad-x) clamp(40px,5vw,64px); }
+.nu-tp__head { display: flex; flex-direction: column; gap: 14px; margin-bottom: clamp(32px,4vw,56px); }
+.nu-tp__title { font-size: clamp(32px,3.6vw,52px); line-height: 1.08; letter-spacing: -.04em; }
+.nu-tp__title span { display: block; }
+.nu-tp__title span + span { color: var(--nb); }
+
+.nu-tp__grid { display: flex; flex-wrap: wrap; gap: clamp(28px,3.5vw,56px); align-items: flex-start; }
+.nu-tp__tabs { flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+.nu-tp__tabs h3 { font-size: clamp(26px,2.4vw,34px); line-height: 1.1; letter-spacing: -.035em; margin-bottom: 6px; }
+.nu-tp__tabs h3 span { color: var(--nb); }
+
+.nu-tab {
+  all: unset; box-sizing: border-box; cursor: pointer; display: block; width: 100%;
+  background: var(--white); border: 1px solid var(--hairline-2); border-radius: 18px;
+  padding: 18px 20px; position: relative; overflow: hidden;
+  transition: background-color .25s var(--ease), border-color .25s var(--ease);
+}
+.nu-tab[aria-selected="true"] { background: var(--paper); border-color: rgba(43,108,163,.35); }
+.nu-tab__top { display: flex; align-items: center; gap: 14px; }
+.nu-tab__n {
+  width: 34px; height: 34px; flex: none; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--label); font-weight: 600; font-size: 14px;
+  background: var(--nb-pale); color: var(--nb-ink);
+  transition: background-color .25s var(--ease), color .25s var(--ease);
+}
+.nu-tab[aria-selected="true"] .nu-tab__n { background: var(--nb); color: var(--paper); }
+.nu-tab__role { font-family: var(--serif); font-weight: 500; font-size: clamp(18px,1.5vw,21px); line-height: 1.25; letter-spacing: -.025em; color: var(--ink); }
+.nu-tab__body { display: none; padding: 12px 0 2px 48px; font-size: 16px; line-height: 1.55; color: var(--body); text-wrap: pretty; }
+.nu-tab[aria-selected="true"] .nu-tab__body { display: block; }
+/* The bar that runs while a step is on screen, and stops once the reader
+   takes over. */
+.nu-tab__bar { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: rgba(43,108,163,.14); display: none; }
+.nu-tab[aria-selected="true"] .nu-tab__bar { display: block; }
+.nu-tab__bar i { display: block; height: 100%; width: 0; background: var(--nb); }
+.nu-tp[data-auto="true"] .nu-tab[aria-selected="true"] .nu-tab__bar i { animation: nu-run 7000ms linear forwards; }
+@keyframes nu-run { from { width: 0 } to { width: 100% } }
+
+/* ------------------------------------------------------------- the card -- */
+.nu-tp__card {
+  flex: 1.1 1 420px; min-width: 0;
+  background: var(--paper); border: 1px solid var(--hairline-2); border-radius: 24px;
+  padding: clamp(18px,2.2vw,28px);
+  display: flex; flex-direction: column; gap: 16px;
+}
+.nu-stage { position: relative; min-height: clamp(260px, 34vw, 340px); }
+.nu-view { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .45s var(--ease); }
+.nu-view[data-on="true"] { opacity: 1; visibility: visible; }
+
+/* state 1 — the intake */
+.nu-intake__head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.nu-intake__head span:first-child { font-family: var(--label); font-weight: 600; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--nb); }
+.nu-intake__head span:last-child { font-size: 13px; color: var(--muted); }
+.nu-intake__bar { height: 4px; border-radius: 999px; background: rgba(43,108,163,.14); margin: 12px 0 18px; overflow: hidden; }
+.nu-intake__bar i { display: block; height: 100%; width: 0; background: var(--nb); }
+.nu-view[data-on="true"] .nu-intake__bar i { animation: nu-run 2600ms linear forwards; }
+.nu-intake__row { padding: 10px 0; border-top: 1px solid rgba(48,64,40,.1); }
+.nu-intake__k { font-size: 13px; color: var(--muted); }
+.nu-intake__chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.nu-intake__chips span {
+  background: var(--white); border: 1px solid var(--hairline-2); border-radius: 999px;
+  padding: 6px 12px; font-size: 13.5px; color: var(--ink);
+  opacity: 0; transform: translateY(6px);
+}
+.nu-view[data-on="true"] .nu-intake__chips span { animation: nu-rise .5s var(--ease) forwards; }
+@keyframes nu-rise { to { opacity: 1; transform: none } }
+
+/* state 2 — the helix */
+.nu-helix { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.1fr); gap: 16px; height: 100%; align-items: center; }
+.nu-helix canvas { display: block; width: 100%; height: clamp(220px,28vw,300px); }
+.nu-helix__areas { display: flex; flex-direction: column; gap: 10px; }
+.nu-helix__areas div { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink); opacity: 0; transform: translateX(14px); }
+.nu-view[data-on="true"] .nu-helix__areas div { animation: nu-slide .5s var(--ease) forwards; }
+@keyframes nu-slide { to { opacity: 1; transform: none } }
+.nu-helix__areas i { width: 10px; height: 10px; border-radius: 999px; flex: none; display: block; }
+
+/* state 3 — the six weeks */
+.nu-path { display: flex; flex-direction: column; gap: 18px; height: 100%; justify-content: center; }
+.nu-path__flow { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: center; }
+.nu-path__col { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.nu-path__col div {
+  background: var(--white); border: 1px solid var(--hairline-2); border-radius: 12px;
+  padding: 10px 12px; font-size: 13.5px; line-height: 1.35; color: var(--ink);
+  opacity: 0; transform: translateX(-12px);
+}
+.nu-view[data-on="true"] .nu-path__col div { animation: nu-slidein .55s var(--ease) forwards; }
+@keyframes nu-slidein { to { opacity: 1; transform: none } }
+.nu-path__hub { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.nu-path__hub img { width: clamp(54px,7vw,72px); height: clamp(54px,7vw,72px); border-radius: 999px; object-fit: cover; object-position: 50% 18%; border: 3px solid var(--white); box-shadow: 0 10px 26px rgba(33,44,40,.18); }
+.nu-path__hub span { font-family: var(--label); font-weight: 600; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--nb); text-align: center; }
+.nu-path__weeks { display: flex; align-items: center; gap: 10px; padding-top: 14px; border-top: 1px solid rgba(48,64,40,.1); }
+.nu-path__weeks > span { font-size: 13px; color: var(--muted); flex: none; }
+.nu-path__weeks div { display: flex; gap: 6px; flex: 1; }
+.nu-path__weeks i { flex: 1; height: 8px; border-radius: 999px; background: rgba(180,205,230,.3); display: block; }
+.nu-view[data-on="true"] .nu-path__weeks i { animation: nu-fillweek .4s var(--ease) forwards; }
+@keyframes nu-fillweek { to { background: var(--nb-soft) } }
+
+.nu-tp__cap { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding-top: 4px; }
+.nu-tp__capt { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.nu-tp__capt b { font-family: var(--serif); font-weight: 500; font-size: clamp(17px,1.5vw,20px); letter-spacing: -.025em; color: var(--ink); }
+.nu-tp__capt span { font-size: 14px; line-height: 1.45; color: var(--muted); text-wrap: pretty; }
+.nu-tp__ill { flex: none; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .nu-tp[data-auto="true"] .nu-tab[aria-selected="true"] .nu-tab__bar i,
+  .nu-view[data-on="true"] .nu-intake__bar i { animation: none; width: 100%; }
+  .nu-view[data-on="true"] .nu-intake__chips span,
+  .nu-view[data-on="true"] .nu-helix__areas div,
+  .nu-view[data-on="true"] .nu-path__col div { animation: none; opacity: 1; transform: none; }
+  .nu-view[data-on="true"] .nu-path__weeks i { animation: none; background: var(--nb-soft); }
+  .nu-view { transition: none; }
+}

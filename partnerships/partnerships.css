@@ -1,0 +1,105 @@
+/* ==========================================================================
+   Partnerships. Loads after nav.css and styles.css, which supply the tokens,
+   header, footer and the shared .btn / .eyebrow helpers.
+   ========================================================================== */
+
+.pr { padding: clamp(32px, 5vw, 72px) var(--pad-x) clamp(64px, 8vw, 112px); background: var(--paper); }
+.pr__grid {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(40px, 5vw, 72px);
+  align-items: flex-start;
+}
+
+/* ------------------------------------------------------------- the case -- */
+.pr__lead { flex: 1.2 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+.pr__title { font-size: clamp(38px, 4.6vw, 66px); line-height: 1.05; letter-spacing: -.045em; }
+.pr__lede {
+  margin: 0;
+  font-size: clamp(17px, 1.35vw, 20px);
+  line-height: 1.6;
+  color: var(--body);
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+
+.pr__pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pr__pill {
+  border: 1px solid rgba(48,64,40,.22);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 14px;
+  color: var(--body);
+  white-space: nowrap;
+}
+
+.pr__for {
+  display: flex; flex-direction: column; gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+}
+.pr__for p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--body); text-wrap: pretty; }
+.pr__for b { font-weight: 600; color: var(--ink); }
+
+.pr__photo {
+  display: block; width: 100%; height: auto;
+  margin-top: 12px;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  object-position: 40% 40%;
+  border-radius: 24px;
+  background: var(--sand);
+}
+
+/* ---------------------------------------------------------------- form -- */
+.pr__card {
+  flex: 1 1 380px;
+  min-width: 0;
+  background: var(--white);
+  border: 1px solid rgba(48,64,40,.12);
+  border-radius: 24px;
+  padding: clamp(26px, 3vw, 40px);
+  box-shadow: 0 24px 56px rgba(33,44,40,.10);
+}
+.pr__form { display: flex; flex-direction: column; gap: 16px; }
+.pr__formhead { display: flex; flex-direction: column; gap: 6px; margin-bottom: 4px; }
+.pr__formtitle { font-size: clamp(26px, 2.4vw, 32px); line-height: 1.15; letter-spacing: -.035em; }
+.pr__formsub { margin: 0; font-size: 16px; line-height: 1.5; color: var(--muted); }
+
+.pr__row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+.pr__field { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; }
+.pr__field input,
+.pr__field textarea {
+  font: inherit;
+  font-weight: 400;
+  border: 1px solid rgba(48,64,40,.2);
+  border-radius: 10px;
+  padding: 13px 14px;
+  font-size: 16px;            /* 16px stops iOS zooming the page on focus */
+  background: #FBFAF7;
+  color: var(--ink);
+}
+.pr__field textarea { resize: vertical; }
+.pr__field input:focus,
+.pr__field textarea:focus {
+  outline: none;
+  border-color: var(--forest);
+  box-shadow: 0 0 0 3px rgba(52,68,46,.12);
+}
+.pr__submit { align-self: stretch; margin-top: 4px; border: 0; cursor: pointer; }
+.pr__submit:hover { background: var(--ink); color: var(--paper); }
+
+/* The state the form swaps to once it has been sent. */
+.pr__done { display: none; flex-direction: column; gap: 14px; padding: 24px 0; }
+.pr__card[data-sent="true"] .pr__form { display: none; }
+.pr__card[data-sent="true"] .pr__done { display: flex; }
+.pr__tick {
+  width: 52px; height: 52px; border-radius: 999px; background: #EEF2EA;
+  display: flex; align-items: center; justify-content: center;
+}
+.pr__donetitle { font-size: 32px; line-height: 1.15; letter-spacing: -.035em; }
+.pr__done p { margin: 0; font-size: 17px; line-height: 1.6; color: var(--body); }
+
+.pr :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 6px; }

@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Lifestyle Design. Loads after nav.css, styles.css and the kit page's
+   kit.css, which carries the two sliders this page shares with it.
+   ========================================================================== */
+
+.ld-sec { padding: clamp(56px,7vw,104px) var(--pad-x); }
+.ld-wrap { max-width: var(--wrap); margin: 0 auto; }
+.ld-h2 { font-size: clamp(32px,3.8vw,54px); line-height: 1.08; letter-spacing: -.04em; }
+.ld-p { margin: 0; font-size: clamp(17px,1.35vw,20px); line-height: 1.6; color: var(--body); text-wrap: pretty; }
+
+.ld-split { display: flex; flex-wrap: wrap; gap: clamp(32px,5vw,72px); align-items: center; }
+.ld-split__copy { flex: 1.1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+.ld-split__art { flex: 1 1 400px; min-width: 0; max-width: 540px; }
+
+.ld-hero { background: var(--paper); padding-top: clamp(28px,4vw,56px); }
+.ld-hero__title { font-size: clamp(38px,4.6vw,66px); line-height: 1.05; letter-spacing: -.045em; }
+
+/* --------------------------------------------------------- the day dial -- */
+.ld-dial { width: 100%; max-width: 540px; margin: 0 auto; }
+.ld-dial__stage { position: relative; width: 100%; aspect-ratio: 1/1; }
+.ld-dial__b {
+  position: absolute; padding: 5px; box-sizing: border-box;
+  transition: left 1.3s cubic-bezier(.65,0,.35,1), top 1.3s cubic-bezier(.65,0,.35,1),
+              width 1.3s cubic-bezier(.65,0,.35,1), height 1.3s cubic-bezier(.65,0,.35,1),
+              transform 1.3s cubic-bezier(.65,0,.35,1);
+}
+.ld-dial__b > div {
+  width: 100%; height: 100%; border-radius: 18px;
+  box-shadow: 0 10px 26px rgba(33,44,40,.12);
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: clamp(10px,2.4vw,18px); box-sizing: border-box; overflow: hidden;
+}
+.ld-dial__n { font-weight: 600; font-size: clamp(13px,1.5vw,17px); line-height: 1.15; }
+.ld-dial__h { font-size: clamp(11px,1.2vw,13px); line-height: 1.2; opacity: .85; }
+
+/* ------------------------------------------------------- the gene blocks -- */
+.ld-gene {
+  position: relative; width: 100%; aspect-ratio: 1/1.05;
+  border-radius: 22px; background: #1A231F; border: 1px solid rgba(246,245,240,.1);
+  box-sizing: border-box; overflow: hidden;
+}
+.ld-gene__inner {
+  position: absolute; inset: 0; padding: clamp(20px,3vw,36px);
+  display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); gap: clamp(8px,2vw,24px);
+}
+.ld-gene__canvas { position: relative; min-height: 0; }
+.ld-gene__canvas canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.ld-gene__areas { display: flex; flex-direction: column; justify-content: space-around; gap: 8px; min-width: 0; }
+.ld-gene__areas > div {
+  display: flex; align-items: center; gap: 10px;
+  opacity: 0; transform: translateX(-8px);
+  transition: opacity .5s ease, transform .6s cubic-bezier(.2,.7,.2,1);
+}
+.ld-gene[data-on="true"] .ld-gene__areas > div { opacity: 1; transform: none; }
+.ld-gene__rule { width: clamp(14px,3vw,36px); height: 1px; flex: none; opacity: .7; }
+.ld-gene__chip {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(246,245,241,.07); border: 1px solid rgba(246,245,241,.2);
+  border-radius: 999px; padding: 9px 16px 9px 10px; min-width: 0;
+}
+.ld-gene__dot { width: 12px; height: 12px; flex: none; border-radius: 999px; }
+.ld-gene__chip span:last-child { font-size: clamp(14px,1.2vw,16px); font-weight: 500; color: #F6F5F1; white-space: nowrap; }
+
+/* ------------------------------------------------------ the two people -- */
+.ld-viz { margin-top: clamp(40px,5vw,72px); border-radius: 22px; background: var(--ink); overflow: hidden; position: relative; }
+.ld-viz__stage {
+  position: relative; width: 100%; aspect-ratio: 16 / 7.5;
+  background: radial-gradient(120% 90% at 50% 50%, #26322C 0%, #1A231F 70%, #151C19 100%);
+}
+.ld-viz__stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.ld-viz__lab { position: absolute; display: flex; flex-direction: column; gap: 6px; pointer-events: none; }
+.ld-viz__lab b {
+  font-family: var(--label); font-weight: 500; font-size: 11px; letter-spacing: .22em;
+  color: rgba(246,245,240,.5); white-space: nowrap;
+}
+.ld-viz__lab span { font-size: clamp(17px,1.6vw,22px); line-height: 1.1; white-space: nowrap; }
+.ld-viz__ill {
+  position: absolute; right: 20px; bottom: 16px;
+  font-family: var(--label); font-size: 11px; letter-spacing: .14em; color: rgba(246,245,240,.32);
+}
+@media (max-width: 760px) {
+  .ld-viz__stage { aspect-ratio: 4 / 4.4; }
+  .ld-viz__lab[data-genes] { display: none; }
+  .ld-viz__ill { bottom: 14px; left: 20px; right: auto; }
+}
+
+/* ------------------------------------------------------ lifestyle layer -- */
+.ld-layer {
+  width: 100%; background: var(--white); border: 1px solid rgba(48,64,40,.12);
+  border-radius: 22px; padding: clamp(26px,3.2vw,40px); box-sizing: border-box;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.ld-layer__fig { display: flex; flex-direction: column; gap: 8px; }
+.ld-layer__n {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(52px,5.4vw,72px); line-height: .95; letter-spacing: -.05em;
+}
+.ld-layer__n i { color: #8A8F86; font-style: normal; }
+.ld-layer__k { font-size: clamp(13px,1.15vw,16px); line-height: 1.5; color: var(--body); }
+.ld-layer__k a { color: #8A5A34; }
+.ld-layer__grid { display: grid; grid-template-columns: repeat(20, minmax(0,1fr)); gap: clamp(4px,.6vw,7px); }
+.ld-layer__grid span {
+  aspect-ratio: 1/1; border-radius: 999px; background: #E6DFCF; transform: scale(.6);
+  transition: background .45s ease, transform .45s cubic-bezier(.3,1.5,.5,1);
+}
+.ld-layer[data-on="true"] .ld-layer__grid span { transform: scale(1); }
+.ld-layer[data-on="true"] .ld-layer__grid span[data-lit] { background: var(--clay); }
+.ld-layer__src { font-size: 13px; line-height: 1.5; color: var(--muted); padding-top: 14px; border-top: 1px solid rgba(48,64,40,.12); }
+
+/* --------------------------------------------------------- closing tools -- */
+.ld-tools { background: var(--white); }
+.ld-tools__title { font-size: clamp(32px,3.8vw,54px); line-height: 1.08; letter-spacing: -.04em; margin-bottom: clamp(28px,3.5vw,48px); }
+.ld-tools__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-dial__b, .ld-gene__areas > div, .ld-layer__grid span { transition: none; }
+}

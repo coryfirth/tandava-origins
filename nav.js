@@ -29,10 +29,11 @@
     { key: 'sleep',        label: 'Sleep',              href: null,                       show: false },
     { key: 'diet',         label: 'Diet',               href: null,                       show: false },
     { key: 'exercise',     label: 'Exercise',           href: null,                       show: false },
-    { key: 'neuro',        label: 'Tandava Neuro',      href: '/programs/tandava-neuro/', show: true  },
-    { key: 'programs',     label: 'Programs',           href: '/programs/',               show: true  },
-    { key: 'lifestyle',    label: 'Lifestyle Design',   href: null,                       show: true,  top: true },
-    { key: 'partnerships', label: 'Partnerships',       href: null,                       show: true,  top: true },
+    { key: 'neuro',        label: 'Tandava Neuro',      href: '/tandava-neuro/',          show: true  },
+    /* Programs is a label over a dropdown, not a page of its own. */
+    { key: 'programs',     label: 'Programs',           href: null,                       show: true  },
+    { key: 'lifestyle',    label: 'Lifestyle Design',   href: '/lifestyle-design/',       show: true,  top: true },
+    { key: 'partnerships', label: 'Partnerships',       href: '/partnerships/',           show: true,  top: true },
     { key: 'about',        label: 'About',              href: null,                       show: false, top: true },
     /* Not a menu item: the Read Katie's Story button on the homepage. It is
        here because this list is what decides whether a page is live yet. */

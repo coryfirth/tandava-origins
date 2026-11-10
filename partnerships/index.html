@@ -8,18 +8,15 @@
      before they run. The CBID is the only thing to change here. -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5ca07434-284c-4021-83e3-f9ed4661b11b" data-blockingmode="auto" type="text/javascript"></script>
 
-<title>Programs &mdash; Tandava Wellness</title>
-<meta name="description" content="Guided Tandava Wellness programs built on your own genetics. Details coming soon.">
+<title>Partnerships &mdash; Tandava Wellness</title>
+<meta name="description" content="Bring DNA testing into your practice. We help practitioners and practitioner-led businesses build their own genetic programs: your brand, your clients, our tools behind it.">
 
-<link rel="canonical" href="https://tandavawellness.com/programs/">
-<!-- A placeholder should not turn up in search. Switch this to
-     "index, follow" when the real page lands. -->
-<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://tandavawellness.com/partnerships/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tandava Wellness">
-<meta property="og:title" content="Programs &mdash; Tandava Wellness">
-<meta property="og:description" content="Guided Tandava Wellness programs built on your own genetics. Details coming soon.">
-<meta property="og:url" content="https://tandavawellness.com/programs/">
+<meta property="og:title" content="Partnerships &mdash; Tandava Wellness">
+<meta property="og:description" content="Bring DNA testing into your practice. We help practitioners and practitioner-led businesses build their own genetic programs: your brand, your clients, our tools behind it.">
+<meta property="og:url" content="https://tandavawellness.com/partnerships/">
 <meta name="theme-color" content="#212C28">
 
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -31,10 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Instrument+Sans:wght@500;600&amp;family=Julius+Sans+One&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/nav.css?v=3">
 <link rel="stylesheet" href="/styles.css?v=3">
-<!-- legal.css is the site's one-column long-form layout. It is reused here
-     because this page is a single column of text; when the real page is
-     designed, swap it for a stylesheet of its own. -->
-<link rel="stylesheet" href="/legal.css?v=3">
+<link rel="stylesheet" href="/partnerships/partnerships.css?v=3">
 <link rel="stylesheet" href="/consult.css?v=3">
 <!-- data-cookieconsent="ignore" keeps Cookiebot's auto-blocking from
      gagging this file. It IS the consent gate: it loads nothing from
@@ -74,13 +68,13 @@
         </div>
       </div>
       <div class="shop" data-shop>
-        <a class="shop__toggle" data-nav="programs" href="/programs/" aria-expanded="false" aria-haspopup="true">
+        <button class="shop__toggle" type="button" aria-expanded="false" aria-haspopup="true">
           Programs
           <svg class="shop__chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-        </a>
+        </button>
         <div class="shop__menu">
           <div class="shop__panel">
-            <a data-nav="neuro" href="/programs/tandava-neuro/">Tandava Neuro</a>
+            <a data-nav="neuro" href="/tandava-neuro/">Tandava Neuro</a>
           </div>
         </div>
       </div>
@@ -97,18 +91,57 @@
 </div>
 
 <main>
-<section class="legal">
-  <div class="legal__wrap">
+<!-- ==================================================== partnerships -- -->
+<section class="pr" id="partnerships">
+  <div class="pr__grid">
 
-    <p class="legal__eyebrow">Tandava Wellness</p>
-    <h1 class="legal__title">Programs</h1>
+    <div class="pr__lead">
+      <h1 class="serif-title pr__title">Bring DNA Testing <span class="accent">Into Your Practice.</span></h1>
+      <p class="pr__lede">We help practitioners and practitioner-led businesses build their own genetic
+        programs: your brand, your clients, our full suite of tools behind it. A new way to go deeper
+        with the people you already serve, and a new line of revenue for your business.</p>
 
-    <div class="legal__body">
-      <p>Guided programs built on what your genetics already tell us. The first one is on its way.</p>
-      <p><a href="/programs/tandava-neuro/">Tandava Neuro</a> &mdash; coming soon.</p>
+      <div class="pr__pills">
+        <span class="pr__pill">Accredited US lab</span>
+        <span class="pr__pill">Built around your practice</span>
+        <span class="pr__pill">Training and tools included</span>
+      </div>
+
+      <div class="pr__for">
+        <p><b>Built for:</b> coaches, therapists, nutritionists, chiropractors, gym owners, clinics,
+          retreats, supplement brands, co-working spaces, studios and bath houses</p>
+      </div>
+
+      <img class="pr__photo" src="/assets/sessions/origins-session-05177.webp"
+           alt="A practitioner mapping out a program on a wall of notes"
+           width="1069" height="1600" loading="lazy" decoding="async">
     </div>
 
-    <!-- The real page goes here. Everything above is site chrome. -->
+    <div class="pr__card" data-partner-form>
+      <form class="pr__form" novalidate>
+        <div class="pr__formhead">
+          <h2 class="serif-title pr__formtitle">Request Info</h2>
+          <p class="pr__formsub">Tell us about your practice. We&rsquo;ll be in touch within two business days.</p>
+        </div>
+
+        <div class="pr__row">
+          <label class="pr__field">First name<input name="first" required autocomplete="given-name"></label>
+          <label class="pr__field">Last name<input name="last" required autocomplete="family-name"></label>
+        </div>
+        <label class="pr__field">Email<input name="email" type="email" required autocomplete="email"></label>
+        <label class="pr__field">Phone number<input name="phone" type="tel" autocomplete="tel"></label>
+        <label class="pr__field">Business website<input name="website" type="url" placeholder="https://" autocomplete="url"></label>
+        <label class="pr__field">Your question<textarea name="question" rows="4" placeholder="What would you like to build with your clients?"></textarea></label>
+
+        <button class="btn btn--forest pr__submit" type="submit">Submit info request</button>
+      </form>
+
+      <div class="pr__done">
+        <span class="pr__tick" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4E6B44" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <h2 class="serif-title pr__donetitle">Thank You.</h2>
+        <p>We&rsquo;ve got your request and will be in touch within two business days.</p>
+      </div>
+    </div>
 
   </div>
 </section>
@@ -137,6 +170,7 @@
 <script src="/nav.js?v=3" defer></script>
 <!-- Opens the GoHighLevel consult form in place. The Calendly hrefs stay
      in the HTML as the no-JavaScript fallback. -->
-<script src="/consult.js" defer></script>
+<script src="/consult.js?v=3" defer></script>
+<script src="/partnerships/partnerships.js?v=3" defer></script>
 </body>
 </html>
