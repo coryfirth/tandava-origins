@@ -22,8 +22,12 @@
     { key: 'exercise',  label: 'Exercise',           href: null,                       show: false },
     { key: 'programs',  label: 'Programs',           href: '/programs/',               show: true  },
     { key: 'neuro',     label: 'Tandava Neuro',      href: '/programs/tandava-neuro/', show: true  },
-    { key: 'science',   label: 'The Science',        href: null,                       show: true  },
-    { key: 'solutions', label: 'Partner Solutions',  href: '/solutions/',              show: true  },
+    { key: 'lifestyle', label: 'Lifestyle Design',   href: null,                       show: true  },
+    { key: 'partnerships', label: 'Partnerships',    href: null,                       show: true  },
+    /* Pulled from the menu, not deleted: flip show back to true to restore
+       either one. The /solutions/ page itself is still live at its URL. */
+    { key: 'science',   label: 'The Science',        href: null,                       show: false },
+    { key: 'solutions', label: 'Partner Solutions',  href: '/solutions/',              show: false },
     { key: 'about',     label: 'About',              href: null,                       show: false }
   ];
 
