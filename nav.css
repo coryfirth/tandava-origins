@@ -77,6 +77,8 @@
 .topbar .shop__panel a:hover { background: #EDE2C0; color: #212C28; }
 .topbar .shop__panel a[aria-current="page"] { color: #BC7A48; }
 .topbar .nav > a[aria-current="page"] { color: #BC7A48; }
+/* A toggle that is also a link, like Programs, can be the current page too. */
+.topbar .nav .shop__toggle[aria-current="page"] { color: #BC7A48; }
 
 .topbar .signin {
   display: flex;

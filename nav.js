@@ -7,6 +7,9 @@
      href: null   the item appears but goes nowhere yet
    When a page goes live, give it its href. Nothing else has to change,
    on any page.
+
+   The label column is a note to yourself only: the visible wording lives in
+   each page's HTML, so changing it here changes nothing on screen.
    ========================================================================== */
 (function () {
   'use strict';
@@ -17,8 +20,10 @@
     { key: 'sleep',     label: 'Sleep',              href: null,                       show: false },
     { key: 'diet',      label: 'Diet',               href: null,                       show: false },
     { key: 'exercise',  label: 'Exercise',           href: null,                       show: false },
+    { key: 'programs',  label: 'Programs',           href: '/programs/',               show: true  },
+    { key: 'neuro',     label: 'Tandava Neuro',      href: '/programs/tandava-neuro/', show: true  },
     { key: 'science',   label: 'The Science',        href: null,                       show: true  },
-    { key: 'solutions', label: 'Solutions',          href: '/solutions/',              show: true  },
+    { key: 'solutions', label: 'Partner Solutions',  href: '/solutions/',              show: true  },
     { key: 'about',     label: 'About',              href: null,                       show: false }
   ];
 
@@ -44,45 +49,64 @@
     });
   });
 
-  /* Shop by Goal keeps its place in the menu, but an empty dropdown would be
-     a dead end. */
-  var panel = topbar.querySelector('.shop__panel');
-  if (panel && !panel.querySelector('a:not([hidden])')) {
-    var group = topbar.querySelector('.shop');
-    if (group) { group.setAttribute('hidden', ''); }
+  /* --------------------------------------------------- dropdown groups -- */
+  /* Every [data-shop] group works the same way, so Shop by Goal and Programs
+     share this one piece of code and a third would need no new lines. */
+  var hoverable = window.matchMedia('(hover: hover) and (pointer: fine)');
+  var wide = window.matchMedia('(min-width: 861px)');
+  var groups = [].slice.call(topbar.querySelectorAll('[data-shop]'));
+
+  function setOpen(group, state) {
+    group.dataset.open = state ? 'true' : 'false';
+    var t = group.querySelector('.shop__toggle');
+    if (t) { t.setAttribute('aria-expanded', state ? 'true' : 'false'); }
   }
 
-  /* ------------------------------------------------------- Shop by Goal -- */
-  var shopEl = topbar.querySelector('[data-shop]');
-  if (shopEl) {
-    var toggle = shopEl.querySelector('.shop__toggle');
-    var hoverable = window.matchMedia('(hover: hover) and (pointer: fine)');
-    var wide = window.matchMedia('(min-width: 861px)');
+  groups.forEach(function (group) {
+    /* A group keeps its place in the menu, but an empty dropdown would be a
+       dead end: hide the whole thing until one of its pages has an href. */
+    var panel = group.querySelector('.shop__panel');
+    if (panel && !panel.querySelector('a[href]:not([hidden])')) {
+      group.setAttribute('hidden', '');
+      return;
+    }
 
-    var openShop = function (state) {
-      shopEl.dataset.open = state ? 'true' : 'false';
-      toggle.setAttribute('aria-expanded', state ? 'true' : 'false');
-    };
+    var toggle = group.querySelector('.shop__toggle');
+    if (!toggle) { return; }
 
     /* Hover to open, but only on a real pointer and only on the wide layout.
        Inside the hamburger the dropdown is always open, so hover is noise. */
-    shopEl.addEventListener('mouseenter', function () {
-      if (hoverable.matches && wide.matches) { openShop(true); }
+    group.addEventListener('mouseenter', function () {
+      if (hoverable.matches && wide.matches) { setOpen(group, true); }
     });
-    shopEl.addEventListener('mouseleave', function () {
-      if (hoverable.matches && wide.matches) { openShop(false); }
+    group.addEventListener('mouseleave', function () {
+      if (hoverable.matches && wide.matches) { setOpen(group, false); }
     });
 
     toggle.addEventListener('click', function (e) {
-      e.preventDefault();
       if (!wide.matches) { return; }           /* expanded already on mobile */
-      openShop(shopEl.dataset.open !== 'true');
-    });
 
-    document.addEventListener('click', function (e) {
-      if (!shopEl.contains(e.target)) { openShop(false); }
+      /* Programs is a page as well as a parent, so its toggle is a link and a
+         click should go there. The exception is a wide touch screen, where
+         hover never fires: there the first tap opens the list, the second
+         follows the link, which is the only way to reach both. */
+      if (toggle.hasAttribute('href')) {
+        if (hoverable.matches || group.dataset.open === 'true') { return; }
+        e.preventDefault();
+        setOpen(group, true);
+        return;
+      }
+
+      e.preventDefault();
+      setOpen(group, group.dataset.open !== 'true');
     });
-  }
+  });
+
+  document.addEventListener('click', function (e) {
+    groups.forEach(function (group) {
+      if (!group.contains(e.target)) { setOpen(group, false); }
+    });
+  });
 
   /* --------------------------------------------------------- hamburger -- */
   var burger = topbar.querySelector('.navtoggle');
@@ -109,10 +133,7 @@
 
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') { return; }
-    if (shopEl) {
-      shopEl.dataset.open = 'false';
-      shopEl.querySelector('.shop__toggle').setAttribute('aria-expanded', 'false');
-    }
+    groups.forEach(function (group) { setOpen(group, false); });
     if (burger) {
       topbar.dataset.menu = 'closed';
       burger.setAttribute('aria-expanded', 'false');
