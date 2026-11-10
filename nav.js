@@ -33,7 +33,10 @@
     { key: 'programs',     label: 'Programs',           href: '/programs/',               show: true  },
     { key: 'lifestyle',    label: 'Lifestyle Design',   href: null,                       show: true,  top: true },
     { key: 'partnerships', label: 'Partnerships',       href: null,                       show: true,  top: true },
-    { key: 'about',        label: 'About',              href: null,                       show: false, top: true }
+    { key: 'about',        label: 'About',              href: null,                       show: false, top: true },
+    /* Not a menu item: the Read Katie's Story button on the homepage. It is
+       here because this list is what decides whether a page is live yet. */
+    { key: 'case-katie',   label: "Katie Gill's story", href: '/case-studies/katie-gill', show: false }
   ];
 
   var topbar = document.querySelector('.topbar');
