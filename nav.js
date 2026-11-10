@@ -36,7 +36,7 @@
     { key: 'about',        label: 'About',              href: null,                       show: false, top: true },
     /* Not a menu item: the Read Katie's Story button on the homepage. It is
        here because this list is what decides whether a page is live yet. */
-    { key: 'case-katie',   label: "Katie Gill's story", href: '/case-studies/katie-gill', show: false }
+    { key: 'case-katie',   label: 'Read more',          href: '/case-studies/katie-gill/', show: true  }
   ];
 
   var topbar = document.querySelector('.topbar');
