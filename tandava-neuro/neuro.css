@@ -137,14 +137,6 @@
 .nu-card__list svg { flex: none; margin-top: 3px; color: var(--nb); }
 .nu-card__note { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted); }
 .nu-card .btn { align-self: flex-start; }
-/* The fine print needs air before the buttons, and the two sit at opposite
-   ends of the card: ask a question on the left, book on the right. */
-.nu-card__actions {
-  display: flex; flex-wrap: wrap; gap: 12px;
-  align-items: center; justify-content: space-between;
-  margin-top: clamp(10px, 1.6vw, 18px);
-}
-.nu-card__actions .btn { align-self: auto; }
 
 /* ----------------------------------------------------------- apollo -- */
 .nu-apollo { background: var(--white); }
