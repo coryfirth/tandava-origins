@@ -22,11 +22,6 @@
 
   var tabs  = [].slice.call(panel.querySelectorAll('.nu-tab'));
   var views = [].slice.call(panel.querySelectorAll('.nu-view'));
-  /* Scoped to the caption. The tabs carry data-cap-title too, as the source
-     of these strings, so an unscoped query would grab the first tab and
-     overwrite its label. */
-  var capT  = panel.querySelector('.nu-tp__capt b');
-  var capD  = panel.querySelector('.nu-tp__capt span');
   var still = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   var at = 0, timer = null, auto = true, seen = false;
@@ -35,9 +30,6 @@
     at = i;
     tabs.forEach(function (t, j) { t.setAttribute('aria-selected', j === i ? 'true' : 'false'); });
     views.forEach(function (v, j) { v.dataset.on = j === i ? 'true' : 'false'; });
-    var t = tabs[i];
-    capT.textContent = t.dataset.capTitle;
-    capD.textContent = t.dataset.capDetail;
     /* Restart the per-item reveals by re-running the animations. */
     var live = views[i];
     live.querySelectorAll('[style*="--d"]').forEach(function (el) {

@@ -273,12 +273,6 @@
 .nu-view[data-on="true"] .nu-path__weeks i { animation: nu-fillweek .4s var(--ease) forwards; }
 @keyframes nu-fillweek { to { background: var(--nb-soft) } }
 
-.nu-tp__cap { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding-top: 4px; }
-.nu-tp__capt { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.nu-tp__capt b { font-family: var(--serif); font-weight: 500; font-size: clamp(17px,1.5vw,20px); letter-spacing: -.025em; color: var(--ink); }
-.nu-tp__capt span { font-size: 14px; line-height: 1.45; color: var(--muted); text-wrap: pretty; }
-.nu-tp__ill { flex: none; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-
 @media (prefers-reduced-motion: reduce) {
   .nu-tp[data-auto="true"] .nu-tab[aria-selected="true"] .nu-tab__bar i,
   .nu-view[data-on="true"] .nu-intake__bar i { animation: none; width: 100%; }
