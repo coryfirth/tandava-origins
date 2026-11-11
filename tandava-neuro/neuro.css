@@ -137,6 +137,8 @@
 .nu-card__list svg { flex: none; margin-top: 3px; color: var(--nb); }
 .nu-card__note { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted); }
 .nu-card .btn { align-self: flex-start; }
+/* A little air between the fine print and the button under it. */
+.nu-card__cta { margin-top: clamp(6px, 1vw, 12px); }
 
 /* ----------------------------------------------------------- apollo -- */
 .nu-apollo { background: var(--white); }
