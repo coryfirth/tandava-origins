@@ -95,6 +95,10 @@
     var a = e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) { return; }
     var href = a.getAttribute('href') || '';
+    /* data-direct opts a link out of the modal and sends it straight to the
+       booking page. The Tandava Neuro buttons use it: that programme books
+       with Manesh, and the form in here feeds the practitioner pipeline. */
+    if (a.hasAttribute('data-direct')) { return; }
     if (href.indexOf('calendly.com') === -1 && !a.hasAttribute('data-consult')) { return; }
     if (a.hasAttribute('data-consult-fallback')) { return; }   /* the escape hatch */
     e.preventDefault();

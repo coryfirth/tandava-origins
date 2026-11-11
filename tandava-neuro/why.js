@@ -30,6 +30,18 @@
 
   var step = 0, t0 = 0, paused = false, inView = false, raf = null;
 
+  /* Same idea as How It Works: on a phone the one panel moves into whichever
+     step is open, so the picture is always beside the words it illustrates. */
+  var art = sec.querySelector('.nu-why__art');
+  var art_panel = sec.querySelector('.nu-why__panel');
+  var narrow = window.matchMedia('(max-width: 760px)');
+
+  function place(i) {
+    var home = narrow.matches ? tabs[i].querySelector('.nu-why__body') : art;
+    if (art_panel.parentNode !== home) { home.appendChild(art_panel); }
+  }
+  narrow.addEventListener('change', function () { place(step); });
+
   /* ------------------------------------------------- the background net -- */
   /* One seeded generator, so the net is identical on every visit. */
   var seed = 7;
@@ -55,6 +67,7 @@
     step = i;
     t0 = performance.now();
     tabs.forEach(function (t, k) { t.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+    place(i);
     capText.textContent = STEPS[i].caption;
     canvas.setAttribute('aria-label', STEPS[i].aria);
   }

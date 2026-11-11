@@ -356,3 +356,46 @@
   .nu-why__copy { order: 1; }
   .nu-why__art { order: 2; }
 }
+
+/* ==========================================================================
+   Phone layout.
+
+   On a phone the two "a list beside one changing visual" sections do not
+   work: the visual sits below all three steps, so it is never next to the
+   step it belongs to, and its fixed-height stage was too short for its own
+   content, which spilled over the buttons underneath. Here each visual is
+   moved into its own step instead (neuro.js and why.js do the moving) and
+   laid out in normal flow, so the box grows to whatever it holds.
+   ========================================================================== */
+@media (max-width: 760px) {
+
+  /* --- How It Works ------------------------------------------------------ */
+  .nu-tp__card { display: none; }           /* its views now live in the steps */
+  .nu-stage { min-height: 0; }
+  .nu-view {
+    position: static; inset: auto;
+    display: none; opacity: 1; visibility: visible;
+    margin-top: 16px;
+    background: var(--paper);
+    border: 1px solid var(--hairline-2);
+    border-radius: 16px;
+    padding: 16px;
+  }
+  .nu-view[data-on="true"] { display: block; }
+  .nu-helix { grid-template-columns: 1fr; }
+  .nu-helix canvas { height: clamp(180px, 46vw, 240px); }
+
+  /* --- Why Neuroscience -------------------------------------------------- */
+  .nu-why__art { display: none; }           /* its panel now lives in the steps */
+  .nu-why__body .nu-why__panel { margin-top: 16px; }
+
+  /* --- This Is For You If ------------------------------------------------ */
+  /* The portrait is a full screen of scrolling before the list it introduces. */
+  .nu-for__media { display: none; }
+
+  /* --- Program Overview -------------------------------------------------- */
+  /* The icon column pushed every "Step n of 5" line out of line with the rest
+     of the block. Without it the whole week reads off one left edge. */
+  .nu-step__icons { display: none; }
+  .nu-step__what { gap: 0; }
+}

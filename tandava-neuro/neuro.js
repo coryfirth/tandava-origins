@@ -26,10 +26,25 @@
 
   var at = 0, timer = null, auto = true, seen = false;
 
+  /* On a phone the single panel beside the list has nowhere sensible to sit,
+     so each visual moves inside the step it belongs to. One set of nodes,
+     moved rather than copied, so there is nothing to keep in sync. */
+  var stage = panel.querySelector('.nu-stage');
+  var narrow = window.matchMedia('(max-width: 760px)');
+
+  function place() {
+    views.forEach(function (v, j) {
+      var home = narrow.matches ? tabs[j].querySelector('.nu-tab__body') : stage;
+      if (v.parentNode !== home) { home.appendChild(v); }
+    });
+  }
+  narrow.addEventListener('change', place);
+
   function show(i) {
     at = i;
     tabs.forEach(function (t, j) { t.setAttribute('aria-selected', j === i ? 'true' : 'false'); });
     views.forEach(function (v, j) { v.dataset.on = j === i ? 'true' : 'false'; });
+    place();
     /* Restart the per-item reveals by re-running the animations. */
     var live = views[i];
     live.querySelectorAll('[style*="--d"]').forEach(function (el) {
