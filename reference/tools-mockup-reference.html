@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- A design handoff kept in the repo for reference. GitHub Pages serves
+     every file, so this one says plainly that it is not a site page. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Lifestyle Toolkit mockup reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;padding:32px 20px 64px;background:#ffffff;font-family:ui-sans-serif,system-ui,sans-serif;color:#222}
+.wrap{max-width:1000px;margin:0 auto}
+h3.tips-h{font-size:18px;margin:28px 0 8px}
+p.note{color:#666;font-size:14px;margin:0 0 12px}
+/* Brand mockups: fixed Tandava Wellness palette, same in light and dark */
+.tw{--c-bg:#f5f3ee;--c-ink:#1f2a22;--c-soft:#5d655c;--c-green:#2f3e2f;--c-copper:#b06a3b;--c-line:#dcd8ce;--c-card:#ffffff;
+  font-family:"Outfit",ui-sans-serif,system-ui,sans-serif;background:var(--c-bg);color:var(--c-ink);border:1px solid var(--c-line);border-radius:14px;overflow:hidden;color-scheme:light}
+.tw *{box-sizing:border-box}
+.tw .bar{display:flex;gap:6px;padding:10px 14px;background:#e9e6de;border-bottom:1px solid var(--c-line);align-items:center}
+.tw .bar i{width:10px;height:10px;border-radius:50%;background:#cfcabd}
+.tw .bar span{margin-left:10px;font-size:12px;color:var(--c-soft);background:#f5f3ee;border-radius:20px;padding:3px 14px}
+.tw .nav{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:18px 28px}
+.tw .nav .pill{padding:9px 15px;font-size:11px}
+.tw .logo{font-size:19px;letter-spacing:.14em;font-weight:500;margin-right:auto}
+.tw .logo em{font-style:normal;color:var(--c-copper);font-size:12px;letter-spacing:.3em;font-weight:400;border-left:1px solid var(--c-line);margin-left:10px;padding-left:10px}
+.tw .nav a{font-size:13px;color:var(--c-ink);text-decoration:none}
+.tw .pill{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;font-size:12px;letter-spacing:.09em;font-weight:500;text-transform:uppercase;padding:11px 20px;border:1px solid var(--c-green);background:var(--c-green);color:#fff;text-decoration:none;cursor:pointer;font-family:inherit}
+.tw .pill.ghost{background:transparent;color:var(--c-ink);border-color:#a9a698}
+.tw .pill:disabled{opacity:.35;cursor:default}
+.tw .pill:focus-visible{outline:2px solid var(--c-copper);outline-offset:2px}
+.tw .hero{padding:26px 28px 8px}
+.tw .eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--c-copper);margin:0 0 10px}
+.tw h4{font-size:clamp(28px,4.6vw,44px);line-height:1.08;font-weight:500;letter-spacing:-.02em;margin:0;max-width:none}
+.tw h4 span{color:var(--c-copper);display:block}
+.tw .lead{font-size:17px;font-weight:300;color:var(--c-ink);max-width:56ch;margin:14px 0 0;line-height:1.5}
+.tw .feature{margin:22px 28px 6px;background:var(--c-green);color:#fff;border-radius:22px;padding:26px;display:grid;grid-template-columns:1.4fr auto;gap:18px;align-items:center}
+.tw .feature small{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#e7c3a6}
+.tw .feature b{display:block;font-size:26px;font-weight:500;margin:6px 0 6px;letter-spacing:-.01em}
+.tw .feature p{margin:0;font-weight:300;font-size:15px;line-height:1.5;color:#e9ece6;max-width:52ch}
+.tw .feature .pill{background:#fff;color:var(--c-green);border-color:#fff;padding:14px 28px;font-size:13px}
+.tw .soon-h{margin:22px 28px 10px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--c-soft)}
+.tw .soon{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;padding:0 28px 28px}
+.tw .tool{background:var(--c-card);border-radius:18px;padding:16px;border:1px solid var(--c-line);opacity:.78}
+.tw .tool em{font-style:normal;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--c-copper)}
+.tw .tool b{display:block;font-size:17px;font-weight:500;margin:4px 0 3px}
+.tw .tool span{font-size:13px;color:var(--c-soft);font-weight:300;line-height:1.4;display:block}
+.tw .tool u{text-decoration:none;display:inline-block;margin-top:10px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--c-line);border-radius:999px;padding:4px 10px;color:var(--c-soft)}
+/* journey */
+.tw .jr{padding:22px 28px 26px}
+.tw .dots{display:flex;gap:8px;align-items:center;margin-bottom:18px}
+.tw .dots i{height:6px;flex:1;border-radius:6px;background:var(--c-line);transition:background .3s}
+.tw .dots i.on{background:var(--c-copper)}
+.tw .dots span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-soft);margin-left:8px;white-space:nowrap}
+.tw .view{overflow:hidden}
+.tw .jtrack{display:flex;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.tw .slide{flex:0 0 100%;min-width:0;padding:4px 2px 8px}
+.tw .slide h5{font-size:clamp(24px,3.6vw,34px);font-weight:500;letter-spacing:-.02em;line-height:1.12;margin:0 0 8px}
+.tw .slide h5 span{color:var(--c-copper)}
+.tw .slide p{font-size:16px;font-weight:300;line-height:1.5;margin:0 0 14px;max-width:58ch}
+.tw .files{display:grid;gap:10px;max-width:560px}
+.tw .files label{display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:center;background:var(--c-card);border:1px solid var(--c-line);border-radius:16px;padding:12px 14px;cursor:pointer}
+.tw .files input{width:20px;height:20px;accent-color:var(--c-copper)}
+.tw .files b{display:block;font-weight:500;font-size:16px}
+.tw .files span{font-size:13px;color:var(--c-soft);font-weight:300}
+.tw .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.tw .tabs button{font-family:inherit;font-size:13px;border-radius:999px;border:1px solid #a9a698;background:transparent;color:var(--c-ink);padding:7px 16px;cursor:pointer}
+.tw .tabs button.on{background:var(--c-green);color:#fff;border-color:var(--c-green)}
+.tw .panel{background:var(--c-card);border:1px solid var(--c-line);border-radius:16px;padding:14px 16px;max-width:560px;font-size:15px;font-weight:300}
+.tw .pbox{position:relative;background:var(--c-card);border:1px solid var(--c-line);border-radius:16px;padding:16px;max-width:640px}
+.tw .pbox pre{margin:0;white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;line-height:1.55;color:var(--c-ink);padding-right:90px}
+.tw .pbox .pill{position:absolute;top:12px;right:12px;padding:8px 16px}
+.tw .ais{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;max-width:640px}
+.tw .ais a{background:var(--c-card);border:1px solid var(--c-line);border-radius:18px;padding:18px 16px;text-decoration:none;color:var(--c-ink);text-align:center;transition:transform .15s,border-color .15s}
+.tw .ais a:hover,.tw .ais a:focus-visible{transform:translateY(-2px);border-color:var(--c-copper);outline:none}
+.tw .ais b{display:block;font-size:19px;font-weight:500}
+.tw .ais span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--c-copper)}
+.tw .then{margin-top:14px;font-size:14px;color:var(--c-soft)}
+.tw .jnav{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+.tw .ph{display:inline-block;font-size:11px;font-weight:500;background:#fde7b8;color:#7a4a00;border:1.5px dashed #e0a526;border-radius:6px;padding:2px 7px;font-family:ui-sans-serif,system-ui,sans-serif}
+@media (max-width:640px){.tw .feature{grid-template-columns:1fr}.tw .nav a{display:none}}
+@media (prefers-reduced-motion:reduce){.tw .jtrack{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="note">Reference only. This shows the layout, copy and behaviour to build. Amber tags mark placeholders.</p>
+<h3 class="tips-h">Mockup 1: the /tools page</h3>
+  <div class="tw">
+    <div class="bar"><i></i><i></i><i></i><span>tandavawellness.com/tools</span></div>
+    <div class="nav">
+      <div class="logo">TANDAVA<em>WELLNESS</em></div>
+      <a href="#toolkit">Shop by Goal</a><a href="#toolkit">Programs</a><a href="#toolkit">Lifestyle Design</a><a href="#toolkit">Partnerships</a>
+      <span class="pill ghost">Sign in</span><span class="pill">Book a free consult</span>
+    </div>
+    <div class="hero">
+      <p class="eyebrow">Lifestyle Toolkit</p>
+      <h4>Your Results Are In.<span>Now Put Them To Work.</span></h4>
+      <p class="lead">Prompts and guides that turn your DNA results into everyday habits, inside the AI you already use.</p>
+    </div>
+    <div class="feature">
+      <div>
+        <small>Tool 01 &middot; 10 minutes</small>
+        <b>Your Lifestyle Assistant <span class="ph">name to decide</span></b>
+        <p>Set up a personal AI assistant that knows your Lifestyle Profile and walks you through your results, one step at a time.</p>
+      </div>
+      <a class="pill" href="#journey">Start here</a>
+    </div>
+    <p class="soon-h">More tools on the way</p>
+    <div class="soon">
+      <div class="tool"><em>Nutrition</em><b>Recipe Builder</b><span>Meals built around your results.</span><u>Coming soon</u></div>
+      <div class="tool"><em>Nutrition</em><b>Grocery List Builder</b><span>A weekly list that fits your profile.</span><u>Coming soon</u></div>
+      <div class="tool"><em>Sleep</em><b>Sleep Time Planner</b><span>Find your window and protect it.</span><u>Coming soon</u></div>
+      <div class="tool"><em>Sleep</em><b>Sleep Routine Builder</b><span>An evening routine you can keep.</span><u>Coming soon</u></div>
+      <div class="tool"><em>Movement</em><b>Workout Planner</b><span>Training that suits your results.</span><u>Coming soon</u></div>
+      <div class="tool"><em>Organize</em><b>Sunday Sync</b><span>Plan your week in ten minutes.</span><u>Coming soon</u></div>
+      <div class="tool"><em>Health</em><b>Doctor Download</b><span>A one-page sheet for your doctor.</span><u>Coming soon</u></div>
+      <div class="tool"><em>Health</em><b>Labs Translator</b><span>Read your bloodwork beside your DNA.</span><u>Coming soon</u></div>
+    </div>
+  </div>
+
+  <h3 class="tips-h" id="journey" style="margin-top:28px">Mockup 2: the Start here journey</h3>
+  <p class="note">One page, five slides. Try it: the buttons, checkboxes, tabs and Copy all work. The prompt text is a placeholder.</p>
+  <div class="tw" id="jr">
+    <div class="bar"><i></i><i></i><i></i><span>tandavawellness.com/tools/start-here</span></div>
+    <div class="jr">
+      <div class="dots" id="jr-dots"><i class="on"></i><i></i><i></i><i></i><i></i><span id="jr-count">Step 1 of 5</span></div>
+      <div class="view"><div class="jtrack" id="jr-track">
+        <section class="slide">
+          <p class="eyebrow">Start here</p>
+          <h5>Let's build your <span>personal lifestyle assistant.</span></h5>
+          <p>In about 10 minutes you will have an AI assistant that knows your Lifestyle Profile, asks you a few questions, and walks you through your results.</p>
+          <p>You need three files and the AI of your choice. We will take it one step at a time.</p>
+        </section>
+        <section class="slide">
+          <p class="eyebrow">Step 2 &middot; Gather</p>
+          <h5>Grab your <span>three files.</span></h5>
+          <p>Tick each one off as you save it somewhere easy to find.</p>
+          <div class="files">
+            <label><input type="checkbox" id="jf1"><span><b>Your Lifestyle Profile</b><span>Attached to your "results are in" email</span></span></label>
+            <label><input type="checkbox" id="jf2"><span><b>Your interpretation letter</b><span>Attached to the same email</span></span></label>
+            <label><input type="checkbox" id="jf3"><span><b>Your genetics report</b><span>Download it from the portal <span class="ph">portal link</span>. Forgot your login? Reset your password <span class="ph">reset password link</span></span></span></label>
+          </div>
+        </section>
+        <section class="slide">
+          <p class="eyebrow">Step 3 &middot; Protect</p>
+          <h5>Keep your data <span>yours.</span></h5>
+          <p>Before you upload anything, switch off the setting that lets your AI learn from your chats. Pick your AI to see how.</p>
+          <div class="tabs" id="jr-tabs"><button type="button" class="on" data-ai="Claude">Claude</button><button type="button" data-ai="ChatGPT">ChatGPT</button><button type="button" data-ai="Gemini">Gemini</button></div>
+          <div class="panel" id="jr-panel">Steps for <b>Claude</b> go here. <span class="ph">exact steps to confirm</span></div>
+        </section>
+        <section class="slide">
+          <p class="eyebrow">Step 4 &middot; Copy</p>
+          <h5>Copy your <span>prompt.</span></h5>
+          <p>This is the one instruction your AI needs. Copy it now, you will paste it in the next step.</p>
+          <div class="pbox"><button type="button" class="pill" id="jr-copy">Copy</button><pre id="jr-prompt">[The Start here prompt goes here]
+
+You are my lifestyle assistant. I have attached my Lifestyle Profile, my interpretation letter and my genetics report. Ask me your opening questions one at a time, then walk me through my results.</pre></div>
+        </section>
+        <section class="slide">
+          <p class="eyebrow">Step 5 &middot; Launch</p>
+          <h5>Pick your AI <span>and go.</span></h5>
+          <p>Choose the one you like best. It opens in a new tab.</p>
+          <div class="ais">
+            <a href="https://claude.ai" target="_blank" rel="noopener"><b>Claude</b><span>Open</span></a>
+            <a href="https://chatgpt.com" target="_blank" rel="noopener"><b>ChatGPT</b><span>Open</span></a>
+            <a href="https://gemini.google.com" target="_blank" rel="noopener"><b>Gemini</b><span>Open</span></a>
+          </div>
+          <p class="then">Then: start a new chat, attach your three files, paste your prompt, and press send.</p>
+        </section>
+      </div></div>
+      <div class="jnav"><button type="button" class="pill ghost" id="jr-back" disabled>Back</button><button type="button" class="pill" id="jr-next">Begin</button></div>
+    </div>
+  </div>
+
+  </div>
+<script>
+(function(){
+  var track=document.getElementById("jr-track"); if(!track) return;
+  var n=track.children.length, i=0;
+  var dots=document.querySelectorAll("#jr-dots i"), count=document.getElementById("jr-count");
+  var back=document.getElementById("jr-back"), next=document.getElementById("jr-next");
+  function show(){
+    track.style.transform="translateX(-"+(i*100)+"%)";
+    dots.forEach(function(d,k){ d.classList.toggle("on", k<=i); });
+    count.textContent="Step "+(i+1)+" of "+n;
+    back.disabled = i===0;
+    next.textContent = i===0 ? "Begin" : (i===n-1 ? "Start over" : "Next");
+  }
+  next.addEventListener("click", function(){ i = (i===n-1) ? 0 : i+1; show(); });
+  back.addEventListener("click", function(){ if(i>0){ i--; show(); } });
+  var tabs=document.querySelectorAll("#jr-tabs button"), panel=document.getElementById("jr-panel");
+  tabs.forEach(function(t){ t.addEventListener("click", function(){
+    tabs.forEach(function(x){ x.classList.remove("on"); }); t.classList.add("on");
+    panel.innerHTML="Steps for <b>"+t.getAttribute("data-ai")+"</b> go here. <span class=\"ph\">exact steps to confirm</span>";
+  }); });
+  var cp=document.getElementById("jr-copy"), pr=document.getElementById("jr-prompt");
+  cp.addEventListener("click", function(){
+    var done=function(ok){ cp.textContent= ok ? "Copied" : "Select and copy"; setTimeout(function(){ cp.textContent="Copy"; }, 1800); };
+    try{ navigator.clipboard.writeText(pr.textContent).then(function(){done(true);}, function(){done(false);}); }catch(e){ done(false); }
+  });
+  show();
+})();
+</script>
+</body>
+</html>
