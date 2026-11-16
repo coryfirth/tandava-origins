@@ -5,38 +5,29 @@
    Only what is particular to these two pages lives here.
    ========================================================================== */
 
-/* ---------------------------------------------------------- placeholder --
-   Nothing finished looks like this, which is the point. Amber, dashed, and
-   it says PLACEHOLDER. Each one disappears when its value is filled in
-   inside tools/content.js. */
-.tk-ph {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 8px;
-  font-family: var(--label);
-  font-size: 12px;
-  line-height: 1.4;
-  color: #7A4A00;
-  background: #FDE7B8;
-  border: 1.5px dashed #E0A526;
-  border-radius: 8px;
-  padding: 7px 11px;
-  margin: 6px 0;
-  max-width: 100%;
+/* --------------------------------------------------------- the bar -- */
+/* nav.css still dresses the bar; what follows is only what changes with
+   the menu gone. Below 860px nav.css hides .nav behind a hamburger these
+   pages do not have, so Sign in is put back by hand and the row is kept
+   from wrapping under the wordmark. */
+.tk-bar .nav { gap: 0; }
+.tk-bar .topbar__inner { flex-wrap: nowrap; }
+@media (max-width: 860px) {
+  .tk-bar .nav { display: flex; flex-direction: row; width: auto; padding: 0; }
+  .tk-bar .signin { align-self: center; margin-top: 0; }
 }
-.tk-ph b {
-  font-weight: 700;
-  font-size: 10px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  white-space: nowrap;
+/* Narrower than this the full lockup and Sign in cannot share a line, so
+   the wordmark carries the brand on its own. */
+@media (max-width: 560px) {
+  .tk-bar .brand__rule,
+  .tk-bar .brand__suffix { display: none; }
 }
-.tk-ph--chip { vertical-align: middle; margin: 0 0 0 4px; padding: 4px 9px; }
 
 /* ================================================================ /tools == */
 
 .tk-hero { padding: clamp(48px, 7vw, 96px) var(--pad-x) clamp(24px, 3vw, 40px); }
 .tk-hero__title { margin: 12px 0 0; font-size: clamp(36px, 5.1vw, 67px); line-height: 1.06; }
+.tk-hero__leadfit { container-type: inline-size; }
 .tk-hero__lead {
   margin: 18px 0 0;
   max-width: 56ch;
@@ -44,6 +35,39 @@
   font-weight: 300;
   line-height: 1.55;
   color: var(--body);
+}
+/* One line, sized against the column rather than the viewport, so the cap
+   holds whatever width this sits in. Measured: this sentence sets 43.6x its
+   own font size, so 2.25cqi is the largest that always fits, and the 19px
+   cap takes over from about 940px up. It wraps again on a phone, where one
+   line of this length would be too small to read. */
+@media (min-width: 900px) {
+  .tk-hero__lead {
+    max-width: none;
+    white-space: nowrap;
+    font-size: min(19px, 2.25cqi);
+  }
+}
+
+/* --------------------------------------------------- the three AIs -- */
+.tk-ai { margin-top: clamp(30px, 3.4vw, 44px); }
+/* Inked and faded to the same weight as the partner logos on the homepage,
+   so they sit in the page rather than shout over it. */
+.tk-ai__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(24px, 4vw, 52px);
+}
+.tk-ai__mark--img { height: 24px; width: auto; opacity: .72; }
+.tk-ai__mark--img[src*="chatgpt"] { height: 22px; }
+.tk-ai__mark--type {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 23px;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  opacity: .62;
 }
 
 /* ------------------------------------------------------- featured tool -- */
@@ -234,17 +258,8 @@
 .tk-file__copy { display: block; }
 .tk-file__name { display: block; font-family: var(--sans); font-weight: 600; font-size: 16px; color: var(--ink); }
 .tk-file__line { display: block; margin-top: 2px; font-size: 14px; font-weight: 300; color: var(--muted); }
-.tk-file__links { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 8px; }
-.tk-file__link {
-  font-family: var(--label);
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: .06em;
-  color: var(--clay);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.tk-file__link:hover { color: var(--ink); }
+.tk-file__btn { margin-top: 12px; }
+.tk-file__note { display: block; margin-top: 9px; font-size: 13px; font-weight: 300; line-height: 1.45; color: var(--muted); }
 
 /* ---------------------------------------------- step 3: the AI's setting -- */
 .tk-opt { margin-top: 18px; max-width: 620px; }
@@ -275,6 +290,25 @@
   color: var(--body);
 }
 .tk-opt__steps { margin: 0; padding-left: 20px; display: grid; gap: 7px; line-height: 1.5; }
+.tk-opt__note {
+  margin: 12px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--hairline-2);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+/* These menus get renamed every few months, so the page says when it last
+   matched them rather than pretending to be evergreen. */
+.tk-opt__dated {
+  margin: 12px 0 0;
+  font-family: var(--label);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--muted);
+  opacity: .8;
+}
 
 /* --------------------------------------------------- step 4: the prompt -- */
 .tk-prompt {
@@ -319,10 +353,20 @@
   transition: transform .18s var(--ease), border-color .18s var(--ease);
 }
 .tk-launch__ai:hover { transform: translateY(-2px); border-color: var(--clay); color: var(--ink); }
-.tk-launch__ai b { display: block; font-family: var(--serif); font-weight: 500; font-size: 20px; letter-spacing: -.02em; }
-.tk-launch__ai span {
+/* These are the brands' own marks on a white button, so they are not
+   faded the way the inked row under the hero is. */
+.tk-launch__mark--img { display: block; height: 26px; width: auto; margin: 0 auto; }
+.tk-launch__mark--type {
   display: block;
-  margin-top: 4px;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -.02em;
+  color: var(--ink);
+}
+.tk-launch__open {
+  display: block;
+  margin-top: 6px;
   font-family: var(--label);
   font-weight: 600;
   font-size: 11px;
@@ -338,6 +382,12 @@
 
 /* ---------------------------------------------------------------- phone -- */
 @media (max-width: 760px) {
+  /* Three lockups at full size wrap 2 + 1 on a phone, which reads as a
+     mistake. Smaller and tighter, they hold one line down to 320px. */
+  .tk-ai__row { gap: 18px; }
+  .tk-ai__mark--img { height: 20px; }
+  .tk-ai__mark--img[src*="chatgpt"] { height: 18px; }
+
   .tk-feat { grid-template-columns: 1fr; }
   .tk-feat__cta { justify-self: stretch; }
   .tk-jr__progress { flex-direction: column; align-items: stretch; gap: 10px; }

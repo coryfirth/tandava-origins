@@ -7,8 +7,7 @@
 
    The two exceptions, both on /tools, are the hero and the big featured card:
    those sit in tools/index.html so you can read them in context, the way the
-   rest of the site is written. The tool name inside that card still comes
-   from PLACEHOLDER.toolName below.
+   rest of the site is written.
 
    The prompt itself is NOT in here. It lives in tools/start-here-prompt.txt
    and the page loads that file at runtime, so replacing the .txt is the whole
@@ -18,53 +17,43 @@
 window.TK = (function () {
   'use strict';
 
-  /* ------------------------------------------------------- placeholders --
-     Nothing below is connected yet.
+  /* ------------------------------------------------------------- shared --
+     The portal. One address, used by the Sign in button in the bar and by
+     the one in step 2, so it only ever has to change here. */
+  var PORTAL_URL = 'https://app.tandavaretreats.com/';
 
-     Leave a value as an empty string and the page shows a dashed amber
-     PLACEHOLDER box in its place, using the note as the description. Fill the
-     value in and the box disappears on its own. That is the only change
-     needed: no markup, no CSS, no JavaScript.
+  /* The tool's name, in both places it appears. */
+  var TOOL_NAME = 'Your Lifestyle Assistant';
 
-     TODO(integration): fill in every `value` below.                        */
+  /* ----------------------------------------------------------------- AI --
+     The three assistants, used twice: the row under the hero on /tools, and
+     the launch buttons on the last step.
 
-  var PLACEHOLDER = {
-
-    /* Step 2. Where a client downloads their full genetics report. */
-    portalUrl: {
-      value: '',
-      note: 'Link to the results portal, where the genetics report is downloaded'
+     Each one carries its mark twice. `ink` is the flat silhouette in our own
+     ink, faded under the hero the way the partner logos sit on the homepage.
+     `colour` is the mark as its owner draws it, for the white launch buttons
+     on the last step. Empty either one and the name is set in our type
+     instead, so a missing file never leaves a hole. */
+  var AI = [
+    {
+      name: 'Claude',
+      url: 'https://claude.ai',
+      ink: '/assets/logos-ai/ink/claude.webp',
+      colour: '/assets/logos-ai/colour/claude.webp'
     },
-
-    /* Step 2. The "forgot your login" link for that same portal. */
-    resetUrl: {
-      value: '',
-      note: 'Link to reset the portal password'
+    {
+      name: 'ChatGPT',
+      url: 'https://chatgpt.com',
+      ink: '/assets/logos-ai/ink/chatgpt.webp',
+      colour: '/assets/logos-ai/colour/chatgpt.webp'
     },
-
-    /* Step 3. One set of steps per AI, for turning off training on chats.
-       Write each as a list of short lines. An empty list shows the box. */
-    optOutClaude: {
-      value: [],
-      note: 'Claude: the exact steps to turn off training on your chats'
-    },
-    optOutChatGPT: {
-      value: [],
-      note: 'ChatGPT: the exact steps to turn off training on your chats'
-    },
-    optOutGemini: {
-      value: [],
-      note: 'Gemini: the exact steps to turn off training on your chats'
-    },
-
-    /* The tool's final name. Until this is filled in, the page uses
-       "Your Lifestyle Assistant" and marks it as not yet decided. */
-    toolName: {
-      value: '',
-      note: 'Final name of the tool',
-      fallback: 'Your Lifestyle Assistant'
+    {
+      name: 'Gemini',
+      url: 'https://gemini.google.com',
+      ink: '/assets/logos-ai/ink/gemini.webp',
+      colour: '/assets/logos-ai/colour/gemini.webp'
     }
-  };
+  ];
 
   /* ------------------------------------------------------------- /tools --
      The eight tools that are not built yet. These are cards, not links.    */
@@ -130,8 +119,8 @@ window.TK = (function () {
   /* A short word per step, read out after "Step 2 of 5" by a screen reader. */
   var STEP_NAMES = ['Welcome', 'Gather', 'Protect', 'Copy', 'Launch'];
 
-  /* Step 2. The three files to collect. `link` and `linkAfter` are optional:
-     they turn part of the line into a link, or append one. */
+  /* Step 2. The three files to collect. The last one carries the button
+     through to the portal, which opens in its own tab. */
   var FILES = [
     {
       name: 'Your Lifestyle Profile',
@@ -144,43 +133,65 @@ window.TK = (function () {
     {
       name: 'Your genetics report',
       line: 'Download it from the portal.',
-      links: [
-        { label: 'Open the portal',   placeholder: 'portalUrl' },
-        { label: 'Reset my password', placeholder: 'resetUrl' }
-      ]
+      action: {
+        label: 'Sign in to the portal',
+        url: PORTAL_URL,
+        note: 'Reach out to your practitioner if you forget your login.'
+      }
     }
   ];
 
-  /* Step 3. One tab per AI. */
+  /* Step 3. One tab per AI: how to stop it training on your chats.
+     These menus are renamed every few months, hence the dated footnote. */
   var OPT_OUT = [
-    { name: 'Claude',  placeholder: 'optOutClaude'  },
-    { name: 'ChatGPT', placeholder: 'optOutChatGPT' },
-    { name: 'Gemini',  placeholder: 'optOutGemini'  }
+    {
+      name: 'Claude',
+      steps: [
+        'Open Settings.',
+        'Choose Privacy.',
+        'Find “Help improve our AI models” and switch it off.'
+      ]
+    },
+    {
+      name: 'ChatGPT',
+      steps: [
+        'Open your account menu and choose Settings.',
+        'Choose Data controls.',
+        'Select “Improve the model for everyone”, switch it off, and select Done.'
+      ]
+    },
+    {
+      name: 'Gemini',
+      steps: [
+        'Go to gemini.google.com.',
+        'Click “Settings and help”, then “Activity”.',
+        'Near the top, click “On”, then choose “Turn off”.'
+      ],
+      note: 'Turning this off also stops Gemini from saving your chats, so you may not be able to return to this conversation later.'
+    }
   ];
+
+  var OPT_OUT_FOOTNOTE = 'Settings change. Checked November 2026.';
 
   /* Step 4. Where the prompt is loaded from. Replace that file to change the
      prompt: nothing else needs editing. */
   var PROMPT_URL = '/tools/start-here-prompt.txt';
 
-  /* Step 5. The three AIs, and the line underneath them. */
-  var LAUNCH = [
-    { name: 'Claude',  url: 'https://claude.ai' },
-    { name: 'ChatGPT', url: 'https://chatgpt.com' },
-    { name: 'Gemini',  url: 'https://gemini.google.com' }
-  ];
-
+  /* Step 5. The line under the three buttons. */
   var LAUNCH_NOTE = 'Then: start a new chat, attach your three files, paste your prompt, and press send.';
 
   return {
-    PLACEHOLDER: PLACEHOLDER,
+    PORTAL_URL: PORTAL_URL,
+    TOOL_NAME: TOOL_NAME,
+    AI: AI,
     SOON: SOON,
     SOON_HEADING: SOON_HEADING,
     STEPS: STEPS,
     STEP_NAMES: STEP_NAMES,
     FILES: FILES,
     OPT_OUT: OPT_OUT,
+    OPT_OUT_FOOTNOTE: OPT_OUT_FOOTNOTE,
     PROMPT_URL: PROMPT_URL,
-    LAUNCH: LAUNCH,
     LAUNCH_NOTE: LAUNCH_NOTE
   };
 })();

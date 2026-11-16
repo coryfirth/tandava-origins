@@ -3,9 +3,8 @@
    --------------------------------------------------------------------------
    Two jobs:
 
-   1. TKUI, a couple of helpers both Toolkit pages use. The important one is
-      the placeholder: anything still unfilled in tools/content.js renders as
-      a dashed amber box that nobody could read as finished copy.
+   1. TKUI, the few helpers both Toolkit pages share: the tool's name, and
+      the row of AI logos.
    2. The "More tools on the way" grid on /tools.
 
    The hero and the featured card on that page are written into the markup,
@@ -17,46 +16,30 @@ window.TKUI = (function () {
 
   var C = window.TK;
 
-  /* Build the dashed amber box for a placeholder that has not been filled in.
-     TODO(integration): every one of these disappears by itself once its value
-     is set in tools/content.js. Nothing here needs editing. */
-  function box(note) {
-    var el = document.createElement('span');
-    el.className = 'tk-ph';
-    var tag = document.createElement('b');
-    tag.textContent = 'PLACEHOLDER';
-    el.appendChild(tag);
-    el.appendChild(document.createTextNode(note));
-    return el;
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) { e.className = cls; }
+    if (text != null) { e.textContent = text; }
+    return e;
   }
 
-  /* Read a placeholder by key. Returns { filled, value, note }. A value counts
-     as filled when it is a non-empty string, or a list with something in it. */
-  function ph(key) {
-    var p = (C && C.PLACEHOLDER && C.PLACEHOLDER[key]) || null;
-    if (!p) { return { filled: false, value: '', note: 'Missing content: ' + key }; }
-    var v = p.value;
-    var filled = Array.isArray(v) ? v.length > 0 : String(v || '').length > 0;
-    return { filled: filled, value: v, note: p.note, fallback: p.fallback };
-  }
-
-  /* The tool's name, with "not final yet" marked where it appears. */
-  function toolName(host) {
-    var p = ph('toolName');
-    host.textContent = p.filled ? p.value : (p.fallback || 'Your Lifestyle Assistant');
-    if (!p.filled) {
-      var chip = document.createElement('span');
-      chip.className = 'tk-ph tk-ph--chip';
-      var tag = document.createElement('b');
-      tag.textContent = 'PLACEHOLDER';
-      chip.appendChild(tag);
-      chip.appendChild(document.createTextNode('name not final'));
-      host.parentNode.appendChild(document.createTextNode(' '));
-      host.parentNode.appendChild(chip);
+  /* One assistant's mark. `which` picks the version: 'ink' for the faded
+     row under the hero, 'colour' for the launch buttons. With no file named
+     the name is set in our own type instead, so nothing is ever missing. */
+  function aiMark(ai, cls, which) {
+    var src = ai[which];
+    if (src) {
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = ai.name;
+      img.loading = 'lazy';
+      img.className = cls + ' ' + cls + '--img';
+      return img;
     }
+    return el('span', cls + ' ' + cls + '--type', ai.name);
   }
 
-  return { box: box, ph: ph, toolName: toolName };
+  return { el: el, aiMark: aiMark, C: C };
 })();
 
 
@@ -65,10 +48,22 @@ window.TKUI = (function () {
   'use strict';
 
   var C = window.TK;
-  if (!C) { return; }
+  var UI = window.TKUI;
+  if (!C || !UI) { return; }
 
-  var name = document.querySelector('[data-tk-toolname]');
-  if (name) { window.TKUI.toolName(name); }
+  /* The tool's name, wherever it is marked in the markup. */
+  [].forEach.call(document.querySelectorAll('[data-tk-toolname]'), function (n) {
+    n.textContent = C.TOOL_NAME;
+  });
+
+  /* The three assistants, under the hero. Not links: this row says what the
+     toolkit works with, and the buttons that go anywhere are further down. */
+  var row = document.querySelector('[data-tk-ai]');
+  if (row) {
+    var marks = el2('div', 'tk-ai__row');
+    C.AI.forEach(function (ai) { marks.appendChild(UI.aiMark(ai, 'tk-ai__mark', 'ink')); });
+    row.appendChild(marks);
+  }
 
   var heading = document.querySelector('[data-tk-soonheading]');
   if (heading && C.SOON_HEADING) { heading.textContent = C.SOON_HEADING; }
@@ -79,29 +74,13 @@ window.TKUI = (function () {
   if (!grid) { return; }
 
   C.SOON.forEach(function (t) {
-    var card = document.createElement('div');
-    card.className = 'tk-tool';
-
-    var group = document.createElement('p');
-    group.className = 'tk-tool__group';
-    group.textContent = t.group;
-
-    var title = document.createElement('h3');
-    title.className = 'tk-tool__name';
-    title.textContent = t.name;
-
-    var line = document.createElement('p');
-    line.className = 'tk-tool__line';
-    line.textContent = t.line;
-
-    var tag = document.createElement('p');
-    tag.className = 'tk-tool__tag';
-    tag.textContent = 'Coming soon';
-
-    card.appendChild(group);
-    card.appendChild(title);
-    card.appendChild(line);
-    card.appendChild(tag);
+    var card = el2('div', 'tk-tool');
+    card.appendChild(el2('p', 'tk-tool__group', t.group));
+    card.appendChild(el2('h3', 'tk-tool__name', t.name));
+    card.appendChild(el2('p', 'tk-tool__line', t.line));
+    card.appendChild(el2('p', 'tk-tool__tag', 'Coming soon'));
     grid.appendChild(card);
   });
+
+  function el2(tag, cls, text) { return UI.el(tag, cls, text); }
 })();

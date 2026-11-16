@@ -16,6 +16,7 @@
   var UI = window.TKUI;
   var track = document.querySelector('[data-tk-track]');
   if (!C || !UI || !track) { return; }
+  var el = UI.el;
 
   var view   = document.querySelector('[data-tk-view]');
   var bars   = document.querySelector('[data-tk-bars]');
@@ -27,22 +28,6 @@
   var n      = steps.length;
   var at     = 0;
   var supportsInert = 'inert' in HTMLElement.prototype;
-
-  /* ------------------------------------------------------------ helpers -- */
-
-  function el(tag, cls, text) {
-    var e = document.createElement(tag);
-    if (cls) { e.className = cls; }
-    if (text != null) { e.textContent = text; }
-    return e;
-  }
-
-  /* A placeholder either renders its value or renders the amber box. */
-  function fill(host, key, render) {
-    var p = UI.ph(key);
-    if (p.filled) { render(host, p.value); }
-    else { host.appendChild(UI.box(p.note)); }
-  }
 
   /* --------------------------------------------------------- the blocks -- */
 
@@ -63,20 +48,15 @@
       copy.appendChild(el('b', 'tk-file__name', f.name));
       copy.appendChild(el('span', 'tk-file__line', f.line));
 
-      /* The genetics report line carries the portal and reset links. Both are
-         placeholders until they are filled in. */
-      if (f.links) {
-        var links = el('span', 'tk-file__links');
-        f.links.forEach(function (l) {
-          fill(links, l.placeholder, function (host, url) {
-            var a = el('a', 'tk-file__link', l.label);
-            a.href = url;
-            a.target = '_blank';
-            a.rel = 'noopener';
-            host.appendChild(a);
-          });
-        });
-        copy.appendChild(links);
+      /* The genetics report line carries the way in to the portal. It opens
+         in its own tab so the reader does not lose their place here. */
+      if (f.action) {
+        var go = el('a', 'btn btn--outline btn--sm tk-file__btn', f.action.label);
+        go.href = f.action.url;
+        go.target = '_blank';
+        go.rel = 'noopener';
+        copy.appendChild(go);
+        if (f.action.note) { copy.appendChild(el('span', 'tk-file__note', f.action.note)); }
       }
 
       row.appendChild(copy);
@@ -109,13 +89,20 @@
         b.setAttribute('aria-selected', on ? 'true' : 'false');
         b.tabIndex = on ? 0 : -1;
       });
-      panel.setAttribute('aria-label', C.OPT_OUT[i].name + ': how to turn off training');
+      var ai = C.OPT_OUT[i];
+      panel.setAttribute('aria-label', ai.name + ': how to turn off training');
       panel.textContent = '';
-      fill(panel, C.OPT_OUT[i].placeholder, function (host, lines) {
-        var ol = el('ol', 'tk-opt__steps');
-        lines.forEach(function (line) { ol.appendChild(el('li', null, line)); });
-        host.appendChild(ol);
-      });
+
+      var ol = el('ol', 'tk-opt__steps');
+      ai.steps.forEach(function (line) { ol.appendChild(el('li', null, line)); });
+      panel.appendChild(ol);
+
+      /* Gemini's switch does more than the other two, so it says so. */
+      if (ai.note) { panel.appendChild(el('p', 'tk-opt__note', ai.note)); }
+
+      if (C.OPT_OUT_FOOTNOTE) {
+        panel.appendChild(el('p', 'tk-opt__dated', C.OPT_OUT_FOOTNOTE));
+      }
     }
 
     C.OPT_OUT.forEach(function (o, i) {
@@ -227,13 +214,13 @@
     var wrap = el('div', 'tk-launch');
     var row = el('div', 'tk-launch__row');
 
-    C.LAUNCH.forEach(function (a) {
+    C.AI.forEach(function (a) {
       var link = el('a', 'tk-launch__ai');
       link.href = a.url;
       link.target = '_blank';
       link.rel = 'noopener';
-      link.appendChild(el('b', null, a.name));
-      link.appendChild(el('span', null, 'Open'));
+      link.appendChild(UI.aiMark(a, 'tk-launch__mark', 'colour'));
+      link.appendChild(el('span', 'tk-launch__open', 'Open'));
       row.appendChild(link);
     });
 
