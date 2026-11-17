@@ -77,15 +77,13 @@ window.TK = (function () {
   var SOON_HEADING = 'More tools on the way';
 
   /* --------------------------------------------------- the walkthrough --
-     Five steps, in order. Each one has an eyebrow, a two-tone headline
-     (`title` is the plain part, `titleAccent` the clay-coloured part) and
-     any number of paragraphs. `block` adds the interactive piece.          */
+     Four steps, in order. Each one has an eyebrow, a headline and any
+     number of paragraphs. `block` adds the interactive piece.              */
 
   var STEPS = [
     {
       eyebrow: 'Start here',
-      title: 'Let’s build your ',
-      titleAccent: 'personal lifestyle assistant.',
+      title: 'Let’s build your personal lifestyle assistant.',
       body: [
         'In about 10 minutes you will have an AI assistant that knows your Lifestyle Profile, asks you a few questions, and walks you through your results.',
         'You need three files and the AI of your choice. We will take it one step at a time.'
@@ -93,36 +91,25 @@ window.TK = (function () {
     },
     {
       eyebrow: 'Step 2 · Gather',
-      title: 'Grab your ',
-      titleAccent: 'three files.',
+      title: 'Grab your three files.',
       body: ['Tick each one off as you save it somewhere easy to find.'],
       block: 'files'
     },
     {
-      eyebrow: 'Step 3 · Protect',
-      title: 'Keep your data ',
-      titleAccent: 'yours.',
-      body: ['Before you upload anything, switch off the setting that lets your AI learn from your chats. Pick your AI to see how.'],
-      block: 'tabs'
-    },
-    {
-      eyebrow: 'Step 4 · Copy',
-      title: 'Copy your ',
-      titleAccent: 'prompt.',
+      eyebrow: 'Step 3 · Copy',
+      title: 'Copy your prompt.',
       body: ['This is the one instruction your AI needs. Copy it now, you will paste it in the next step.'],
       block: 'prompt'
     },
     {
-      eyebrow: 'Step 5 · Launch',
-      title: 'Pick your AI ',
-      titleAccent: 'and go.',
+      eyebrow: 'Step 4 · Launch',
+      title: 'Pick your AI and go.',
       body: ['Choose the one you like best. It opens in a new tab.'],
       block: 'launch'
     }
   ];
 
-  /* A short word per step, read out after "Step 2 of 5" by a screen reader. */
-  var STEP_NAMES = ['Welcome', 'Gather', 'Protect', 'Copy', 'Launch'];
+  var STEP_NAMES = ['Welcome', 'Gather', 'Copy', 'Launch'];
 
   /* Step 2. The three files to collect. The last one carries the button
      through to the portal, which opens in its own tab. */
@@ -146,8 +133,12 @@ window.TK = (function () {
     }
   ];
 
-  /* Step 3. One tab per AI: how to stop it training on your chats.
-     These menus are renamed every few months, hence the dated footnote. */
+  /* ---------------------------------------------------------- parked --
+     One tab per AI: how to stop it training on your chats. This was the
+     Protect step, now off the walkthrough. Nothing renders it at the
+     moment; the copy is kept here so it can go back, in the walkthrough or
+     anywhere else it is needed. These menus are renamed every few months,
+     hence the dated footnote.                                             */
   var OPT_OUT = [
     {
       name: 'Claude',

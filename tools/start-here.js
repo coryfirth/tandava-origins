@@ -1,7 +1,7 @@
 /* ==========================================================================
    Lifestyle Toolkit — the walkthrough
    --------------------------------------------------------------------------
-   Five steps, one on screen at a time, living on /tools under the hero.
+   Four steps, one on screen at a time, living on /tools under the hero.
    The green button in the hero hands over to this: the hero is hidden, the
    steps take its place, and nobody leaves the page. Back on step 1 hands it
    the other way.
@@ -76,70 +76,7 @@
     return list;
   }
 
-  /* Step 3. One tab per AI, each holding that AI's opt-out steps. Real
-     buttons in a tablist, so arrow keys and a screen reader both work. */
-  function blockTabs() {
-    var wrap = el('div', 'tk-opt');
-
-    var strip = el('div', 'tk-opt__tabs');
-    strip.setAttribute('role', 'tablist');
-    strip.setAttribute('aria-label', 'Choose your AI');
-
-    var panel = el('div', 'tk-opt__panel');
-    panel.id = 'tk-opt-panel';
-    panel.setAttribute('role', 'tabpanel');
-    panel.setAttribute('tabindex', '0');
-
-    var buttons = [];
-
-    function open(i) {
-      buttons.forEach(function (b, j) {
-        var on = i === j;
-        b.classList.toggle('is-on', on);
-        b.setAttribute('aria-selected', on ? 'true' : 'false');
-        b.tabIndex = on ? 0 : -1;
-      });
-      var ai = C.OPT_OUT[i];
-      panel.setAttribute('aria-label', ai.name + ': how to turn off training');
-      panel.textContent = '';
-
-      var ol = el('ol', 'tk-opt__steps');
-      ai.steps.forEach(function (line) { ol.appendChild(el('li', null, line)); });
-      panel.appendChild(ol);
-
-      /* Gemini's switch does more than the other two, so it says so. */
-      if (ai.note) { panel.appendChild(el('p', 'tk-opt__note', ai.note)); }
-
-      if (C.OPT_OUT_FOOTNOTE) {
-        panel.appendChild(el('p', 'tk-opt__dated', C.OPT_OUT_FOOTNOTE));
-      }
-    }
-
-    C.OPT_OUT.forEach(function (o, i) {
-      var b = el('button', 'tk-opt__tab', o.name);
-      b.type = 'button';
-      b.setAttribute('role', 'tab');
-      b.setAttribute('aria-controls', 'tk-opt-panel');
-      b.addEventListener('click', function () { open(i); });
-      b.addEventListener('keydown', function (e) {
-        var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
-        if (!d) { return; }
-        e.preventDefault();
-        var j = (i + d + buttons.length) % buttons.length;
-        open(j);
-        buttons[j].focus();
-      });
-      buttons.push(b);
-      strip.appendChild(b);
-    });
-
-    wrap.appendChild(strip);
-    wrap.appendChild(panel);
-    open(0);
-    return wrap;
-  }
-
-  /* Step 4. The prompt, loaded from the .txt file, plus a Copy button.
+  /* Step 3. The prompt, loaded from the .txt file, plus a Copy button.
      If the clipboard is unavailable or refuses, the text is selected instead
      and the button says so. */
   function blockPrompt() {
@@ -219,7 +156,7 @@
     return wrap;
   }
 
-  /* Step 5. Three ways out, each opening in a new tab. */
+  /* Step 4. Three ways out, each opening in a new tab. */
   function blockLaunch() {
     var wrap = el('div', 'tk-launch');
     var row = el('div', 'tk-launch__row');
@@ -239,7 +176,7 @@
     return wrap;
   }
 
-  var BLOCKS = { files: blockFiles, tabs: blockTabs, prompt: blockPrompt, launch: blockLaunch };
+  var BLOCKS = { files: blockFiles, prompt: blockPrompt, launch: blockLaunch };
 
   /* ---------------------------------------------------------- the build -- */
 
@@ -251,10 +188,10 @@
 
     slide.appendChild(el('p', 'eyebrow', s.eyebrow));
 
-    var h = el('h1', 'serif-title tk-slide__title');
+    /* One colour, all the way across: the clay half came off these at
+       Cory's ask, so the headline is a single string in content.js. */
+    var h = el('h1', 'serif-title tk-slide__title', s.title);
     h.tabIndex = -1;
-    h.appendChild(document.createTextNode(s.title));
-    h.appendChild(el('span', 'accent', s.titleAccent));
     slide.appendChild(h);
 
     (s.body || []).forEach(function (p) { slide.appendChild(el('p', 'tk-slide__p', p)); });

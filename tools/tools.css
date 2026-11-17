@@ -141,9 +141,11 @@
 }
 .tk-slide__title:focus { outline: none; }
 .tk-slide__title:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+/* No measure cap: Cory asked for the body to run to the same edge as the
+   headline above it, so it takes the full column. */
 .tk-slide__p {
   margin: 0 0 14px;
-  max-width: 60ch;
+  max-width: none;
   font-size: clamp(16px, 1.2vw, 17px);
   font-weight: 300;
   line-height: 1.6;
@@ -172,56 +174,7 @@
 .tk-file__btn { margin-top: 12px; }
 .tk-file__note { display: block; margin-top: 9px; font-size: 13px; font-weight: 300; line-height: 1.45; color: var(--muted); }
 
-/* ---------------------------------------------- step 3: the AI's setting -- */
-.tk-opt { margin-top: 18px; max-width: 620px; }
-.tk-opt__tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-.tk-opt__tab {
-  font-family: var(--label);
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: .04em;
-  border-radius: 999px;
-  border: 1.5px solid rgba(33,44,40,.28);
-  background: transparent;
-  color: var(--ink);
-  padding: 9px 18px;
-  cursor: pointer;
-  transition: background-color .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
-}
-.tk-opt__tab:hover { border-color: var(--forest); background: rgba(52,68,46,.06); }
-.tk-opt__tab.is-on { background: var(--forest); border-color: var(--forest); color: var(--paper); }
-
-.tk-opt__panel {
-  background: var(--white);
-  border: 1px solid var(--hairline-2);
-  border-radius: 16px;
-  padding: 16px 18px;
-  font-size: 15px;
-  font-weight: 300;
-  color: var(--body);
-}
-.tk-opt__steps { margin: 0; padding-left: 20px; display: grid; gap: 7px; line-height: 1.5; }
-.tk-opt__note {
-  margin: 12px 0 0;
-  padding-top: 12px;
-  border-top: 1px solid var(--hairline-2);
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--muted);
-}
-/* These menus get renamed every few months, so the page says when it last
-   matched them rather than pretending to be evergreen. */
-.tk-opt__dated {
-  margin: 12px 0 0;
-  font-family: var(--label);
-  font-weight: 500;
-  font-size: 11px;
-  letter-spacing: .08em;
-  color: var(--muted);
-  opacity: .8;
-}
-
-/* --------------------------------------------------- step 4: the prompt -- */
+/* --------------------------------------------------- step 3: the prompt -- */
 .tk-prompt {
   position: relative;
   margin-top: 18px;
@@ -245,7 +198,7 @@
 }
 .tk-prompt__said { margin: 10px 0 0; font-size: 13px; color: var(--muted); min-height: 1em; }
 
-/* --------------------------------------------------- step 5: the launch -- */
+/* --------------------------------------------------- step 4: the launch -- */
 .tk-launch { margin-top: 18px; }
 .tk-launch__row {
   display: grid;
