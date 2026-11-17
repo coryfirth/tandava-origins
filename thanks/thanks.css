@@ -1,0 +1,181 @@
+/* ==========================================================================
+   Tandava Wellness — /thanks/
+   The pages a customer lands on after finishing an intake. Loads after
+   nav.css and styles.css and uses their tokens only. Shared by every page
+   under /thanks/, so keep anything here general: a page's own one-offs
+   belong in that page's own section at the bottom.
+   ========================================================================== */
+
+/* --------------------------------------------------------------- the bar -- */
+/* nav.css still dresses the bar; what follows is only what changes with the
+   menu gone. Below 860px nav.css hides .nav behind a hamburger these pages
+   do not have, so Sign in is put back by hand and the row is kept from
+   wrapping under the wordmark. /tools and /intake do the same in their own
+   sheets; the three could move into nav.css together one day. */
+.thx-bar .nav { gap: 0; }
+.thx-bar .topbar__inner { flex-wrap: nowrap; }
+@media (max-width: 860px) {
+  .thx-bar .nav { display: flex; flex-direction: row; width: auto; padding: 0; }
+  .thx-bar .signin { align-self: center; margin-top: 0; }
+}
+/* Narrower than this the full lockup and Sign in cannot share a line, so the
+   wordmark carries the brand on its own. */
+@media (max-width: 560px) {
+  .thx-bar .brand__rule,
+  .thx-bar .brand__suffix { display: none; }
+}
+
+/* ------------------------------------------------------------- the page -- */
+/* The same centred column as /intake, so this reads as the next screen
+   rather than a new place. */
+.thx {
+  padding: clamp(36px, 7vw, 72px) var(--pad-x) clamp(56px, 8vw, 104px);
+}
+
+.thx__wrap {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.thx__title {
+  font-size: clamp(32px, 7vw, 52px);
+  line-height: 1.06;
+  letter-spacing: -.045em;
+}
+
+.thx__lede {
+  margin: 18px 0 0;
+  font-size: clamp(16px, 4vw, 19px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--body);
+  text-wrap: pretty;
+}
+
+/* The sub-title over the steps. A hairline above it separates the welcome
+   from the instructions without a second background colour. */
+.thx__h2 {
+  margin: clamp(36px, 7vw, 56px) 0 0;
+  padding-top: clamp(28px, 5vw, 40px);
+  border-top: 1px solid var(--hairline-2);
+  font-size: clamp(22px, 4.4vw, 30px);
+  line-height: 1.15;
+}
+
+/* ------------------------------------------------------------ the steps -- */
+.thx-steps {
+  margin: clamp(26px, 5vw, 36px) 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(26px, 5vw, 36px);
+}
+
+/* Number beside the step on every width. The badge is small enough at
+   phone sizes to leave the text a usable column. */
+.thx-step {
+  display: flex;
+  gap: clamp(14px, 3.5vw, 20px);
+  align-items: flex-start;
+}
+
+.thx-step__num {
+  flex: 0 0 auto;
+  width: clamp(32px, 8vw, 40px);
+  height: clamp(32px, 8vw, 40px);
+  border-radius: 50%;
+  background: var(--forest);
+  color: var(--paper);
+  font-family: var(--label);
+  font-size: clamp(14px, 3.4vw, 16px);
+  font-weight: 600;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* The badge sits on the first line of the title rather than above it. */
+  margin-top: 1px;
+}
+
+.thx-step__body { min-width: 0; }
+
+.thx-step__title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(19px, 4.4vw, 23px);
+  line-height: 1.25;
+  letter-spacing: -.03em;
+  color: var(--ink);
+}
+
+.thx-step__p {
+  margin: 8px 0 0;
+  font-size: clamp(15px, 3.8vw, 17px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--body);
+  text-wrap: pretty;
+}
+
+/* A link inside a step has to look like one: the site's link colour alone
+   is too close to the body text at this size. */
+.thx-step__p a {
+  color: var(--forest);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.thx-step__p a:hover { color: var(--gold); }
+
+/* The three things inside step 4. Its own numbers, kept quieter than the
+   step badges so the two lists never compete. */
+.thx-step__sub {
+  margin: 12px 0 0;
+  padding: 0 0 0 22px;
+  list-style: decimal;
+}
+
+.thx-step__sub li {
+  margin: 6px 0 0;
+  padding-left: 4px;
+  font-size: clamp(15px, 3.8vw, 17px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--body);
+}
+
+.thx-step__sub li::marker {
+  font-family: var(--label);
+  font-weight: 600;
+  color: var(--clay);
+}
+
+/* ------------------------------------------------------------ the close -- */
+/* Set apart from the steps: this is not a seventh thing to do. */
+.thx-ask {
+  margin: clamp(40px, 7vw, 60px) 0 0;
+  background: var(--white);
+  border: 1px solid var(--hairline-2);
+  border-radius: 18px;
+  padding: clamp(20px, 5vw, 28px);
+}
+
+.thx-ask__title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(17px, 4vw, 20px);
+  line-height: 1.25;
+  letter-spacing: -.03em;
+  color: var(--ink);
+}
+
+.thx-ask__p {
+  margin: 8px 0 0;
+  font-size: clamp(15px, 3.8vw, 17px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--body);
+}
