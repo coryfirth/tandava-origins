@@ -26,8 +26,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Instrument+Sans:wght@500;600&amp;family=Julius+Sans+One&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/nav.css?v=3">
 <link rel="stylesheet" href="/styles.css?v=3">
-<link rel="stylesheet" href="/consult.css?v=3">
-<link rel="stylesheet" href="/intake/intake.css?v=1">
+<link rel="stylesheet" href="/intake/intake.css?v=2">
 <!-- data-cookieconsent="ignore" keeps Cookiebot's auto-blocking from
      gagging this file. It IS the consent gate: it loads nothing from
      Google until statistics consent is given, and it owns the footer
@@ -37,8 +36,12 @@
 
 <body>
 
-<!-- ============================================================== nav -- -->
-<div class="topbar" data-menu="closed">
+<!-- ============================================================== bar -- -->
+<!-- This page is reached from the order confirmation, not from the site,
+     and the reader has one job here. The menu would only invite them away
+     mid-form, so the wordmark and Sign in are all that is left, and nav.js
+     is not loaded because there is no menu left for it to build. -->
+<div class="topbar intake-bar">
   <div class="topbar__inner">
     <a class="brand" href="/">
       <img src="/assets/tandava-wordmark-night.png" alt="Tandava" width="451" height="54">
@@ -46,44 +49,11 @@
       <span class="brand__suffix">WELLNESS</span>
     </a>
 
-    <button class="navtoggle" type="button" aria-expanded="false" aria-controls="sitenav" aria-label="Menu">
-      <span class="navtoggle__bars" aria-hidden="true"></span>
-    </button>
-
-    <nav class="nav" id="sitenav">
-      <div class="shop" data-shop>
-        <button class="shop__toggle" type="button" aria-expanded="false" aria-haspopup="true">
-          Shop by Goal
-          <svg class="shop__chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="shop__menu">
-          <div class="shop__panel">
-            <a data-nav="complete" href="/complete-lifestyle-kit/">Complete Lifestyle</a>
-            <a data-nav="sleep" hidden>Sleep</a>
-            <a data-nav="diet" hidden>Diet</a>
-            <a data-nav="exercise" hidden>Exercise</a>
-          </div>
-        </div>
-      </div>
-      <div class="shop" data-shop>
-        <button class="shop__toggle" type="button" aria-expanded="false" aria-haspopup="true">
-          Programs
-          <svg class="shop__chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="shop__menu">
-          <div class="shop__panel">
-            <a data-nav="neuro" href="/tandava-neuro/">Tandava Neuro</a>
-          </div>
-        </div>
-      </div>
-      <a data-nav="lifestyle">Lifestyle Design</a>
-      <a data-nav="partnerships">Partnerships</a>
-      <a data-nav="about" hidden>About</a>
+    <nav class="nav">
       <a class="signin" href="https://app.tandavaretreats.com/" target="_blank" rel="noopener">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
         Sign in
       </a>
-      <a class="nav__cta" href="https://calendly.com/cory-tandavaretreats/origins-practitioner-call" target="_blank" rel="noopener">Book a free consult</a>
     </nav>
   </div>
 </div>
@@ -98,15 +68,14 @@
 <section class="intake">
   <div class="intake__wrap">
 
-    <h1 class="serif-title intake__title">Thank you for your order.</h1>
+    <h1 class="serif-title intake__title">Thank you for your order. Important next step below</h1>
 
-    <p class="intake__lede">Your kit is being prepared. While you wait, there is one quick step: tell us about your life right now. Your answers are what we set beside your DNA results to build your Lifestyle Profile.</p>
+    <p class="intake__lede">Fill in your intake information below so we can better translate your results when they come in.</p>
 
     <!-- Three quiet facts, not a feature list. One line from 560px up. -->
     <p class="intake__facts">
       <span class="intake__fact">About 5 minutes</span>
       <span class="intake__fact">11 short questions</span>
-      <span class="intake__fact">No right or wrong answers</span>
     </p>
 
     <!-- The survey. The card is pure white because the survey inside is
@@ -145,11 +114,6 @@
     <p class="site-footer__note">Tandava Wellness reads lifestyle tendencies. It does not diagnose, treat, cure or prevent any condition.</p>
   </div>
 </footer>
-
-<script src="/nav.js?v=3" defer></script>
-<!-- Opens the GoHighLevel consult form in place. The Calendly hrefs stay
-     in the HTML as the no-JavaScript fallback. -->
-<script src="/consult.js" defer></script>
 
 <!-- Keeps the top of the survey in view as it advances. The survey is on
      another origin, so the only thing we can see of it is the height

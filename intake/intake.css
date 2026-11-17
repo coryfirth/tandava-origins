@@ -6,6 +6,24 @@
    one-offs belong in that page's section below.
    ========================================================================== */
 
+/* --------------------------------------------------------------- the bar -- */
+/* nav.css still dresses the bar; what follows is only what changes with the
+   menu gone. Below 860px nav.css hides .nav behind a hamburger these pages
+   do not have, so Sign in is put back by hand and the row is kept from
+   wrapping under the wordmark. /tools does the same in its own sheet. */
+.intake-bar .nav { gap: 0; }
+.intake-bar .topbar__inner { flex-wrap: nowrap; }
+@media (max-width: 860px) {
+  .intake-bar .nav { display: flex; flex-direction: row; width: auto; padding: 0; }
+  .intake-bar .signin { align-self: center; margin-top: 0; }
+}
+/* Narrower than this the full lockup and Sign in cannot share a line, so the
+   wordmark carries the brand on its own. */
+@media (max-width: 560px) {
+  .intake-bar .brand__rule,
+  .intake-bar .brand__suffix { display: none; }
+}
+
 /* ------------------------------------------------------------- the page -- */
 /* One centred column. The reading width is narrower than --wrap: this is a
    form to fill in, not a page to browse. */
