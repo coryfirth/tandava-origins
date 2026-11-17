@@ -137,6 +137,19 @@ a { color: var(--gold-dark); }
 
 /* -------------------------------------------------------------- buttons -- */
 .btn {
+  /* A <button class="btn"> arrives wearing the browser's own chrome: a grey
+     border, a grey face and an arrow cursor. An <a class="btn"> arrives with
+     none of it, so the two never quite matched and the grey line showed
+     around the top of every button element. Stripped here, once, before the
+     variants below, which put back a border or a background where they
+     actually want one. */
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  background: transparent;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
   display: inline-flex;
   align-items: center;
   justify-content: center;
