@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Tandava Wellness — /intake/
+   The pages a customer lands on after paying, holding a GoHighLevel survey.
+   Loads after nav.css and styles.css and uses their tokens only. Shared by
+   every page under /intake/, so keep anything here general: the page's own
+   one-offs belong in that page's section below.
+   ========================================================================== */
+
+/* ------------------------------------------------------------- the page -- */
+/* One centred column. The reading width is narrower than --wrap: this is a
+   form to fill in, not a page to browse. */
+.intake {
+  padding: clamp(36px, 7vw, 72px) var(--pad-x) clamp(56px, 8vw, 104px);
+}
+
+.intake__wrap {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.intake__title {
+  font-size: clamp(32px, 7vw, 52px);
+  line-height: 1.06;
+  letter-spacing: -.045em;
+}
+
+.intake__lede {
+  margin: 18px 0 0;
+  font-size: clamp(16px, 4vw, 19px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--body);
+  text-wrap: pretty;
+}
+
+/* ------------------------------------------------------------- the row -- */
+/* Three quiet facts about the form. Stacked on a phone, one line from 560px
+   up, with hairline dividers between them rather than bullets or cards. */
+.intake__facts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: clamp(22px, 5vw, 30px) 0 0;
+}
+
+.intake__fact {
+  font-family: var(--label);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (min-width: 560px) {
+  .intake__facts { flex-direction: row; align-items: center; gap: 0; }
+  .intake__fact + .intake__fact {
+    margin-left: 18px;
+    padding-left: 18px;
+    border-left: 1px solid var(--hairline-2);
+  }
+}
+
+/* ------------------------------------------------------------- the card -- */
+/* Pure white on the paper background, because the survey inside is white
+   and borderless: anything else would show its edges. The min-height holds
+   the page still while the iframe loads; the iframe sets its own height
+   after that, so nothing here may constrain it. */
+.intake__card {
+  margin: clamp(24px, 5vw, 36px) 0 0;
+  background: var(--white);
+  border: 1px solid var(--hairline-2);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(33,44,40,.07);
+  padding: clamp(14px, 4vw, 32px);
+  min-height: 560px;
+  scroll-margin-top: 24px;
+}
+
+.intake__card iframe { display: block; }
+
+/* ------------------------------------------------------------ the note -- */
+.intake__note {
+  margin: 18px 0 0;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--muted);
+}
