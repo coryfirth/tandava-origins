@@ -1,13 +1,12 @@
 /* ==========================================================================
    Lifestyle Toolkit — content
    --------------------------------------------------------------------------
-   Everything on /tools and /tools/start-here that is worth editing lives in
-   this one file. Change a string here and the page changes. No other file
-   needs touching.
+   Everything on /tools that is worth editing lives in this one file. Change
+   a string here and the page changes. No other file needs touching.
 
-   The two exceptions, both on /tools, are the hero and the big featured card:
-   those sit in tools/index.html so you can read them in context, the way the
-   rest of the site is written.
+   The one exception is the hero: its eyebrow, headline and the line under it
+   sit in tools/index.html so you can read them in context, the way the rest
+   of the site is written.
 
    The prompt itself is NOT in here. It lives in tools/start-here-prompt.txt
    and the page loads that file at runtime, so replacing the .txt is the whole
@@ -22,8 +21,11 @@ window.TK = (function () {
      the one in step 2, so it only ever has to change here. */
   var PORTAL_URL = 'https://app.tandavaretreats.com/';
 
-  /* The tool's name, in both places it appears. */
+  /* The tool's name, wherever it is marked in the page. */
   var TOOL_NAME = 'Your Lifestyle Assistant';
+
+  /* The green button under the hero. Pressing it opens step 1 in place. */
+  var CTA_LABEL = 'Click here to get started';
 
   /* ----------------------------------------------------------------- AI --
      The three assistants, used twice: the row under the hero on /tools, and
@@ -55,8 +57,11 @@ window.TK = (function () {
     }
   ];
 
-  /* ------------------------------------------------------------- /tools --
-     The eight tools that are not built yet. These are cards, not links.    */
+  /* ---------------------------------------------------------- parked --
+     The eight tools that are not built yet. Nothing renders these at the
+     moment: the grid was taken off /tools until there is a second tool to
+     put in it. The copy is kept here so bringing it back is one block of
+     markup and the loop in tools.js, not a rewrite.                        */
 
   var SOON = [
     { group: 'Nutrition', name: 'Recipe Builder',       line: 'Meals built around your results.' },
@@ -71,7 +76,7 @@ window.TK = (function () {
 
   var SOON_HEADING = 'More tools on the way';
 
-  /* ------------------------------------------------ /tools/start-here --
+  /* --------------------------------------------------- the walkthrough --
      Five steps, in order. Each one has an eyebrow, a two-tone headline
      (`title` is the plain part, `titleAccent` the clay-coloured part) and
      any number of paragraphs. `block` adds the interactive piece.          */
@@ -183,6 +188,7 @@ window.TK = (function () {
   return {
     PORTAL_URL: PORTAL_URL,
     TOOL_NAME: TOOL_NAME,
+    CTA_LABEL: CTA_LABEL,
     AI: AI,
     SOON: SOON,
     SOON_HEADING: SOON_HEADING,

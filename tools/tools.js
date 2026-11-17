@@ -1,14 +1,15 @@
 /* ==========================================================================
-   Lifestyle Toolkit — shared pieces, and the /tools page
+   Lifestyle Toolkit — shared pieces, and the top of /tools
    --------------------------------------------------------------------------
    Two jobs:
 
-   1. TKUI, the few helpers both Toolkit pages share: the tool's name, and
-      the row of AI logos.
-   2. The "More tools on the way" grid on /tools.
+   1. TKUI, the helpers the page shares with the walkthrough in
+      start-here.js: el() and the AI marks.
+   2. The top of /tools: the tool's name and the row of AI logos under the
+      hero.
 
-   The hero and the featured card on that page are written into the markup,
-   so they still read correctly if this file never runs.
+   The hero's own words are written into the markup, so they still read
+   correctly if this file never runs.
    ========================================================================== */
 
 window.TKUI = (function () {
@@ -43,7 +44,7 @@ window.TKUI = (function () {
 })();
 
 
-/* ------------------------------------------------------- the /tools page -- */
+/* -------------------------------------------------- the top of /tools -- */
 (function () {
   'use strict';
 
@@ -57,30 +58,15 @@ window.TKUI = (function () {
   });
 
   /* The three assistants, under the hero. Not links: this row says what the
-     toolkit works with, and the buttons that go anywhere are further down. */
+     toolkit works with. The button below it is the thing to press. */
   var row = document.querySelector('[data-tk-ai]');
   if (row) {
-    var marks = el2('div', 'tk-ai__row');
+    var marks = UI.el('div', 'tk-ai__row');
     C.AI.forEach(function (ai) { marks.appendChild(UI.aiMark(ai, 'tk-ai__mark', 'ink')); });
     row.appendChild(marks);
   }
 
-  var heading = document.querySelector('[data-tk-soonheading]');
-  if (heading && C.SOON_HEADING) { heading.textContent = C.SOON_HEADING; }
-
-  /* The eight tools we have not opened yet. Divs, not links: there is nowhere
-     for them to go, so they must not look or behave like something to press. */
-  var grid = document.querySelector('[data-tk-soon]');
-  if (!grid) { return; }
-
-  C.SOON.forEach(function (t) {
-    var card = el2('div', 'tk-tool');
-    card.appendChild(el2('p', 'tk-tool__group', t.group));
-    card.appendChild(el2('h3', 'tk-tool__name', t.name));
-    card.appendChild(el2('p', 'tk-tool__line', t.line));
-    card.appendChild(el2('p', 'tk-tool__tag', 'Coming soon'));
-    grid.appendChild(card);
-  });
-
-  function el2(tag, cls, text) { return UI.el(tag, cls, text); }
+  /* The green button's words. start-here.js owns what it does. */
+  var cta = document.querySelector('[data-tk-start]');
+  if (cta && C.CTA_LABEL) { cta.textContent = C.CTA_LABEL; }
 })();

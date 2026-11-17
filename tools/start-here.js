@@ -1,9 +1,14 @@
 /* ==========================================================================
-   Lifestyle Toolkit — the Start here walkthrough
+   Lifestyle Toolkit — the walkthrough
    --------------------------------------------------------------------------
-   Five steps, one on screen at a time. Every word comes from
-   /tools/content.js; the prompt itself is fetched from the .txt file named
-   there, so swapping that file is the whole job of changing the prompt.
+   Five steps, one on screen at a time, living on /tools under the hero.
+   The green button in the hero hands over to this: the hero is hidden, the
+   steps take its place, and nobody leaves the page. Back on step 1 hands it
+   the other way.
+
+   Every word comes from /tools/content.js; the prompt itself is fetched from
+   the .txt file named there, so swapping that file is the whole job of
+   changing the prompt.
 
    Nothing is stored and nothing is sent anywhere. The checkboxes in step 2
    are for the reader's own tracking and never gate the Next button.
@@ -23,6 +28,11 @@
   var count  = document.querySelector('[data-tk-count]');
   var back   = document.querySelector('[data-tk-back]');
   var next   = document.querySelector('[data-tk-next]');
+
+  /* The hero, the section holding the steps, and the button between them. */
+  var hero    = document.querySelector('[data-tk-top]');
+  var journey = document.querySelector('[data-tk-journey]');
+  var starter = document.querySelector('[data-tk-start]');
 
   var steps  = C.STEPS;
   var n      = steps.length;
@@ -297,8 +307,10 @@
 
     count.textContent = 'Step ' + (at + 1) + ' of ' + n + ': ' + (C.STEP_NAMES[at] || '');
 
-    back.disabled = at === 0;
-    next.textContent = at === 0 ? 'Begin' : (at === n - 1 ? 'Start over' : 'Next');
+    /* Back on step 1 returns to the hero, so it is only ever dead on a page
+       that has no hero to return to. */
+    back.disabled = at === 0 && !hero;
+    next.textContent = at === n - 1 ? 'Start over' : 'Next';
 
     /* Reflect the step in the URL so a refresh or a shared link lands in the
        same place. replaceState, not a real hash change: that keeps the
@@ -330,22 +342,65 @@
     window.addEventListener('resize', size);
   }
 
-  next.addEventListener('click', function () { show(at === n - 1 ? 0 : at + 1, true); });
-  back.addEventListener('click', function () { show(at - 1, true); });
+  /* --------------------------------------------------- open and close -- */
 
-  /* Somebody edited the hash, or followed a link to another step. */
-  window.addEventListener('hashchange', function () {
-    var want = fromHash();
-    if (want !== at) { show(want, true); }
-  });
+  var animating = false;
 
-  function fromHash() {
-    var m = /^#step-(\d+)$/.exec(window.location.hash || '');
-    if (!m) { return at; }
-    var i = parseInt(m[1], 10) - 1;
-    return (i >= 0 && i < n) ? i : at;
+  /* Put the steps where the hero was. */
+  function open(i, moved) {
+    if (journey) { journey.hidden = false; }
+    if (hero) { hero.hidden = true; }
+    show(i, moved);
+    /* The slide transition is switched on only after the first step is
+       placed, so opening on a deep link does not fly through the others. */
+    if (!animating) {
+      animating = true;
+      window.requestAnimationFrame(function () { track.classList.add('is-ready'); });
+    }
   }
 
-  show(fromHash(), false);
-  track.classList.add('is-ready');   /* animate only from here on */
+  /* And back again. The step is dropped from the URL so a refresh here
+     lands on the hero, which is where the reader just asked to be. */
+  function close() {
+    if (!journey || !hero) { return; }
+    journey.hidden = true;
+    hero.hidden = false;
+    try { history.replaceState(null, '', window.location.pathname); } catch (e) { /* file:// */ }
+    window.scrollTo(0, 0);
+    if (starter) { starter.focus({ preventScroll: true }); }
+  }
+
+  if (starter) {
+    starter.addEventListener('click', function () {
+      open(0, true);
+      window.scrollTo(0, 0);
+    });
+  }
+
+  next.addEventListener('click', function () { show(at === n - 1 ? 0 : at + 1, true); });
+  back.addEventListener('click', function () {
+    if (at === 0) { close(); } else { show(at - 1, true); }
+  });
+
+  /* Somebody edited the hash, or followed a link to a step. */
+  window.addEventListener('hashchange', function () {
+    var want = fromHash();
+    if (want < 0) { return; }
+    if (journey && journey.hidden) { open(want, true); }
+    else if (want !== at) { show(want, true); }
+  });
+
+  /* -1 means the URL is not asking for a step. */
+  function fromHash() {
+    var m = /^#step-(\d+)$/.exec(window.location.hash || '');
+    if (!m) { return -1; }
+    var i = parseInt(m[1], 10) - 1;
+    return (i >= 0 && i < n) ? i : -1;
+  }
+
+  /* On arrival: the hero, unless the link asked for a step. A page with no
+     hero has nothing else to show, so it opens straight away. */
+  var landing = fromHash();
+  if (landing >= 0) { open(landing, false); }
+  else if (!hero) { open(0, false); }
 })();

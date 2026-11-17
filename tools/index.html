@@ -25,7 +25,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Instrument+Sans:wght@500;600&amp;family=Julius+Sans+One&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/nav.css?v=3">
 <link rel="stylesheet" href="/styles.css?v=3">
-<link rel="stylesheet" href="/tools/tools.css?v=2">
+<link rel="stylesheet" href="/tools/tools.css?v=3">
 <!-- data-cookieconsent="ignore" keeps Cookiebot's auto-blocking from
      gagging this file. It IS the consent gate: it loads nothing from
      Google until statistics consent is given, and it owns the footer
@@ -35,9 +35,9 @@
 
 <body>
 
-<!-- The Toolkit bar. These pages are reached from the results email, not
-     from the site, so the menu would only invite the reader away mid-task.
-     The wordmark and the way back into the portal are all that is left, and
+<!-- The Toolkit bar. This page is reached from the results email, not from
+     the site, so the menu would only invite the reader away mid-task. The
+     wordmark and the way back into the portal are all that is left, and
      nav.js is not loaded because there is no menu left for it to build. -->
 <div class="topbar tk-bar">
   <div class="topbar__inner">
@@ -59,9 +59,13 @@
 <main>
 
 <!-- ============================================================ hero -- -->
-<!-- The hero and the featured card below are the two blocks kept in the
-     markup rather than in tools/content.js, so they read in context. -->
-<section class="tk-hero">
+<!-- The whole toolkit is one page now. This is what the reader lands on;
+     the green button swaps it for the walkthrough below, in place, so
+     nobody is sent off to a second address mid-task.
+
+     The hero's words are the one block kept in the markup rather than in
+     tools/content.js, so they read in context. -->
+<section class="tk-hero" data-tk-top>
   <div class="wrap">
     <p class="eyebrow">Lifestyle Toolkit</p>
     <h1 class="serif-title tk-hero__title">
@@ -76,31 +80,44 @@
 
     <!-- The three assistants, built from tools/content.js. -->
     <div class="tk-ai" data-tk-ai></div>
+
+    <!-- The way in. start-here.js hides the hero and opens step 1 here;
+         the words come from CTA_LABEL in tools/content.js. -->
+    <div class="tk-start">
+      <button class="btn btn--forest tk-start__btn" type="button" data-tk-start>Click here to get started</button>
+    </div>
+
+    <noscript>
+      <p class="tk-jr__noscript">This walkthrough needs JavaScript switched on.
+        If you would rather not, email <a href="mailto:cory@tandavaretreats.com">cory@tandavaretreats.com</a>
+        and we will send you the steps by reply.</p>
+    </noscript>
   </div>
 </section>
 
-<!-- =================================================== featured tool -- -->
-<section class="tk-featsec">
-  <div class="wrap">
-    <article class="tk-feat on-dark">
-      <div class="tk-feat__copy">
-        <p class="tk-feat__label">Tool 01 &middot; 10 minutes</p>
-        <!-- The name comes from TOOL_NAME in tools/content.js. The text here
-             is what shows if that file never loads. -->
-        <h2 class="tk-feat__title" data-tk-toolname>Your Lifestyle Assistant</h2>
-        <p class="tk-feat__body">Set up a personal AI assistant that knows your Lifestyle Profile
-          and walks you through your results, one step at a time.</p>
-      </div>
-      <a class="btn tk-feat__cta" href="/tools/start-here/">Start here</a>
-    </article>
-  </div>
-</section>
+<!-- ========================================================== journey -- -->
+<!-- Five steps, one on screen at a time, in the hero's place. Hidden until
+     the button above is pressed, or until a #step-N link asks for it.
+     Everything inside [data-tk-track] is built by /tools/start-here.js from
+     the copy in /tools/content.js. -->
+<section class="tk-jr" data-tk-journey hidden>
+  <div class="wrap tk-jr__wrap">
 
-<!-- ====================================================== more tools -- -->
-<section class="tk-soonsec">
-  <div class="wrap">
-    <h2 class="tk-soon__h" data-tk-soonheading>More tools on the way</h2>
-    <div class="tk-soon" data-tk-soon></div>
+    <!-- progress -->
+    <div class="tk-jr__progress">
+      <div class="tk-jr__bars" data-tk-bars aria-hidden="true"></div>
+      <p class="tk-jr__count" data-tk-count aria-live="polite">Step 1 of 5</p>
+    </div>
+
+    <div class="tk-jr__view" data-tk-view>
+      <div class="tk-jr__track" data-tk-track></div>
+    </div>
+
+    <div class="tk-jr__nav">
+      <button class="btn btn--outline tk-jr__back" type="button" data-tk-back>Back</button>
+      <button class="btn btn--forest tk-jr__next" type="button" data-tk-next>Next</button>
+    </div>
+
   </div>
 </section>
 
@@ -125,7 +142,8 @@
   </div>
 </footer>
 
-<script src="/tools/content.js?v=2" defer></script>
-<script src="/tools/tools.js?v=2" defer></script>
+<script src="/tools/content.js?v=3" defer></script>
+<script src="/tools/tools.js?v=3" defer></script>
+<script src="/tools/start-here.js?v=3" defer></script>
 </body>
 </html>
