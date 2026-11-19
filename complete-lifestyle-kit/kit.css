@@ -442,7 +442,13 @@
 .k-stickytop__inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 68px; }
 .k-stickytop__id { display: flex; align-items: baseline; gap: 14px; }
 .k-stickytop__name { font-family: var(--label); font-weight: 600; font-size: 17px; color: var(--ink); }
-.k-stickytop__price { font-size: 16px; color: var(--muted); }
+/* The bars carry the only price on screen for most of the scroll, and the
+   only "Get my kit" button people reach for, so they carry the discount
+   too. Without it the page shows $700 struck through at the top and a bare
+   $549 everywhere after, which reads as two different prices. */
+.k-stickytop__price { display: inline-flex; align-items: baseline; gap: 8px; font-size: 16px; color: var(--muted); }
+.k-sticky__was { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 1px; }
+.k-sticky__now { color: var(--ink); font-weight: 500; }
 
 .k-stickybottom {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
@@ -452,7 +458,24 @@
   padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
 }
+.k-stickybottom__row { display: flex; align-items: center; gap: 8px; }
+/* In the row USD sits beside the price, the way the main price block
+   reads, so it no longer hangs under the struck $700 as if it belonged
+   to it. The stacked bar elsewhere keeps its own spacing. */
+.k-stickybottom__row .k-stickybottom__cur { margin-top: 0; }
 .k-stickybottom__num { font-family: var(--serif); font-weight: 500; font-size: 28px; line-height: 1; color: var(--ink); }
+/* Smaller than the live price but still a price, the same relationship the
+   main price block holds. 28px cannot carry the block's 0.38 ratio, which
+   would land at 11px and read as a footnote. */
+.k-stickybottom__was {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
 .k-stickybottom__cur { font-size: 14px; color: var(--muted); margin-top: 3px; }
 .k-stickybottom .k-cta { min-height: 50px; padding: 0 24px; }
 

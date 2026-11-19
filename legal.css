@@ -31,14 +31,6 @@
   font-size: 14px;
   color: var(--muted);
 }
-.legal__lede {
-  margin: 26px 0 0;
-  font-size: 18px;
-  line-height: 1.65;
-  color: var(--body);
-  text-wrap: pretty;
-}
-
 /* The jump list. Plain links, not a boxed widget: the page is short enough
    that a heavy table of contents would outweigh what it indexes. */
 .legal__toc {
@@ -105,6 +97,16 @@
 
 .legal__body a { color: var(--ink); text-decoration: underline; text-decoration-color: rgba(188,122,72,.5); text-underline-offset: 3px; }
 .legal__body a:hover { color: var(--clay); text-decoration-color: currentColor; }
+
+/* The postal address. <address> is the right element and comes with the
+   browser's italics, which read as emphasis the address does not want. */
+.legal__address {
+  margin: 14px 0 0;
+  font-style: normal;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--body);
+}
 
 /* A definition-style table for the data-we-collect and sharing sections.
    Stacks into labelled blocks on a phone rather than scrolling sideways. */
