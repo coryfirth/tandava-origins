@@ -107,11 +107,14 @@
 .k-price__was {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: 12px;          /* the pill's size, so the two flank the price evenly */
+  /* Secondary to the live price but still a price, so it sits above USD
+     rather than down at the pill's label size. A fraction of the numeral,
+     so it holds that relationship across the numeral's clamp. */
+  font-size: calc(var(--price-size) * 0.38);
   line-height: 1;
   color: var(--muted);
   text-decoration: line-through;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 1.5px;
 }
 /* The numeral's line-height of 1 squashes its line box, so the baseline the
    browser aligns to sits below where the digits actually sit and USD hangs
