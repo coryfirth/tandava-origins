@@ -1,0 +1,16 @@
+# Tandava Wellness
+#
+# Everything is crawlable on purpose. The unlisted pages (/tools/,
+# /intake/lifestyle/, /thanks/lifestyle/, /koya/, /privacy/) keep
+# themselves out of search with <meta name="robots" content="noindex">,
+# and a crawler has to fetch a page to read that tag. Disallowing them
+# here would block the fetch, the tag would never be read, and the URLs
+# could still surface in results with no description under them. So they
+# stay crawlable and keep saying noindex for themselves.
+#
+# Add a Disallow only for something that must never be fetched at all.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://tandavawellness.com/sitemap.xml

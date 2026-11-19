@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Tandava Wellness sitemap.
+
+  ONLY pages that are meant to be found belong here. A page carrying
+  <meta name="robots" content="noindex"> must never be listed: asking
+  Google to index a page that tells it not to is a contradiction, and it
+  shows up as a warning in Search Console.
+
+  Deliberately left out, and why:
+    /privacy/                 noindex while the contact details are unfinished
+    /koya/                    noindex, a partner landing page
+    /tools/, /tools/start-here/   noindex, reached from the results email
+    /intake/lifestyle/        noindex, reached from the order confirmation
+    /thanks/lifestyle/        noindex, reached by finishing the intake
+    /coaching/, /tandava-neuro/novus/   noindex
+    /tandava-neuro/           indexable, but no longer in the menu: decide
+                              whether it is launching before listing it
+    /origins/, /origins/coaching/   indexable, but a near duplicate of the
+                              kit page. Give it a canonical or a noindex
+                              first, then list it if it should be found.
+
+  lastmod is the date the page's content last changed. Update it when you
+  change a page, or leave it off rather than let it go stale: a date that
+  never moves is worse than no date at all.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://tandavawellness.com/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://tandavawellness.com/complete-lifestyle-kit/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://tandavawellness.com/lifestyle-design/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://tandavawellness.com/partnerships/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://tandavawellness.com/case-studies/katie-gill/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

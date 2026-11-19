@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Tandava Wellness — the 404 page.
+   Loads after nav.css and styles.css and uses their tokens only. One page
+   uses this file, so there is nothing general to keep here.
+   ========================================================================== */
+
+/* Tall enough that the footer sits at the bottom of a desktop window rather
+   than halfway up it, but it is a minimum, so a phone just lets it be. */
+.nf {
+  padding: clamp(64px, 12vw, 140px) var(--pad-x) clamp(72px, 12vw, 150px);
+  min-height: 52vh;
+  display: flex;
+  align-items: center;
+}
+
+.nf__wrap { max-width: 640px; margin: 0 auto; text-align: center; }
+
+.nf__title {
+  margin: 12px 0 0;
+  font-size: clamp(32px, 7vw, 54px);
+  line-height: 1.06;
+  letter-spacing: -.045em;
+}
+
+.nf__lead {
+  margin: 18px 0 0;
+  font-size: clamp(16px, 4vw, 19px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--body);
+  text-wrap: pretty;
+}
+
+/* Stacked and full width on a phone, side by side from 480px up. */
+.nf__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: clamp(28px, 5vw, 36px) 0 0;
+}
+
+@media (min-width: 480px) {
+  .nf__actions { flex-direction: row; justify-content: center; }
+}
+
+.nf__note {
+  margin: clamp(26px, 4vw, 34px) 0 0;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.nf__note a { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
+.nf__note a:hover { color: var(--gold); }

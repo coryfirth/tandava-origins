@@ -483,7 +483,12 @@
   .k-upsell__grab { display: block; position: absolute; top: 10px; left: 50%; width: 40px; height: 4px; margin-left: -20px; border-radius: 9px; background: rgba(48, 64, 40, .2); }
 
   .k-stat__row { flex-direction: column; }
-  .k-stat__copy { align-items: center; text-align: center; }
+  /* flex: 0 1 380px up in the row layout is a width. Stacked, the same
+     basis becomes a HEIGHT, so this block was held 380px tall around two
+     lines of text and dropped the figure a third of a screen below the
+     sentence it finishes, with the source credit stranded in between.
+     Back to auto: the number now follows the words. */
+  .k-stat__copy { flex: 0 1 auto; align-items: center; text-align: center; }
   .k-stat__copy p { text-align: center; }
 
   .k-six__tabs { justify-content: flex-start; }
