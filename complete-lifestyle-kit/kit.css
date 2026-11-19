@@ -98,6 +98,18 @@
 }
 .k-price__row { display: flex; align-items: baseline; gap: 8px; }
 .k-price__num { font-family: var(--serif); font-weight: 500; font-size: var(--price-size); line-height: 1; color: var(--ink); }
+/* The price it replaces. Sized as a fraction of the numeral so the pair
+   keeps its proportions at every width, and sharing the row's baseline so
+   the two numbers sit on one line rather than one floating. */
+.k-price__was {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(var(--price-size) * 0.46);
+  line-height: 1;
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
 /* The numeral's line-height of 1 squashes its line box, so the baseline the
    browser aligns to sits below where the digits actually sit and USD hangs
    low. Lift it by a fraction of the numeral, so the correction tracks the
