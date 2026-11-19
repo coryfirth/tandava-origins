@@ -29,9 +29,13 @@
     { key: 'sleep',        label: 'Sleep',              href: null,                       show: false },
     { key: 'diet',         label: 'Diet',               href: null,                       show: false },
     { key: 'exercise',     label: 'Exercise',           href: null,                       show: false },
-    { key: 'neuro',        label: 'Tandava Neuro',      href: '/tandava-neuro/',          show: true  },
+    /* Tandava Neuro is not launching. With its only child hidden the
+       Programs dropdown has nothing left to open, and the group below
+       hides itself: an empty dropdown would be a dead end. Set both back
+       to true to bring the whole thing back. */
+    { key: 'neuro',        label: 'Tandava Neuro',      href: '/tandava-neuro/',          show: false },
     /* Programs is a label over a dropdown, not a page of its own. */
-    { key: 'programs',     label: 'Programs',           href: null,                       show: true  },
+    { key: 'programs',     label: 'Programs',           href: null,                       show: false },
     { key: 'lifestyle',    label: 'Lifestyle Design',   href: '/lifestyle-design/',       show: true,  top: true },
     { key: 'partnerships', label: 'Partnerships',       href: '/partnerships/',           show: true,  top: true },
     { key: 'about',        label: 'About',              href: null,                       show: false, top: true },
