@@ -103,3 +103,21 @@
 .pr__done p { margin: 0; font-size: 17px; line-height: 1.6; color: var(--body); }
 
 .pr :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+
+/* ------------------------------------------------------------- stacked -- */
+/* 980px is where the two columns stop fitting side by side and the card
+   drops below the case. That puts the photo between the pitch and the
+   form: a 460px tall stretch of nothing to do, right at the moment
+   someone has decided to get in touch. On a phone it is more than a full
+   screen of scrolling to reach the first field.
+
+   The photo is display:none rather than deleted, so the desktop layout,
+   where it sits beside the form rather than above it, keeps it. It is
+   loading="lazy", so hidden it is never in the viewport and never
+   downloaded: phones do not pay for an image they cannot see. The gap
+   tightens too, since stacked it is vertical scroll rather than the
+   breathing room between two columns. */
+@media (max-width: 980px) {
+  .pr__photo { display: none; }
+  .pr__grid { gap: 28px; }
+}
