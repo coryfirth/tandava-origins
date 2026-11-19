@@ -119,5 +119,10 @@
    breathing room between two columns. */
 @media (max-width: 980px) {
   .pr__photo { display: none; }
+  /* The pills go for the same reason. Stacked they wrap onto three lines
+     of reassurance that the page has already given in the paragraph above
+     them, and every line of it is scroll between the pitch and the form.
+     The hairline above "Built for" still divides the two halves. */
+  .pr__pills { display: none; }
   .pr__grid { gap: 28px; }
 }
