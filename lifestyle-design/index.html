@@ -28,7 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Instrument+Sans:wght@500;600&amp;family=Julius+Sans+One&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/nav.css?v=3">
 <link rel="stylesheet" href="/styles.css?v=4">
-<link rel="stylesheet" href="/complete-lifestyle-kit/kit.css?v=4">
+<link rel="stylesheet" href="/complete-lifestyle-kit/kit.css?v=5">
 <link rel="stylesheet" href="/lifestyle-design/ld.css?v=3">
 <link rel="stylesheet" href="/consult.css?v=3">
 <!-- data-cookieconsent="ignore" keeps Cookiebot's auto-blocking from
@@ -184,7 +184,11 @@
     </div>
 
     <div class="k-center k-how__actions">
-      <button class="btn btn--forest k-cta" type="button" data-open-upsell>Get my kit</button>
+      <!-- A link, not a button. It used to carry data-open-upsell, but the
+           add-on pop-up it asked for lives in the kit page's markup and was
+           never on this page, so kit.js found nothing to open and the click
+           did nothing at all. It now goes where the kits are. -->
+      <a class="btn btn--forest k-cta" href="/#shelf">Get my kit</a>
     </div>
   </div>
 </section>

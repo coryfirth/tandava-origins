@@ -161,6 +161,10 @@
 .k-stat__copy { flex: 0 1 380px; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; text-align: right; }
 .k-stat__copy p { margin: 0; font-size: clamp(20px, 2vw, 28px); line-height: 1.35; color: var(--body); text-align: right; text-wrap: balance; }
 .k-stat__source { font-size: 12px; line-height: 1.4; color: var(--muted); }
+/* The figure and its credit as one column, so the source reads under the
+   number on every width. /koya/ still has the credit inside the copy and
+   carries no .k-stat__fig, so this rule leaves that page alone. */
+.k-stat__fig { display: flex; flex-direction: column; align-items: center; gap: 10px; }
 .k-stat__figure { font-family: var(--serif); font-weight: 500; font-size: clamp(110px, 16vw, 220px); line-height: .9; letter-spacing: -.05em; color: var(--clay); }
 .k-stat__title {
   font-family: var(--serif); font-weight: 500;
