@@ -96,7 +96,10 @@
   --price-size: clamp(48px, 4.6vw, 62px);
   display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px 16px;
 }
-.k-price__row { display: flex; align-items: baseline; gap: 8px; }
+/* Centred, not baselined. The struck price and USD are small enough beside
+   a 48px numeral that a shared baseline left them sitting on the floor of
+   the row; on its middle they read as one line. */
+.k-price__row { display: flex; align-items: center; gap: 10px; }
 .k-price__num { font-family: var(--serif); font-weight: 500; font-size: var(--price-size); line-height: 1; color: var(--ink); }
 /* The price it replaces. Sized as a fraction of the numeral so the pair
    keeps its proportions at every width, and sharing the row's baseline so
@@ -104,19 +107,22 @@
 .k-price__was {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: calc(var(--price-size) * 0.46);
+  font-size: 12px;          /* the pill's size, so the two flank the price evenly */
   line-height: 1;
   color: var(--muted);
   text-decoration: line-through;
-  text-decoration-thickness: 1.5px;
+  text-decoration-thickness: 1px;
 }
 /* The numeral's line-height of 1 squashes its line box, so the baseline the
    browser aligns to sits below where the digits actually sit and USD hangs
    low. Lift it by a fraction of the numeral, so the correction tracks the
    size rather than being a fixed pixel fudge. */
+/* This used to be lifted off a baseline, because a numeral with
+   line-height 1 sits in a squashed line box and USD hung low off it. The
+   row is centred now, so the lift has nothing left to correct: it only
+   pushed USD 2px above the number, the struck price and the pill, which
+   all share one centre. */
 .k-price__cur {
-  position: relative;
-  top: calc(var(--price-size) * -0.08);
   font-size: 16px;
   color: var(--muted);
 }
