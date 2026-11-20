@@ -312,18 +312,37 @@
      not answer each other in a circle. */
   var steering = false;
 
+  /* The address is rewritten, never stacked. An earlier version pushed an
+     entry for each video so that Back closed the player, and that turned
+     out to be built on a false assumption: the embed is a frame, and every
+     related video a reader clicks inside it navigates that frame, which
+     adds a history entry of its own. Closing then walked back through all
+     of them one press at a time. Depth we do not control is depth we
+     cannot count on, so the player no longer uses any: the link stays
+     share-able, the close button closes, and Back means what it meant
+     before, which is leave the page. */
+  function address(hash) {
+    if (!window.history || !history.replaceState) { return; }
+    history.replaceState(null, '', hash
+      ? '#' + hash
+      : location.pathname + location.search);
+  }
+
   function play(id, fromHistory) {
     var v = allVideos()[id] || CONFIG.featured;
-    if (!fromHistory && slugById[id] && window.history && history.pushState) {
-      history.pushState({ lb: slugById[id] }, '', '#' + slugById[id]);
-    }
+    if (!fromHistory) { address(slugById[id]); }
     $('#playerTitle').textContent = v.title;
     /* Who made it and how long it runs, the same two facts the card
        carries, so the dialog is not a step backwards from the shelf. */
     $('#playerMeta').textContent = [v.by, v.time].filter(Boolean).join(' \u00b7 ');
     /* youtube-nocookie keeps the embed from writing advertising cookies. */
+    /* rel=0 keeps the end screen to the same channel, modestbranding and
+       iv_load_policy=3 drop the logo and the annotations, and playsinline
+       stops an iPhone throwing the video into its own fullscreen player,
+       which would leave this dialog open behind it. */
     $('#player').innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
-      '?autoplay=1&rel=0" title="' + esc(v.title) + '"' +
+      '?autoplay=1&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3"' +
+      ' title="' + esc(v.title) + '"' +
       ' allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
     if (playerDlg.showModal) { playerDlg.showModal(); } else { playerDlg.setAttribute('open', ''); }
   }
@@ -353,12 +372,12 @@
      and put the address back to the library so the two never disagree. */
   playerDlg.addEventListener('close', function () {
     $('#player').innerHTML = '';
-    if (!steering && idBySlug[location.hash.slice(1)]) { history.back(); }
+    if (!steering && idBySlug[location.hash.slice(1)]) { address(''); }
   });
 
-  /* The address bar is the other way in and out. A link to #mind-lake opens
-     that video on arrival, and Back closes the player rather than leaving
-     the page, which is what a reader who opened one video expects. */
+  /* The address bar is the other way in: a link to #mind-lake opens that
+     video on arrival, and a reader who edits the hash by hand is followed
+     rather than ignored. */
   function fromHash() {
     var id = idBySlug[location.hash.slice(1)];
     if (id) { play(id, true); return; }
