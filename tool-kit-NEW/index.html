@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://i.ytimg.com">
 <link rel="stylesheet" href="/nav.css?v=3">
 <link rel="stylesheet" href="/styles.css?v=4">
-<link rel="stylesheet" href="library.css?v=9">
+<link rel="stylesheet" href="library.css?v=10">
 <!-- data-cookieconsent="ignore" keeps Cookiebot's auto-blocking from
      gagging this file. It IS the consent gate: it loads nothing from
      Google until statistics consent is given, and it owns the footer
@@ -134,7 +134,10 @@
 <!-- =========================================================== player -- -->
 <dialog class="lb-dialog" id="playerDlg" aria-label="Video player">
   <div class="lb-dialog__bar">
-    <h2 class="lb-dialog__title" id="playerTitle"></h2>
+    <div class="lb-dialog__id">
+      <h2 class="lb-dialog__title" id="playerTitle"></h2>
+      <p class="lb-dialog__meta" id="playerMeta"></p>
+    </div>
     <button class="lb-x" type="button" data-close aria-label="Close">
       <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
     </button>
@@ -144,6 +147,6 @@
 
 
 <script src="/nav.js?v=4" defer></script>
-<script src="library.js?v=9" defer></script>
+<script src="library.js?v=10" defer></script>
 </body>
 </html>

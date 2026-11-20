@@ -313,11 +313,14 @@
   var steering = false;
 
   function play(id, fromHistory) {
-    var v = allVideos()[id] || { title: CONFIG.featured.title };
+    var v = allVideos()[id] || CONFIG.featured;
     if (!fromHistory && slugById[id] && window.history && history.pushState) {
       history.pushState({ lb: slugById[id] }, '', '#' + slugById[id]);
     }
     $('#playerTitle').textContent = v.title;
+    /* Who made it and how long it runs, the same two facts the card
+       carries, so the dialog is not a step backwards from the shelf. */
+    $('#playerMeta').textContent = [v.by, v.time].filter(Boolean).join(' \u00b7 ');
     /* youtube-nocookie keeps the embed from writing advertising cookies. */
     $('#player').innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
       '?autoplay=1&rel=0" title="' + esc(v.title) + '"' +

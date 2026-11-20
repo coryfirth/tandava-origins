@@ -431,17 +431,74 @@
   width: 100%;
   max-width: min(1060px, 94vw);
 }
-.lb-dialog::backdrop { background: rgba(28,37,28,.80); }
-.lb-dialog__bar { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 0 2px 12px; }
+
+/* Not a flat sheet of black. The page behind is blurred and drained of a
+   little colour, a forest glow is lit behind where the video will sit so
+   the middle of the screen is the warmest part of it, and the same grain
+   the cards wear is laid over the whole thing. It is the grain that makes
+   this read as a material rather than an overlay, and it is the one thing
+   here nobody will consciously notice. */
+.lb-dialog::backdrop {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='.5'/%3E%3C/svg%3E"),
+    radial-gradient(118% 86% at 50% 34%,
+      rgba(52,68,46,.58) 0%,
+      rgba(22,30,23,.90) 58%,
+      rgba(13,18,14,.96) 100%);
+  background-size: 180px 180px, cover;
+  background-blend-mode: overlay, normal;
+  backdrop-filter: blur(14px) saturate(.8);
+  -webkit-backdrop-filter: blur(14px) saturate(.8);
+}
+
+.lb-dialog__bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 0 4px 14px;
+  margin-bottom: 14px;
+  /* The site's own hairline for dark ground. It turns a title floating
+     above a video into a title bar belonging to it. */
+  border-bottom: 1px solid var(--rule-dark);
+}
+.lb-dialog__id { min-width: 0; }
 .lb-dialog__title {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: clamp(17px, 1.5vw, 21px);
-  line-height: 1.25;
+  font-size: clamp(19px, 1.7vw, 25px);
+  line-height: 1.2;
   letter-spacing: -.03em;
   color: var(--paper);
 }
-.lb-player { position: relative; aspect-ratio: 16 / 9; background: #000; border-radius: 16px; overflow: hidden; }
+/* Who made it and how long, in the label face the eyebrows use, in the
+   clay that carries every other small mark on this page. */
+.lb-dialog__meta {
+  margin: 7px 0 0;
+  font-family: var(--label);
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--clay-light);
+}
+.lb-dialog__meta:empty { display: none; }
+
+.lb-player {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 18px;
+  overflow: hidden;
+  /* Three layers, none of them a plain drop shadow: a sand hairline so the
+     frame has an edge against black video, the weight underneath it, and a
+     breath of clay spilling out past that. The last one is barely visible
+     and is what keeps the dialog from feeling cut out and pasted on. */
+  box-shadow:
+    0 0 0 1px rgba(237,226,192,.16),
+    0 36px 80px rgba(8,12,9,.62),
+    0 0 130px rgba(188,122,72,.13);
+}
 .lb-player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
 .lb-x {
@@ -455,11 +512,29 @@
   display: grid;
   place-items: center;
   color: var(--paper);
-  background: rgba(246,245,240,.14);
+  background: rgba(246,245,240,.10);
+  box-shadow: inset 0 0 0 1px rgba(237,226,192,.18);
+  transition: background-color .22s var(--ease), color .22s var(--ease),
+              box-shadow .22s var(--ease);
 }
-.lb-x:hover { background: rgba(246,245,240,.26); }
+.lb-x:hover {
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px rgba(246,245,240,0);
+}
 
 /* ------------------------------------------------------------ motion -- */
+/* The dialog rises the last few pixels into place while the ground darkens
+   behind it. Without this it is simply there between one frame and the
+   next, which is the difference between a window opening and a jump cut. */
+@keyframes lb-rise {
+  from { opacity: 0; transform: translateY(16px) scale(.985); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes lb-settle { from { opacity: 0; } to { opacity: 1; } }
+.lb-dialog[open] { animation: lb-rise .36s var(--ease) both; }
+.lb-dialog[open]::backdrop { animation: lb-settle .36s var(--ease) both; }
+
 /* A single slow push on the hero, which lands and then holds. An endless
    drift would still be moving behind the reader an hour later. */
 @keyframes lb-drift {
@@ -498,6 +573,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .lb-hero__bg { animation: none; }
+  .lb-dialog[open], .lb-dialog[open]::backdrop { animation: none; }
   .lb-rows--reveal .lb-card,
   .lb-rows--reveal .lb-row__head { opacity: 1; transform: none; transition: none; }
 }
