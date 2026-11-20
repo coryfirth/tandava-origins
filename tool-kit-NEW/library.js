@@ -130,18 +130,6 @@
     [].forEach.call(root.querySelectorAll('img[data-next]'), watch);
   }
 
-  var store = {
-    get: function (k, d) {
-      try { var v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; }
-      catch (e) { return d; }
-    },
-    set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
-  };
-
-  /* The one thing the reader's own browser remembers: the videos they have
-     put in their list. It never leaves the device and nothing reads it but
-     this page. */
-  var saved = store.get('lb-saved', []);
   var query = '';
 
   function allVideos() {
@@ -152,13 +140,9 @@
     return map;
   }
 
-  var PLAY_ICON = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 20 20"><path d="M6 4l10 6-10 6z" fill="#212C28"/></svg>';
+  var PLAY_ICON = '<svg aria-hidden="true" width="15" height="15" viewBox="0 0 20 20"><path d="M6 4l10 6-10 6z" fill="currentColor"/></svg>';
   var ARROW_L = '<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14 6-6 6 6 6"/></svg>';
   var ARROW_R = '<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m10 6 6 6-6 6"/></svg>';
-  var TICK = '<svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>';
-  var PLUS = '<svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>';
-
-  function isSaved(id) { return saved.indexOf(id) !== -1; }
 
   /* The card's picture: the one named in the list, or, failing that,
      YouTube's own with its sizes to fall back through. */
@@ -172,19 +156,18 @@
       ' alt="" width="1280" height="720" decoding="async">';
   }
 
+  /* The play badge sits on the picture at rest rather than waiting for a
+     hover: on a phone there is no hover, and a still photograph with
+     nothing on it does not say "video". */
   function cardHTML(v) {
-    var on = isSaved(v.id);
     return '<div class="lb-card">' +
       '<button class="lb-card__open" type="button" data-play="' + v.id + '">' +
         '<span class="lb-thumb">' +
           picture(v, true) +
-          '<span class="lb-thumb__play"><span>' + PLAY_ICON + '</span></span>' +
+          '<span class="lb-thumb__veil" aria-hidden="true"></span>' +
+          '<span class="lb-thumb__play" aria-hidden="true">' + PLAY_ICON + '</span>' +
         '</span>' +
         '<span class="lb-card__title">' + esc(v.title) + '</span>' +
-      '</button>' +
-      '<button class="lb-save' + (on ? ' lb-save--on' : '') + '" type="button" data-save="' + v.id + '"' +
-        ' aria-pressed="' + on + '" aria-label="' + (on ? 'Remove from' : 'Add to') + ' my list">' +
-        (on ? TICK : PLUS) +
       '</button>' +
     '</div>';
   }
@@ -205,7 +188,6 @@
 
   function renderHero() {
     var f = CONFIG.featured;
-    var on = isSaved(f.id);
     var bg = f.img
       ? '<img class="lb-hero__bg" src="' + f.img + '" alt="" width="1800" height="1013"' +
           ' fetchpriority="high" decoding="async">'
@@ -219,9 +201,8 @@
         '<h1 class="lb-hero__title" id="hero-title">' + esc(f.title) + '</h1>' +
         '<p class="lb-hero__lead">' + esc(f.blurb) + '</p>' +
         '<div class="lb-hero__actions">' +
-          '<button class="btn lb-btn-paper" type="button" data-play="' + f.id + '">Play</button>' +
-          '<button class="btn lb-btn-ghost" type="button" data-save="' + f.id + '">' +
-            (on ? 'In my list' : 'Add to my list') +
+          '<button class="btn lb-btn-paper" type="button" data-play="' + f.id + '">' +
+            PLAY_ICON + ' Play' +
           '</button>' +
         '</div>' +
       '</div></div>';
@@ -239,10 +220,6 @@
         ? rowHTML('Results for “' + query + '”', hits.length + (hits.length > 1 ? ' videos' : ' video'), hits)
         : '<p class="lb-empty">Nothing in the library matches “' + esc(query) + '”.</p>';
     } else {
-      var lib = allVideos();
-      var mine = saved.map(function (id) { return lib[id]; })
-                      .filter(function (v) { return !!v; });
-      if (mine.length) { html += rowHTML('My list', 'Saved on this device', mine); }
       html += CONFIG.categories.map(function (c) { return rowHTML(c.name, c.note, c.videos); }).join('');
     }
     rows.innerHTML = html;
@@ -266,19 +243,10 @@
     if (playerDlg.showModal) { playerDlg.showModal(); } else { playerDlg.setAttribute('open', ''); }
   }
 
-  function toggleSave(id) {
-    saved = isSaved(id) ? saved.filter(function (x) { return x !== id; }) : saved.concat([id]);
-    store.set('lb-saved', saved);
-    render();
-  }
-
   /* ------------------------------------------------------------- events -- */
   document.addEventListener('click', function (e) {
     var p = e.target.closest('[data-play]');
     if (p) { play(p.getAttribute('data-play')); return; }
-
-    var s = e.target.closest('[data-save]');
-    if (s) { toggleSave(s.getAttribute('data-save')); return; }
 
     var a = e.target.closest('[data-scroll]');
     if (a) {
