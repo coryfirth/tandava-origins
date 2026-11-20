@@ -3,17 +3,17 @@
 
    The CONFIG block below is the library. Everything under it draws the
    page from that block and nothing else, so adding, removing or reordering
-   a video or a whole row is an edit to one list.
+   a video or a whole row is an edit to one list and nothing more.
 
-   The "Add a video" panel on the page writes to the visitor's own browser
-   only, and hands back a block to paste over `categories` here. That paste
-   is what makes a video permanent for everyone.
+   `id` is the eleven characters after "v=" in a YouTube link. The page
+   itself has no way to add a video on purpose: the library is edited here,
+   in the file, not by whoever happens to be reading it.
    ========================================================================== */
 (function () {
   'use strict';
 
   var CONFIG = {
-    /* The big one at the top. `id` is the part after "v=" in a YouTube link. */
+    /* The big one at the top. */
     featured: {
       id: '5MuIMqhT8DM',
       eyebrow: 'Featured · Sleep',
@@ -106,34 +106,18 @@
     set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
   };
 
-  var added = store.get('lb-added', []);   /* [{cat, id, title}] this browser */
-  var saved = store.get('lb-saved', []);   /* [id] this browser              */
+  /* The one thing the reader's own browser remembers: the videos they have
+     put in their list. It never leaves the device and nothing reads it but
+     this page. */
+  var saved = store.get('lb-saved', []);
   var query = '';
 
-  /* The library as it stands: the block above, plus whatever this browser
-     has added, without touching CONFIG itself. */
-  function library() {
-    var cats = CONFIG.categories.map(function (c) {
-      return { name: c.name, note: c.note, videos: c.videos.slice() };
-    });
-    added.forEach(function (a) {
-      var c = cats.filter(function (c) { return c.name === a.cat; })[0];
-      var here = c && c.videos.some(function (v) { return v.id === a.id; });
-      if (c && !here) { c.videos.push({ id: a.id, title: a.title }); }
-    });
-    return cats;
-  }
   function allVideos() {
     var map = {};
-    library().forEach(function (c) {
+    CONFIG.categories.forEach(function (c) {
       c.videos.forEach(function (v) { map[v.id] = v; });
     });
     return map;
-  }
-  function parseId(url) {
-    var s = String(url).trim();
-    var m = s.match(/(?:v=|youtu\.be\/|embed\/|shorts\/|live\/)([\w-]{11})/) || s.match(/^([\w-]{11})$/);
-    return m ? m[1] : null;
   }
 
   var PLAY_ICON = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 20 20"><path d="M6 4l10 6-10 6z" fill="#212C28"/></svg>';
@@ -213,7 +197,7 @@
       var mine = saved.map(function (id) { return lib[id]; })
                       .filter(function (v) { return !!v; });
       if (mine.length) { html += rowHTML('My list', 'Saved on this device', mine); }
-      html += library().map(function (c) { return rowHTML(c.name, c.note, c.videos); }).join('');
+      html += CONFIG.categories.map(function (c) { return rowHTML(c.name, c.note, c.videos); }).join('');
     }
     rows.innerHTML = html;
     watchAll(rows);
@@ -261,67 +245,17 @@
     if (x) { x.closest('dialog').close(); }
   });
 
-  /* A click on the backdrop lands on the dialog itself, never on its card. */
-  [].forEach.call(document.querySelectorAll('dialog'), function (d) {
-    d.addEventListener('click', function (e) { if (e.target === d) { d.close(); } });
+  /* A click on the backdrop lands on the dialog itself, never on the card
+     inside it, so this closes on a click outside the video. */
+  playerDlg.addEventListener('click', function (e) {
+    if (e.target === playerDlg) { playerDlg.close(); }
   });
-  /* Stop the audio the moment the dialog closes, however it was closed. */
+  /* Stop the audio the moment it closes, by whichever of the three ways. */
   playerDlg.addEventListener('close', function () { $('#player').innerHTML = ''; });
 
   $('#search').addEventListener('input', function (e) {
     query = e.target.value.trim();
     renderRows();
-  });
-
-  /* ------------------------------------------------- the editing panel -- */
-  var addDlg = $('#addDlg');
-  var addMsg = $('#addMsg');
-  var DEFAULT_MSG = addMsg ? addMsg.innerHTML : '';
-
-  function refreshExport() {
-    $('#exportBox').value = JSON.stringify(library(), null, 2);
-  }
-
-  $('#openAdd').addEventListener('click', function () {
-    $('#addCat').innerHTML = CONFIG.categories.map(function (c) {
-      return '<option>' + esc(c.name) + '</option>';
-    }).join('');
-    addMsg.innerHTML = DEFAULT_MSG;
-    refreshExport();
-    addDlg.showModal();
-  });
-
-  $('#addForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var id = parseId($('#addUrl').value);
-    if (!id) {
-      addMsg.textContent = 'That does not look like a YouTube link. Try one like https://www.youtube.com/watch?v=…';
-      return;
-    }
-    added = added.concat([{ cat: $('#addCat').value, id: id, title: $('#addTitle').value.trim() }]);
-    store.set('lb-added', added);
-    $('#addUrl').value = '';
-    $('#addTitle').value = '';
-    addMsg.textContent = 'Added. It is at the end of its row now, in this browser.';
-    refreshExport();
-    render();
-  });
-
-  $('#copyBtn').addEventListener('click', function () {
-    var btn = this;
-    var done = function () { btn.textContent = 'Copied'; };
-    var fallback = function () { $('#exportBox').select(); btn.textContent = 'Press ⌘C'; };
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText($('#exportBox').value).then(done, fallback);
-    } else { fallback(); }
-  });
-
-  $('#resetBtn').addEventListener('click', function () {
-    added = [];
-    store.set('lb-added', added);
-    addMsg.textContent = 'Your added videos are gone. The library is back to what library.js says.';
-    refreshExport();
-    render();
   });
 
   render();

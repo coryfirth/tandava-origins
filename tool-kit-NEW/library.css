@@ -108,7 +108,6 @@
 .lb-search__input:focus { outline: 0; }
 .lb-search__input::placeholder { color: var(--muted); }
 .lb-search__input::-webkit-search-cancel-button { cursor: pointer; }
-.lb-add { flex: none; }
 
 /* ------------------------------------------------------------ the rows -- */
 .lb-rows { padding-bottom: clamp(64px, 7vw, 104px); }
@@ -263,7 +262,7 @@
 }
 .lb-noscript { padding: clamp(32px,4vw,56px) var(--pad-x); color: var(--body); }
 
-/* --------------------------------------------------------- the dialogs -- */
+/* ---------------------------------------------------------- the player -- */
 .lb-dialog {
   border: 0;
   padding: 0;
@@ -295,66 +294,10 @@
   cursor: pointer;
   display: grid;
   place-items: center;
-  color: var(--ink);
-  background: rgba(48,64,40,.08);
+  color: var(--paper);
+  background: rgba(246,245,240,.14);
 }
-.lb-x:hover { background: rgba(48,64,40,.16); }
-.lb-x--dark { color: var(--paper); background: rgba(246,245,240,.14); }
-.lb-x--dark:hover { background: rgba(246,245,240,.26); }
-
-.lb-dialog--panel { max-width: min(560px, 94vw); }
-.lb-panel {
-  background: var(--white);
-  border: 1px solid var(--hairline-2);
-  border-radius: 22px;
-  padding: clamp(22px, 3vw, 32px);
-  box-shadow: var(--shadow-overlay);
-  color: var(--ink);
-}
-.lb-panel__head { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
-.lb-panel__title {
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 1.15;
-  letter-spacing: -.035em;
-  color: var(--ink);
-}
-.lb-field { display: block; margin-top: 18px; }
-.lb-field__label {
-  display: block;
-  margin-bottom: 7px;
-  font-family: var(--label);
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--clay);
-}
-.lb-input {
-  width: 100%;
-  height: 48px;
-  padding: 0 14px;
-  border: 1px solid var(--hairline);
-  border-radius: 12px;
-  background: var(--paper);
-  font-family: var(--sans);
-  font-size: 15px;
-  color: var(--ink);
-}
-.lb-input:focus { outline: 0; border-color: rgba(48,64,40,.4); }
-select.lb-input { appearance: none; -webkit-appearance: none; cursor: pointer; }
-.lb-code {
-  height: 150px;
-  padding: 12px 14px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 12.5px;
-  line-height: 1.5;
-  resize: vertical;
-}
-.lb-panel__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-.lb-note { margin-top: 16px; font-size: 13.5px; line-height: 1.6; color: var(--muted); }
-.lb-note code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; color: var(--body); }
+.lb-x:hover { background: rgba(246,245,240,.26); }
 
 /* --------------------------------------------------------- responsive -- */
 @media (max-width: 760px) {
@@ -373,13 +316,9 @@ select.lb-input { appearance: none; -webkit-appearance: none; cursor: pointer; }
 @media (max-width: 420px) {
   .lb-hero__title { font-size: 30px; }
 }
-/* The shared sheet gives every .btn width:100% below 520px. That is right
-   for the hero's two calls to action, which stack, and wrong for the small
-   button beside the search field, which would then sit under it at twice
-   the height it needs. */
+/* The shared sheet gives every .btn width:100% below 520px, which is what
+   the hero's two calls to action want anyway once they stack. */
 @media (max-width: 520px) {
   .lb-hero__actions { flex-direction: column; align-items: stretch; }
-  .lb-add { width: auto; }
-  .lb-panel__actions .btn { width: auto; }
   .lb-card { width: 74vw; }
 }
