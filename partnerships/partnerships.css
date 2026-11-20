@@ -87,7 +87,16 @@
    collapses to the heading and then jumps. Nothing sets a height and nothing
    clips overflow, because either would cut the form off as it grows (it adds
    a validation message, or the checkbox list opens a conditional field). */
+/* The floor is scaffolding, not a size. While form_embed.js is still
+   working the iframe is parked off-screen and absolutely positioned, so it
+   holds no space and the card would collapse to its heading and then jump.
+   Once the script puts the iframe back in flow with a measured height, the
+   script below sets data-sized and the floor goes: from then on the wrapper
+   is exactly as tall as the iframe, which matters after submit, when the
+   form is replaced by two lines of thank-you and the iframe shrinks to fit
+   them. Left at 1016px the card would keep a screen of white underneath. */
 .pr__embed { margin-top: 20px; min-height: 1016px; }
+.pr__embed[data-sized] { min-height: 0; }
 .pr__embed iframe { display: block; width: 100%; max-width: 100%; border: 0; }
 
 .pr :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 6px; }

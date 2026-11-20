@@ -28,7 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Instrument+Sans:wght@500;600&amp;family=Julius+Sans+One&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/nav.css?v=3">
 <link rel="stylesheet" href="/styles.css?v=4">
-<link rel="stylesheet" href="/partnerships/partnerships.css?v=9">
+<link rel="stylesheet" href="/partnerships/partnerships.css?v=10">
 <link rel="stylesheet" href="/consult.css?v=3">
 <!-- data-cookieconsent="ignore" keeps Cookiebot's auto-blocking from
      gagging this file. It IS the consent gate: it loads nothing from
@@ -173,5 +173,51 @@
 <!-- Opens the GoHighLevel consult form in place. The Calendly hrefs stay
      in the HTML as the no-JavaScript fallback. -->
 <script src="/consult.js?v=3" defer></script>
+
+<!-- Drops the embed's min-height once the form has a real one of its own,
+     so the card can shrink back after submit. Nothing here touches the
+     embed: it only watches the height form_embed.js writes onto it. -->
+<script>
+(function () {
+  'use strict';
+  var wrap = document.querySelector('.pr__embed');
+  var frame = wrap && wrap.querySelector('iframe');
+  if (!frame) { return; }
+
+  /* Ready means in flow and measured. form_embed.js parks the iframe at
+     left:-9999px with position:absolute until it has a height, and an
+     absolutely positioned child holds no space: drop the floor while it is
+     still parked and the card collapses. */
+  function ready() {
+    var style = window.getComputedStyle(frame);
+    if (style.visibility === 'hidden' || style.position === 'absolute') { return false; }
+    return frame.getBoundingClientRect().height > 100;
+  }
+
+  function check() {
+    if (!ready()) { return false; }
+    wrap.setAttribute('data-sized', '');
+    return true;
+  }
+
+  if (check()) { return; }
+
+  var observer = new MutationObserver(function () {
+    if (check()) { observer.disconnect(); window.clearInterval(timer); }
+  });
+  observer.observe(frame, { attributes: true, attributeFilter: ['style', 'height'] });
+
+  /* The poll is a safety net for a height written before this script ran,
+     and for a reveal that changes no attribute we are watching. It stops
+     itself after 20 seconds, but the observer stays live: a form that takes
+     a minute to arrive should still drop the floor when it does. */
+  var tries = 0;
+  var timer = window.setInterval(function () {
+    tries += 1;
+    if (check()) { observer.disconnect(); window.clearInterval(timer); return; }
+    if (tries > 40) { window.clearInterval(timer); }
+  }, 500);
+})();
+</script>
 </body>
 </html>
