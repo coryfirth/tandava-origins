@@ -84,7 +84,13 @@
          the reader moves through the screens, and the card's min-height in
          intake.css is what keeps the page still while it loads. -->
     <div class="intake__card" data-intake-card>
-<iframe src="https://api.leadconnectorhq.com/widget/survey/Tn9ZgegRwNrhbxC5F12o" style="border:none;width:100%;" scrolling="no" id="Tn9ZgegRwNrhbxC5F12o" title="survey" data-cookie-consent="true" data-cookie-consent-provider="auto"></iframe>
+<!-- GHL's embed ships with data-cookie-consent and
+     data-cookie-consent-provider="auto", which hold the survey hidden
+     until the page's consent tool reports consent. This page carries
+     Cookiebot, so someone who declines the banner could pay and then
+     find an empty card where their intake should be. Both attributes
+     removed. Nothing else about the embed or the redirect is touched. -->
+<iframe src="https://api.leadconnectorhq.com/widget/survey/Tn9ZgegRwNrhbxC5F12o" style="border:none;width:100%;" scrolling="no" id="Tn9ZgegRwNrhbxC5F12o" title="survey"></iframe>
 <script src="https://link.msgsndr.com/js/form_embed.js"></script>
     </div>
 
