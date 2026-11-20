@@ -42,50 +42,70 @@
     categories: [
       { name: 'Sleep', note: 'Wind down and wake up better', videos: [
         { id: '5MuIMqhT8DM', img: '/assets/tool-kit/sleep-superpower.jpg', time: '19:18',
-          title: 'Sleep Is Your Superpower | Matt Walker | TED' },
+          by: 'Matt Walker · TED',
+          title: 'Sleep Is Your Superpower' },
         { id: 'h2aWYjSA1Jc', img: '/assets/tool-kit/sleep-clock.jpg', time: '1:41:54',
+          by: 'Andrew Huberman',
           title: 'Sleep Toolkit: Tools for Optimizing Sleep & Sleep-Wake Timing' },
         { id: 'nm1TxQj9IsQ', img: '/assets/tool-kit/sleep-morning-window.jpg', time: '1:22:05',
+          by: 'Andrew Huberman',
           title: 'Master Your Sleep & Be More Alert When Awake' },
         { id: 'fk-_SwHhLLc', img: '/assets/tool-kit/sleep-linen.jpg', time: '7:40',
-          title: 'Sleep Hygiene: Train Your Brain to Fall Asleep and Sleep Better' },
+          by: 'Therapy in a Nutshell',
+          title: 'Sleep Hygiene: Train Your Brain to Fall Asleep' },
         { id: 'BiWDsfZ3zbo', img: '/assets/tool-kit/sleep-evening-yoga.jpg', time: '12:03',
-          title: 'Wind Down Yoga | 12-Minute Bedtime Yoga' }
+          by: 'Yoga With Adriene',
+          title: 'Wind Down Yoga for Bedtime' }
       ]},
       { name: 'Diet & Nutrition', note: 'Eat for energy and longevity', videos: [
         { id: '1sISguPDlhY', img: '/assets/tool-kit/food-yogurt.jpg', time: '5:09',
-          title: 'How the food you eat affects your gut — Shilpa Ravella' },
+          by: 'Shilpa Ravella · TED-Ed',
+          title: 'How the food you eat affects your gut' },
         { id: 'xyQY8a-ng6g', img: '/assets/tool-kit/food-nuts.jpg', time: '4:52',
-          title: 'How the food you eat affects your brain — Mia Nacamulli' },
+          by: 'Mia Nacamulli · TED-Ed',
+          title: 'How the food you eat affects your brain' },
         { id: '0z03xkwFbw4', img: '/assets/tool-kit/food-spread.jpg', time: '19:12',
-          title: 'What is the best diet for humans? | Eran Segal' },
+          by: 'Eran Segal · TEDx',
+          title: 'What is the best diet for humans?' },
         { id: 'zpNoYgccmR0', img: '/assets/tool-kit/food-market.jpg', time: '13:28',
-          title: 'Unlock the science of nutrition | Dr. Federica Amati' },
+          by: 'Federica Amati · TEDx',
+          title: 'Unlock the science of nutrition' },
         { id: 'jpBuzAJCOl4', img: '/assets/tool-kit/food-pastries.jpg', time: '3:53',
-          title: 'What is a glucose spike? | Dr. Casey Means' },
+          by: 'Casey Means · Levels',
+          title: 'What is a glucose spike?' },
         { id: 'Q4yUlJV31Rk', img: '/assets/tool-kit/food-chopping.jpg', time: '9:18',
-          title: 'How to make healthy eating unbelievably easy | Luke Durward' },
+          by: 'Luke Durward · TEDx',
+          title: 'How to make healthy eating unbelievably easy' },
         { id: '3dqXHHCc5lA', img: '/assets/tool-kit/food-salad.jpg', time: '17:43',
-          title: 'The role of nutrition in mental health | Julia Rucklidge' }
+          by: 'Julia Rucklidge · TEDx',
+          title: 'The role of nutrition in mental health' }
       ]},
       { name: 'Movement', note: 'Gentle ways to get moving', videos: [
         { id: 'v7AYKMP6rOE', img: '/assets/tool-kit/move-yoga-home.jpg', time: '23:45',
-          title: 'Yoga For Complete Beginners — 20 Minute Home Yoga' },
+          by: 'Yoga With Adriene',
+          title: 'Yoga for Complete Beginners' },
         { id: 'g_tea8ZNk5A', img: '/assets/tool-kit/move-stretch.jpg', time: '16:32',
-          title: '15 Min. Full Body Stretch | Flexibility, Mobility & Relaxation' },
+          by: 'Mady Morrison',
+          title: 'Full Body Stretch for Flexibility and Mobility' },
         { id: 'Nw2oBIrQGLo', img: '/assets/tool-kit/move-childs-pose.jpg', time: '15:04',
-          title: '15 Minute Calming Yoga for Stress Relief and Anxiety' }
+          by: 'SarahBethYoga',
+          title: 'Calming Yoga for Stress Relief and Anxiety' }
       ]},
       { name: 'Mind & Breath', note: 'Short practices for calm and focus', videos: [
         { id: 'inpok4MKVLM', img: '/assets/tool-kit/mind-meditate-outside.jpg', time: '5:17',
-          title: '5-Minute Meditation You Can Do Anywhere' },
+          by: 'Goodful',
+          title: 'A Meditation You Can Do Anywhere' },
         { id: 'O-6f5wQXSu8', img: '/assets/tool-kit/mind-eyes-closed.jpg', time: '10:20',
-          title: '10-Minute Meditation For Anxiety' },
+          by: 'Goodful',
+          title: 'Meditation for Anxiety' },
         { id: 'ZToicYcHIOU', img: '/assets/tool-kit/mind-lake.jpg', time: '10:30',
-          title: 'Daily Calm | 10 Minute Mindfulness' },
+          by: 'Calm',
+          title: 'Daily Calm Mindfulness' },
         { id: 'aXItOY0sLRY', img: '/assets/tool-kit/mind-clouds.jpg', time: '10:00',
-          title: 'Relax and Breathe: Do Nothing for 10 Minutes' },
+          by: 'The School of Self',
+          title: 'Relax and Breathe: Do Nothing' },
         { id: 'tybOi4hjZFQ', img: '/assets/tool-kit/mind-cold-water.jpg', time: '11:00',
+          by: 'Wim Hof',
           title: 'Guided Wim Hof Method Breathing' }
       ]}
     ]
@@ -136,6 +156,27 @@
   }
 
   var query = '';
+  /* renderRows runs once before the helpers below exist. */
+  var ready = false;
+
+  /* One short name per video, used as the address of its player. The
+     picture's filename is already a readable, unique handle, so it is
+     reused rather than invented; a video with no picture falls back to its
+     YouTube id, which is ugly but never wrong. */
+  function slugOf(v) {
+    if (!v.img) { return v.id; }
+    return v.img.split('/').pop().replace(/\.[a-z]+$/i, '');
+  }
+  var idBySlug = {}, slugById = {};
+  (function () {
+    CONFIG.categories.forEach(function (c) {
+      c.videos.forEach(function (v) {
+        var slug = slugOf(v);
+        idBySlug[slug] = v.id;
+        slugById[v.id] = slug;
+      });
+    });
+  }());
 
   function allVideos() {
     var map = {};
@@ -164,8 +205,10 @@
   /* The play badge sits on the picture at rest rather than waiting for a
      hover: on a phone there is no hover, and a still photograph with
      nothing on it does not say "video". */
-  function cardHTML(v) {
-    return '<div class="lb-card">' +
+  function cardHTML(v, i) {
+    /* The index rides along as a custom property so each card can come in a
+       beat after the one before it. */
+    return '<div class="lb-card" style="--i:' + (i || 0) + '">' +
       '<button class="lb-card__open" type="button" data-play="' + v.id + '">' +
         '<span class="lb-thumb">' +
           picture(v, true) +
@@ -174,17 +217,41 @@
           (v.time ? '<span class="lb-thumb__time">' + esc(v.time) + '</span>' : '') +
         '</span>' +
         '<span class="lb-card__title">' + esc(v.title) + '</span>' +
+        (v.by ? '<span class="lb-card__by">' + esc(v.by) + '</span>' : '') +
       '</button>' +
     '</div>';
+  }
+
+  /* "5 videos \u00b7 2h 14m", added up from the lengths already in the list.
+     A row whose videos have no lengths simply says how many there are. */
+  function runtime(vids) {
+    var total = 0, known = 0;
+    vids.forEach(function (v) {
+      if (!v.time) { return; }
+      var part = v.time.split(':').map(Number);
+      while (part.length < 3) { part.unshift(0); }
+      total += part[0] * 3600 + part[1] * 60 + part[2];
+      known++;
+    });
+    var count = vids.length + (vids.length === 1 ? ' video' : ' videos');
+    if (!known || known !== vids.length) { return count; }
+    var h = Math.floor(total / 3600), m = Math.round((total % 3600) / 60);
+    if (m === 60) { h++; m = 0; }
+    return count + ' \u00b7 ' + (h ? h + 'h ' + (m ? m + 'm' : '') : m + ' min').trim();
   }
 
   function rowHTML(name, note, vids) {
     return '<section class="lb-row">' +
       '<div class="lb-row__head">' +
-        '<h2 class="lb-row__title">' + esc(name) + '</h2>' +
-        (note ? '<span class="lb-row__note">' + esc(note) + '</span>' : '') +
+        '<div class="lb-row__id">' +
+          '<h2 class="lb-row__title">' + esc(name) + '</h2>' +
+          (note ? '<span class="lb-row__note">' + esc(note) + '</span>' : '') +
+        '</div>' +
+        '<span class="lb-row__meta">' + runtime(vids) + '</span>' +
       '</div>' +
-      '<div class="lb-track-wrap">' +
+      '<div class="lb-track-wrap is-at-start" data-wrap>' +
+        '<span class="lb-fade lb-fade--l" aria-hidden="true"></span>' +
+        '<span class="lb-fade lb-fade--r" aria-hidden="true"></span>' +
         '<button class="lb-arrow lb-arrow--l" type="button" data-scroll="-1" aria-label="Scroll left">' + ARROW_L + '</button>' +
         '<div class="lb-track">' + vids.map(cardHTML).join('') + '</div>' +
         '<button class="lb-arrow lb-arrow--r" type="button" data-scroll="1" aria-label="Scroll right">' + ARROW_R + '</button>' +
@@ -231,6 +298,7 @@
     }
     rows.innerHTML = html;
     watchAll(rows);
+    if (ready) { watchTracks(); reveal(); }
     /* While a search is running the featured video is beside the point. */
     hero.hidden = !!query;
   }
@@ -240,8 +308,15 @@
   /* --------------------------------------------------------- the player -- */
   var playerDlg = $('#playerDlg');
 
-  function play(id) {
+  /* True while the history is doing the driving, so the handlers below do
+     not answer each other in a circle. */
+  var steering = false;
+
+  function play(id, fromHistory) {
     var v = allVideos()[id] || { title: CONFIG.featured.title };
+    if (!fromHistory && slugById[id] && window.history && history.pushState) {
+      history.pushState({ lb: slugById[id] }, '', '#' + slugById[id]);
+    }
     $('#playerTitle').textContent = v.title;
     /* youtube-nocookie keeps the embed from writing advertising cookies. */
     $('#player').innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
@@ -253,7 +328,7 @@
   /* ------------------------------------------------------------- events -- */
   document.addEventListener('click', function (e) {
     var p = e.target.closest('[data-play]');
-    if (p) { play(p.getAttribute('data-play')); return; }
+    if (p) { play(p.getAttribute('data-play'), false); return; }
 
     var a = e.target.closest('[data-scroll]');
     if (a) {
@@ -271,13 +346,104 @@
   playerDlg.addEventListener('click', function (e) {
     if (e.target === playerDlg) { playerDlg.close(); }
   });
-  /* Stop the audio the moment it closes, by whichever of the three ways. */
-  playerDlg.addEventListener('close', function () { $('#player').innerHTML = ''; });
+  /* Stop the audio the moment it closes, by whichever of the three ways,
+     and put the address back to the library so the two never disagree. */
+  playerDlg.addEventListener('close', function () {
+    $('#player').innerHTML = '';
+    if (!steering && idBySlug[location.hash.slice(1)]) { history.back(); }
+  });
+
+  /* The address bar is the other way in and out. A link to #mind-lake opens
+     that video on arrival, and Back closes the player rather than leaving
+     the page, which is what a reader who opened one video expects. */
+  function fromHash() {
+    var id = idBySlug[location.hash.slice(1)];
+    if (id) { play(id, true); return; }
+    if (playerDlg.open) {
+      steering = true;
+      playerDlg.close();
+      steering = false;
+    }
+  }
+  window.addEventListener('popstate', fromHash);
 
   $('#search').addEventListener('input', function (e) {
     query = e.target.value.trim();
     renderRows();
   });
 
+  /* --------------------------------------------- the ends of each row -- */
+  /* Which end a row is sitting at decides whether its fade and its arrow
+     are there at all: an arrow pointing at nothing is worse than none. */
+  function markEnds(wrap) {
+    var t = wrap.querySelector('.lb-track');
+    var room = t.scrollWidth - t.clientWidth;
+    wrap.classList.toggle('is-at-start', t.scrollLeft <= 2);
+    wrap.classList.toggle('is-at-end', t.scrollLeft >= room - 2);
+    wrap.classList.toggle('is-still', room <= 2);   /* nothing to scroll */
+  }
+  function watchTracks() {
+    [].forEach.call(rows.querySelectorAll('[data-wrap]'), function (wrap) {
+      markEnds(wrap);
+      wrap.querySelector('.lb-track').addEventListener('scroll', function () {
+        markEnds(wrap);
+      }, { passive: true });
+    });
+  }
+  /* A window that grows, or a phone turned on its side, changes what is
+     above the fold without anybody scrolling. Both of the things that
+     depend on the fold are re-measured here. */
+  window.addEventListener('resize', function () {
+    [].forEach.call(rows.querySelectorAll('[data-wrap]'), markEnds);
+    sweep();
+  });
+
+  /* ------------------------------------------------ rows easing in -- */
+  /* Only ever switched on when it can also be switched off: the hidden
+     state below lives under a class this adds, so a reader who has asked
+     for less motion gets the page already in place rather than a page that
+     has to animate before it exists. */
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var CAN_REVEAL = !still;
+
+  /* Deliberately a scroll sweep rather than an IntersectionObserver. The
+     observer reports what was on screen at a frame boundary, so a fling, a
+     jump to an anchor or a restored scroll position can carry a row past
+     the window between two frames: it never intersects, never fires, and
+     stays invisible for the rest of the visit. Measured on every scroll
+     instead, a row that is anywhere at or above the fold is shown, and
+     there is no sequence of scrolling that can leave content hidden. */
+  var sweeping = false;
+
+  function sweep() {
+    sweeping = false;
+    var fold = window.innerHeight * 0.92;
+    var waiting = 0;
+    [].forEach.call(rows.querySelectorAll('.lb-row:not(.is-in)'), function (row) {
+      if (row.getBoundingClientRect().top < fold) { row.classList.add('is-in'); }
+      else { waiting++; }
+    });
+    /* Nothing left below the fold: stop listening. */
+    if (!waiting) { window.removeEventListener('scroll', onScroll); }
+  }
+  function onScroll() {
+    if (sweeping) { return; }
+    sweeping = true;
+    requestAnimationFrame(sweep);
+  }
+
+  function reveal() {
+    if (!CAN_REVEAL) { return; }
+    window.removeEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    sweep();
+  }
+
+  if (CAN_REVEAL) { rows.classList.add('lb-rows--reveal'); }
+
   render();
+  ready = true;
+  watchTracks();
+  reveal();
+  fromHash();
 }());

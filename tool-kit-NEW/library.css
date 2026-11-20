@@ -123,8 +123,20 @@
   padding: 0 var(--pad-x);
   display: flex;
   align-items: baseline;
-  gap: 14px;
+  justify-content: space-between;
+  gap: 10px 20px;
   flex-wrap: wrap;
+}
+.lb-row__id { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+/* What the row costs you, added up from the lengths on the cards. */
+.lb-row__meta {
+  font-family: var(--label);
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
 }
 .lb-row__title {
   font-family: var(--serif);
@@ -156,27 +168,54 @@
 }
 .lb-track::-webkit-scrollbar { display: none; }
 
-/* The arrows fade in on hover over the row, and appear for the keyboard the
-   moment one is focused. They sit on a strip of paper so they never cover a
-   card's face. */
+/* A strip of paper at each end, under the arrow. It is the only thing on a
+   phone that says the row keeps going, so it is not tied to hover: it is
+   there whenever there is something past the edge, and gone at the end of
+   the run. The last card half-dissolving into the page is the cue. */
+.lb-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(40px, 7vw, 86px);
+  z-index: 2;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity .25s var(--ease);
+}
+.lb-fade--l { left: 0;  background: linear-gradient(90deg,  var(--paper) 18%, rgba(246,245,240,0) 100%); }
+.lb-fade--r { right: 0; background: linear-gradient(270deg, var(--paper) 18%, rgba(246,245,240,0) 100%); }
+.is-at-start .lb-fade--l, .is-at-end .lb-fade--r, .is-still .lb-fade { opacity: 0; }
+
+/* The arrows match the play badge: same disc, same shadow, paper instead of
+   clay. They sit on the row at rest rather than waiting for a hover, and
+   firm up under the pointer. */
 .lb-arrow {
   position: absolute;
-  top: 14px;
-  bottom: 20px;
-  width: 54px;
+  top: calc(50% - 26px);              /* the middle of the picture, not the card */
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
   border: 0;
   padding: 0;
-  z-index: 2;
+  z-index: 3;
   cursor: pointer;
   display: grid;
   place-items: center;
+  border-radius: 999px;
   color: var(--ink);
-  opacity: 0;
-  transition: opacity .2s var(--ease);
+  background: rgba(246,245,240,.94);
+  box-shadow: 0 2px 12px rgba(28,37,28,.22);
+  opacity: .9;
+  transition: opacity .25s var(--ease), transform .25s var(--ease),
+              background-color .25s var(--ease);
 }
-.lb-arrow--l { left: 0;  background: linear-gradient(90deg,  var(--paper) 34%, rgba(246,245,240,0) 100%); }
-.lb-arrow--r { right: 0; background: linear-gradient(270deg, var(--paper) 34%, rgba(246,245,240,0) 100%); }
-.lb-track-wrap:hover .lb-arrow, .lb-arrow:focus-visible { opacity: 1; }
+.lb-arrow--l { left: max(6px, calc(var(--pad-x) - 52px)); }
+.lb-arrow--r { right: max(6px, calc(var(--pad-x) - 52px)); }
+.lb-arrow:hover { opacity: 1; background: var(--white); transform: translateY(-50%) scale(1.08); }
+/* An arrow pointing at nothing is worse than no arrow. */
+.is-at-start .lb-arrow--l,
+.is-at-end .lb-arrow--r,
+.is-still .lb-arrow { opacity: 0; pointer-events: none; }
 
 /* ----------------------------------------------------------- the cards -- */
 .lb-card { position: relative; flex: none; width: clamp(208px, 23vw, 288px); scroll-snap-align: start; }
@@ -354,6 +393,26 @@
 .lb-card__open:hover .lb-card__title,
 .lb-card__open:focus-visible .lb-card__title { color: var(--clay); }
 
+/* Who made it. It used to live inside the title, where it pushed half the
+   titles onto a second line; on its own it is shorter, quieter, and the
+   same shape on every card. */
+.lb-card__by {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--label);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color .2s var(--ease);
+}
+.lb-card__open:hover .lb-card__by,
+.lb-card__open:focus-visible .lb-card__by { color: var(--body); }
+
 .lb-empty {
   max-width: var(--wrap);
   margin: 0 auto;
@@ -400,6 +459,49 @@
 }
 .lb-x:hover { background: rgba(246,245,240,.26); }
 
+/* ------------------------------------------------------------ motion -- */
+/* A single slow push on the hero, which lands and then holds. An endless
+   drift would still be moving behind the reader an hour later. */
+@keyframes lb-drift {
+  from { transform: scale(1); }
+  to   { transform: scale(1.07); }
+}
+.lb-hero__bg {
+  transform-origin: 56% 46%;
+  animation: lb-drift 32s var(--ease) forwards;
+}
+
+/* Rows arriving. The hidden state is scoped under a class the script only
+   adds when it can also take it away, so a browser without
+   IntersectionObserver never gets a page that fails to appear. */
+.lb-rows--reveal .lb-card {
+  opacity: 0;
+  transform: translateY(14px);
+}
+.lb-rows--reveal .lb-row.is-in .lb-card {
+  opacity: 1;
+  transform: none;
+  transition: opacity .55s var(--ease), transform .55s var(--ease);
+  /* Each card a beat after the one before it, up to a point: past the sixth
+     the wait would outlast the reader's attention. */
+  transition-delay: calc(min(var(--i), 6) * 55ms);
+}
+.lb-rows--reveal .lb-row .lb-row__head {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.lb-rows--reveal .lb-row.is-in .lb-row__head {
+  opacity: 1;
+  transform: none;
+  transition: opacity .5s var(--ease), transform .5s var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-hero__bg { animation: none; }
+  .lb-rows--reveal .lb-card,
+  .lb-rows--reveal .lb-row__head { opacity: 1; transform: none; transition: none; }
+}
+
 /* --------------------------------------------------------- responsive -- */
 @media (max-width: 760px) {
   .lb-hero { min-height: 0; padding-top: clamp(56px, 16vw, 88px); }
@@ -411,6 +513,8 @@
       linear-gradient(90deg, rgba(28,37,28,.86) 0%, rgba(28,37,28,.62) 100%),
       linear-gradient(0deg, var(--dark) 0%, rgba(28,37,28,0) 62%);
   }
+  /* No pointer to hover with, so the discs would just sit on the pictures.
+     The fade stays: it is doing the work here. */
   .lb-arrow { display: none; }
 }
 /* Below this "superpower" sets wider than the column it sits in. */
