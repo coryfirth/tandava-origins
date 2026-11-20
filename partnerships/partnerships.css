@@ -91,10 +91,15 @@
    working the iframe is parked off-screen and absolutely positioned, so it
    holds no space and the card would collapse to its heading and then jump.
    Once the script puts the iframe back in flow with a measured height, the
-   script below sets data-sized and the floor goes: from then on the wrapper
-   is exactly as tall as the iframe, which matters after submit, when the
-   form is replaced by two lines of thank-you and the iframe shrinks to fit
-   them. Left at 1016px the card would keep a screen of white underneath. */
+   script on the page sets data-sized and the floor goes, leaving the
+   wrapper exactly as tall as the iframe.
+
+   Known limit, and not worth more effort: after submit the card stays at
+   its full height. GHL's form page carries min-height: 100% and the embed
+   script measures it with document.body.offsetHeight, so the frame's
+   height can only ratchet upwards. The thank-you line ends up stranded in
+   a full-length card. Nothing on our side can shrink a frame that refuses
+   to report a smaller height. Cory has seen it and chosen to live with it. */
 .pr__embed { margin-top: 20px; min-height: 1016px; }
 .pr__embed[data-sized] { min-height: 0; }
 .pr__embed iframe { display: block; width: 100%; max-width: 100%; border: 0; }

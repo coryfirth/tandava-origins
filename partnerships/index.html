@@ -29,7 +29,7 @@
 <link rel="stylesheet" href="/nav.css?v=3">
 <link rel="stylesheet" href="/styles.css?v=4">
 <link rel="stylesheet" href="/partnerships/partnerships.css?v=10">
-<link rel="stylesheet" href="/consult.css?v=4">
+<link rel="stylesheet" href="/consult.css?v=5">
 <!-- data-cookieconsent="ignore" keeps Cookiebot's auto-blocking from
      gagging this file. It IS the consent gate: it loads nothing from
      Google until statistics consent is given, and it owns the footer
@@ -172,11 +172,12 @@
 <script src="/nav.js?v=4" defer></script>
 <!-- Opens the GoHighLevel consult form in place. The Calendly hrefs stay
      in the HTML as the no-JavaScript fallback. -->
-<script src="/consult.js?v=4" defer></script>
+<script src="/consult.js?v=5" defer></script>
 
 <!-- Drops the embed's min-height once the form has a real one of its own,
-     so the card can shrink back after submit. Nothing here touches the
-     embed: it only watches the height form_embed.js writes onto it. -->
+     so the card is the height of the form rather than a fixed 1016px.
+     Nothing here touches the embed: it only watches the height
+     form_embed.js writes onto it. -->
 <script>
 (function () {
   'use strict';
@@ -218,46 +219,6 @@
     if (tries > 40) { window.clearInterval(timer); }
   }, 500);
 
-  /* ---------------------------------------------------------------------
-     Letting the frame get smaller again.
-
-     GHL's own page is built to be at least as tall as the frame it sits in
-     (.hl-app carries min-height: 100%). The embed script measures that page
-     with document.body.offsetHeight, so the measurement can never come back
-     under the height the frame already has. The height only ever ratchets
-     up. After submit the long form is replaced by one line of thank-you and
-     the frame stays at its full height, with the line stranded in the
-     middle of it.
-
-     The form does report its real height: it posts
-     ["highlevel.setHeight", {height, id}] to us every time its content
-     changes. The embed script does not listen for that message. We do.
-
-     Only shrinks are acted on, and only ones worth acting on, so growing
-     the frame stays entirely the embed script's job and a few pixels of
-     disagreement between the two measurements are ignored. One nudge
-     downwards is enough on its own: once the frame is shorter, that
-     min-height: 100% resolves against the shorter frame, the page measures
-     its true content again, and the embed script settles there by itself. */
-  window.addEventListener('message', function (event) {
-    if (event.source !== frame.contentWindow) { return; }
-
-    var data = event.data;
-    if (!data || data[0] !== 'highlevel.setHeight') { return; }
-
-    var payload = data[1] || {};
-    if (payload.id && String(payload.id) !== frame.id) { return; }
-
-    var reported = Number(payload.height);
-    if (!(reported > 0)) { return; }
-
-    var current = frame.getBoundingClientRect().height;
-    if (current - reported < 80) { return; }
-
-    /* The 8px is the difference between the two ways of measuring, kept so
-       a shrink can never crop the last line of what it is shrinking to. */
-    frame.style.height = (reported + 8) + 'px';
-  });
 })();
 </script>
 </body>
