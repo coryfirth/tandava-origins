@@ -80,14 +80,21 @@
   text-wrap: pretty;
 }
 
-/* The iframe is only given a src on first open, so six other pages do not
-   each pull a third-party form nobody asked for. */
+/* The iframe is only given a src on first open, so the other pages do not
+   each pull a third-party form nobody asked for.
+
+   420px is the form's own height: three fields, a consent box and a button.
+   It is a starting height, not a cap. form_embed.js measures the form and
+   writes a height over this one, and consult.js trims that back down if the
+   form reports a smaller one, so the card ends up the size of the form with
+   no dead space under the button and no scroll bar inside it. */
 .cmodal__frame {
   display: block;
   width: 100%;
-  height: 600px;
+  height: 420px;
   margin-top: 14px;
   border: none;
+  border-radius: 8px;
   background: transparent;
 }
 
@@ -108,7 +115,9 @@ body.cmodal-open { overflow: hidden; }
 @media (max-width: 540px) {
   .cmodal { padding: 0; align-items: stretch; }
   .cmodal__card { max-width: none; max-height: 100vh; border-radius: 0; padding-top: 44px; }
-  .cmodal__frame { height: 640px; }
+  /* No height here: a phone stacks the fields taller than a desktop does,
+     and form_embed.js already knows by how much. The card scrolls if the
+     form outgrows the screen, which is the card scrolling, not the form. */
 }
 
 @media (prefers-reduced-motion: reduce) {

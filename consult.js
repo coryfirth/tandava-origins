@@ -33,12 +33,15 @@
         '<h2 class="cmodal__title" id="cmodal-title">Book your consult</h2>' +
         '<p class="cmodal__lede">Tell us where to reach you and we’ll get you booked ' +
           'in with a practitioner.</p>' +
-        '<iframe class="cmodal__frame" title="Book a consult with Tandava Wellness" ' +
+        '<iframe class="cmodal__frame" title="Consult Call Form - TVW Website" ' +
           'id="inline-' + FORM_ID + '" ' +
           'data-layout="{\'id\':\'INLINE\'}" ' +
+          'data-trigger-type="alwaysShow" data-trigger-value="" ' +
+          'data-activation-type="alwaysActivated" data-activation-value="" ' +
+          'data-deactivation-type="neverDeactivate" data-deactivation-value="" ' +
           'data-form-id="' + FORM_ID + '" ' +
           'data-form-name="Consult Call Form - TVW Website" ' +
-          'data-height="600" ' +
+          'data-height="420" ' +
           'data-layout-iframe-id="inline-' + FORM_ID + '" ' +
           'scrolling="no"></iframe>' +
         '<p class="cmodal__fallback">Trouble with the form? ' +
@@ -65,6 +68,13 @@
     if (loaded) { return; }
     loaded = true;
     frame.setAttribute('src', FORM_SRC);
+    watchHeight();
+
+    /* /partnerships/ already carries form_embed.js for its Request Info
+       form. A second copy would start a second resizer over the same
+       frames, and the two would argue about the height. One per page. */
+    if (document.querySelector('script[src*="form_embed.js"]')) { return; }
+
     var s = document.createElement('script');
     s.src = EMBED_JS;
     /* Cookiebot's auto-blocking would otherwise gag this by filename and the
@@ -72,6 +82,33 @@
        asked for, not tracking, so it is exempt rather than gated. */
     s.setAttribute('data-cookieconsent', 'ignore');
     document.body.appendChild(s);
+  }
+
+  /* GHL's form page carries min-height: 100%, and form_embed.js measures it
+     with document.body.offsetHeight, so the frame's height can only ever
+     ratchet upwards: once tall, it stays tall. The form itself reports its
+     real height as ["highlevel.setHeight", {height, id}], which
+     form_embed.js ignores. Listening for it keeps the card the size of the
+     form rather than the size of the tallest thing the form has ever been.
+     Only shrinks over 40px are acted on; growing stays form_embed.js's job. */
+  function watchHeight() {
+    window.addEventListener('message', function (event) {
+      if (!frame || event.source !== frame.contentWindow) { return; }
+
+      var data = event.data;
+      if (!data || data[0] !== 'highlevel.setHeight') { return; }
+
+      var payload = data[1] || {};
+      if (payload.id && String(payload.id) !== frame.id) { return; }
+
+      var reported = Number(payload.height);
+      if (!(reported > 0)) { return; }
+      if (frame.getBoundingClientRect().height - reported < 40) { return; }
+
+      /* The 8px covers the difference between the two ways of measuring, so
+         a shrink can never crop the last line of what it shrinks to. */
+      frame.style.height = (reported + 8) + 'px';
+    });
   }
 
   function open(fallbackHref) {
