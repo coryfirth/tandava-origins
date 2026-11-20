@@ -5,9 +5,20 @@
    page from that block and nothing else, so adding, removing or reordering
    a video or a whole row is an edit to one list and nothing more.
 
-   `id` is the eleven characters after "v=" in a YouTube link. The page
-   itself has no way to add a video on purpose: the library is edited here,
-   in the file, not by whoever happens to be reading it.
+   `id` is the eleven characters after "v=" in a YouTube link. `img` is the
+   picture on the card, and it is the reason this list exists in this shape:
+   a YouTube thumbnail arrives wearing somebody else's branding, their face,
+   their typeface, their channel's colours. Every card here carries a plain
+   photograph instead, so the shelf reads as one library rather than twenty
+   channels. Leave `img` off and the card falls back to YouTube's own
+   thumbnail, which is a usable stopgap and not where a card should end up.
+
+   The pictures live in /assets/tool-kit/ and came from Unsplash under its
+   free licence, which asks for no attribution. The exact source of each is
+   written down in that folder's CREDITS.txt.
+
+   The page itself has no way to add a video on purpose: the library is
+   edited here, in the file, not by whoever happens to be reading it.
    ========================================================================== */
 (function () {
   'use strict';
@@ -16,6 +27,7 @@
     /* The big one at the top. */
     featured: {
       id: '5MuIMqhT8DM',
+      img: '/assets/tool-kit/hero-sleep.jpg',
       eyebrow: 'Featured · Sleep',
       title: 'Sleep is your superpower',
       blurb: 'Start here. Sleep scientist Matt Walker on why sleep is the foundation every other habit is built on.'
@@ -24,32 +36,52 @@
     /* One row each, in this order. */
     categories: [
       { name: 'Sleep', note: 'Wind down and wake up better', videos: [
-        { id: '5MuIMqhT8DM', title: 'Sleep Is Your Superpower | Matt Walker | TED' },
-        { id: 'h2aWYjSA1Jc', title: 'Sleep Toolkit: Tools for Optimizing Sleep & Sleep-Wake Timing' },
-        { id: 'nm1TxQj9IsQ', title: 'Master Your Sleep & Be More Alert When Awake' },
-        { id: 'fk-_SwHhLLc', title: 'Sleep Hygiene: Train Your Brain to Fall Asleep and Sleep Better' },
-        { id: 'BiWDsfZ3zbo', title: 'Wind Down Yoga | 12-Minute Bedtime Yoga' }
+        { id: '5MuIMqhT8DM', img: '/assets/tool-kit/sleep-superpower.jpg',
+          title: 'Sleep Is Your Superpower | Matt Walker | TED' },
+        { id: 'h2aWYjSA1Jc', img: '/assets/tool-kit/sleep-clock.jpg',
+          title: 'Sleep Toolkit: Tools for Optimizing Sleep & Sleep-Wake Timing' },
+        { id: 'nm1TxQj9IsQ', img: '/assets/tool-kit/sleep-morning-window.jpg',
+          title: 'Master Your Sleep & Be More Alert When Awake' },
+        { id: 'fk-_SwHhLLc', img: '/assets/tool-kit/sleep-linen.jpg',
+          title: 'Sleep Hygiene: Train Your Brain to Fall Asleep and Sleep Better' },
+        { id: 'BiWDsfZ3zbo', img: '/assets/tool-kit/sleep-evening-yoga.jpg',
+          title: 'Wind Down Yoga | 12-Minute Bedtime Yoga' }
       ]},
       { name: 'Diet & Nutrition', note: 'Eat for energy and longevity', videos: [
-        { id: '1sISguPDlhY', title: 'How the food you eat affects your gut — Shilpa Ravella' },
-        { id: 'xyQY8a-ng6g', title: 'How the food you eat affects your brain — Mia Nacamulli' },
-        { id: '0z03xkwFbw4', title: 'What is the best diet for humans? | Eran Segal' },
-        { id: 'zpNoYgccmR0', title: 'Unlock the science of nutrition | Dr. Federica Amati' },
-        { id: 'jpBuzAJCOl4', title: 'What is a glucose spike? | Dr. Casey Means' },
-        { id: 'Q4yUlJV31Rk', title: 'How to make healthy eating unbelievably easy | Luke Durward' },
-        { id: '3dqXHHCc5lA', title: 'The role of nutrition in mental health | Julia Rucklidge' }
+        { id: '1sISguPDlhY', img: '/assets/tool-kit/food-yogurt.jpg',
+          title: 'How the food you eat affects your gut — Shilpa Ravella' },
+        { id: 'xyQY8a-ng6g', img: '/assets/tool-kit/food-nuts.jpg',
+          title: 'How the food you eat affects your brain — Mia Nacamulli' },
+        { id: '0z03xkwFbw4', img: '/assets/tool-kit/food-spread.jpg',
+          title: 'What is the best diet for humans? | Eran Segal' },
+        { id: 'zpNoYgccmR0', img: '/assets/tool-kit/food-market.jpg',
+          title: 'Unlock the science of nutrition | Dr. Federica Amati' },
+        { id: 'jpBuzAJCOl4', img: '/assets/tool-kit/food-pastries.jpg',
+          title: 'What is a glucose spike? | Dr. Casey Means' },
+        { id: 'Q4yUlJV31Rk', img: '/assets/tool-kit/food-chopping.jpg',
+          title: 'How to make healthy eating unbelievably easy | Luke Durward' },
+        { id: '3dqXHHCc5lA', img: '/assets/tool-kit/food-salad.jpg',
+          title: 'The role of nutrition in mental health | Julia Rucklidge' }
       ]},
       { name: 'Movement', note: 'Gentle ways to get moving', videos: [
-        { id: 'v7AYKMP6rOE', title: 'Yoga For Complete Beginners — 20 Minute Home Yoga' },
-        { id: 'g_tea8ZNk5A', title: '15 Min. Full Body Stretch | Flexibility, Mobility & Relaxation' },
-        { id: 'Nw2oBIrQGLo', title: '15 Minute Calming Yoga for Stress Relief and Anxiety' }
+        { id: 'v7AYKMP6rOE', img: '/assets/tool-kit/move-yoga-home.jpg',
+          title: 'Yoga For Complete Beginners — 20 Minute Home Yoga' },
+        { id: 'g_tea8ZNk5A', img: '/assets/tool-kit/move-stretch.jpg',
+          title: '15 Min. Full Body Stretch | Flexibility, Mobility & Relaxation' },
+        { id: 'Nw2oBIrQGLo', img: '/assets/tool-kit/move-childs-pose.jpg',
+          title: '15 Minute Calming Yoga for Stress Relief and Anxiety' }
       ]},
       { name: 'Mind & Breath', note: 'Short practices for calm and focus', videos: [
-        { id: 'inpok4MKVLM', title: '5-Minute Meditation You Can Do Anywhere' },
-        { id: 'O-6f5wQXSu8', title: '10-Minute Meditation For Anxiety' },
-        { id: 'ZToicYcHIOU', title: 'Daily Calm | 10 Minute Mindfulness' },
-        { id: 'aXItOY0sLRY', title: 'Relax and Breathe: Do Nothing for 10 Minutes' },
-        { id: 'tybOi4hjZFQ', title: 'Guided Wim Hof Method Breathing' }
+        { id: 'inpok4MKVLM', img: '/assets/tool-kit/mind-meditate-outside.jpg',
+          title: '5-Minute Meditation You Can Do Anywhere' },
+        { id: 'O-6f5wQXSu8', img: '/assets/tool-kit/mind-eyes-closed.jpg',
+          title: '10-Minute Meditation For Anxiety' },
+        { id: 'ZToicYcHIOU', img: '/assets/tool-kit/mind-lake.jpg',
+          title: 'Daily Calm | 10 Minute Mindfulness' },
+        { id: 'aXItOY0sLRY', img: '/assets/tool-kit/mind-clouds.jpg',
+          title: 'Relax and Breathe: Do Nothing for 10 Minutes' },
+        { id: 'tybOi4hjZFQ', img: '/assets/tool-kit/mind-cold-water.jpg',
+          title: 'Guided Wim Hof Method Breathing' }
       ]}
     ]
   };
@@ -128,13 +160,24 @@
 
   function isSaved(id) { return saved.indexOf(id) !== -1; }
 
+  /* The card's picture: the one named in the list, or, failing that,
+     YouTube's own with its sizes to fall back through. */
+  function picture(v, lazy) {
+    var load = lazy ? ' loading="lazy"' : ' fetchpriority="high"';
+    if (v.img) {
+      return '<img' + load + ' src="' + v.img + '" alt="" width="800" height="450" decoding="async">';
+    }
+    return '<img' + load + ' src="' + thumb(v.id) + '"' +
+      ' data-next="' + thumb(v.id, 'mqdefault') + '"' +
+      ' alt="" width="1280" height="720" decoding="async">';
+  }
+
   function cardHTML(v) {
     var on = isSaved(v.id);
     return '<div class="lb-card">' +
       '<button class="lb-card__open" type="button" data-play="' + v.id + '">' +
         '<span class="lb-thumb">' +
-          '<img loading="lazy" src="' + thumb(v.id) + '" data-next="' + thumb(v.id, 'mqdefault') + '"' +
-            ' alt="" width="1280" height="720">' +
+          picture(v, true) +
           '<span class="lb-thumb__play"><span>' + PLAY_ICON + '</span></span>' +
         '</span>' +
         '<span class="lb-card__title">' + esc(v.title) + '</span>' +
@@ -163,10 +206,13 @@
   function renderHero() {
     var f = CONFIG.featured;
     var on = isSaved(f.id);
-    hero.innerHTML =
-      '<img class="lb-hero__bg" src="' + thumb(f.id, 'maxresdefault') + '" alt=""' +
-        ' data-next="' + thumb(f.id, 'hq720') + ' ' + thumb(f.id, 'mqdefault') + '"' +
-        ' fetchpriority="high" decoding="async">' +
+    var bg = f.img
+      ? '<img class="lb-hero__bg" src="' + f.img + '" alt="" width="1800" height="1013"' +
+          ' fetchpriority="high" decoding="async">'
+      : '<img class="lb-hero__bg" src="' + thumb(f.id, 'maxresdefault') + '" alt=""' +
+          ' data-next="' + thumb(f.id, 'hq720') + ' ' + thumb(f.id, 'mqdefault') + '"' +
+          ' fetchpriority="high" decoding="async">';
+    hero.innerHTML = bg +
       '<div class="lb-hero__scrim" aria-hidden="true"></div>' +
       '<div class="lb-hero__copy"><div class="lb-hero__inner">' +
         '<span class="eyebrow">' + esc(f.eyebrow) + '</span>' +

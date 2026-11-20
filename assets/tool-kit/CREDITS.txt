@@ -1,0 +1,46 @@
+Pictures for the Lifestyle Library at /tool-kit-NEW/
+====================================================
+
+All of these came from Unsplash, filtered to the free licence
+(unsplash.com/license). That licence grants free commercial use and asks
+for no attribution, so nothing on the page credits them. This file exists
+anyway, so the source of a picture is never a mystery later.
+
+The Unsplash+ / Getty results were deliberately excluded: those are a paid
+licence and are not covered by the free one.
+
+Each file was fetched from Unsplash's image CDN already cropped to 16:9,
+which is why they need no processing here:
+
+  https://images.unsplash.com/<photo id>?w=800&h=450&fit=crop&crop=entropy&q=72&fm=jpg
+
+(the hero at w=1800&h=1013&q=68). To replace one, fetch another photo id
+the same way and keep the filename.
+
+file                        photo id
+--------------------------  --------------------------------
+hero-sleep.jpg              photo-1758243954982-cd1d5a8b9f97
+sleep-superpower.jpg        photo-1495197359483-d092478c170a
+sleep-clock.jpg             photo-1774185644574-f58862023fca
+sleep-morning-window.jpg    photo-1763441344618-8a4a2abc8db2
+sleep-linen.jpg             photo-1601276174812-63280a55656e
+sleep-evening-yoga.jpg      photo-1586439496903-c96e9f18f212
+food-yogurt.jpg             photo-1672372536975-c2da9648f64a
+food-nuts.jpg               photo-1605024344839-e6e41aea6b23
+food-spread.jpg             photo-1767500536384-8a1b29b52e92
+food-market.jpg             photo-1591586116988-62fe65164f8d
+food-pastries.jpg           photo-1498099916438-d96f52d0c7ff
+food-chopping.jpg           photo-1653233797467-1a528819fd4f
+food-salad.jpg              photo-1512621776951-a57141f2eefd
+move-yoga-home.jpg          photo-1758599879090-afdd08ef9974
+move-stretch.jpg            photo-1593204075264-0b7994458bf3
+move-childs-pose.jpg        photo-1767611118672-d3887038786c
+mind-meditate-outside.jpg   photo-1610295272575-7376b67b3e96
+mind-eyes-closed.jpg        photo-1518708909080-704599b19972
+mind-lake.jpg               photo-1768320859041-2ec882c9430a
+mind-clouds.jpg             photo-1558418294-9da149757efe
+mind-cold-water.jpg         photo-1594758115208-8fcc963ca1f2
+
+The photographers' names are not recorded here: Unsplash's own search
+pages do not carry them, and the licence does not ask for them. If you
+ever want to credit someone, the photo id above finds the picture again.
