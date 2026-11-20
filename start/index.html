@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Cookiebot must be the first script on the page: it blocks trackers
+     before they run. The CBID is the only thing to change here. -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5ca07434-284c-4021-83e3-f9ed4661b11b" data-blockingmode="auto" type="text/javascript"></script>
+
+<title>Personalized Health &amp; Lifestyle Design | Tandava Wellness</title>
+<meta name="description" content="Uncover how your genetics influence your sleep, nutrition, fitness, energy and stress, so you can make smarter, more personalized lifestyle choices for your health.">
+
+<!-- An ad landing page. It is kept out of search and off the menu on
+     purpose: paid traffic is the only way in, and an indexed copy would
+     compete with /complete-lifestyle-kit/ for the same product. The
+     canonical points at this page rather than the kit page: pairing
+     noindex with a canonical somewhere else sends search engines two
+     contradictory instructions. To list it, delete the robots tag and
+     add the URL to sitemap.xml. -->
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://tandavawellness.com/start/">
+
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="Tandava Wellness">
+<meta property="og:title" content="Personalized Health &amp; Lifestyle Design Built From Your Genetics">
+<meta property="og:description" content="Uncover how your genetics influence your sleep, nutrition, fitness, energy and stress.">
+<meta property="og:url" content="https://tandavawellness.com/start/">
+<meta property="og:image" content="https://tandavawellness.com/assets/start/hero-reading-report.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1C251C">
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Instrument+Sans:wght@500;600&amp;family=Julius+Sans+One&amp;display=swap" rel="stylesheet">
+<!-- The reused sections are the live site's, so they get the live site's
+     stylesheets unchanged: styles.css carries the case study, how it works,
+     people, trust, FAQ and footer, kit.css carries the What To Expect
+     slider. start.css only adds the two new sections and the handful of
+     overrides this page asks for. -->
+<link rel="stylesheet" href="/nav.css?v=3">
+<link rel="stylesheet" href="/styles.css?v=4">
+<link rel="stylesheet" href="/complete-lifestyle-kit/kit.css?v=9">
+<link rel="stylesheet" href="/consult.css?v=5">
+<link rel="stylesheet" href="start.css?v=1">
+<!-- data-cookieconsent="ignore" keeps Cookiebot's auto-blocking from
+     gagging this file. It IS the consent gate. -->
+<script src="/analytics.js" async data-cookieconsent="ignore"></script>
+</head>
+
+<body>
+<main>
+
+<!-- ============================================================= hero -- -->
+<!-- An ad landing page, so the header is deliberately a dead end: the
+     wordmark and one button, no menu and no links out. The only way on
+     from here is the checkout. -->
+<section class="s-hero">
+  <img class="s-hero__bg" src="/assets/start/hero-reading-report.jpg"
+       alt="" width="1600" height="1067" fetchpriority="high" decoding="async">
+  <div class="s-hero__scrim" aria-hidden="true"></div>
+
+  <header class="s-top">
+    <a class="brand s-top__brand" href="/">
+      <img src="/assets/tandava-wordmark-sand.png" alt="Tandava" width="450" height="54">
+      <span class="brand__rule" aria-hidden="true"></span>
+      <span class="brand__suffix">WELLNESS</span>
+    </a>
+    <a class="btn s-btn-paper s-top__cta" href="https://buy.stripe.com/8x23co2ij8Qf40ZgLJ8Vi00">Get Started <span aria-hidden="true">&rarr;</span></a>
+  </header>
+
+  <div class="s-hero__body">
+    <div class="fit s-hero__fit">
+      <h1><span class="line">Personalized Health &amp; Lifestyle Design</span><span class="line accent">Built From Your Genetics.</span></h1>
+    </div>
+    <p class="s-hero__sub">Uncover how your genetics influence your sleep, nutrition, fitness, energy and stress, so you can make smarter, more personalized lifestyle choices for your health.</p>
+    <a class="btn s-btn-paper s-hero__cta" href="https://buy.stripe.com/8x23co2ij8Qf40ZgLJ8Vi00">Get Started <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</section>
+
+<!-- ============================================ slider + what you receive -- -->
+<section class="s-show">
+  <div class="s-show__wrap">
+
+    <!-- The slider is progressive: without JS it shows the first slide and
+         the arrows/dots simply do nothing, so the photo is never blank. -->
+    <div class="s-slider" data-slider>
+      <div class="s-slider__stage">
+        <div class="s-slider__track" data-slider-track>
+          <div class="s-slide">
+            <img src="/assets/start/kit-flatlay.jpg" alt="The Tandava test kit, a box and a tube, on a stone counter with olive leaves" width="1122" height="975" loading="lazy" decoding="async">
+          </div>
+          <div class="s-slide s-slide--contain" style="background:#EDECE7">
+            <img src="/assets/start/portal-hero.jpg" alt="The Tandava app on a phone, showing insight cards for stress response, sleep genetics and nutrients" width="1204" height="1400" loading="lazy" decoding="async">
+          </div>
+          <div class="s-slide" style="background:#F1EFEA">
+            <img src="/assets/start/kit-contents.jpg" alt="Everything in the Tandava kit laid flat: the booklet, start-here card, cheek swab, return mailer and specimen bag" width="1600" height="1100" loading="lazy" decoding="async">
+          </div>
+        </div>
+
+        <button class="s-slider__arrow s-slider__arrow--prev" type="button" data-slider-prev aria-label="Previous slide">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="s-slider__arrow s-slider__arrow--next" type="button" data-slider-next aria-label="Next slide">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+
+        <div class="s-slider__dots" data-slider-dots></div>
+      </div>
+
+      <div class="s-slider__thumbs" data-slider-thumbs></div>
+    </div>
+
+    <div class="s-receive">
+      <h2 class="s-receive__title">What You <span class="accent">Receive</span></h2>
+
+      <ul class="s-receive__list">
+        <li>
+          <span class="s-receive__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3c0 5 10 7 10 12s-10 4-10 6"/><path d="M17 3c0 5-10 7-10 12s10 4 10 6"/><path d="M8.5 6.5h7M8 17.5h8M9.5 12h5"/></svg></span>
+          <span>A 296-Marker Lifestyle DNA analysis</span>
+        </li>
+        <li>
+          <span class="s-receive__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/><path d="M16.5 5.25 7.5 9.75"/></svg></span>
+          <span>Free two-way delivery &amp; easy at-home test</span>
+        </li>
+        <li>
+          <span class="s-receive__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><path d="M12 14.5v2.5"/></svg></span>
+          <span>Easy-to-interpret insights report &amp; app</span>
+        </li>
+        <li>
+          <span class="s-receive__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l1.8 4.7 4.7 1.8-4.7 1.8L12 16.5l-1.8-4.7L5.5 10l4.7-1.8z"/><path d="M18.5 15.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></span>
+          <span>A personalized lifestyle assistant</span>
+        </li>
+        <li>
+          <span class="s-receive__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19.5c.6-3.3 2.8-5 5.5-5s4.9 1.7 5.5 5"/><circle cx="16.8" cy="9" r="2.5"/><path d="M15.8 14.6c2.4-.2 4.3 1.3 4.8 4.4"/></svg></span>
+          <span>Additional hands-on support from our expert practitioners</span>
+        </li>
+        <li>
+          <span class="s-receive__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7.5" width="10" height="13" rx="2.5"/><path d="M9 3.5h6v4H9z"/><path d="M10 12.5c1.2 1.4 2.8 1.4 4 0M10 16c1.2-1.4 2.8-1.4 4 0"/></svg></span>
+          <span>Optional 1-of-1 supplement blended from your genetics</span>
+        </li>
+      </ul>
+
+      <div class="s-receive__foot">
+        <a class="btn btn--forest s-cta s-cta--block" href="https://buy.stripe.com/8x23co2ij8Qf40ZgLJ8Vi00">GET STARTED <span aria-hidden="true">&rarr;</span></a>
+        <ul class="s-assure">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Accredited US lab</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Encrypted &amp; secure data</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Results in 45 days or less</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================= case study -- -->
+<section class="case s-case" id="case-study">
+  <div class="wrap case__grid">
+
+    <div class="case__media">
+      <img class="case__photo" src="/assets/case-studies/katie-gill.jpg"
+           alt="Katie Gill with her dog on a boat"
+           width="1000" height="1000" loading="lazy" decoding="async">
+    </div>
+
+    <div class="case__body">
+      <h2 class="case__title">Meet Katie Gill.</h2>
+      <p class="case__sub">Ten years of guessing, a few weeks of clarity.</p>
+      <p class="case__lede">At 60, Katie had zero energy for exercise, an inconsistent and unclear
+        diet, and fractured sleep that kept her up at night. Her DNA clarified where her effort
+        should be spent to create change.</p>
+
+      <ul class="case__points">
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>Showed a lactose intolerance tendency, shifted away from dairy and fixed her gut.</span>
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>Shifted from fasting to eating more of the right things and improved her energy.</span>
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>Changed to genetically aligned exercise and built confidence.</span>
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><b>Lost 10 lbs in under a month following her genetic insights.</b></span>
+        </li>
+      </ul>
+
+      <a class="btn btn--forest case__cta s-cta" href="https://buy.stripe.com/8x23co2ij8Qf40ZgLJ8Vi00">GET STARTED <span aria-hidden="true">&rarr;</span></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- =================================================== what to expect -- -->
+<section class="k-six" id="six-ways-slider" data-six>
+  <div class="k-six__wrap">
+    <h2 class="k-six__title">What To Expect</h2>
+
+    <div class="k-six__tabs" role="tablist" aria-label="Six ways"></div>
+
+    <div class="k-six__body">
+      <div class="k-six__copy">
+        <div class="k-six__count">
+          <span class="k-six__num" data-six-num>01</span>
+          <span class="k-six__of">/ 06</span>
+        </div>
+        <h3 class="k-six__heading" data-six-title></h3>
+        <p class="k-six__text" data-six-body></p>
+        <div class="k-six__track"><div class="k-six__bar" data-six-prog></div></div>
+        <div class="k-six__nav">
+          <button class="k-six__arrow" type="button" data-six-prev aria-label="Previous">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button class="k-six__arrow k-six__arrow--on" type="button" data-six-next aria-label="Next">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="k-six__viz">
+        <div class="k-six__eyebrow">
+          <span class="k-six__hair" aria-hidden="true"></span>
+          <span data-six-eyebrow></span>
+          <span class="k-six__hair" aria-hidden="true"></span>
+        </div>
+        <div class="k-six__rows" data-six-rows></div>
+      </div>
+    </div>
+
+    <div class="k-center s-six__actions">
+      <a class="btn s-btn-clay" href="https://buy.stripe.com/8x23co2ij8Qf40ZgLJ8Vi00">GET STARTED <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== how it works -- -->
+<section class="how" id="how-it-works">
+  <div class="wrap how__grid">
+
+    <div>
+      <div class="fit">
+        <h2><span class="line">How It <span class="accent">Works.</span></span></h2>
+      </div>
+      <p class="how__lede">From one cheek swab to changes you can make today.</p>
+
+      <div class="steps" role="tablist">
+        <button class="step" type="button" role="tab" data-step="0" aria-selected="false">
+          <span class="step__n">01</span>
+          <span>
+            <span class="step__title">Swab at home</span>
+            <span class="step__body">Order your kit, do a quick cheek swab and send it back in the prepaid box. No clinic and no blood testing required.</span>
+          </span>
+        </button>
+        <button class="step" type="button" role="tab" data-step="1" aria-selected="true">
+          <span class="step__n">02</span>
+          <span>
+            <span class="step__title">Get your Insights Report</span>
+            <span class="step__body">Receive your results in our app and download the personalized insights that suit your lifestyle &amp; health goals.</span>
+          </span>
+        </button>
+        <button class="step" type="button" role="tab" data-step="2" aria-selected="false">
+          <span class="step__n">03</span>
+          <span>
+            <span class="step__title">Work with a coach &amp; your care provider</span>
+            <span class="step__body">Walk through your report with a practitioner and choose the small, high-impact changes to start with. Then build from there.</span>
+          </span>
+        </button>
+      </div>
+
+      <div class="how__actions">
+        <a class="btn btn--forest" href="https://buy.stripe.com/8x23co2ij8Qf40ZgLJ8Vi00">Explore our tests</a>
+        <a class="btn btn--outline" href="https://calendly.com/cory-tandavaretreats/origins-practitioner-call" target="_blank" rel="noopener">Book a free consult</a>
+      </div>
+    </div>
+
+    <div class="how__visual">
+      <!-- step 1 -->
+      <div class="how__panel" data-panel="0">
+        <div class="how__photo how__photo--kit matte"><img class="cover" src="/assets/origins-kit-photo-v5.jpg" alt="The Tandava test kit" loading="lazy"></div>
+        <div class="statuscard">
+          <div class="statuscard__k">Your kit</div>
+          <div class="statuscard__v">On its way to the lab</div>
+          <ol>
+            <li><i><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#F6E7D2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>Kit delivered to your door</li>
+            <li><i><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#F6E7D2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>Cheek swab, two minutes</li>
+            <li><i><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#F6E7D2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>Prepaid box back to the lab</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- step 2 -->
+      <div class="how__panel" data-panel="1" data-active="true">
+        <div class="how__photo matte"><img class="cover" src="/assets/sessions/web-reading-report.jpg" alt="A person reading their insights report" style="object-position:54% 30%" loading="lazy"></div>
+        <div class="float" style="left:-6%; top:12%">
+          <div class="float__cat">Sleep sensitivity to caffeine</div>
+          <div class="float__title">Caffeine effects on sleep</div>
+          <div class="float__bar"><i style="left:0; width:33%; background:#E5484D"></i><u style="left:17%"></u></div>
+          <div class="float__label" style="color:#E5484D">Increased</div>
+        </div>
+        <div class="float" style="left:-2%; top:46%">
+          <div class="float__cat">Vitamin D</div>
+          <div class="float__title">Vitamin D deficiency risk</div>
+          <div class="float__bar"><i style="left:40%; width:20%; background:#F2B705"></i><u style="left:50%"></u></div>
+          <div class="float__label" style="color:#C08F04">Moderate</div>
+        </div>
+        <div class="float" style="right:-4%; top:-4%">
+          <div class="float__cat">Deep sleep quality</div>
+          <div class="float__title">Deep sleep quality</div>
+          <div class="float__bar"><i style="left:0; width:33%; background:#E5484D"></i><u style="left:17%"></u></div>
+          <div class="float__label" style="color:#E5484D">Below average</div>
+        </div>
+        <div class="float" style="right:-4%; bottom:4%">
+          <div class="float__cat">Food sensitivities</div>
+          <div class="float__title">Lactose intolerance risk</div>
+          <div class="float__bar"><i style="left:50%; width:25%; background:#3BAA4B"></i><u style="left:63%"></u></div>
+          <div class="float__label" style="color:#2F8A3B">Low</div>
+        </div>
+      </div>
+
+      <!-- step 3 -->
+      <div class="how__panel" data-panel="2">
+        <div class="how__photo matte"><img class="cover" src="/assets/sessions/web-00207.jpg" alt="A practitioner call in progress" style="object-position:52% 60%" loading="lazy"></div>
+        <div class="habitcard">
+          <div class="habitcard__k">Your first habit</div>
+          <div class="habitcard__v">Last coffee before 1pm</div>
+          <p>Chosen with your practitioner because your caffeine sensitivity is the single biggest lever on your sleep right now.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- =========================================================== people -- -->
+<section class="people">
+  <div class="wrap people__grid">
+    <div class="people__photo matte">
+      <img class="cover" src="/assets/web/brand-team-group.jpg" alt="The Tandava team together in the garden" loading="lazy">
+    </div>
+    <div class="fit">
+      <h2 class="serif-title"><span class="line">Built By People Who</span> <span class="line">Help Others <span class="accent">Create Change.</span></span></h2>
+      <p class="people__text">This work comes from the practitioners at Tandava who&rsquo;ve spent decades working with people on deep, lasting change. Every plan is built on that experience. Want a person in your corner? Practitioner-Guided adds a review call with an expert practitioner and 6 weeks of support.</p>
+      <blockquote class="people__quote">
+        &ldquo;This isn&rsquo;t about optimizing yourself into perfection. It&rsquo;s about creating symbiosis between your DNA, your lifestyle and your goals, through habits aligned to your genetics.&rdquo;
+        <footer>Cory, lead practitioner</footer>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- The practitioners themselves, with room to say who they are. This
+       replaces the row of four small heads that sat in the column above. -->
+  <div class="wrap">
+    <h2 class="serif-title people__teamtitle">The People Behind <span class="accent">Our Programs.</span></h2>
+
+  <div class="people__team">
+    <article class="person">
+      <div class="person__photo"><img src="/assets/team/cory-team.jpg" alt="Cory Firth" width="640" height="800" loading="lazy" decoding="async"></div>
+      <div class="person__name">Cory Firth</div>
+      <p class="person__bio">Trained in functional diagnostics and peak human performance, Cory specializes in translating precision health data and building actionable habits that align with each person&rsquo;s unique biological design.</p>
+    </article>
+
+    <article class="person">
+      <div class="person__photo"><img src="/assets/team/julie-team.jpg" alt="Julie Brierre" width="640" height="800" loading="lazy" decoding="async"></div>
+      <div class="person__name">Julie Brierre</div>
+      <p class="person__bio">A holistic health coach certified by the Institute for Integrative Nutrition, Julie worked through her own food allergies and mystery symptoms, and has a particular love for helping women care for healthy, balanced cycles.</p>
+    </article>
+
+    <article class="person">
+      <div class="person__photo"><img src="/assets/team/manesh-team-v2.webp" alt="Dr. Manesh Girn" width="640" height="800" loading="lazy" decoding="async"></div>
+      <div class="person__name">Dr. Manesh Girn</div>
+      <p class="person__bio">A neuroscientist focused on brain health, Manesh brings the research behind functional lifestyle design, helping you understand how daily habits shape the way your brain and body work.</p>
+        <p class="person__creds">Postdoctoral fellow, UCSF &middot; Co-Founder &amp; CEO, Five Discovery &middot; Lead Neuroscience Advisor, FIVE Research and Education</p>
+    </article>
+    </div>
+  </div>
+</section>
+<!-- ============================================================ trust -- -->
+<section class="trust" id="trust">
+  <div class="wrap">
+    <div class="trust__head">
+      <div class="fit">
+        <h2><span class="line">Your Data. Your Trust. Our Promise.</span></h2>
+      </div>
+      <p class="trust__sub">Your data is sacred. Every protocol and policy we write exists to protect what matters most: your privacy, your trust, and your peace of mind.</p>
+    </div>
+
+    <div class="certs">
+      <div class="cert">
+        <div class="cert__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34442E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <h3>HIPAA</h3>
+        <p class="cert__tag">Third-party validated</p>
+        <p class="cert__text">The US healthcare privacy standard. Your results are handled with the same safeguards as medical records.</p>
+      </div>
+      <div class="cert">
+        <div class="cert__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34442E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <h3>SOC 2 Type II</h3>
+        <p class="cert__tag">Independently attested</p>
+        <p class="cert__text">An outside auditor checks how our lab partner stores, accesses, and handles your data continuously, not just once.</p>
+      </div>
+      <div class="cert">
+        <div class="cert__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34442E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <h3>GDPR</h3>
+        <p class="cert__tag">Compliance audited</p>
+        <p class="cert__text">Europe&rsquo;s strictest privacy law. You can see, export, or permanently delete your data at any time.</p>
+      </div>
+      <div class="cert">
+        <div class="cert__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34442E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>AES-256</h3>
+        <p class="cert__tag">Encrypted end to end</p>
+        <p class="cert__text">Bank-grade encryption on every result, in transit and at rest. Only you and the team building your results can read it.</p>
+      </div>
+    </div>
+    <p class="trust__note">Lab certifications held by our accredited lab partner.</p>
+
+    <div class="promise">
+      <p class="eyebrow">A commitment</p>
+      <h3>Our Promise To You</h3>
+      <div class="promise__grid">
+        <div>
+          <div class="promise__n">01</div>
+          <h4>Your data, your control</h4>
+          <p>Your data belongs to you and only you. Request access, export, or full deletion at any time, subject to legal and contractual requirements.</p>
+        </div>
+        <div>
+          <div class="promise__n">02</div>
+          <h4>We never sell your data</h4>
+          <p>We will never sell, rent, or trade your personal information to third parties. Our model is built on value to you, not monetizing your data.</p>
+        </div>
+        <div>
+          <div class="promise__n">03</div>
+          <h4>Transparent data practices</h4>
+          <p>We&rsquo;re clear about what we collect, why, and how we use it. No hidden tracking, no surprise sharing. You&rsquo;ll always know what happens with your information.</p>
+        </div>
+        <div>
+          <div class="promise__n">04</div>
+          <h4>Encrypted, end to end</h4>
+          <p>We protect your data with AES-256 for records at rest and TLS 1.3 in transit, the same modern standards used by leading financial and technology organizations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================== faq + bottom banner -- -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <h2>Questions People Ask Us</h2>
+    <div class="faq__list">
+      <details><summary>Is there any other cost on top of the price?<i aria-hidden="true">+</i></summary><p class="faq__a">There are no additional costs on top of the kits. If you want to go deeper with coaching or additional programming you can choose to select those after you receive your results.</p></details>
+      <details><summary>What will this tell me that I don&rsquo;t already know?<i aria-hidden="true">+</i></summary><p class="faq__a">Most of our clients already know a lot about their health. What they&rsquo;re missing is the translation: how their genetics and their habits fit together, and what to do with it. Your report looks long, but by the end it&rsquo;s very targeted.</p></details>
+      <details><summary>Is this a diagnosis?<i aria-hidden="true">+</i></summary><p class="faq__a">No. Everything in our kits is a tendency. It&rsquo;s not about disease, it doesn&rsquo;t diagnose anything, and it doesn&rsquo;t replace your doctor.</p></details>
+      <details><summary>Does my DNA change? Should I wait?<i aria-hidden="true">+</i></summary><p class="faq__a">Your DNA doesn&rsquo;t change. This is your baseline, the genetics you were born with. What you do in your real life shapes how it shows up, which is why we read it next to how you live now.</p></details>
+      <details><summary>Who sees my data?<i aria-hidden="true">+</i></summary><p class="faq__a">You do, and on Practitioner-Guided, your practitioner. Your sample is processed by our accredited lab partner (HIPAA validated, SOC 2 Type II, GDPR audited). Your raw file is yours to download, and you can ask us to delete your data.</p></details>
+      <details><summary>Where do you ship?<i aria-hidden="true">+</i></summary><p class="faq__a">Our kits are available in the United States, Canada, Mexico and Europe. Your kit ships to your door with a prepaid return box. We can ship to other countries by request.</p></details>
+      <details><summary>I&rsquo;m not great with technology.<i aria-hidden="true">+</i></summary><p class="faq__a">That&rsquo;s fine. We can walk you through the portal on a free technical call to make sure you have access to your results easily.</p></details>
+      <details><summary>Will the changes actually stick?<i aria-hidden="true">+</i></summary><p class="faq__a">We focus on high-impact, low-effort changes, a minimum routine you can keep, introduced gradually so it never feels all or nothing. It works to the extent you take it seriously.</p></details>
+      <details><summary>What if it doesn&rsquo;t work for me?<i aria-hidden="true">+</i></summary><p class="faq__a">We don&rsquo;t promise outcomes. Your results describe tendencies, and the early signs are usually small: a fact that finally makes sense, one habit that&rsquo;s easier than you expected, a night that feels a little better. Slow, foundational incremental changes are more impactful over time that big, harder to achieve ones. We focus there so you see the results immediately.</p></details>
+    </div>
+
+    <div class="contactcard s-banner">
+      <div class="fit s-banner__fit">
+        <h2 class="serif-title s-banner__title"><span class="line">Ready To Know Yourself Inside And Out?</span><span class="line accent">Get Started Today.</span></h2>
+      </div>
+      <a class="btn btn--forest s-cta" href="https://buy.stripe.com/8x23co2ij8Qf40ZgLJ8Vi00">GET STARTED <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- =========================================================== footer -- -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div class="brand">
+        <img src="/assets/tandava-wordmark-sand.png" alt="Tandava" width="450" height="54">
+        <span class="brand__rule" aria-hidden="true"></span>
+        <span class="brand__suffix">WELLNESS</span>
+      </div>
+      <nav class="footer-links">
+        <a href="/case-studies/katie-gill/">Case Studies</a>
+        <a href="#trust">Trust &amp; Privacy</a>
+        <a href="#faq">FAQ</a>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="#" data-cookie-settings>Cookie settings</a>
+      </nav>
+    </div>
+    <p class="site-footer__note">Tandava Wellness reads lifestyle tendencies. It does not diagnose, treat, cure or prevent any condition.</p>
+  </div>
+</footer>
+<!-- kit.js is loaded whole rather than copied: the What To Expect slide copy
+     lives in it, so the kit page stays the single source for it. Its other
+     modules all look for elements this page does not have and quietly do
+     nothing. app.js drives How It Works. -->
+<script src="/complete-lifestyle-kit/kit.js" defer></script>
+<script src="/app.js" defer></script>
+<script src="start.js?v=1" defer></script>
+<!-- Opens the GoHighLevel consult form in place. The Calendly href stays in
+     the HTML as the no-JavaScript fallback. -->
+<script src="/consult.js?v=5" defer></script>
+</body>
+</html>

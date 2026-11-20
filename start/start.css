@@ -1,0 +1,285 @@
+/* ==========================================================================
+   /start/ — December ads landing page.
+
+   Loads after styles.css and kit.css, which supply the tokens, the .btn,
+   and every reused section. Everything here is either one of the two new
+   sections (the hero, and the slider + What You Receive card) or a small
+   override on a reused section, each one listed in the build spec.
+   ========================================================================== */
+
+/* ------------------------------------------------------------- buttons -- */
+/* Two fills the shared sheet does not have. .btn--clay there is an outline;
+   this page wants it solid, and the hero wants a paper-coloured one on the
+   photo. Both are scoped to this page so the shared button set is untouched. */
+.s-btn-paper { background: var(--paper); color: var(--ink); }
+.s-btn-paper:hover { background: #FFFFFF; color: var(--ink); transform: translateY(-2px); }
+
+.s-btn-clay { background: var(--clay); color: var(--paper); }
+.s-btn-clay:hover { background: #A96A3C; color: var(--paper); transform: translateY(-2px); }
+
+/* The repeated call to action: the design file's wide-tracked caps. */
+.s-cta { letter-spacing: .08em; }
+.s-cta--block { width: 100%; }
+
+/* ---------------------------------------------------------------- hero -- */
+.s-hero {
+  position: relative;
+  min-height: clamp(560px, 52vw, 820px);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  background: var(--dark);
+  color: var(--paper);
+}
+.s-hero__bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 30%;
+}
+/* Two layers. The ellipse sits under the headline only, which is what makes
+   pale type readable where it crosses her hair; the linear wash darkens the
+   two ends, where the header and the button sit. Darkening the whole photo
+   instead would have cost the picture more than it bought the type. */
+.s-hero__scrim {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 62% 40% at 50% 46%,
+      rgba(20,27,22,.56) 0%,
+      rgba(20,27,22,.30) 55%,
+      rgba(20,27,22,0) 100%),
+    linear-gradient(180deg,
+      rgba(20,27,22,.60) 0%,
+      rgba(20,27,22,.34) 35%,
+      rgba(20,27,22,.44) 70%,
+      rgba(20,27,22,.70) 100%);
+}
+
+.s-top {
+  position: relative;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  padding: 22px var(--pad-x);
+  border-bottom: 1px solid rgba(246,245,240,.25);
+}
+.s-top__brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.s-top__brand img { height: 18px; width: auto; display: block; }
+.s-top__brand .brand__rule { width: 1px; height: 16px; background: rgba(246,245,240,.4); }
+.s-top__brand .brand__suffix {
+  font-family: var(--display);
+  font-size: 14px; letter-spacing: .24em;
+  color: #F0C9A6;
+}
+.s-top__cta { min-height: 42px; padding: 0 20px; font-size: 13px; }
+
+/* The shared sheet gives every .btn width:100% under 520px, which is right
+   for the page's calls to action and wrong for the one in the header: it
+   grew until it sat on top of the wordmark. The header pill stays its own
+   size, and the lockup shrinks to make room for it. */
+@media (max-width: 560px) {
+  .s-top { padding: 16px var(--pad-x); gap: 12px; }
+  .s-top__brand { gap: 9px; }
+  .s-top__brand img { height: 15px; }
+  .s-top__brand .brand__rule { height: 13px; }
+  .s-top__brand .brand__suffix { font-size: 11px; letter-spacing: .18em; }
+  .s-top__cta { width: auto; flex: none; min-height: 38px; padding: 0 16px; font-size: 12px; }
+}
+
+/* Narrower than this the lockup and the pill cannot both fit, and the
+   suffix spills out of its own flex item. The wordmark carries the brand on
+   its own here; the full lockup is back the moment there is room for it. */
+@media (max-width: 430px) {
+  .s-top__brand .brand__rule,
+  .s-top__brand .brand__suffix { display: none; }
+}
+
+.s-hero__body {
+  position: relative; flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  gap: 22px;
+  padding: clamp(48px, 7vw, 110px) var(--pad-x);
+}
+/* Two display lines that must not wrap, sized against this column rather
+   than the viewport, the same mechanism the home page hero uses. */
+.s-hero__fit { max-width: 1000px; }
+.s-hero__fit h1 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: min(60px, 4.4cqi);
+  line-height: 1.06; letter-spacing: -.045em;
+  text-shadow: 0 1px 2px rgba(0,0,0,.42), 0 2px 26px rgba(0,0,0,.38);
+}
+.s-hero__fit .accent { color: #F0C9A6; }
+.s-hero__sub {
+  max-width: 760px; margin: 0;
+  font-size: clamp(16px, 1.35vw, 20px); line-height: 1.55;
+  color: rgba(246,245,240,.92);
+  text-wrap: balance;
+}
+.s-hero__cta { margin-top: 6px; min-height: 52px; padding: 0 30px; font-size: 15px; }
+
+/* Below this the two nowrap lines are smaller than the body copy, which
+   looks broken. Let them wrap and set the size from the viewport instead. */
+@media (max-width: 640px) {
+  .s-hero__fit { container-type: normal; }
+  .s-hero__fit .line { white-space: normal; }
+  .s-hero__fit h1 { font-size: clamp(30px, 8vw, 44px); }
+}
+
+/* ------------------------------------------- slider + what you receive -- */
+.s-show { background: var(--paper); padding: clamp(32px, 4vw, 56px) var(--pad-x) clamp(48px, 7vw, 96px); }
+.s-show__wrap {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; flex-wrap: wrap;
+  gap: clamp(24px, 3.5vw, 52px);
+  align-items: stretch;
+}
+
+/* 1.45 : 1 is the design's roughly 60/40 split. Both are flex-basis values
+   in a row, so they are widths here; the column direction below turns them
+   into heights, which is why each gets flex: 0 0 auto there. */
+.s-slider { flex: 1.45 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.s-slider__stage {
+  position: relative; flex: 1;
+  min-height: clamp(360px, 44vw, 660px);
+  border-radius: 22px; overflow: hidden;
+  background: var(--sand);
+}
+.s-slider__track {
+  position: absolute; inset: 0;
+  display: flex;
+  transition: transform .45s var(--ease);
+}
+.s-slide { flex: 0 0 100%; position: relative; }
+.s-slide img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 50%;
+}
+/* The phone shot has to show whole, so it is contained and sits on the
+   floor of the frame against its own background colour. */
+.s-slide--contain img { object-fit: contain; object-position: 50% 100%; }
+
+.s-slider__arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border: 0; border-radius: 999px; padding: 0;
+  background: var(--white); color: var(--ink);
+  box-shadow: 0 6px 18px rgba(33,44,40,.18);
+  cursor: pointer;
+  transition: transform .2s var(--ease);
+}
+.s-slider__arrow:hover { transform: translateY(-50%) scale(1.06); }
+.s-slider__arrow--prev { left: 14px; }
+.s-slider__arrow--next { right: 14px; }
+
+.s-slider__dots {
+  position: absolute; left: 50%; bottom: 16px; z-index: 3;
+  transform: translateX(-50%);
+  display: flex; align-items: center; gap: 8px;
+  /* The dots sit straight on the photo, and slide one is pale stone. This
+     backdrop is what keeps them visible on every slide. */
+  padding: 7px 12px; border-radius: 999px;
+  background: rgba(20,27,22,.34);
+  backdrop-filter: blur(6px);
+}
+.s-slider__dots button {
+  width: 18px; height: 4px; padding: 0;
+  border: 0; border-radius: 999px;
+  background: rgba(246,245,240,.6);
+  cursor: pointer;
+  transition: width .3s var(--ease), background .3s var(--ease);
+}
+.s-slider__dots button[aria-current="true"] { width: 34px; background: var(--white); }
+
+.s-slider__thumbs { display: flex; justify-content: center; gap: 12px; }
+.s-slider__thumbs button {
+  width: 60px; height: 60px; padding: 0;
+  border-radius: 999px; overflow: hidden;
+  border: 2px solid transparent;
+  background-size: cover; background-position: 50% 50%;
+  box-sizing: border-box; cursor: pointer;
+  transition: border-color .2s var(--ease);
+}
+.s-slider__thumb--contain { background-size: contain; background-repeat: no-repeat; }
+.s-slider__thumbs button[aria-current="true"] { border-color: var(--forest); }
+.s-slider__thumbs button:hover { border-color: rgba(48,64,40,.35); }
+
+.s-receive {
+  flex: 1 1 360px; min-width: 0;
+  background: var(--white);
+  border: 1px solid var(--hairline-2); border-radius: 22px;
+  padding: clamp(22px, 2.4vw, 34px);
+  box-sizing: border-box;
+  display: flex; flex-direction: column; gap: 6px;
+}
+/* Sub-heading size, not hero size: this card sits beside a photo, it is not
+   the page's headline. */
+.s-receive__title {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(24px, 2vw, 30px); line-height: 1.15; letter-spacing: -.02em;
+  margin: 0; color: var(--ink);
+}
+.s-receive__list {
+  list-style: none;
+  display: flex; flex-direction: column; justify-content: space-between;
+  flex: 1; margin-top: 10px;
+}
+.s-receive__list li {
+  display: flex; align-items: center; gap: 14px;
+  padding: clamp(10px, 1.2vw, 16px) 0;
+  border-top: 1px solid rgba(48,64,40,.1);
+  font-size: clamp(15px, 1.2vw, 17px); line-height: 1.35; color: var(--ink);
+}
+.s-receive__list li:first-child { border-top: 0; }
+.s-receive__icon {
+  width: 34px; height: 34px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 10px;
+  background: #F3ECE3; color: var(--clay);
+}
+.s-receive__foot { padding-top: 18px; display: flex; flex-direction: column; gap: 14px; }
+
+.s-assure {
+  list-style: none;
+  display: flex; justify-content: center; gap: clamp(8px, 1vw, 14px);
+  font-size: clamp(11px, .9vw, 13px); color: var(--body);
+}
+.s-assure li { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+.s-assure svg { flex: none; color: #4E6B44; }
+
+/* Three nowrap items stop fitting on one line well before the card stacks. */
+@media (max-width: 520px) {
+  .s-assure { flex-wrap: wrap; row-gap: 8px; }
+}
+
+/* ----------------------------------------------- reused: case study -- */
+/* The pill and the stat card are gone from the markup, so the photo is a
+   plain image and the body starts at the title. */
+.s-case .case__body { gap: 18px; }
+.s-case .case__title { margin-top: 0; }
+
+/* ------------------------------------------- reused: what to expect -- */
+.s-six__actions { margin-top: clamp(32px, 4vw, 48px); }
+.s-six__actions .btn { min-height: 56px; padding: 0 36px; font-size: 14px; }
+
+/* -------------------------------------------- reused: bottom banner -- */
+/* The shared contactcard is a row with the button on the right. Here it is
+   a centred stack with the button under the title. */
+.s-banner { flex-direction: column; justify-content: center; text-align: center; gap: 26px; }
+.s-banner__fit { max-width: 100%; }
+/* The banner lives inside the FAQ section, so `.faq h2` already claims this
+   heading as the section title: same weight of selector, later in the sheet.
+   These are scoped through .faq to win it back, nothing in the shared sheet
+   changes, and the FAQ's own "Questions People Ask Us" is untouched. */
+.faq .s-banner__title {
+  font-size: min(34px, 5.1cqi); line-height: 1.12; letter-spacing: -.04em;
+  margin: 0; text-align: center;
+}
+
+/* Narrow enough that one nowrap line would be smaller than the button
+   under it. Let both lines wrap and size them off the viewport. */
+@media (max-width: 560px) {
+  .s-banner__fit { container-type: normal; }
+  .s-banner__fit .line { white-space: normal; }
+  .faq .s-banner__title { font-size: clamp(22px, 6.4vw, 28px); }
+}
+.s-banner .btn { min-height: 52px; padding: 0 26px; font-size: 13px; }

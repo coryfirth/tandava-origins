@@ -9,6 +9,7 @@
 
   Deliberately left out, and why:
     /koya/                    noindex, a partner landing page
+    /start/                   noindex, the December ads landing page
     /tools/, /tools/start-here/   noindex, reached from the results email
     /intake/lifestyle/        noindex, reached from the order confirmation
     /thanks/lifestyle/        noindex, reached by finishing the intake
