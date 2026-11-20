@@ -35,22 +35,22 @@
   width: 100%; height: 100%;
   object-fit: cover; object-position: 50% 30%;
 }
-/* Two layers. The ellipse sits under the headline only, which is what makes
-   pale type readable where it crosses her hair; the linear wash darkens the
-   two ends, where the header and the button sit. Darkening the whole photo
-   instead would have cost the picture more than it bought the type. */
+/* Two layers. The ellipse sits under the headline only, lifting white type
+   off her hair; the linear wash darkens the two ends, where the header and
+   the button sit. Both are kept light on purpose: the headline reads on its
+   own colour, and the photo is the thing being sold. */
 .s-hero__scrim {
   position: absolute; inset: 0;
   background:
     radial-gradient(ellipse 62% 40% at 50% 46%,
-      rgba(20,27,22,.56) 0%,
-      rgba(20,27,22,.30) 55%,
+      rgba(20,27,22,.30) 0%,
+      rgba(20,27,22,.15) 55%,
       rgba(20,27,22,0) 100%),
     linear-gradient(180deg,
-      rgba(20,27,22,.60) 0%,
-      rgba(20,27,22,.34) 35%,
-      rgba(20,27,22,.44) 70%,
-      rgba(20,27,22,.70) 100%);
+      rgba(20,27,22,.58) 0%,
+      rgba(20,27,22,.30) 35%,
+      rgba(20,27,22,.40) 70%,
+      rgba(20,27,22,.68) 100%);
 }
 
 .s-top {
@@ -104,7 +104,11 @@
   font-family: var(--serif); font-weight: 500;
   font-size: min(60px, 4.4cqi);
   line-height: 1.06; letter-spacing: -.045em;
-  text-shadow: 0 1px 2px rgba(0,0,0,.42), 0 2px 26px rgba(0,0,0,.38);
+  /* White rather than the --paper the section inherits: over a photo the
+     warm off-white reads as slightly dull. The second line keeps its
+     colour from .s-hero__fit .accent below. */
+  color: var(--white);
+  text-shadow: 0 1px 2px rgba(0,0,0,.30), 0 2px 26px rgba(0,0,0,.28);
 }
 .s-hero__fit .accent { color: #F0C9A6; }
 .s-hero__sub {
