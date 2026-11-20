@@ -68,39 +68,14 @@
 .pr__formtitle { font-size: clamp(26px, 2.4vw, 32px); line-height: 1.15; letter-spacing: -.035em; }
 .pr__formsub { margin: 0; font-size: 16px; line-height: 1.5; color: var(--muted); }
 
-.pr__row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
-.pr__field { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; }
-.pr__field input,
-.pr__field textarea {
-  font: inherit;
-  font-weight: 400;
-  border: 1px solid rgba(48,64,40,.2);
-  border-radius: 10px;
-  padding: 13px 14px;
-  font-size: 16px;            /* 16px stops iOS zooming the page on focus */
-  background: #FBFAF7;
-  color: var(--ink);
-}
-.pr__field textarea { resize: vertical; }
-.pr__field input:focus,
-.pr__field textarea:focus {
-  outline: none;
-  border-color: var(--forest);
-  box-shadow: 0 0 0 3px rgba(52,68,46,.12);
-}
-.pr__submit { align-self: stretch; margin-top: 4px; border: 0; cursor: pointer; }
-.pr__submit:hover { background: var(--ink); color: var(--paper); }
-
-/* The state the form swaps to once it has been sent. */
-.pr__done { display: none; flex-direction: column; gap: 14px; padding: 24px 0; }
-.pr__card[data-sent="true"] .pr__form { display: none; }
-.pr__card[data-sent="true"] .pr__done { display: flex; }
-.pr__tick {
-  width: 52px; height: 52px; border-radius: 999px; background: #EEF2EA;
-  display: flex; align-items: center; justify-content: center;
-}
-.pr__donetitle { font-size: 32px; line-height: 1.15; letter-spacing: -.035em; }
-.pr__done p { margin: 0; font-size: 17px; line-height: 1.6; color: var(--body); }
+/* The form itself is a GoHighLevel iframe. form_embed.js writes the height
+   onto the element once it has measured the form inside, so the min-height
+   here is only a floor for the moment before that lands: without it the card
+   collapses to the heading and then jumps. Nothing sets a height and nothing
+   clips overflow, because either would cut the form off as it grows (it adds
+   a validation message, or the checkbox list opens a conditional field). */
+.pr__embed { margin-top: 20px; min-height: 1016px; }
+.pr__embed iframe { display: block; width: 100%; max-width: 100%; border: 0; }
 
 .pr :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
 
@@ -118,6 +93,7 @@
    tightens too, since stacked it is vertical scroll rather than the
    breathing room between two columns. */
 @media (max-width: 980px) {
+  .pr__embed { min-height: 720px; }
   .pr__photo { display: none; }
   /* The pills go for the same reason. Stacked they wrap onto three lines
      of reassurance that the page has already given in the paragraph above

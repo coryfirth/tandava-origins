@@ -28,7 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Instrument+Sans:wght@500;600&amp;family=Julius+Sans+One&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/nav.css?v=3">
 <link rel="stylesheet" href="/styles.css?v=4">
-<link rel="stylesheet" href="/partnerships/partnerships.css?v=5">
+<link rel="stylesheet" href="/partnerships/partnerships.css?v=6">
 <link rel="stylesheet" href="/consult.css?v=3">
 <!-- data-cookieconsent="ignore" keeps Cookiebot's auto-blocking from
      gagging this file. It IS the consent gate: it loads nothing from
@@ -106,29 +106,45 @@
            width="1069" height="1600" loading="lazy" decoding="async">
     </div>
 
-    <div class="pr__card" data-partner-form>
-      <form class="pr__form" novalidate>
-        <div class="pr__formhead">
-          <h2 class="serif-title pr__formtitle">Request Info</h2>
-          <p class="pr__formsub">Tell us about your practice. We&rsquo;ll be in touch within two business days.</p>
-        </div>
+    <div class="pr__card">
+      <div class="pr__formhead">
+        <h2 class="serif-title pr__formtitle">Request Info</h2>
+        <p class="pr__formsub">Tell us about your practice. We&rsquo;ll be in touch within two business days.</p>
+      </div>
 
-        <div class="pr__row">
-          <label class="pr__field">First name<input name="first" required autocomplete="given-name"></label>
-          <label class="pr__field">Last name<input name="last" required autocomplete="family-name"></label>
-        </div>
-        <label class="pr__field">Email<input name="email" type="email" required autocomplete="email"></label>
-        <label class="pr__field">Phone number<input name="phone" type="tel" autocomplete="tel"></label>
-        <label class="pr__field">Business website<input name="website" type="url" placeholder="https://" autocomplete="url"></label>
-        <label class="pr__field">Your question<textarea name="question" rows="4" placeholder="What would you like to build with your clients?"></textarea></label>
+      <!-- The GoHighLevel form, as GHL gives it bar one change. form_embed.js
+           measures the form inside the frame and writes the height back onto
+           the iframe, so nothing here sets a height. Loaded once on the page:
+           a second copy would fight the first over that height.
 
-        <button class="btn btn--forest pr__submit" type="submit">Submit info request</button>
-      </form>
-
-      <div class="pr__done">
-        <span class="pr__tick" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4E6B44" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <h2 class="serif-title pr__donetitle">Thank You.</h2>
-        <p>We&rsquo;ve got your request and will be in touch within two business days.</p>
+           GHL's embed ships with data-cookie-consent="true" and
+           data-cookie-consent-provider="auto". Those two tell form_embed.js
+           to find the page's consent tool and keep the form hidden until it
+           reports consent. With Cookiebot on this page and nobody having
+           answered the banner yet, that leaves an empty card where the form
+           should be, which was measured: identical embed, same browser, shows
+           instantly on a page without Cookiebot and never appears on this one.
+           Anyone who declines the banner would never see the form at all.
+           Put the two attributes back and the form hides itself again. -->
+      <div class="pr__embed">
+<iframe
+  src="https://api.leadconnectorhq.com/widget/form/UymIjQYajv2LPtPlunuS"
+  style="width:100%;height:100%;border:none;border-radius:8px"
+  id="inline-UymIjQYajv2LPtPlunuS"
+  data-layout="{'id':'INLINE'}"
+  data-trigger-type="alwaysShow"
+  data-trigger-value=""
+  data-activation-type="alwaysActivated"
+  data-activation-value=""
+  data-deactivation-type="neverDeactivate"
+  data-deactivation-value=""
+  data-form-name="Partner Request Info - TW Website"
+  data-height="1016"
+  data-layout-iframe-id="inline-UymIjQYajv2LPtPlunuS"
+  data-form-id="UymIjQYajv2LPtPlunuS"
+  title="Partner Request Info - TW Website">
+</iframe>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
       </div>
     </div>
 
@@ -160,6 +176,5 @@
 <!-- Opens the GoHighLevel consult form in place. The Calendly hrefs stay
      in the HTML as the no-JavaScript fallback. -->
 <script src="/consult.js?v=3" defer></script>
-<script src="/partnerships/partnerships.js?v=3" defer></script>
 </body>
 </html>
