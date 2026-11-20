@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Cookiebot must be the first script on the page: it blocks trackers
+     before they run. The CBID is the only thing to change here. -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5ca07434-284c-4021-83e3-f9ed4661b11b" data-blockingmode="auto" type="text/javascript"></script>
+
+<title>Lifestyle Library &mdash; Tandava Wellness</title>
+<meta name="description" content="Curated videos to help you sleep, eat, move and breathe better.">
+
+<!-- Unlisted while it is being built: off the menu, out of the footer and
+     out of search. When it goes live, delete this tag, add the URL to
+     sitemap.xml, and give it a place in the MENU list in /nav.js. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#212C28">
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Instrument+Sans:wght@500;600&amp;family=Julius+Sans+One&amp;display=swap" rel="stylesheet">
+<!-- The thumbnails all come from one host; warming it early stops the first
+     row arriving in pieces. -->
+<link rel="preconnect" href="https://i.ytimg.com">
+<link rel="stylesheet" href="/nav.css?v=3">
+<link rel="stylesheet" href="/styles.css?v=4">
+<link rel="stylesheet" href="library.css?v=1">
+<!-- data-cookieconsent="ignore" keeps Cookiebot's auto-blocking from
+     gagging this file. It IS the consent gate: it loads nothing from
+     Google until statistics consent is given, and it owns the footer
+     "Cookie settings" link. Blocked, it cannot do either. -->
+<script src="/analytics.js" async data-cookieconsent="ignore"></script>
+</head>
+
+<body>
+
+<!-- ============================================================== nav -- -->
+<!-- The site menu, verbatim from the other pages. nav.js builds the items
+     from its own MENU list, so this markup is only the no-JavaScript
+     fallback. This page is not in that list yet, on purpose. -->
+<div class="topbar" data-menu="closed">
+  <div class="topbar__inner">
+    <a class="brand" href="/">
+      <img src="/assets/tandava-wordmark-night.png" alt="Tandava" width="451" height="54">
+      <span class="brand__rule" aria-hidden="true"></span>
+      <span class="brand__suffix">WELLNESS</span>
+    </a>
+
+    <button class="navtoggle" type="button" aria-expanded="false" aria-controls="sitenav" aria-label="Menu">
+      <span class="navtoggle__bars" aria-hidden="true"></span>
+    </button>
+
+    <nav class="nav" id="sitenav">
+      <div class="shop" data-shop>
+        <button class="shop__toggle" type="button" aria-expanded="false" aria-haspopup="true">
+          Shop by Goal
+          <svg class="shop__chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="shop__menu">
+          <div class="shop__panel">
+            <a data-nav="complete" href="/complete-lifestyle-kit/">Complete Lifestyle</a>
+            <a data-nav="sleep" hidden>Sleep</a>
+            <a data-nav="diet" hidden>Diet</a>
+            <a data-nav="exercise" hidden>Exercise</a>
+          </div>
+        </div>
+      </div>
+      <a data-nav="lifestyle">Lifestyle Design</a>
+      <a data-nav="partnerships">Partnerships</a>
+      <a data-nav="about" hidden>About</a>
+      <a class="signin" href="https://app.tandavaretreats.com/" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        Sign in
+      </a>
+      <a class="nav__cta" href="https://calendly.com/cory-tandavaretreats/origins-practitioner-call" target="_blank" rel="noopener">Book a free consult</a>
+    </nav>
+  </div>
+</div>
+
+<main>
+
+<!-- ============================================================= hero -- -->
+<!-- Both the hero and the rows are drawn by library.js from the CONFIG
+     block at the top of that file, so the library is edited in one place
+     rather than two. -->
+<section class="lb-hero on-dark" id="hero" aria-labelledby="hero-title"></section>
+
+<!-- ========================================================== library -- -->
+<div class="lb-bar__wrap">
+  <div class="lb-bar">
+    <label class="lb-search">
+      <svg class="lb-search__icon" aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+      <input class="lb-search__input" id="search" type="search" placeholder="Search the library" aria-label="Search the library">
+    </label>
+
+    <!-- The editing door. It writes to this browser only and hands back a
+         CONFIG block to paste into library.js, which is how a video becomes
+         permanent for everyone. Delete this button when the page goes
+         public; nothing else depends on it. -->
+    <button class="btn btn--outline btn--sm lb-add" type="button" id="openAdd">Add a video</button>
+  </div>
+</div>
+
+<div class="lb-rows" id="rows"></div>
+
+<noscript>
+  <p class="lb-noscript">The library needs JavaScript to play its videos. Switch it on, or ask us for the list by email.</p>
+</noscript>
+
+</main>
+
+<!-- =========================================================== footer -- -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div class="brand">
+        <img src="/assets/tandava-wordmark-sand.png" alt="Tandava" width="450" height="54">
+        <span class="brand__rule" aria-hidden="true"></span>
+        <span class="brand__suffix">WELLNESS</span>
+      </div>
+      <nav class="footer-links">
+        <a href="/#trust">Trust &amp; Privacy</a>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/complete-lifestyle-kit/">Complete Lifestyle Kit</a>
+        <a href="#" data-cookie-settings>Cookie settings</a>
+      </nav>
+    </div>
+    <p class="site-footer__note">Tandava Wellness reads lifestyle tendencies. It does not diagnose, treat, cure or prevent any condition. The videos in this library are made by other people and are shared here as general education, not as advice about you.</p>
+  </div>
+</footer>
+
+<!-- ========================================================== dialogs -- -->
+<dialog class="lb-dialog" id="playerDlg" aria-label="Video player">
+  <div class="lb-dialog__bar">
+    <h2 class="lb-dialog__title" id="playerTitle"></h2>
+    <button class="lb-x lb-x--dark" type="button" data-close aria-label="Close">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <div class="lb-player" id="player"></div>
+</dialog>
+
+<dialog class="lb-dialog lb-dialog--panel" id="addDlg" aria-label="Add a video">
+  <form class="lb-panel" id="addForm">
+    <div class="lb-panel__head">
+      <h2 class="lb-panel__title">Add a video</h2>
+      <button class="lb-x" type="button" data-close aria-label="Close">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+
+    <label class="lb-field">
+      <span class="lb-field__label">YouTube link</span>
+      <input class="lb-input" id="addUrl" required placeholder="https://www.youtube.com/watch?v=&hellip;">
+    </label>
+    <label class="lb-field">
+      <span class="lb-field__label">Title</span>
+      <input class="lb-input" id="addTitle" required placeholder="What should the card say?">
+    </label>
+    <label class="lb-field">
+      <span class="lb-field__label">Row</span>
+      <select class="lb-input" id="addCat"></select>
+    </label>
+
+    <div class="lb-panel__actions">
+      <button class="btn btn--forest btn--sm" type="submit">Add to library</button>
+    </div>
+
+    <p class="lb-note" id="addMsg">Videos added here are saved in this browser only. To make them permanent for every visitor, copy the block below and paste it over the <code>categories</code> list in <code>library.js</code>.</p>
+
+    <label class="lb-field">
+      <span class="lb-field__label">Current library (paste into library.js)</span>
+      <textarea class="lb-input lb-code" id="exportBox" readonly></textarea>
+    </label>
+    <div class="lb-panel__actions">
+      <button class="btn btn--outline btn--sm" type="button" id="copyBtn">Copy block</button>
+      <button class="btn btn--outline btn--sm" type="button" id="resetBtn">Remove my added videos</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="/nav.js?v=4" defer></script>
+<script src="library.js?v=1" defer></script>
+</body>
+</html>
