@@ -1,0 +1,1077 @@
+{
+  "library": "Tandava Wellness video library",
+  "generated": "2026-11-20",
+  "categories": [
+    {
+      "name": "Sleep Deeper",
+      "tandava_pillar": "Sleep & Recovery",
+      "channels": [
+        {
+          "channel": "Huberman Lab",
+          "handle": "@hubermanlab",
+          "how_it_connects": "Caffeine timing, morning light and sleep-wake timing; matches the report's Caffeine Sensitivity and Ideal Sleep Window modules.",
+          "videos": [
+            {
+              "youtube_id": "nm1TxQj9IsQ",
+              "title": "Master Your Sleep & Be More Alert When Awake",
+              "description": "The core episode on light, temperature and timing for better sleep and alertness.",
+              "image_query": "morning sunlight bedroom window"
+            },
+            {
+              "youtube_id": "gbQFSMayJxk",
+              "title": "The Science & Practice of Perfecting Your Sleep | Dr. Matt Walker",
+              "description": "A top sleep scientist on sleep stages, deep sleep and nightly habits.",
+              "image_query": "person sleeping peacefully white linen"
+            },
+            {
+              "youtube_id": "h2aWYjSA1Jc",
+              "title": "Sleep Toolkit: Tools for Optimizing Sleep & Sleep-Wake Timing",
+              "description": "A step-by-step behaviour and supplement checklist for falling and staying asleep.",
+              "image_query": "calm bedside table night lamp"
+            },
+            {
+              "youtube_id": "DkS1pkKpILY",
+              "title": "What Alcohol Does to Your Body, Brain & Health",
+              "description": "How even moderate drinking disrupts sleep quality, hormones and next-day recovery.",
+              "image_query": "glass of water evening table"
+            },
+            {
+              "youtube_id": "UF0nqolsNZc",
+              "title": "Using Light (Sunlight, Blue Light & Red Light) to Optimize Health",
+              "description": "Using daylight and screens on purpose to anchor your body clock.",
+              "image_query": "sunrise light through trees"
+            }
+          ]
+        },
+        {
+          "channel": "Sleep Doctor (Dr. Michael Breus)",
+          "handle": "@TheSleepDoctor",
+          "how_it_connects": "Clinical sleep specialist on night waking and chronotypes; pairs with Ideal Sleep Window and Sleep Deprivation Sensitivity.",
+          "videos": [
+            {
+              "youtube_id": "zpdRKmLePaQ",
+              "title": "How to fall back asleep in the middle of the night",
+              "description": "Practical techniques for getting back to sleep after waking at night.",
+              "image_query": "dark bedroom moonlight"
+            },
+            {
+              "youtube_id": "MFh-JOXoM4c",
+              "title": "High Cortisol Wakes You Up at 3AM (Do This to Fall Back Asleep)",
+              "description": "Links stress hormones to early waking, with simple fixes.",
+              "image_query": "night sky stars quiet"
+            },
+            {
+              "youtube_id": "NN4wWO2kSY8",
+              "title": "How to QUICKLY Fall Back Asleep in the Middle of the Night (As You Age)",
+              "description": "How sleep changes with age, and quick ways back to sleep.",
+              "image_query": "soft pillow blanket morning"
+            },
+            {
+              "youtube_id": "rKMkxPs1GvY",
+              "title": "The TRUTH About Biphasic Sleep As You Get Older (It's Not What You Think)",
+              "description": "Whether splitting sleep into two blocks is healthy or a problem.",
+              "image_query": "afternoon nap hammock"
+            },
+            {
+              "youtube_id": "-EuegBW75Cs",
+              "title": "7 Sleep Tips NOBODY Tells You As You Age (but are EASY to do)",
+              "description": "Small, overlooked habit changes that noticeably improve sleep quality.",
+              "image_query": "cozy bedroom evening"
+            }
+          ]
+        },
+        {
+          "channel": "Yoga With Adriene",
+          "handle": "@yogawithadriene",
+          "how_it_connects": "Gentle wind-down routines that support the report's 8–8.5 hours in bed and downshifting from stress at night.",
+          "videos": [
+            {
+              "youtube_id": "v7SN-d4qXx0",
+              "title": "Bedtime Yoga | 20 Minute Bedtime Yoga Practice | Yoga With Adriene",
+              "description": "Her classic evening routine for releasing tension before bed.",
+              "image_query": "evening yoga mat candle"
+            },
+            {
+              "youtube_id": "BiWDsfZ3zbo",
+              "title": "Wind Down Yoga | 12-Minute Bedtime Yoga",
+              "description": "A shorter nightly practice to shift the body into rest mode.",
+              "image_query": "yoga child pose dim light"
+            },
+            {
+              "youtube_id": "LI9upn4t9n8",
+              "title": "7 Minute Bedtime Yoga - Yoga With Adriene",
+              "description": "A very short option for busy nights or beginners.",
+              "image_query": "stretching on bed morning"
+            },
+            {
+              "youtube_id": "VpW33Celubg",
+              "title": "10-Minute Yoga For Self Care | Restorative Yoga | Yoga With Adriene",
+              "description": "Slow restorative poses for recovery after demanding days.",
+              "image_query": "restorative yoga blanket"
+            },
+            {
+              "youtube_id": "q8N8jkmJP6o",
+              "title": "Legs Up The Wall for Better Sleep",
+              "description": "One simple pose aimed at calming the body before sleep.",
+              "image_query": "legs up the wall yoga"
+            }
+          ]
+        },
+        {
+          "channel": "Insomnia Coach (Martin Reed)",
+          "handle": "@InsomniaCoach",
+          "how_it_connects": "CBT-I-style coaching for insomnia; suits clients with increased anxiety results whose racing thoughts keep them awake.",
+          "videos": [
+            {
+              "youtube_id": "AixNyAAXbqA",
+              "title": "If insomnia strikes in the second half of the night, I have some good news (and advice) for you",
+              "description": "Reframes early-morning waking and gives a calmer way to respond.",
+              "image_query": "early dawn quiet lake"
+            },
+            {
+              "youtube_id": "KFlxiXbYQag",
+              "title": "Why you jerk yourself awake every time you try to fall asleep (and what to do about it)",
+              "description": "Explains sudden jolts at sleep onset and what to do.",
+              "image_query": "person resting eyes closed"
+            },
+            {
+              "youtube_id": "owKbQJOHezs",
+              "title": "Why you feel a sense of panic when you drift off to sleep (or when you wake during the night)",
+              "description": "The link between anxiety and panic at sleep onset, and how to break it.",
+              "image_query": "calm water night reflection"
+            },
+            {
+              "youtube_id": "YJiUkAQL-2k",
+              "title": "Get rid of chronic insomnia by getting rid of sleep efforts and safety behaviors",
+              "description": "Why trying harder to sleep backfires, and what to drop.",
+              "image_query": "unmade bed morning light"
+            },
+            {
+              "youtube_id": "Q2tjMWvBaWs",
+              "title": "What to do when anxious thoughts are making sleep difficult and leading to insomnia",
+              "description": "A practical approach for nights when worry drives the insomnia.",
+              "image_query": "journal by bed night"
+            }
+          ]
+        },
+        {
+          "channel": "Bryan Johnson",
+          "handle": "@BryanJohnson",
+          "how_it_connects": "Treats consistent sleep habits as non-negotiable; brings the report's Ideal Sleep Window to life.",
+          "videos": [
+            {
+              "youtube_id": "Wk9p3dhMYdk",
+              "title": "How I FIXED My Terrible Sleep - 10 Habits",
+              "description": "Ten concrete habits he credits with improving his measured sleep.",
+              "image_query": "minimal bedroom darkness"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eat Smarter",
+      "tandava_pillar": "Nutrition & Supplementation",
+      "channels": [
+        {
+          "channel": "FoundMyFitness (Dr. Rhonda Patrick)",
+          "handle": "@FoundMyFitness",
+          "how_it_connects": "Deep dives on vitamin D, omega-3 and Alzheimer's risk; matches the report's Vitamin D, Omega Fatty Acids and APOE 3/4 results.",
+          "videos": [
+            {
+              "youtube_id": "uc815fQn8iY",
+              "title": "The \"Vitamin D Sweet Spot\" and Its Relationship To Aging",
+              "description": "What vitamin D blood levels seem optimal and why they matter.",
+              "image_query": "sunlight on skin outdoors"
+            },
+            {
+              "youtube_id": "zz4YVJ4aRfg",
+              "title": "Sulforaphane and Its Effects on Cancer, Mortality, Aging, Brain and Behavior, Heart Disease & More",
+              "description": "The broccoli-sprout compound and its wide-ranging health research.",
+              "image_query": "broccoli sprouts jar"
+            },
+            {
+              "youtube_id": "bhkxidN2M9Q",
+              "title": "How Vitamin D, Omega-3s, & Exercise May Increase Longevity | Dr. Rhonda Patrick",
+              "description": "How three key levers combine to support long-term health.",
+              "image_query": "salmon vegetables plate"
+            },
+            {
+              "youtube_id": "-f-CFQxaUY4",
+              "title": "Dr. Bill Harris on the Omega-3 Index: Increasing Omega-3 to Promote Longevity & Transform Health",
+              "description": "Measuring and raising omega-3 status; suits clients flagged for higher omega-3 needs.",
+              "image_query": "sardines fish oil"
+            },
+            {
+              "youtube_id": "Sq7uVZ_0D3U",
+              "title": "Dr. Dale Bredesen on Preventing and Reversing Alzheimer's Disease",
+              "description": "Alzheimer's prevention, relevant to APOE4 carriers (his protocol is debated).",
+              "image_query": "walnuts berries brain food"
+            }
+          ]
+        },
+        {
+          "channel": "ZOE (Prof. Tim Spector)",
+          "handle": "@joinZOE",
+          "how_it_connects": "Personalized nutrition: people respond differently to the same food, the core message of the report's Nutrition panel.",
+          "videos": [
+            {
+              "youtube_id": "xNQXeQ9KDW0",
+              "title": "What Does Professor Tim Spector Eat in a Day?",
+              "description": "A leading gut scientist's real daily meals, explained choice by choice.",
+              "image_query": "colorful whole food breakfast"
+            },
+            {
+              "youtube_id": "DMwf_9wqWY0",
+              "title": "Everything You Thought You Knew About Protein Is Wrong | Stanford's Professor Christopher Gardner",
+              "description": "A Stanford researcher corrects common protein myths and overconsumption.",
+              "image_query": "lentils beans bowl"
+            },
+            {
+              "youtube_id": "TT5ig1EiIfQ",
+              "title": "The best foods to fight inflammation this spring | Prof. Tim Spector and Dr. Federica Amati",
+              "description": "Specific anti-inflammatory foods and why they work.",
+              "image_query": "fresh spring vegetables market"
+            },
+            {
+              "youtube_id": "euSd9bsFwxc",
+              "title": "How to eat to lower your cholesterol in 10 days | Prof. Sarah Berry",
+              "description": "Dietary changes for cholesterol; useful for poor saturated-fat responders.",
+              "image_query": "oats nuts olive oil"
+            },
+            {
+              "youtube_id": "Rb0X-RU0Tcs",
+              "title": "Heart expert: these foods reverse blood vessel damage and help you live longer! | Dr. William Li",
+              "description": "Foods that support blood vessel health and heart longevity.",
+              "image_query": "dark leafy greens tomatoes"
+            }
+          ]
+        },
+        {
+          "channel": "Nutrition Made Simple! (Dr. Gil Carvalho)",
+          "handle": "@NutritionMadeSimple",
+          "how_it_connects": "Evidence-based myth-busting on B12, LDL and creatine; helps clients read their B Vitamins and APOE-related results without hype.",
+          "videos": [
+            {
+              "youtube_id": "QB0aieRNJs0",
+              "title": "Scientist fact-checks The Game Changers Documentary",
+              "description": "A careful look at plant-based performance claims and what the evidence supports.",
+              "image_query": "plant based meal athlete"
+            },
+            {
+              "youtube_id": "6FY2VPEnfko",
+              "title": "Everything you need to know about Vitamin B12 in 10mins",
+              "description": "Absorption, deficiency signs, testing and supplementing, explained concisely.",
+              "image_query": "eggs and greens kitchen"
+            },
+            {
+              "youtube_id": "T1-5Ic9iiPs",
+              "title": "I Studied Nutrition for 30 Years. Here's What Actually Matters.",
+              "description": "Big-picture nutrition priorities with the noise stripped out.",
+              "image_query": "simple healthy meal table"
+            },
+            {
+              "youtube_id": "EfdwqypYAlU",
+              "title": "LDL Cholesterol level: Your lab results explained",
+              "description": "How to read LDL numbers and what actually drives them.",
+              "image_query": "clipboard notes healthy food"
+            },
+            {
+              "youtube_id": "MO-bUknf828",
+              "title": "Doctor Reveals: Why I do NOT take Creatine (+ who it IS and is NOT right for)",
+              "description": "Who benefits from creatine, who doesn't, and why.",
+              "image_query": "supplement scoop powder"
+            }
+          ]
+        },
+        {
+          "channel": "Chris Masterjohn, PhD",
+          "handle": "@chrismasterjohn",
+          "how_it_connects": "Most gene-specific channel: MTHFR, methylation and riboflavin; maps onto the report's Methylation panel and 60–70% enzyme-activity result.",
+          "videos": [
+            {
+              "youtube_id": "RBuJ0_AKvs8",
+              "title": "PhD Gives His Take on Creatine for Longevity",
+              "description": "Evidence on creatine beyond muscle: brain, energy and aging.",
+              "image_query": "glass of water supplement morning"
+            },
+            {
+              "youtube_id": "kMPvCiOkEtQ",
+              "title": "Fact-Checking Gary Brecka on Rogan: A Deep Dive into MTHFR and Methylation",
+              "description": "Separates real MTHFR science from popular supplement claims.",
+              "image_query": "dna helix abstract"
+            },
+            {
+              "youtube_id": "1QvYaPa1t4s",
+              "title": "What EVERYONE Should Be Doing About Methylation | Chris Masterjohn Lite #73",
+              "description": "Basic nutrition steps for healthy methylation, whatever your genotype.",
+              "image_query": "leafy greens folate"
+            },
+            {
+              "youtube_id": "Fp6u82coOYE",
+              "title": "Your \"MTHFR\" Is Just a Riboflavin Deficiency | Chris Masterjohn Lite #123",
+              "description": "Why vitamin B2 status can matter more than the MTHFR variant itself.",
+              "image_query": "mushrooms almonds"
+            },
+            {
+              "youtube_id": "QImhsa8AWdc",
+              "title": "What to Do About MTHFR | Chris Masterjohn Lite #33",
+              "description": "Practical next steps for people whose report flags reduced MTHFR activity.",
+              "image_query": "notebook healthy groceries"
+            }
+          ]
+        },
+        {
+          "channel": "Mark Hyman, MD",
+          "handle": "@drmarkhyman",
+          "how_it_connects": "Functional-medicine take on nutrient gaps, insulin and brain health; useful for the Micronutrients and Insulin Resistance modules.",
+          "videos": [
+            {
+              "youtube_id": "3dppG0JwPag",
+              "title": "EAT THIS EVERY DAY To Heal Your Brain, Gut & Body | Dr. Mark Hyman",
+              "description": "Daily foods he recommends for brain, gut and whole-body health.",
+              "image_query": "rainbow vegetables bowl"
+            },
+            {
+              "youtube_id": "6w0uvlWwEOk",
+              "title": "Why 90% of Americans Are Nutrient Deficient (And How to Fix It)",
+              "description": "Common nutrient gaps and how food and supplements close them.",
+              "image_query": "fruit and vegetables market"
+            },
+            {
+              "youtube_id": "Lpsmq6S7BMQ",
+              "title": "You'll NEVER Reverse Insulin Resistance Until You Fix THIS | Dr. Robert Lustig",
+              "description": "Sugar, insulin and metabolic health with a leading endocrinologist.",
+              "image_query": "sugar cubes contrast greens"
+            },
+            {
+              "youtube_id": "-VmsyWuwp50",
+              "title": "The Surprising Reason You Can't Focus (It's Your Diet)",
+              "description": "How food choices affect focus, energy and brain fog.",
+              "image_query": "focused work desk healthy snack"
+            },
+            {
+              "youtube_id": "j-83UA7zQII",
+              "title": "Belly Fat Linked to Dementia? Here's What to Stop Eating | Dr. Mark Hyman",
+              "description": "Belly fat and brain health, relevant for APOE 3/4 clients.",
+              "image_query": "healthy plate fork knife"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Feel Energized",
+      "tandava_pillar": "Performance & Energy",
+      "channels": [
+        {
+          "channel": "Peter Attia MD",
+          "handle": "@PeterAttiaMD",
+          "how_it_connects": "Leading voice on longevity training, protein and creatine; matches the report's Performance & Longevity and Protein modules.",
+          "videos": [
+            {
+              "youtube_id": "1RqY5EYOM0k",
+              "title": "This is what Zone 2 training looks like | Peter Attia",
+              "description": "A short demonstration of the steady aerobic training behind long-term energy.",
+              "image_query": "indoor cycling steady"
+            },
+            {
+              "youtube_id": "-6PDBVRkCKc",
+              "title": "201 - Deep dive back into Zone 2 Training | Iñigo San-Millán, Ph.D. & Peter Attia, M.D.",
+              "description": "How Zone 2 builds energy capacity at the cellular level.",
+              "image_query": "road cycling countryside"
+            },
+            {
+              "youtube_id": "BqmG2y4IeY8",
+              "title": "224 ‒ Dietary protein: amount needed, ideal timing, quality, and more | Don Layman, Ph.D.",
+              "description": "How much protein, when to eat it and which sources work best.",
+              "image_query": "eggs fish protein meal"
+            },
+            {
+              "youtube_id": "PD8-CJ6OuAQ",
+              "title": "Deep dive into creatine: benefits, risks, dose, mechanism of action | Peter Attia with Layne Norton",
+              "description": "Creatine's benefits, risks, dosing and how it works.",
+              "image_query": "athlete shaker bottle"
+            },
+            {
+              "youtube_id": "UA5z1lAn2mc",
+              "title": "250 ‒ Training principles for longevity | Andy Galpin, Ph.D. (PART II)",
+              "description": "Designing training that preserves strength and energy with age.",
+              "image_query": "older adult strength training"
+            }
+          ]
+        },
+        {
+          "channel": "Glucose Revolution (Jessie Inchauspé)",
+          "handle": "@GlucoseRevolution",
+          "how_it_connects": "Simple blood-sugar habits that prevent energy crashes; pairs with Carbohydrates, Insulin Resistance and Caffeine results.",
+          "videos": [
+            {
+              "youtube_id": "zg3GBH6fG2I",
+              "title": "Move Like This After Eating (It Changes Everything)",
+              "description": "A short walk after meals that flattens blood-sugar spikes.",
+              "image_query": "walking after dinner sunset"
+            },
+            {
+              "youtube_id": "1PkshTBkWZ8",
+              "title": "The 10 Glucose Goddess Hacks: easy tricks that will change how you feel forever | Episode 3 of 18",
+              "description": "Her ten core habits for steadier energy and fewer cravings.",
+              "image_query": "savory breakfast plate"
+            },
+            {
+              "youtube_id": "FPhzvETIKBk",
+              "title": "COFFEE & its Consequences: 3 science tips you need to know | Episode 7 of 18",
+              "description": "Drinking coffee without wrecking your energy; suits fast caffeine metabolizers.",
+              "image_query": "coffee cup morning light"
+            },
+            {
+              "youtube_id": "HEEUrIQ_3O4",
+              "title": "Eat your food in the RIGHT ORDER: 75% healthier with this small trick | Episode 6 of 18",
+              "description": "Vegetables, then protein, then carbs to soften blood-sugar spikes.",
+              "image_query": "salad before meal table"
+            },
+            {
+              "youtube_id": "5-oUFBTyw74",
+              "title": "Prevent Alzheimer's, improve Depression, Anxiety, and Brain Fog: The Food's Power | Episode 17 of 18",
+              "description": "How blood-sugar control affects mood, focus and brain health.",
+              "image_query": "clear mind calm lake"
+            }
+          ]
+        },
+        {
+          "channel": "Dr. Gabrielle Lyon",
+          "handle": "@DrGabrielleLyon",
+          "how_it_connects": "Muscle as the engine of energy and longevity; pairs with the report's Improved protein response and Strength & Muscle module.",
+          "videos": [
+            {
+              "youtube_id": "4ybD8NeMrzM",
+              "title": "Exercise Scientist Reveals Perfect Formula for Muscle Growth | Dr. Mike Israetel",
+              "description": "The training variables that actually build muscle efficiently.",
+              "image_query": "dumbbells gym natural light"
+            },
+            {
+              "youtube_id": "tZQcd2K9HwQ",
+              "title": "How to Optimize Cognitive Function & Keep your Brain Healthy and Young | Louisa Nicola",
+              "description": "A neuroscientist on habits that protect focus and brain health.",
+              "image_query": "reading by window focus"
+            },
+            {
+              "youtube_id": "8O6tSj3_qfA",
+              "title": "Simple Meal Plan For Muscle Gains & Longevity | Dr Gabrielle Lyon",
+              "description": "An easy protein-first eating day for energy and muscle.",
+              "image_query": "meal prep containers"
+            },
+            {
+              "youtube_id": "WvHwVfwLvFo",
+              "title": "Train Less and Gain Muscle Faster | Samuel Buckner PhD",
+              "description": "Evidence that smarter, lower-volume training still builds muscle.",
+              "image_query": "barbell rack gym"
+            },
+            {
+              "youtube_id": "723TOQcn4YE",
+              "title": "The Ultimate Fat Loss Guide: From Ozempic to Your Diet Fundamentals | Dr. Mike Israetel",
+              "description": "Fat-loss basics compared with the new weight-loss drugs.",
+              "image_query": "healthy meal measuring"
+            }
+          ]
+        },
+        {
+          "channel": "Rich Roll",
+          "handle": "@richroll",
+          "how_it_connects": "Long-form conversations with top experts on habits, fasting and longevity; turns report insights into lasting behaviour change.",
+          "videos": [
+            {
+              "youtube_id": "SwQhKFMxmDY",
+              "title": "Change Your Brain: Neuroscientist Dr. Andrew Huberman | Rich Roll Podcast",
+              "description": "Practical neuroscience for focus, motivation, stress and daily energy.",
+              "image_query": "trail running forest"
+            },
+            {
+              "youtube_id": "s9uDVVWN_ZE",
+              "title": "How To Build Awesome Habits: James Clear | Rich Roll Podcast",
+              "description": "The Atomic Habits author on making lifestyle changes stick.",
+              "image_query": "habit tracker notebook"
+            },
+            {
+              "youtube_id": "06ROURlX6o4",
+              "title": "Fasting & Nutrition Protocols for Longevity & Disease Prevention w/ Valter Longo | Rich Roll Podcast",
+              "description": "A longevity researcher on fasting-mimicking diets and disease prevention.",
+              "image_query": "herbal tea empty plate"
+            },
+            {
+              "youtube_id": "uPmA7Fral5s",
+              "title": "Centenarian Secrets on Longevity, Breaking World Records & Thriving Past 100 | Rich Roll Podcast",
+              "description": "Lessons on staying strong and energized past 100.",
+              "image_query": "elderly person walking nature"
+            },
+            {
+              "youtube_id": "bF5yl9OGKzw",
+              "title": "David Sinclair Is Extending Human Lifespan | Rich Roll Podcast",
+              "description": "A Harvard aging researcher on the biology of staying young.",
+              "image_query": "mountain sunrise vitality"
+            }
+          ]
+        },
+        {
+          "channel": "Dr. Rangan Chatterjee",
+          "handle": "@DrChatterjeeRangan",
+          "how_it_connects": "A GP's simple lifestyle framework; the caffeine episode suits fast caffeine metabolism, fasting and sugar episodes cover energy stability.",
+          "videos": [
+            {
+              "youtube_id": "k5BMGmf1ai0",
+              "title": "#1 Sleep Expert: \"Even A Little Caffeine Does This To Your Brain & Body!\" | Matthew Walker",
+              "description": "How caffeine affects sleep and energy, even for fast metabolizers.",
+              "image_query": "espresso cup wooden table"
+            },
+            {
+              "youtube_id": "Yg6UhhV_K1s",
+              "title": "Intermittent Fasting Done Right | Dr Pradip Jamnadas",
+              "description": "A cardiologist on fasting for metabolic health and steadier energy.",
+              "image_query": "clock and empty plate"
+            },
+            {
+              "youtube_id": "zXiQgTZZqPg",
+              "title": "The Impact Of Eating Too Much Sugar | Dr. Robert Lustig",
+              "description": "How excess sugar drives fatigue, insulin problems and chronic disease.",
+              "image_query": "fresh fruit instead of sweets"
+            },
+            {
+              "youtube_id": "gqJlItPct4g",
+              "title": "Try It For 1 Day! - Do This Every Morning To Stop Laziness, Boost Motivation & Focus | Mel Robbins",
+              "description": "A morning routine to build motivation and mental energy.",
+              "image_query": "morning routine sunrise stretch"
+            },
+            {
+              "youtube_id": "lDJaPylV_aM",
+              "title": "Do This First Thing In The Morning To Prevent Illness! | Wim Hof",
+              "description": "Breathing and cold exposure for resilience and morning energy.",
+              "image_query": "cold lake swim morning"
+            }
+          ]
+        },
+        {
+          "channel": "Shi Heng Yi Online",
+          "handle": "",
+          "collection": "Qigong",
+          "how_it_connects": "A Shaolin master's daily routine (14M+ views); gentle movement that builds energy without draining recovery.",
+          "videos": [
+            {
+              "youtube_id": "UpN3AcXLSSk",
+              "title": "Shaolin Qi Gong 20 Minute Daily Morning Routine | 八段锦 Ba Duan Jin (Complete Form)",
+              "description": "A Shaolin master leads the complete Ba Duan Jin form as a daily morning routine.",
+              "image_query": "misty mountain morning practice"
+            }
+          ]
+        },
+        {
+          "channel": "Qigong Meditation",
+          "handle": "",
+          "collection": "Qigong",
+          "how_it_connects": "A popular 15-minute daily practice for steady energy, a calmer alternative to caffeine for fast metabolizers.",
+          "videos": [
+            {
+              "youtube_id": "y2RAEnWreoE",
+              "title": "Shaolin Qigong 15 Minute Daily Routine",
+              "description": "A 15-minute follow-along Shaolin qigong routine for daily energy and mobility.",
+              "image_query": "tai chi park sunrise"
+            }
+          ]
+        },
+        {
+          "channel": "Mimi Kuo-Deemer",
+          "handle": "",
+          "collection": "Qigong",
+          "how_it_connects": "A renowned qigong teacher's take on the classic Eight Brocades, the foundation form for daily energy practice.",
+          "videos": [
+            {
+              "youtube_id": "3K-0JpiJu-o",
+              "title": "8 Brocades Qigong Practice",
+              "description": "A respected teacher guides the classic Eight Brocades form step by step.",
+              "image_query": "garden morning calm movement"
+            }
+          ]
+        },
+        {
+          "channel": "QiYoga With LuChin",
+          "handle": "",
+          "collection": "Qigong",
+          "how_it_connects": "A very well-liked (3.9%) beginner routine; an easy entry point for energy and nervous-system balance.",
+          "videos": [
+            {
+              "youtube_id": "onA4pogScVg",
+              "title": "BEGINNER QIGONG | FEEL GREAT IN 10 MIN",
+              "description": "A 10-minute beginner qigong routine to boost energy and ease tension.",
+              "image_query": "sunlit room gentle movement"
+            }
+          ]
+        },
+        {
+          "channel": "Holden QiGong (Lee Holden)",
+          "handle": "",
+          "collection": "Qigong",
+          "how_it_connects": "Lee Holden, one of the best-known Western qigong teachers, with an accessible home routine.",
+          "videos": [
+            {
+              "youtube_id": "M9mYY9EablE",
+              "title": "20-Min Qi Gong Exercise Routine - Easy Home Workout with Lee Holden",
+              "description": "A 20-minute at-home qigong routine for energy, flexibility and calm.",
+              "image_query": "beach sunrise stretch"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stress Less",
+      "tandava_pillar": "Stress & Emotional Health",
+      "channels": [
+        {
+          "channel": "Therapy in a Nutshell (Emma McAdam, LMFT)",
+          "handle": "@TherapyinaNutshell",
+          "how_it_connects": "Skill-based tools for overthinking and anxiety; supports increased Anxiety and OCD & Rumination results.",
+          "videos": [
+            {
+              "youtube_id": "V3vhXQy48jo",
+              "title": "Intrusive Thoughts and Overthinking: The Skill of Cognitive Defusion 20/30",
+              "description": "A core skill for stepping back from looping or unwanted thoughts.",
+              "image_query": "clouds drifting sky"
+            },
+            {
+              "youtube_id": "b4pP6HyXRMI",
+              "title": "Catastrophizing: How to Stop Making Yourself Depressed and Anxious: Cognitive Distortion Skill #6",
+              "description": "Spotting and interrupting worst-case thinking patterns.",
+              "image_query": "calm path through fog"
+            },
+            {
+              "youtube_id": "zTuX_ShUrw0",
+              "title": "Rewiring the Anxious Brain: Neuroplasticity and the Anxiety Cycle: Anxiety Skills #21",
+              "description": "How anxiety becomes a loop and how to retrain it.",
+              "image_query": "winding river aerial"
+            },
+            {
+              "youtube_id": "wpY1_RxjZQ8",
+              "title": "5 Foods That Naturally Decrease Cortisol, the Stress Hormone",
+              "description": "Dietary support for the stress response, linking nutrition and mood.",
+              "image_query": "dark chocolate berries tea"
+            },
+            {
+              "youtube_id": "FPH5CFSmYEU",
+              "title": "Turn off Anxiety in Your Nervous System: 4 Ways to Turn on the Parasympathetic Response",
+              "description": "Four body-based techniques to calm the stress response quickly.",
+              "image_query": "deep breath nature meadow"
+            }
+          ]
+        },
+        {
+          "channel": "Dr. Tracey Marks (psychiatrist)",
+          "handle": "@DrTraceyMarks",
+          "how_it_connects": "A psychiatrist's clear explanations of ADHD, executive function and how anxiety shows up in the body; matches ADHD and Anxiety modules.",
+          "videos": [
+            {
+              "youtube_id": "Xp805f-j1VI",
+              "title": "Why People with ADHD Procrastinate (And 4 Brain-Based Ways to Get Started)",
+              "description": "Why ADHD brains stall on tasks, with brain-based strategies.",
+              "image_query": "sticky notes desk plan"
+            },
+            {
+              "youtube_id": "GIOAwvmHYuY",
+              "title": "What is Executive Function - How it Relates to ADHD",
+              "description": "Plain-language explanation of planning, focus and self-regulation challenges.",
+              "image_query": "organized workspace calm"
+            },
+            {
+              "youtube_id": "W4-hhWqi2rg",
+              "title": "How To Deal With Health Anxiety and Hypochondria",
+              "description": "Tools for when worry fixates on symptoms and health fears.",
+              "image_query": "quiet morning tea window"
+            },
+            {
+              "youtube_id": "Hs69n5flIns",
+              "title": "Anxiety is more than worry - 10 Scary Physical Symptoms",
+              "description": "Physical symptoms of anxiety often mistaken for illness.",
+              "image_query": "hand on chest breathing"
+            },
+            {
+              "youtube_id": "c7_qmkmP-JM",
+              "title": "What Social Isolation Does To Your Brain – How To Undo The Damage",
+              "description": "How loneliness affects mood and brain health, and how to recover.",
+              "image_query": "friends walking together outdoors"
+            }
+          ]
+        },
+        {
+          "channel": "HealthyGamerGG (Dr. Alok Kanojia)",
+          "handle": "@HealthyGamerGG",
+          "how_it_connects": "Highly loved ADHD and depression content (up to 6.4% like rate); strong for increased ADHD and Depression results.",
+          "videos": [
+            {
+              "youtube_id": "tQ0bpBXSA2g",
+              "title": "What Causes Depression & Anxiety",
+              "description": "A psychiatrist explains the roots of depression and anxiety plainly.",
+              "image_query": "person sitting by window rain"
+            },
+            {
+              "youtube_id": "Rq6K7yxaNaM",
+              "title": "Does ADHD Feel Like A Curse? Do this.",
+              "description": "Reframes ADHD struggles and offers practical ways forward.",
+              "image_query": "open road horizon"
+            },
+            {
+              "youtube_id": "Qip1trjMbK8",
+              "title": "The Tragedy of ADHD",
+              "description": "The emotional toll of undiagnosed ADHD and self-blame.",
+              "image_query": "solitary figure beach"
+            },
+            {
+              "youtube_id": "svD71EJWOBU",
+              "title": "Why Does Your ADHD Make Things So Hard?",
+              "description": "Why everyday tasks feel harder with ADHD, and what helps.",
+              "image_query": "to do list coffee"
+            },
+            {
+              "youtube_id": "gaFianJ8x4M",
+              "title": "What Makes ADHD in Women Different",
+              "description": "How ADHD shows up differently in women and often goes missed.",
+              "image_query": "woman thinking outdoors"
+            }
+          ]
+        },
+        {
+          "channel": "Kati Morton, LMFT",
+          "handle": "@Katimorton",
+          "how_it_connects": "Approachable therapist-led content on spotting depression and anxiety; helps clients recognize patterns tied to their results.",
+          "videos": [
+            {
+              "youtube_id": "EUJ4j6_ypE0",
+              "title": "The 6 Signs of High Functioning Depression | Kati Morton",
+              "description": "Recognizing depression in people who still appear to function well.",
+              "image_query": "person at desk window light"
+            },
+            {
+              "youtube_id": "51vdnwrfsNA",
+              "title": "Depression Looks Like This | 6 Warning Signs",
+              "description": "Six common warning signs of depression to watch for.",
+              "image_query": "overcast sky field"
+            },
+            {
+              "youtube_id": "P8HoDPgZcak",
+              "title": "3 Ways to Beat Social Anxiety!",
+              "description": "Practical, therapist-backed techniques for social anxiety.",
+              "image_query": "small group coffee conversation"
+            },
+            {
+              "youtube_id": "XrEwsxYt25w",
+              "title": "Do YOU Have GENERALIZED ANXIETY? | Kati Morton",
+              "description": "What generalized anxiety looks like and when to seek help.",
+              "image_query": "calm still water stones"
+            },
+            {
+              "youtube_id": "W9r5TmwTM_A",
+              "title": "ALL ABOUT ANXIETY DISORDERS",
+              "description": "An overview of anxiety disorders and how they're treated.",
+              "image_query": "journal pen calm"
+            }
+          ]
+        },
+        {
+          "channel": "Mel Robbins",
+          "handle": "@melrobbins",
+          "how_it_connects": "Huge, very positive audience, with expert guests on nervous-system resets and ADHD; makes the Stress Response insights actionable.",
+          "videos": [
+            {
+              "youtube_id": "6n8i7ua0mSw",
+              "title": "The Secret to Stopping Fear and Anxiety (That Actually Works)",
+              "description": "A practical reframe for interrupting fear and anxiety in the moment.",
+              "image_query": "stepping forward path light"
+            },
+            {
+              "youtube_id": "4QHGYTP5HsE",
+              "title": "If You Struggle With Anxiety, This Mind Trick Will Change Your Life | Mel Robbins",
+              "description": "A short, simple mental technique for anxious moments.",
+              "image_query": "calm breath sunrise"
+            },
+            {
+              "youtube_id": "nUPQImuDUng",
+              "title": "The ADHD Doctor: How to Focus, Stop Procrastinating, Manage Your Emotions, & Feel in Control",
+              "description": "An ADHD expert's tools for focus and emotional regulation.",
+              "image_query": "focused desk morning"
+            },
+            {
+              "youtube_id": "2aI8q3gE2-c",
+              "title": "Nervous System Reset: Do THIS Every Day to Rewire Your Brain From Stress and Anxiety",
+              "description": "Daily practices to calm a stuck stress response.",
+              "image_query": "forest walk quiet"
+            },
+            {
+              "youtube_id": "RdM596wLz00",
+              "title": "The TRUTH About ANXIETY And How To HEAL IT! | The Mel Robbins Podcast",
+              "description": "An expert conversation on what drives anxiety and how recovery works.",
+              "image_query": "open hands sunlight"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Move Better",
+      "tandava_pillar": "Fitness & Movement",
+      "channels": [
+        {
+          "channel": "Jeff Nippard",
+          "handle": "@JeffNippard",
+          "how_it_connects": "Evidence-based training and protein use; fits the Strength & Muscle module and Improved protein response.",
+          "videos": [
+            {
+              "youtube_id": "M4K0s792wAU",
+              "title": "How To Build Muscle And Lose Fat At The Same Time: Step By Step Explained (Body Recomposition)",
+              "description": "Step-by-step guide to gaining muscle while losing fat.",
+              "image_query": "strength training natural light"
+            },
+            {
+              "youtube_id": "Pok0Jg2JAkE",
+              "title": "The Smartest Way To Use Protein To Build Muscle (Science Explained)",
+              "description": "Protein amounts, timing and sources, explained from the research.",
+              "image_query": "protein rich meal"
+            },
+            {
+              "youtube_id": "lu_BObG6dj8",
+              "title": "How To Build Muscle (Explained In 5 Levels)",
+              "description": "Muscle-building principles from beginner to advanced.",
+              "image_query": "dumbbell close up"
+            },
+            {
+              "youtube_id": "roHQ3F7d9YQ",
+              "title": "How To Get Lean & STAY Lean Forever (Using Science)",
+              "description": "Sustainable fat-loss habits rather than short-term crash diets.",
+              "image_query": "outdoor run sunrise"
+            },
+            {
+              "youtube_id": "PiYSbR2B85w",
+              "title": "How Much Muscle Did I Gain In 365 Days? (Scientific Experiment)",
+              "description": "A year-long self-experiment showing realistic muscle-gain expectations.",
+              "image_query": "gym calendar progress"
+            }
+          ]
+        },
+        {
+          "channel": "Renaissance Periodization (Dr. Mike Israetel)",
+          "handle": "@RenaissancePeriodization",
+          "how_it_connects": "Rest days, recovery methods and cardio choices; matches Fatigue & Recovery and High Intensity vs Endurance modules.",
+          "videos": [
+            {
+              "youtube_id": "3abdfR8M5XY",
+              "title": "The Differences Between Training for Size Vs Strength",
+              "description": "How training changes for muscle size versus strength.",
+              "image_query": "heavy barbell lift"
+            },
+            {
+              "youtube_id": "1cZbv9Eyd4c",
+              "title": "Do You REALLY Need Rest Days?",
+              "description": "How much recovery your body needs between sessions.",
+              "image_query": "rest day stretching floor"
+            },
+            {
+              "youtube_id": "3ub8RBE7BC8",
+              "title": "Easily Build Muscle: The Simple Guide To Gaining Size",
+              "description": "A straightforward muscle-building framework.",
+              "image_query": "gym weights rack"
+            },
+            {
+              "youtube_id": "an5cFQmmiz0",
+              "title": "What Is The Best Form Of Cardio?",
+              "description": "Comparing cardio types for health, fat loss and performance.",
+              "image_query": "rowing machine cardio"
+            },
+            {
+              "youtube_id": "bZod37igzQk",
+              "title": "Best and Worst Recovery Methods Ranked By Exercise Scientists",
+              "description": "Which recovery tools actually work and which are hype.",
+              "image_query": "foam roller recovery"
+            }
+          ]
+        },
+        {
+          "channel": "Dr. Andy Galpin",
+          "handle": "@drandygalpin",
+          "how_it_connects": "Leading exercise physiologist on strength vs endurance and adaptation; the closest scientific match to the report's Fitness genetics.",
+          "videos": [
+            {
+              "youtube_id": "6XIoWlwUKU0",
+              "title": "How to Improve Your VO2 Max & Build Endurance | Perform with Dr. Andy Galpin",
+              "description": "Building aerobic capacity, a key marker of fitness and longevity.",
+              "image_query": "trail running mountains"
+            },
+            {
+              "youtube_id": "kUFx68VsZJY",
+              "title": "Build Muscle Size, Strength & Power With Science-Backed Programs | Perform with Dr. Andy Galpin",
+              "description": "Structuring training for size, strength or power goals.",
+              "image_query": "kettlebell training"
+            },
+            {
+              "youtube_id": "1QG6TihQVlU",
+              "title": "Dr. Andy Galpin Reveals Why Strength AND Endurance Training are Key to Unlocking Optimal Health",
+              "description": "Why combining both kinds of training beats doing only one.",
+              "image_query": "cycling and weights"
+            },
+            {
+              "youtube_id": "rBlaGSwOXSA",
+              "title": "Dr. Andy Galpin Unveils the 9 Core Principles of Training",
+              "description": "The main fitness adaptations and how to train for each.",
+              "image_query": "athlete preparing training"
+            },
+            {
+              "youtube_id": "Qf7-ZN8qiW0",
+              "title": "The Differences in Training for Hypertrophy (Muscle Size) vs. Strength & Power | Dr. Andy Galpin",
+              "description": "Matching training style to the outcome you want.",
+              "image_query": "sprint start track"
+            }
+          ]
+        },
+        {
+          "channel": "Squat University (Dr. Aaron Horschig)",
+          "handle": "@SquatUniversity",
+          "how_it_connects": "Mobility and pain-free movement; supports recovery and long-term training, especially with fatigue and recovery flags.",
+          "videos": [
+            {
+              "youtube_id": "dBYjU7iBpck",
+              "title": "The Daily 10 Minute Mobility Routine [FULL BODY RELEASE]",
+              "description": "A quick daily full-body routine to keep joints moving well.",
+              "image_query": "mobility stretch outdoors"
+            },
+            {
+              "youtube_id": "MnssBu_cmC0",
+              "title": "Get Rid of Knee Pain Fast [4 PROVEN STRATEGIES]",
+              "description": "Physical-therapy strategies for common knee pain.",
+              "image_query": "knee stretch mat"
+            },
+            {
+              "youtube_id": "9V8oGt2hfCI",
+              "title": "Tight Hips? Here's What Works Better Than Stretching",
+              "description": "An approach to tight hips beyond basic stretching.",
+              "image_query": "hip opener movement"
+            },
+            {
+              "youtube_id": "QxILv_00YqE",
+              "title": "5 Easy Exercises to Fix Your Mobility Fast",
+              "description": "Five simple moves to improve range of motion quickly.",
+              "image_query": "bodyweight movement park"
+            },
+            {
+              "youtube_id": "lWzMmJNvr6A",
+              "title": "10-Minute Mobility Routine for Perfect Squats",
+              "description": "A mobility routine to improve squat depth and form.",
+              "image_query": "deep squat outdoors"
+            }
+          ]
+        },
+        {
+          "channel": "ATHLEAN-X (Jeff Cavaliere, PT)",
+          "handle": "@athleanx",
+          "how_it_connects": "Posture and back-pain fixes that keep clients moving consistently, supporting every Fitness genetics insight.",
+          "videos": [
+            {
+              "youtube_id": "DWmGArQBtFI",
+              "title": "How to Fix “Low Back” Pain (INSTANTLY!)",
+              "description": "A physical therapist's approach to common lower-back pain.",
+              "image_query": "back stretch mat"
+            },
+            {
+              "youtube_id": "g-7ZWPCWv0U",
+              "title": "How to Fix Your Posture in 4 Moves! (PERMANENTLY)",
+              "description": "Four exercises to correct posture from desk work.",
+              "image_query": "standing tall posture"
+            },
+            {
+              "youtube_id": "K-CrEi0ymMg",
+              "title": "The Anterior Pelvic Tilt Solution (SIT HAPPENS!)",
+              "description": "Correcting the pelvic tilt caused by sitting too much.",
+              "image_query": "standing desk office"
+            },
+            {
+              "youtube_id": "oLwTC-lAJws",
+              "title": "How to Fix Rounded Shoulders (GONE IN 4 STEPS!)",
+              "description": "A four-step plan for forward-rounded shoulders.",
+              "image_query": "shoulder stretch outdoors"
+            },
+            {
+              "youtube_id": "9SKuFe2SERs",
+              "title": "How to Fix a Bulging Disc (NO SURGERY!)",
+              "description": "Conservative exercise strategies for disc-related back pain.",
+              "image_query": "gentle core exercise mat"
+            }
+          ]
+        },
+        {
+          "channel": "Kiana Docherty",
+          "handle": "",
+          "collection": "Fascia",
+          "how_it_connects": "Popular, highly liked intro to why fascia matters; a gateway to the report's Fatigue & Recovery module.",
+          "videos": [
+            {
+              "youtube_id": "01LbcCDTwF4",
+              "title": "This is Why I Stretch EVERY DAY (Fascia Documentary)",
+              "description": "A short documentary on fascia and why daily stretching changes how you move.",
+              "image_query": "morning stretch living room light"
+            }
+          ]
+        },
+        {
+          "channel": "The Fascia Guide",
+          "handle": "",
+          "collection": "Fascia",
+          "how_it_connects": "The most-watched full documentary on fascia; deep background for clients exploring recovery and chronic tightness.",
+          "videos": [
+            {
+              "youtube_id": "3uK92zS8qq8",
+              "title": "Fascia Documentary: The network of the body without beginning or end",
+              "description": "A full documentary on fascia as one connected network running through the body.",
+              "image_query": "spider web dew close up"
+            }
+          ]
+        },
+        {
+          "channel": "SciShow",
+          "handle": "",
+          "collection": "Fascia",
+          "how_it_connects": "A trusted science explainer that grounds fascia in research rather than hype.",
+          "videos": [
+            {
+              "youtube_id": "T-UsSmD7miI",
+              "title": "Fascia: The Body's Remarkable, Functional Glue",
+              "description": "A clear, research-based explainer on what fascia is and what it does.",
+              "image_query": "tree roots network forest"
+            }
+          ]
+        },
+        {
+          "channel": "Devi Daly Yoga",
+          "handle": "",
+          "collection": "Fascia",
+          "how_it_connects": "A daily follow-along fascia routine that turns recovery insights into a 15-minute habit.",
+          "videos": [
+            {
+              "youtube_id": "tCis4okIL2s",
+              "title": "15 Min Daily Fascia Stretch #1 | Full Body Flexibility Routine",
+              "description": "A gentle 15-minute follow-along routine for full-body fascia and flexibility.",
+              "image_query": "full body stretch yoga mat"
+            }
+          ]
+        },
+        {
+          "channel": "Functional Patterns (Thomas Myers)",
+          "handle": "@functionalpatterns",
+          "collection": "Fascia",
+          "how_it_connects": "Tom Myers, creator of Anatomy Trains and the leading fascia authority, explaining the fundamentals.",
+          "videos": [
+            {
+              "youtube_id": "-uzQMn87Hg0",
+              "title": "Thomas Myers - Fascia 101",
+              "description": "The Anatomy Trains creator explains how fascia connects movement through the whole body.",
+              "image_query": "flowing fabric texture light"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

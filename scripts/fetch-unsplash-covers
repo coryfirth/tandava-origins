@@ -1,0 +1,176 @@
+#!/usr/bin/env python3
+"""
+Find one Unsplash cover photo per video, through the official API.
+
+    scripts/fetch-unsplash-covers manifest.json covers.json
+
+The manifest is a list of { "slug": "...", "query": "..." }. The output maps
+each slug to the photo chosen for it, and is READ BACK IN on every run: a
+slug already in there is left alone. So this is resumable, which matters,
+because the rate limit below means a first run over a whole library is not
+going to finish in one sitting.
+
+Three rules from Unsplash's API guidelines are built in rather than left to
+whoever runs this:
+
+  - the photo is hotlinked from their CDN, never copied into this repo.
+    That is how they count a view, and it is a condition of the licence
+    the API grants.
+  - links.download_location is called once, when a photo is chosen. It
+    registers the download. It is not optional and it costs a request.
+  - the credit, photographer name and profile link, is stored with the
+    photo so the page can show it.
+
+Rate limit: a demo application gets 50 requests an hour, a production one
+gets 5000. Each video costs two requests, so a demo key will take a while.
+On a 403 this stops cleanly rather than hammering: run it again later and
+it picks up where it left off.
+"""
+
+import json
+import os
+import sys
+import time
+import urllib.parse
+import urllib.request
+
+API = 'https://api.unsplash.com'
+UA = 'tandava-wellness-library (one-off cover fetch; contact via the site)'
+
+# What the brief asks every picture to be. Appended to each query so one
+# house style runs through the whole library rather than per-video luck.
+STYLE = 'natural light calm earthy warm'
+
+# Anything whose description or tags trip these is passed over: the brief
+# rules out text, logos, clinical scenes and anything dark or distressing.
+AVOID = ('logo', 'text', 'sign', 'hospital', 'clinic', 'surgery', 'office',
+         'laptop', 'meeting', 'billboard', 'poster', 'advertisement')
+
+
+def get(key, path, **params):
+    url = API + path + '?' + urllib.parse.urlencode(params)
+    req = urllib.request.Request(url, headers={
+        'Authorization': 'Client-ID ' + key,
+        'Accept-Version': 'v1',
+        'User-Agent': UA,
+    })
+    with urllib.request.urlopen(req, timeout=30) as r:
+        remaining = r.headers.get('X-Ratelimit-Remaining')
+        return json.load(r), remaining
+
+
+def ping(key, download_location):
+    """Register the download. Unsplash requires this once per photo used."""
+    req = urllib.request.Request(download_location, headers={
+        'Authorization': 'Client-ID ' + key,
+        'Accept-Version': 'v1',
+        'User-Agent': UA,
+    })
+    try:
+        urllib.request.urlopen(req, timeout=30).read()
+    except Exception as e:
+        print('   ! download ping failed:', e)
+
+
+def unsuitable(photo):
+    text = ' '.join([
+        photo.get('description') or '',
+        photo.get('alt_description') or '',
+    ]).lower()
+    return any(word in text for word in AVOID)
+
+
+def read_key():
+    for path in ('.env', '../.env'):
+        if not os.path.exists(path):
+            continue
+        for line in open(path, encoding='utf-8'):
+            line = line.strip()
+            if line.startswith('UNSPLASH_ACCESS_KEY'):
+                return line.split('=', 1)[1].strip().strip('"\'')
+    return os.environ.get('UNSPLASH_ACCESS_KEY')
+
+
+def main():
+    if len(sys.argv) != 3:
+        sys.exit(__doc__)
+    manifest_path, out_path = sys.argv[1], sys.argv[2]
+
+    key = read_key()
+    if not key:
+        sys.exit('No UNSPLASH_ACCESS_KEY: put it in .env at the repo root.\n'
+                 'This script will not fall back to scraping the website.')
+
+    manifest = json.load(open(manifest_path, encoding='utf-8'))
+    covers = {}
+    if os.path.exists(out_path):
+        covers = json.load(open(out_path, encoding='utf-8'))
+
+    # No photo twice in one library.
+    taken = {c['photo_id'] for c in covers.values()}
+    todo = [m for m in manifest if m['slug'] not in covers]
+    print('%d to find, %d already done' % (len(todo), len(covers)))
+
+    def save():
+        json.dump(covers, open(out_path, 'w', encoding='utf-8'),
+                  indent=2, ensure_ascii=False, sort_keys=True)
+
+    missed = []
+    for i, item in enumerate(todo):
+        slug, query = item['slug'], item['query']
+        found = None
+        # The given query first; then the query alone, in case the style
+        # words are what emptied the results.
+        for attempt in (query + ' ' + STYLE, query, item.get('fallback', query)):
+            try:
+                data, remaining = get(key, '/search/photos', query=attempt,
+                                      orientation='landscape', per_page=30,
+                                      content_filter='high')
+            except urllib.error.HTTPError as e:
+                if e.code == 403:
+                    save()
+                    sys.exit('\nRate limit reached with %d left to find.\n'
+                             'Results so far are saved. Run again in an hour,\n'
+                             'or use a production key (5000/hour).' % (len(todo) - i))
+                raise
+            for photo in data.get('results', []):
+                if photo['id'] in taken or unsuitable(photo):
+                    continue
+                found = photo
+                break
+            if found:
+                break
+            time.sleep(.2)
+
+        if not found:
+            missed.append(slug)
+            print('%-34s NOTHING SUITABLE' % slug)
+            continue
+
+        ping(key, found['links']['download_location'])
+        taken.add(found['id'])
+        covers[slug] = {
+            'photo_id': found['id'],
+            # Hotlinked, sized for the card. The page adds its own crop.
+            'url': found['urls']['regular'],
+            'alt': found.get('alt_description') or '',
+            'by': found['user']['name'],
+            'profile': found['user']['links']['html'],
+            'photo': found['links']['html'],
+            'query': query,
+        }
+        print('%-34s %-14s %s' % (slug, found['id'], found['user']['name']))
+        if (i + 1) % 10 == 0:
+            save()
+        if remaining is not None and int(remaining) < 3:
+            save()
+            sys.exit('\nOut of requests for this hour. Run again later.')
+
+    save()
+    print('\n%d covers in %s' % (len(covers), out_path))
+    if missed:
+        print('No suitable photo for:', ', '.join(missed))
+
+
+if __name__ == '__main__':
+    main()

@@ -1,116 +1,18 @@
 /* ==========================================================================
    Lifestyle Library — /tool-kit-NEW/
 
-   The CONFIG block below is the library. Everything under it draws the
-   page from that block and nothing else, so adding, removing or reordering
-   a video or a whole row is an edit to one list and nothing more.
-
-   `id` is the eleven characters after "v=" in a YouTube link. `img` is the
-   picture on the card, `time` its length as the player shows it, and `img`
-   is the reason this list exists in this shape:
-   a YouTube thumbnail arrives wearing somebody else's branding, their face,
-   their typeface, their channel's colours. Every card here carries a plain
-   photograph instead, so the shelf reads as one library rather than twenty
-   channels. Leave `img` off and the card falls back to YouTube's own
-   thumbnail, which is a usable stopgap and not where a card should end up.
-   Leave `time` off and the card simply goes without its pill. Every one
-   below was read from the video itself rather than guessed, and no pill
-   at all beats a wrong one.
-
-   The pictures live in /assets/tool-kit/ and came from Unsplash under its
-   free licence, which asks for no attribution. The exact source of each is
-   written down in that folder's CREDITS.txt.
-
-   The page itself has no way to add a video on purpose: the library is
-   edited here, in the file, not by whoever happens to be reading it.
+   The library itself lives in library-data.js, which loads first and is
+   the only file to edit to add, remove or reorder a video or a row. This
+   one is the machinery: it draws the shelves, runs the player, and knows
+   nothing about any particular video.
    ========================================================================== */
 (function () {
   'use strict';
 
-  var CONFIG = {
-    /* The big one at the top. */
-    featured: {
-      id: '5MuIMqhT8DM',
-      img: '/assets/tool-kit/hero-sleep.jpg',
-      time: '19:18',
-      eyebrow: 'Featured · Sleep',
-      title: 'Sleep is your superpower',
-      blurb: 'Start here. Sleep scientist Matt Walker on why sleep is the foundation every other habit is built on.'
-    },
-
-    /* One row each, in this order. */
-    categories: [
-      { name: 'Sleep', note: 'Wind down and wake up better', videos: [
-        { id: '5MuIMqhT8DM', img: '/assets/tool-kit/sleep-superpower.jpg', time: '19:18',
-          by: 'Matt Walker · TED',
-          title: 'Sleep Is Your Superpower' },
-        { id: 'h2aWYjSA1Jc', img: '/assets/tool-kit/sleep-clock.jpg', time: '1:41:54',
-          by: 'Andrew Huberman',
-          title: 'Sleep Toolkit: Tools for Optimizing Sleep & Sleep-Wake Timing' },
-        { id: 'nm1TxQj9IsQ', img: '/assets/tool-kit/sleep-morning-window.jpg', time: '1:22:05',
-          by: 'Andrew Huberman',
-          title: 'Master Your Sleep & Be More Alert When Awake' },
-        { id: 'fk-_SwHhLLc', img: '/assets/tool-kit/sleep-linen.jpg', time: '7:40',
-          by: 'Therapy in a Nutshell',
-          title: 'Sleep Hygiene: Train Your Brain to Fall Asleep' },
-        { id: 'BiWDsfZ3zbo', img: '/assets/tool-kit/sleep-evening-yoga.jpg', time: '12:03',
-          by: 'Yoga With Adriene',
-          title: 'Wind Down Yoga for Bedtime' }
-      ]},
-      { name: 'Diet & Nutrition', note: 'Eat for energy and longevity', videos: [
-        { id: '1sISguPDlhY', img: '/assets/tool-kit/food-yogurt.jpg', time: '5:09',
-          by: 'Shilpa Ravella · TED-Ed',
-          title: 'How the food you eat affects your gut' },
-        { id: 'xyQY8a-ng6g', img: '/assets/tool-kit/food-nuts.jpg', time: '4:52',
-          by: 'Mia Nacamulli · TED-Ed',
-          title: 'How the food you eat affects your brain' },
-        { id: '0z03xkwFbw4', img: '/assets/tool-kit/food-spread.jpg', time: '19:12',
-          by: 'Eran Segal · TEDx',
-          title: 'What is the best diet for humans?' },
-        { id: 'zpNoYgccmR0', img: '/assets/tool-kit/food-market.jpg', time: '13:28',
-          by: 'Federica Amati · TEDx',
-          title: 'Unlock the science of nutrition' },
-        { id: 'jpBuzAJCOl4', img: '/assets/tool-kit/food-pastries.jpg', time: '3:53',
-          by: 'Casey Means · Levels',
-          title: 'What is a glucose spike?' },
-        { id: 'Q4yUlJV31Rk', img: '/assets/tool-kit/food-chopping.jpg', time: '9:18',
-          by: 'Luke Durward · TEDx',
-          title: 'How to make healthy eating unbelievably easy' },
-        { id: '3dqXHHCc5lA', img: '/assets/tool-kit/food-salad.jpg', time: '17:43',
-          by: 'Julia Rucklidge · TEDx',
-          title: 'The role of nutrition in mental health' }
-      ]},
-      { name: 'Movement', note: 'Gentle ways to get moving', videos: [
-        { id: 'v7AYKMP6rOE', img: '/assets/tool-kit/move-yoga-home.jpg', time: '23:45',
-          by: 'Yoga With Adriene',
-          title: 'Yoga for Complete Beginners' },
-        { id: 'g_tea8ZNk5A', img: '/assets/tool-kit/move-stretch.jpg', time: '16:32',
-          by: 'Mady Morrison',
-          title: 'Full Body Stretch for Flexibility and Mobility' },
-        { id: 'Nw2oBIrQGLo', img: '/assets/tool-kit/move-childs-pose.jpg', time: '15:04',
-          by: 'SarahBethYoga',
-          title: 'Calming Yoga for Stress Relief and Anxiety' }
-      ]},
-      { name: 'Mind & Breath', note: 'Short practices for calm and focus', videos: [
-        { id: 'inpok4MKVLM', img: '/assets/tool-kit/mind-meditate-outside.jpg', time: '5:17',
-          by: 'Goodful',
-          title: 'A Meditation You Can Do Anywhere' },
-        { id: 'O-6f5wQXSu8', img: '/assets/tool-kit/mind-eyes-closed.jpg', time: '10:20',
-          by: 'Goodful',
-          title: 'Meditation for Anxiety' },
-        { id: 'ZToicYcHIOU', img: '/assets/tool-kit/mind-lake.jpg', time: '10:30',
-          by: 'Calm',
-          title: 'Daily Calm Mindfulness' },
-        { id: 'aXItOY0sLRY', img: '/assets/tool-kit/mind-clouds.jpg', time: '10:00',
-          by: 'The School of Self',
-          title: 'Relax and Breathe: Do Nothing' },
-        { id: 'tybOi4hjZFQ', img: '/assets/tool-kit/mind-cold-water.jpg', time: '11:00',
-          by: 'Wim Hof',
-          title: 'Guided Wim Hof Method Breathing' }
-      ]}
-    ]
-  };
-  /* ===================== end of the library ===================== */
+  /* The list, as library-data.js left it. A page that loses that file
+     shows its menu and its footer and no shelves, rather than an error. */
+  var CONFIG = window.TANDAVA_LIBRARY;
+  if (!CONFIG) { return; }
 
   var $ = function (s) { return document.querySelector(s); };
 
@@ -123,6 +25,17 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
+  /* Our own photograph, by basename: the folder and the extension are the
+     same for all of them, so the list carries neither. */
+  function ours(name) { return '/assets/tool-kit/' + name + '.jpg'; }
+
+  /* An Unsplash cover is hotlinked from their CDN, which their API licence
+     requires, and asked for at the size the card paints. */
+  function unsplash(url, w, h) {
+    return url + (url.indexOf('?') === -1 ? '?' : '&') +
+      'w=' + w + '&h=' + h + '&fit=crop&crop=entropy&q=72&fm=jpg';
+  }
+
   /* YouTube keeps several sizes per video and not every one exists for
      every video, so each <img> below names a size and falls back once.
        hq720        1280x720, true widescreen  — missing on older uploads
@@ -159,17 +72,12 @@
   /* renderRows runs once before the helpers below exist. */
   var ready = false;
 
-  /* One short name per video, used as the address of its player. The
-     picture's filename is already a readable, unique handle, so it is
-     reused rather than invented; a video with no picture falls back to its
-     YouTube id, which is ugly but never wrong. */
-  function slugOf(v) {
-    if (!v.img) { return v.id; }
-    return v.img.split('/').pop().replace(/\.[a-z]+$/i, '');
-  }
+  /* Each video's address on this page. The list carries it, so a title
+     can be reworded without breaking a link somebody has already sent. */
+  function slugOf(v) { return v.slug || v.id; }
   var idBySlug = {}, slugById = {};
   (function () {
-    CONFIG.categories.forEach(function (c) {
+    CONFIG.rows.forEach(function (c) {
       c.videos.forEach(function (v) {
         var slug = slugOf(v);
         idBySlug[slug] = v.id;
@@ -180,7 +88,7 @@
 
   function allVideos() {
     var map = {};
-    CONFIG.categories.forEach(function (c) {
+    CONFIG.rows.forEach(function (c) {
       c.videos.forEach(function (v) { map[v.id] = v; });
     });
     return map;
@@ -195,7 +103,11 @@
   function picture(v, lazy) {
     var load = lazy ? ' loading="lazy"' : ' fetchpriority="high"';
     if (v.img) {
-      return '<img' + load + ' src="' + v.img + '" alt="" width="800" height="450" decoding="async">';
+      return '<img' + load + ' src="' + ours(v.img) + '" alt="" width="800" height="450" decoding="async">';
+    }
+    if (v.cover && v.cover.url) {
+      return '<img' + load + ' src="' + unsplash(v.cover.url, 800, 450) + '"' +
+        ' alt="" width="800" height="450" decoding="async">';
     }
     return '<img' + load + ' src="' + thumb(v.id) + '"' +
       ' data-next="' + thumb(v.id, 'mqdefault') + '"' +
@@ -218,6 +130,7 @@
         '</span>' +
         '<span class="lb-card__title">' + esc(v.title) + '</span>' +
         (v.by ? '<span class="lb-card__by">' + esc(v.by) + '</span>' : '') +
+        (v.note ? '<span class="lb-card__note">' + esc(v.note) + '</span>' : '') +
       '</button>' +
     '</div>';
   }
@@ -262,7 +175,7 @@
   function renderHero() {
     var f = CONFIG.featured;
     var bg = f.img
-      ? '<img class="lb-hero__bg" src="' + f.img + '" alt="" width="1800" height="1013"' +
+      ? '<img class="lb-hero__bg" src="' + ours(f.img) + '" alt="" width="1800" height="1013"' +
           ' fetchpriority="high" decoding="async">'
       : '<img class="lb-hero__bg" src="' + thumb(f.id, 'maxresdefault') + '" alt=""' +
           ' data-next="' + thumb(f.id, 'hq720') + ' ' + thumb(f.id, 'mqdefault') + '"' +
@@ -294,7 +207,7 @@
         ? rowHTML('Results for “' + query + '”', hits.length + (hits.length > 1 ? ' videos' : ' video'), hits)
         : '<p class="lb-empty">Nothing in the library matches “' + esc(query) + '”.</p>';
     } else {
-      html += CONFIG.categories.map(function (c) { return rowHTML(c.name, c.note, c.videos); }).join('');
+      html += CONFIG.rows.map(function (c) { return rowHTML(c.name, c.note, c.videos); }).join('');
     }
     rows.innerHTML = html;
     watchAll(rows);
@@ -335,6 +248,17 @@
     /* Who made it and how long it runs, the same two facts the card
        carries, so the dialog is not a step backwards from the shelf. */
     $('#playerMeta').textContent = [v.by, v.time].filter(Boolean).join(' \u00b7 ');
+    /* Unsplash asks that the photographer be credited wherever their photo
+       is used. The card has no room for it; this does. */
+    var credit = $('#playerCredit');
+    if (v.cover && v.cover.by) {
+      credit.innerHTML = 'Cover photo: <a href="' + esc(v.cover.profile) +
+        '?utm_source=tandava_wellness&utm_medium=referral" target="_blank" rel="noopener">' +
+        esc(v.cover.by) + '</a> on <a href="https://unsplash.com/?utm_source=tandava_wellness' +
+        '&utm_medium=referral" target="_blank" rel="noopener">Unsplash</a>';
+    } else {
+      credit.textContent = '';
+    }
     /* youtube-nocookie keeps the embed from writing advertising cookies. */
     /* rel=0 keeps the end screen to the same channel, modestbranding and
        iv_load_policy=3 drop the logo and the annotations, and playsinline

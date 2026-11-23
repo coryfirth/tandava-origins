@@ -1,3 +1,6 @@
 # Design handoff archives dropped into the repo folder — not part of the site
 *.zip
 .DS_Store
+
+# The Unsplash access key. Never committed.
+.env
