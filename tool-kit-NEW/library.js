@@ -100,6 +100,8 @@
 
   /* The card's picture: the one named in the list, or, failing that,
      YouTube's own with its sizes to fall back through. */
+  function hasPicture(v) { return !!(v.img || (v.cover && v.cover.url)); }
+
   function picture(v, lazy) {
     var load = lazy ? ' loading="lazy"' : ' fetchpriority="high"';
     if (v.img) {
@@ -109,6 +111,10 @@
       return '<img' + load + ' src="' + unsplash(v.cover.url, 800, 450) + '"' +
         ' alt="" width="800" height="450" decoding="async">';
     }
+    /* No photograph yet. A cover of our own rather than the channel's:
+       nothing is painted here at all, and the CSS fills the frame with the
+       row's own colours. See .lb-thumb--brand. */
+    if (!SHOW_YT) { return ''; }
     return '<img' + load + ' src="' + thumb(v.id) + '"' +
       ' data-next="' + thumb(v.id, 'mqdefault') + '"' +
       ' alt="" width="1280" height="720" decoding="async">';
@@ -117,12 +123,18 @@
   /* The play badge sits on the picture at rest rather than waiting for a
      hover: on a phone there is no hover, and a still photograph with
      nothing on it does not say "video". */
+  /* Set to true to go back to borrowing YouTube's thumbnail for a video
+     with no photograph of its own. Off, because a thumbnail arrives
+     wearing somebody else's branding, which is the thing this library
+     exists to get away from. */
+  var SHOW_YT = false;
+
   function cardHTML(v, i) {
     /* The index rides along as a custom property so each card can come in a
        beat after the one before it. */
     return '<div class="lb-card" style="--i:' + (i || 0) + '">' +
       '<button class="lb-card__open" type="button" data-play="' + v.id + '">' +
-        '<span class="lb-thumb">' +
+        '<span class="lb-thumb' + (hasPicture(v) ? '' : ' lb-thumb--brand') + '">' +
           picture(v, true) +
           '<span class="lb-thumb__veil" aria-hidden="true"></span>' +
           '<span class="lb-thumb__play" aria-hidden="true">' + PLAY_ICON + '</span>' +
@@ -153,8 +165,8 @@
     return count + ' \u00b7 ' + (h ? h + 'h ' + (m ? m + 'm' : '') : m + ' min').trim();
   }
 
-  function rowHTML(name, note, vids) {
-    return '<section class="lb-row">' +
+  function rowHTML(name, note, vids, tone) {
+    return '<section class="lb-row lb-row--' + (tone || 0) + '">' +
       '<div class="lb-row__head">' +
         '<div class="lb-row__id">' +
           '<h2 class="lb-row__title">' + esc(name) + '</h2>' +
@@ -207,7 +219,9 @@
         ? rowHTML('Results for “' + query + '”', hits.length + (hits.length > 1 ? ' videos' : ' video'), hits)
         : '<p class="lb-empty">Nothing in the library matches “' + esc(query) + '”.</p>';
     } else {
-      html += CONFIG.rows.map(function (c) { return rowHTML(c.name, c.note, c.videos); }).join('');
+      html += CONFIG.rows.map(function (c, i) {
+        return rowHTML(c.name, c.note, c.videos, i);
+      }).join('');
     }
     rows.innerHTML = html;
     watchAll(rows);

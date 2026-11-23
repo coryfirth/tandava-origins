@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+"""
+Fold the covers found by fetch-unsplash-covers into the library.
+
+    scripts/apply-covers covers.json tool-kit-NEW/library-data.js
+
+Matches on slug. A video that already has a cover is updated; one that has
+none gains it; a slug with no cover yet is left exactly as it was, so this
+is safe to run repeatedly while the fetch is still working through the
+rate limit.
+
+It edits the file in place rather than regenerating it, so anything added
+to library-data.js by hand since survives.
+"""
+
+import io
+import json
+import re
+import sys
+
+
+def js(s):
+    return "'" + str(s).replace('\\', '\\\\').replace("'", "\\'") + "'"
+
+
+def main():
+    if len(sys.argv) != 3:
+        sys.exit(__doc__)
+    covers = json.load(io.open(sys.argv[1], encoding='utf-8'))
+    path = sys.argv[2]
+    src = io.open(path, encoding='utf-8').read()
+
+    added = 0
+    missing = []
+
+    # Each video is one "{ id: ... }" block. Work through them by slug.
+    def fix(match):
+        nonlocal added
+        block = match.group(0)
+        slug = re.search(r"slug: '([^']+)'", block)
+        if not slug:
+            return block
+        cover = covers.get(slug.group(1))
+        if not cover:
+            return block
+
+        line = ("          cover: { url: %s,\n"
+                "                   by: %s,\n"
+                "                   profile: %s,\n"
+                "                   photo: %s },\n"
+                % (js(cover['url']), js(cover['by']),
+                   js(cover['profile']), js(cover['photo'])))
+
+        # Replace an existing cover, or put one in ahead of the title.
+        if re.search(r"^\s*cover: \{", block, re.M):
+            block = re.sub(r"^\s*cover: \{.*?\},\n", line, block,
+                           count=1, flags=re.M | re.S)
+        else:
+            block = re.sub(r"^(\s*)(by: )", line + r"\1\2", block,
+                           count=1, flags=re.M)
+        added += 1
+        return block
+
+    out = re.sub(r"\{ id: '[^']+'.*?\n\s*note: '(?:[^'\\]|\\.)*' \}",
+                 fix, src, flags=re.S)
+
+    for slug in covers:
+        if "slug: '%s'" % slug not in src:
+            missing.append(slug)
+
+    io.open(path, 'w', encoding='utf-8').write(out)
+    print('%d covers applied to %s' % (added, path))
+    if missing:
+        print('covers with no matching video:', ', '.join(missing))
+
+
+if __name__ == '__main__':
+    main()

@@ -278,6 +278,60 @@
 .lb-thumb::before { background: var(--forest); mix-blend-mode: lighten; opacity: .46; }
 .lb-thumb::after  { background: var(--cream);  mix-blend-mode: multiply; opacity: .38; }
 
+/* ---------------------------------------------------------- our own -- */
+/* A cover for a video whose photograph has not been found yet. The point
+   is not to be pretty in isolation: it is to be ours. A borrowed
+   thumbnail puts another channel's face, typeface and logo on this page,
+   which is the single thing this library was built to stop. A field of
+   the row's own colour says "not found yet" and says nothing else.
+
+   Each row has its own pair, and the angle and the light both shift with
+   the card's position, so a row reads as a run of related panels rather
+   than the same tile printed thirty times. */
+.lb-row--0 { --tone-a: #35462F; --tone-b: #1C251C; }   /* Sleep Deeper   */
+.lb-row--1 { --tone-a: #EDE2C0; --tone-b: #D9A77C; }   /* Eat Smarter    */
+.lb-row--2 { --tone-a: #D9A77C; --tone-b: #BC7A48; }   /* Feel Energized */
+.lb-row--3 { --tone-a: #DCE0D2; --tone-b: #A8B49C; }   /* Stress Less    */
+.lb-row--4 { --tone-a: #4A5D42; --tone-b: #2A3626; }   /* Move Better    */
+
+.lb-thumb--brand { background-color: var(--tone-b, var(--sand)); }
+
+/* Four arrangements, cycling along the row. A single formula tied to the
+   card's index was the obvious thing and it was wrong: the differences
+   were too small to see, so four cards in a row looked like one tile
+   printed four times. These differ in where the light falls and which
+   way the ground runs, which is visible at a glance. */
+.lb-thumb--brand {
+  background-image:
+    radial-gradient(120% 100% at 16% 8%,
+      rgba(246,245,240,.46), rgba(246,245,240,.08) 46%, rgba(246,245,240,0) 74%),
+    linear-gradient(145deg, var(--tone-a) 0%, var(--tone-b) 100%);
+}
+.lb-card:nth-child(4n+2) .lb-thumb--brand {
+  background-image:
+    radial-gradient(115% 115% at 84% 18%,
+      rgba(246,245,240,.40), rgba(246,245,240,.06) 48%, rgba(246,245,240,0) 76%),
+    linear-gradient(28deg, var(--tone-b) 0%, var(--tone-a) 100%);
+}
+.lb-card:nth-child(4n+3) .lb-thumb--brand {
+  background-image:
+    radial-gradient(150% 90% at 50% 102%,
+      rgba(246,245,240,.34), rgba(246,245,240,.05) 52%, rgba(246,245,240,0) 80%),
+    linear-gradient(196deg, var(--tone-a) 0%, var(--tone-b) 90%);
+}
+.lb-card:nth-child(4n+4) .lb-thumb--brand {
+  background-image:
+    radial-gradient(100% 130% at 8% 92%,
+      rgba(246,245,240,.38), rgba(246,245,240,.06) 44%, rgba(246,245,240,0) 72%),
+    linear-gradient(72deg, var(--tone-b) 0%, var(--tone-a) 100%);
+}
+/* The matte grade is for photographs. Over flat colour it only muddies
+   what was already the colour we chose. */
+.lb-thumb--brand::before, .lb-thumb--brand::after { display: none; }
+/* The grain stays, which is what keeps these in the same family as the
+   cards around them. */
+.lb-thumb--brand .lb-thumb__veil::before { opacity: .3; }
+
 /* A wash at the foot of the frame. It is what the play badge sits on, so
    the badge reads the same over a dark bedroom and a white bedsheet. */
 .lb-thumb__veil {
