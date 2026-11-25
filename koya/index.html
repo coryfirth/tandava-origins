@@ -44,13 +44,18 @@
 <script src="/analytics.js" async data-cookieconsent="ignore"></script>
 </head>
 
-<!-- The two data-checkout-* links are Koya's own Stripe payment links.
-     kit.js reads them from here, so every buy button and the pop-up on
-     this page sell through her links and show up under her name in
-     Stripe. data-partner labels the page in GA4. -->
+<!-- The two data-checkout-* links are the house checkouts from the kit
+     page, with Koya's promo code prefilled. kit.js reads them from here,
+     so every buy button and the pop-up on this page open Stripe with
+     KOYA25 already applied: $25 off, and the redemption is what records
+     the sale as hers ($104 kit / $150 bundle, both in the code's own
+     Stripe metadata). Using the house links also means her buyers get
+     the things her old links missed - a real shipping address and the
+     hand-off to /intake/lifestyle/ after paying.
+     data-partner labels the page in GA4. -->
 <body data-partner="koya_webb"
-      data-checkout-kit="https://buy.stripe.com/aFadR23mn9UjapngLJ8Vi0e"
-      data-checkout-bundle="https://buy.stripe.com/6oUcMY0ab9UjgNLeDB8Vi0f">
+      data-checkout-kit="https://buy.stripe.com/dRmcMY3mnc2r0ON3YX8Vi08?prefilled_promo_code=KOYA25"
+      data-checkout-bundle="https://buy.stripe.com/dRmdR2f555E3btr3YX8Vi09?prefilled_promo_code=KOYA25">
 
 <!-- ============================================================== nav -- -->
 <div class="topbar" data-menu="closed">
@@ -614,7 +619,7 @@
 </div>
 
 <script src="../nav.js?v=4" defer></script>
-<script src="../complete-lifestyle-kit/kit.js" defer></script>
+<script src="../complete-lifestyle-kit/kit.js?v=2" defer></script>
 <!-- Opens the GoHighLevel consult form in place. The Calendly hrefs stay
      in the HTML as the no-JavaScript fallback. -->
 <script src="/consult.js?v=5" defer></script>

@@ -22,9 +22,12 @@
 
   var over = document.body ? document.body.dataset : {};
   /* Only honour a real Stripe URL: a typo in an attribute should fall back
-     to a working checkout, never send a buyer to a broken href. */
+     to a working checkout, never send a buyer to a broken href.
+     A query string is allowed, because a partner page prefills a promo
+     code that way (?prefilled_promo_code=...). Without it the override
+     would be rejected silently and the buyer would pay full price. */
   function stripeOr(value, fallback) {
-    return /^https:\/\/buy\.stripe\.com\/[A-Za-z0-9]+$/.test(value || '') ? value : fallback;
+    return /^https:\/\/buy\.stripe\.com\/[A-Za-z0-9]+(\?[A-Za-z0-9_=&%.-]*)?$/.test(value || '') ? value : fallback;
   }
   CHECKOUT_KIT_FULL    = stripeOr(over.checkoutKit,    CHECKOUT_KIT_FULL);
   CHECKOUT_BUNDLE_FULL = stripeOr(over.checkoutBundle, CHECKOUT_BUNDLE_FULL);

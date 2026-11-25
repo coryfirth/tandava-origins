@@ -56,9 +56,12 @@
     /* A partner landing page labels itself with <body data-partner="...">.
        Sent as a plain event parameter, so it needs no cookie of its own and
        rides along with consent the visitor already gave. Stripe stays the
-       system of record for who gets paid: a partner's buttons point at their
-       own payment links, so attribution survives even when a visitor
-       declines statistics and never reaches GA at all. */
+       system of record for who gets paid: a partner's buttons carry their
+       prefilled promo code, so the redemption attributes the sale even when
+       a visitor declines statistics and never reaches GA at all.
+
+       To read `partner` in a GA4 report it has to be registered there as a
+       custom dimension; sending it is only half the job. */
     var partner = document.body && document.body.dataset.partner;
     gtag('config', MEASUREMENT_ID, partner ? { partner: partner } : {});
   }
